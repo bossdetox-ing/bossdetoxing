@@ -2,9 +2,11 @@ import { defineConfig } from 'wxt';
 
 export default defineConfig({
   modules: ['@wxt-dev/module-react'],
+  vite: () => ({ build: { modulePreload: { polyfill: false } } }),
   manifest: {
     name: 'bossdetox.ing',
-    description: 'A private workplace companion for calm, clarity and professional responses. Free. Local. No AI.',
+    description:
+      'A private workplace companion for calm, clarity and professional responses. Free. Local. No AI.',
     version: '1.0.0',
     minimum_chrome_version: '116',
     permissions: ['sidePanel', 'storage'],
@@ -15,11 +17,15 @@ export default defineConfig({
     },
     icons: { 16: 'icons/sigil16.png', 48: 'icons/sigil48.png', 128: 'icons/sigil128.png' },
     commands: {
-      '_execute_action': { suggested_key: { default: 'Alt+Shift+O' } },
-      'blank-panel': { suggested_key: { default: 'Alt+Shift+X' }, description: 'Blank bossdetox.ing and lock saved notes' },
+      _execute_action: { suggested_key: { default: 'Alt+Shift+O' } },
+      'blank-panel': {
+        suggested_key: { default: 'Alt+Shift+X' },
+        description: 'Blank bossdetox.ing and lock saved notes',
+      },
     },
     content_security_policy: {
-      extension_pages: "script-src 'self'; object-src 'none'; connect-src 'none'; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'none'",
+      extension_pages:
+        "script-src 'self'; object-src 'none'; connect-src 'none'; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'none'",
     },
   },
 });

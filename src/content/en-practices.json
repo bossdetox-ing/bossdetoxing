@@ -1,0 +1,56 @@
+{
+  "grey_rock": [
+    "Find the part that requires an answer. Reply to that part, with enough detail for the work."
+  ],
+  "yellow_rock": [
+    "Use a courteous opening, a factual question and a bounded next step. Remove false agreement."
+  ],
+  "biff": ["Check your draft for brevity, useful information, courtesy and a clear endpoint."],
+  "broken_record": [
+    "Choose one reasonable question. Repeat it once if nothing material has changed; pause if the situation escalates."
+  ],
+  "fogging": [
+    "Find a point you can actually verify. Acknowledge only that point, without accepting a larger allegation."
+  ],
+  "dear_man": [
+    "Describe a known fact, its work impact and one concrete request. Leave room to negotiate."
+  ],
+  "fast": [
+    "Be fair to both sides. Remove an unnecessary apology, keep warranted accountability, and do not endorse an inaccurate claim."
+  ],
+  "stop": ["Pause. Step back if safe. Notice the actual question. Choose your next action."],
+  "defusion": [
+    "Try adding ‘I am noticing the thought that…’ before a prediction. Then name one fact you can verify."
+  ],
+  "reappraisal": [
+    "Consider one alternative explanation consistent with the facts. Keep credible risks in view."
+  ],
+  "self_distancing": [
+    "Describe what an impartial observer could verify, without deciding anyone’s motives."
+  ],
+  "grounding": [
+    "Notice three external objects and the support of your chair or floor. Breathing exercises are optional."
+  ],
+  "controlled_pause": [
+    "Ask for time to check a fact. Choose a realistic follow-up rather than disappearing from the task."
+  ],
+  "assertiveness": ["State the work constraint and ask which priority or deadline can move."],
+  "documentation": [
+    "Separate confirmed decision, owner, deadline and unresolved question. Leave missing items unknown."
+  ],
+  "implementation_intentions": [
+    "Choose a plan: if a request is vague, then I will ask for one specific deliverable before committing."
+  ],
+  "affect_labeling": [
+    "Name a feeling if you want to. You can still choose a factual next step while it is present."
+  ],
+  "detachment": [
+    "Capture one necessary action. If nothing urgent remains, return to something outside the interaction."
+  ],
+  "coworker_support": [
+    "Ask a trusted colleague for factual context without repeating gossip or asking them to take sides."
+  ],
+  "ear": [
+    "Acknowledge that the issue matters, give it attention and return respectfully to a concrete work question."
+  ]
+}

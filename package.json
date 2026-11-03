@@ -5,12 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "wxt --no-open",
-    "build": "wxt build",
-    "zip": "wxt zip",
+    "build": "wxt build && node scripts/notices.mjs",
+    "zip": "npm run package",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:e2e": "playwright test",
+    "test:e2e": "npm run typecheck && npm run build && npm run audit:build && playwright test",
+    "audit:build": "node scripts/audit-build.mjs",
+    "format": "prettier --write src entrypoints tests scripts/*.mjs *.ts *.js *.json docs README.md",
+    "format:check": "prettier --check src entrypoints tests scripts/*.mjs *.ts *.js *.json docs README.md",
+    "package": "npm run typecheck && npm run build && npm run audit:build && python3 scripts/package.py",
     "validate:content": "python3 BOSSDETOX_ING_V1_HANDOFF/validate_seed.py",
     "postinstall": "wxt prepare"
   },
@@ -20,6 +24,7 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.64.1",
     "@types/chrome": "^0.3.7",
@@ -30,9 +35,18 @@
     "eslint": "^10.14.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "fake-indexeddb": "^6.2.7",
+    "prettier": "^3.9.10",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.72.1",
     "vitest": "^4.1.12",
     "wxt": "^0.20.27"
+  },
+  "overrides": {
+    "shell-quote": "^1.8.5",
+    "adm-zip": "^0.6.1",
+    "tmp": "^0.2.6"
+  },
+  "engines": {
+    "node": ">=22.13.0"
   }
 }

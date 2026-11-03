@@ -1,0 +1,24 @@
+{
+  "circular_interrogation": {
+    "firm": "Could we keep this to one specific factual question? I can follow up in writing after checking it."
+  },
+  "moving_goalposts": {
+    "yellow": "Happy to review the change. Could we compare the previous requirement with this request and confirm the acceptance criteria?",
+    "firm": "Please confirm what has changed, the current acceptance criteria and any effect on priority or timing."
+  },
+  "competing_priorities": {
+    "yellow": "I want to plan this accurately. Could we rank these tasks and agree what can wait?",
+    "firm": "Before I commit to a delivery time, please confirm which task takes precedence and what can move."
+  },
+  "credit_dispute": {
+    "grey": "Could we check the contribution record for this deliverable?",
+    "yellow": "For accuracy, could we review who contributed to each part and confirm the attribution?",
+    "firm": "Please review the documented contributions and correct any attribution that does not match the record."
+  },
+  "no_response": {
+    "firm": "Please confirm which decision is still needed, who can make it and when I can expect an answer."
+  },
+  "ordinary_disagreement": {
+    "firm": "Could we compare the options against the decision criteria before committing?"
+  }
+}
