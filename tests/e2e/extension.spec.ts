@@ -78,7 +78,7 @@ test('fresh MV3 install, disclosures, default voices, exact clipboard and no pag
   await expect(page.locator('.pain-tile')).toHaveCount(6);
   const tile = await page.locator('.pain-tile').last().boundingBox();
   expect(tile!.y + tile!.height).toBeLessThan(700);
-  await page.screenshot({ path: 'docs/evidence/redesign-home.png', fullPage: true });
+  await page.screenshot({ path: 'test-results/visual-regression-home.png', fullPage: true });
   await page
     .getByRole('button', { name: 'Job security or employment consequences raised', exact: true })
     .click();
@@ -376,7 +376,10 @@ test('playful tools, all twelve tarot cards, manual bingo and serious concern ga
       )
       .toBe(true);
     if (i < 2)
-      await page.screenshot({ path: `docs/evidence/redesign-tarot-${i + 1}.png`, fullPage: false });
+      await page.screenshot({
+        path: `test-results/visual-regression-tarot-${i + 1}.png`,
+        fullPage: false,
+      });
     await page.getByRole('button', { name: 'Draw one card' }).click();
   }
   expect(titles.size).toBe(12);
@@ -419,6 +422,7 @@ test('closure skips writing, timer pause/reset, offline and narrow layouts', asy
     await page.setViewportSize({ width, height: 900 });
     expect(
       await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
+      `No horizontal overflow at ${width}px`,
     ).toBe(true);
   }
   await page.setViewportSize({ width: 320, height: 900 });
@@ -484,7 +488,7 @@ test('protective charm stays pinned across style, time and favorites; reroll upd
     await page.getByRole('radio', { name: style, exact: true }).check();
     await expect(charm).toHaveText(initial!);
     await page.screenshot({
-      path: `docs/evidence/redesign-card-${style.toLowerCase()}.png`,
+      path: `test-results/visual-regression-card-${style.toLowerCase()}.png`,
       fullPage: false,
     });
   }
@@ -512,8 +516,11 @@ test('protective charm stays pinned across style, time and favorites; reroll upd
   await page.locator('.event-summary').click();
   await expect(page.locator('.calendar-detail .charm-text')).toHaveText(selected!);
   await expect(page.locator('.calendar-detail')).toContainText('Session only · not saved');
-  await page.screenshot({ path: 'docs/evidence/redesign-calendar.png', fullPage: false });
-  await page.screenshot({ path: 'docs/evidence/redesign-calendar-detail.png', fullPage: true });
+  await page.screenshot({ path: 'test-results/visual-regression-calendar.png', fullPage: false });
+  await page.screenshot({
+    path: 'test-results/visual-regression-calendar-detail.png',
+    fullPage: true,
+  });
   const calendarReport = await new AxeBuilder({ page })
     .setLegacyMode(true)
     .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
@@ -589,4 +596,89 @@ test('encrypted calendar consent, favorite and exact snapshot survive reload; de
   await expect(
     page.getByText('Fictional journal retained after calendar deletion', { exact: true }),
   ).toBeVisible();
+});
+
+test('WordArt tarot system renders and remains accessible in both themes', async ({
+  extension: { page },
+}) => {
+  test.setTimeout(90000);
+  await page.setViewportSize({ width: 360, height: 800 });
+  await start(page);
+  const backgrounds: string[] = [];
+  async function audit() {
+    const result = await new AxeBuilder({ page })
+      .setLegacyMode(true)
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
+      .analyze();
+    expect(result.violations).toEqual([]);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
+  }
+  for (const theme of ['dark', 'light']) {
+    await page
+      .getByRole('navigation')
+      .getByRole('button', { name: 'Settings', exact: true })
+      .click();
+    await page.getByLabel('Theme', { exact: true }).selectOption(theme);
+    await page.getByRole('navigation').getByRole('button', { name: 'Home', exact: true }).click();
+    backgrounds.push(
+      await page.locator('body').evaluate((node) => getComputedStyle(node).backgroundColor),
+    );
+    await expect(page.locator('.pain-wordart')).toHaveCount(6);
+    await expect
+      .poll(() =>
+        page
+          .locator('.pain-tile img')
+          .evaluateAll((nodes) =>
+            nodes.every(
+              (node) =>
+                (node as HTMLImageElement).complete && (node as HTMLImageElement).naturalWidth > 0,
+            ),
+          ),
+      )
+      .toBe(true);
+    const last = await page.locator('.pain-tile').last().boundingBox();
+    expect(last!.y + last!.height).toBeLessThan(700);
+    await audit();
+    await page.screenshot({ path: `docs/evidence/color-home-${theme}.png` });
+    await page
+      .getByRole('button', { name: 'Job security or employment consequences raised', exact: true })
+      .click();
+    await audit();
+    await page.screenshot({ path: `docs/evidence/color-protection-${theme}.png` });
+    await page.getByRole('radio', { name: 'Firm', exact: true }).check();
+    await expect(page.locator('.suggested-response')).toContainText('formal performance feedback');
+    await page.getByRole('button', { name: 'Open private calendar', exact: true }).click();
+    await audit();
+    await page.screenshot({ path: `docs/evidence/color-calendar-${theme}.png` });
+    await page.getByRole('navigation').getByRole('button', { name: 'Tools', exact: true }).click();
+    await audit();
+    await page.screenshot({ path: `docs/evidence/color-tools-${theme}.png` });
+    await page
+      .getByRole('navigation')
+      .getByRole('button', { name: 'Explore', exact: true })
+      .click();
+    await page.getByRole('button', { name: /^Corporate Tarot/ }).click();
+    await expect
+      .poll(() =>
+        page
+          .locator('.tarot-art')
+          .evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0),
+      )
+      .toBe(true);
+    await audit();
+    await page.screenshot({ path: `docs/evidence/color-tarot-${theme}.png` });
+  }
+  expect(backgrounds[0]).not.toBe(backgrounds[1]);
+  await page.getByRole('navigation').getByRole('button', { name: 'Settings', exact: true }).click();
+  await page.getByLabel('Theme', { exact: true }).selectOption('system');
+  await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'reduce' });
+  expect(
+    await page.locator('body').evaluate((node) => getComputedStyle(node).backgroundColor),
+  ).toBe(backgrounds[1]);
+  await page.emulateMedia({ colorScheme: 'dark' });
+  expect(
+    await page.locator('body').evaluate((node) => getComputedStyle(node).backgroundColor),
+  ).toBe(backgrounds[0]);
 });

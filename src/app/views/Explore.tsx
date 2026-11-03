@@ -122,6 +122,7 @@ export function Tarot({ navigate }: { navigate: Navigate }) {
       <PageTitle eyebrow={t.symbolic}>{t.tarot}</PageTitle>
       <article
         className="tarot-card"
+        data-arcana={card.id}
         onPointerDown={(event) => setPointer({ x: event.clientX, y: event.clientY })}
         onPointerUp={(event) => {
           if (
@@ -134,7 +135,7 @@ export function Tarot({ navigate }: { navigate: Navigate }) {
         }}
       >
         <p className="eyebrow">{String((draw % deck.length) + 1).padStart(2, '0')} / XII</p>
-        <img className="tarot-art" src={`/art/${card.id}.webp`} alt={card.fictionalSymbolism} />
+        <img className="tarot-art" src={`/art/${card.id}.svg`} alt={card.fictionalSymbolism} />
         <h2>{card.title}</h2>
         <p className="symbolism">{card.fictionalSymbolism}</p>
         <p className="mantra">{card.groundedMantra}</p>
@@ -265,7 +266,7 @@ export function Focus() {
             cy="120"
             r="106"
             fill="none"
-            stroke="var(--color-accent)"
+            stroke="var(--color-ink)"
             strokeWidth="4"
             strokeDasharray={`${(remaining / (duration * 60)) * 666} 666`}
             transform="rotate(-90 120 120)"

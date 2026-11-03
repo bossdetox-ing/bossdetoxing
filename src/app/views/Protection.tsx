@@ -50,13 +50,18 @@ export function PainHome({ navigate }: { navigate: Navigate }) {
       <div className="pain-grid">
         {pains.map((pain) => (
           <button
-            className="pain-tile"
+            className={`pain-tile pain-${pain.id}`}
             key={pain.id}
             aria-label={t.redesign.painDescriptions[pain.id]}
             onClick={() => choose(pain.scenarioId)}
           >
-            <img src={`/art/${pain.art}.webp`} alt="" />
-            <span>{t.redesign.pains[pain.id]}</span>
+            <span className="tile-index" aria-hidden="true">
+              {pain.arcana} /
+            </span>
+            <img src={`/art/${pain.art}.svg`} alt="" />
+            <span className={`pain-wordart wordart-${pain.id}`} aria-hidden="true">
+              {t.redesign.pains[pain.id]}
+            </span>
           </button>
         ))}
       </div>
@@ -111,7 +116,7 @@ export function ProtectionCard({
   const pain = painForScenario(event.situationId);
   const response = edited ?? scenario.responses[tone];
   return (
-    <div className="protection-view">
+    <div className={`protection-view pain-${pain?.id ?? 'questions'}`}>
       <div className="protection-topline">
         <button className="text-button" onClick={() => navigate('home')}>
           <Icon name="back" />
@@ -124,7 +129,7 @@ export function ProtectionCard({
           {t.redesign.arcana} {pain?.arcana ?? '07'} /{' '}
           {pain ? t.redesign.symbols[pain.id] : scenario.label}
         </p>
-        <img src={`/art/${pain?.art ?? 'card_11'}.webp`} alt="" />
+        <img src={`/art/${pain?.art ?? 'card_11'}.svg`} alt="" />
         <p className="charm-text" aria-live="polite" aria-atomic="true">
           {!humorAllowed && event.mantra.purpose === 'dark_humor'
             ? t.redesign.noHumor

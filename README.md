@@ -50,7 +50,7 @@ Packaging typechecks, rebuilds and audits the extension, then produces the loada
 
 ## Product and code map
 
-The binding feature/privacy scope is [BOSSDETOX_V1_FULL_SPEC.md](BOSSDETOX_ING_V1_HANDOFF/BOSSDETOX_V1_FULL_SPEC.md). The supplied [v1.1 redesign brief](BOSSDETOX_REDESIGN_FILES/BOSSDETOX_VISUAL_UX_BRIEF.md) supersedes its visual hierarchy. [REDESIGN_PLAN.md](docs/REDESIGN_PLAN.md) records the component and state architecture. Older `The Ward` documents are reference material and never override the current name, privacy decisions or full v1 scope. DOCX copies are for reading; Markdown wins conflicts.
+The binding feature/privacy scope is [BOSSDETOX_V1_FULL_SPEC.md](BOSSDETOX_ING_V1_HANDOFF/BOSSDETOX_V1_FULL_SPEC.md). The supplied [v1.1 redesign brief](BOSSDETOX_REDESIGN_FILES/BOSSDETOX_VISUAL_UX_BRIEF.md) supersedes its visual hierarchy. The owner’s newer WordArt/ASCII/color references supersede that brief’s restrained visual palette; see [current interface captures](docs/UX_REVISION.md). [REDESIGN_PLAN.md](docs/REDESIGN_PLAN.md) records the component and state architecture. Older `The Ward` documents are reference material and never override the current name, privacy decisions or full v1 scope. DOCX copies are for reading; Markdown wins conflicts.
 
 | Area                                                            | Location                        |
 | --------------------------------------------------------------- | ------------------------------- |
