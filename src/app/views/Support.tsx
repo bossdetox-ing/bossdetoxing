@@ -1,6 +1,7 @@
 import { useId, useState } from 'react';
 import type { Settings } from '../../browser/settings';
 import { messages as t } from '../../content';
+import { useCompanion } from '../companion-store';
 import { professionalResponse } from '../../domain/scripts';
 import {
   content,
@@ -10,18 +11,13 @@ import {
   type Tone,
 } from '../../domain/content';
 import type { Navigate } from '../App';
-import { CopyButton, Field, PageTitle, Select, Voice } from '../components';
+import { CopyButton, Field, PageTitle, Select } from '../components';
 type Props = { navigate: Navigate; settings: Settings; serious?: boolean };
 
 export function Home({ navigate, serious }: Props) {
   return (
     <div className="home-view">
-      <PageTitle>{t.homeTitle}</PageTitle>
-      <Voice
-        inside={serious ? t.seriousGround : t.homeMantra}
-        outside={t.generic}
-        action={<CopyButton value={t.generic} />}
-      />
+      <PageTitle>{t.redesign.tools}</PageTitle>
       <div className="action-list">
         {(['calm', 'reply', 'task', 'diary', 'closure'] as const).map((key, i) => (
           <button key={key} onClick={() => navigate(key === 'calm' ? 'shield' : key)}>
@@ -40,23 +36,32 @@ export function Home({ navigate, serious }: Props) {
     </div>
   );
 }
-export function Shield({ navigate }: Props) {
+export function Shield({ navigate, settings, serious }: Props) {
   const [emotion, setEmotion] = useState<keyof typeof t.emotions>('other');
   const [scenarioId, setScenarioId] = useState('');
   const [cue, setCue] = useState(0);
-  const [reminder, setReminder] = useState<number>();
-  const selected = content.scenarios.find((s) => s.id === scenarioId);
+  const { store, state } = useCompanion();
+  const selected = state.looseCharms.shield;
   const mantra =
-    reminder === undefined
-      ? (selected?.privateMantras[0] ?? t.emotionMantras[emotion])
-      : content.mantras[reminder % content.mantras.length]!.text;
+    selected?.purpose === 'dark_humor' && (!settings.humor || settings.quiet || serious)
+      ? t.redesign.noHumor
+      : (selected?.text ?? t.emotionMantras.other);
   return (
     <>
       <PageTitle>{t.calm}</PageTitle>
       <div className="private-reminder">
         <p className="eyebrow">{t.private}</p>
         <p className="mantra">{mantra}</p>
-        <button className="text-button" onClick={() => setReminder((value) => (value ?? 0) + 1)}>
+        <button
+          className="text-button"
+          onClick={() =>
+            store.loose(
+              'shield',
+              { situationId: scenarioId || undefined, emotion, purpose: 'grounding' },
+              true,
+            )
+          }
+        >
           {t.quickUi.anotherMantra}
         </button>
       </div>
@@ -82,7 +87,6 @@ export function Shield({ navigate }: Props) {
                   aria-pressed={emotion === value}
                   onClick={() => {
                     setEmotion(value as typeof emotion);
-                    setReminder(undefined);
                   }}
                 >
                   {label}
@@ -94,7 +98,6 @@ export function Shield({ navigate }: Props) {
             value={scenarioId}
             onChange={(id) => {
               setScenarioId(id);
-              setReminder(undefined);
             }}
           />
           <p>{t.cues[cue % t.cues.length]}</p>
@@ -247,7 +250,7 @@ export function MethodPicker({ ids, initialId }: { ids: readonly string[]; initi
   );
 }
 
-export function Reply({ settings }: Props) {
+export function Reply({ settings, serious }: Props) {
   const [scenarioId, setScenarioId] = useState(defaultScenario.id);
   const [tone, setTone] = useState<Tone>(settings.tone);
   const [format, setFormat] = useState('written');
@@ -256,8 +259,11 @@ export function Reply({ settings }: Props) {
   const [beforeEdit, setBeforeEdit] = useState('');
   const [facts, setFacts] = useState('');
   const radioName = useId();
+  const { store, state } = useCompanion();
+  const selected = state.looseCharms[`reply:${scenarioId}`];
   const scenario = content.scenarios.find((s) => s.id === scenarioId);
   function replace(id: string, nextTone: Tone, nextFormat: string) {
+    store.loose(`reply:${id}`, { situationId: id });
     setScenarioId(id);
     setTone(nextTone);
     setFormat(nextFormat);
@@ -279,7 +285,9 @@ export function Reply({ settings }: Props) {
         <div className="private-reminder">
           <p className="eyebrow">{t.private}</p>
           <p className="mantra">
-            {scenario?.privateMantras[0] ?? defaultScenario.privateMantras[0]!}
+            {selected?.purpose === 'dark_humor' && (!settings.humor || settings.quiet || serious)
+              ? t.redesign.noHumor
+              : (selected?.text ?? defaultScenario.privateMantras[0]!)}
           </p>
         </div>
         <section className="response" aria-label={t.professional}>

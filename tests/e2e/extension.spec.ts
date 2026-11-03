@@ -51,10 +51,10 @@ const test = base.extend<{
 });
 async function start(page: Page) {
   await page.getByRole('button', { name: 'Open my tools', exact: true }).click();
-  await expect(page.getByRole('heading', { name: 'Keep your footing.' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'What hurts right now?' })).toBeVisible();
 }
 async function home(page: Page, action: string) {
-  await page.getByRole('navigation').getByRole('button', { name: 'Home', exact: true }).click();
+  await page.getByRole('navigation').getByRole('button', { name: 'Tools', exact: true }).click();
   await page
     .locator('.action-list')
     .getByRole('button', { name: new RegExp(action) })
@@ -74,8 +74,16 @@ test('fresh MV3 install, disclosures, default voices, exact clipboard and no pag
 }) => {
   await expect(page.getByText(/A personal device can still have a managed/)).toBeVisible();
   await start(page);
-  await expect(page.getByText('Internal voice', { exact: true })).toBeVisible();
-  await expect(page.getByText('External voice', { exact: true })).toBeVisible();
+  await page.setViewportSize({ width: 360, height: 800 });
+  await expect(page.locator('.pain-tile')).toHaveCount(6);
+  const tile = await page.locator('.pain-tile').last().boundingBox();
+  expect(tile!.y + tile!.height).toBeLessThan(700);
+  await page.screenshot({ path: 'docs/evidence/redesign-home.png', fullPage: true });
+  await page
+    .getByRole('button', { name: 'Job security or employment consequences raised', exact: true })
+    .click();
+  await expect(page.getByRole('region', { name: 'Private charm' })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Professional response' })).toBeVisible();
   // Capture only clipboard writes, never read the operating-system clipboard.
   await page.evaluate(() => {
     Object.defineProperty(navigator, 'clipboard', {
@@ -88,9 +96,9 @@ test('fresh MV3 install, disclosures, default voices, exact clipboard and no pag
     });
   });
   await page.getByRole('button', { name: 'Copy sentence' }).click();
-  await expect(page.getByRole('status')).toHaveText('Copied');
+  await expect(page.getByRole('status').filter({ hasText: 'Copied' })).toHaveText('Copied');
   expect(await page.evaluate(() => (window as unknown as { copiedText: string }).copiedText)).toBe(
-    'Could we clarify the specific deliverable and expected result?',
+    'I take that seriously. Which specific expectations should I address?',
   );
   const behavior = await context
     .serviceWorkers()[0]!
@@ -114,19 +122,21 @@ test('instant response styles, visible mantra and methods, optional edit and cli
   await expect(page.getByRole('radio', { name: 'Yellow', exact: true })).toBeChecked();
   await page.screenshot({ path: 'test-results/reply-quick.png', fullPage: true });
   await page.getByRole('button', { name: 'Job warning', exact: true }).click();
-  await expect(page.locator('.private-reminder')).toContainText('A warning deserves clarity');
-  await expect(page.locator('.suggested-response')).toContainText('concrete expectations');
+  await expect(page.locator('.private-reminder .mantra')).not.toBeEmpty();
+  const pinned = await page.locator('.private-reminder .mantra').textContent();
+  await expect(page.locator('.suggested-response')).toContainText('specific expectations');
   await page.getByRole('radio', { name: 'Firm', exact: true }).check();
   await expect(page.locator('.suggested-response')).toContainText('formal performance feedback');
   expect(Date.now() - started).toBeLessThan(10000);
+  await expect(page.locator('.private-reminder .mantra')).toHaveText(pinned!);
   await page.getByRole('radio', { name: 'Neutral', exact: true }).check();
   await expect(page.locator('.suggested-response')).toHaveText(
-    'Is there a specific performance concern I should address?',
+    'Which specific performance requirements are in question?',
   );
   await page.getByRole('button', { name: 'Edit', exact: true }).click();
   await page.getByLabel('Your professional sentence').fill('My edited response');
   await page.getByRole('radio', { name: 'Yellow', exact: true }).check();
-  await expect(page.locator('.suggested-response')).toContainText('concrete expectations');
+  await expect(page.locator('.suggested-response')).toContainText('specific expectations');
   await expect(page.locator('textarea:visible')).toHaveCount(0);
   await expect(page.getByRole('dialog')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Replace', exact: true })).toHaveCount(0);
@@ -351,12 +361,22 @@ test('auto-lock clears drafts and safe blank removes task content from accessibl
 test('playful tools, all twelve tarot cards, manual bingo and serious concern gating', async ({
   extension: { page },
 }) => {
+  await page.setViewportSize({ width: 360, height: 800 });
   await start(page);
   await page.getByRole('navigation').getByRole('button', { name: 'Explore', exact: true }).click();
   await page.getByRole('button', { name: /^Corporate Tarot/ }).click();
   const titles = new Set<string>();
   for (let i = 0; i < 12; i++) {
     titles.add((await page.locator('.tarot-card h2').textContent())!);
+    await expect
+      .poll(() =>
+        page
+          .locator('.tarot-art')
+          .evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0),
+      )
+      .toBe(true);
+    if (i < 2)
+      await page.screenshot({ path: `docs/evidence/redesign-tarot-${i + 1}.png`, fullPage: false });
     await page.getByRole('button', { name: 'Draw one card' }).click();
   }
   expect(titles.size).toBe(12);
@@ -379,6 +399,7 @@ test('closure skips writing, timer pause/reset, offline and narrow layouts', asy
 }) => {
   await start(page);
   await page.clock.install();
+  await page.clock.pauseAt(new Date(Date.now() + 60_000));
   await context.setOffline(true);
   await home(page, 'Help me let go');
   await page.getByRole('button', { name: 'Skip writing' }).click();
@@ -441,4 +462,131 @@ test('encrypted task save, export download, intentional full wipe and authentica
   await page.getByLabel('Passphrase', { exact: true }).fill('fictional browser test passphrase');
   await page.getByRole('button', { name: 'Unlock vault', exact: true }).click();
   await expect(page.getByText(/Fictional task saved only on request/)).toBeVisible();
+});
+
+test('protective charm stays pinned across style, time and favorites; reroll updates one calendar event', async ({
+  extension: { page },
+}) => {
+  await page.setViewportSize({ width: 360, height: 800 });
+  await start(page);
+  await page.clock.install();
+  const started = Date.now();
+  await page
+    .getByRole('button', { name: 'Job security or employment consequences raised', exact: true })
+    .click();
+  const charm = page.locator('.protective-card .charm-text');
+  const initial = await charm.textContent();
+  await expect(
+    page.locator('input:not([type=radio]):visible,textarea:visible,select:visible'),
+  ).toHaveCount(0);
+  expect(Date.now() - started).toBeLessThan(10000);
+  for (const style of ['Yellow', 'Neutral', 'Firm']) {
+    await page.getByRole('radio', { name: style, exact: true }).check();
+    await expect(charm).toHaveText(initial!);
+    await page.screenshot({
+      path: `docs/evidence/redesign-card-${style.toLowerCase()}.png`,
+      fullPage: false,
+    });
+  }
+  const response = page.locator('.suggested-response');
+  await expect(response).toContainText('formal performance feedback');
+  const copy = await page.getByRole('button', { name: 'Copy sentence', exact: true }).boundingBox();
+  expect(copy!.y + copy!.height).toBeLessThan(700);
+  await page.getByRole('button', { name: 'Favorite mantra', exact: true }).click();
+  await expect(charm).toHaveText(initial!);
+  await page.clock.fastForward(20_000);
+  await expect(charm).toHaveText(initial!);
+  await page.getByRole('button', { name: 'Another', exact: true }).click();
+  await expect(charm).not.toHaveText(initial!);
+  const selected = await charm.textContent();
+  await expect(response).toContainText('formal performance feedback');
+  const report = await new AxeBuilder({ page })
+    .setLegacyMode(true)
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
+    .analyze();
+  expect(report.violations).toEqual([]);
+  await page.getByRole('button', { name: 'Done / log plan', exact: true }).click();
+  await page.getByRole('button', { name: 'Open private calendar', exact: true }).click();
+  await expect(page.locator('.event-summary')).toHaveCount(1);
+  await expect(page.locator('.event-summary')).toContainText('Response planned · not sent');
+  await page.locator('.event-summary').click();
+  await expect(page.locator('.calendar-detail .charm-text')).toHaveText(selected!);
+  await expect(page.locator('.calendar-detail')).toContainText('Session only · not saved');
+  await page.screenshot({ path: 'docs/evidence/redesign-calendar.png', fullPage: false });
+  await page.screenshot({ path: 'docs/evidence/redesign-calendar-detail.png', fullPage: true });
+  const calendarReport = await new AxeBuilder({ page })
+    .setLegacyMode(true)
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
+    .analyze();
+  expect(calendarReport.violations).toEqual([]);
+  expect(
+    await page.evaluate(async () => JSON.stringify(await chrome.storage.local.get(null))),
+  ).not.toContain(selected!);
+  await page.reload();
+  await page.getByRole('button', { name: 'Open private calendar', exact: true }).click();
+  await expect(page.locator('.event-summary')).toHaveCount(0);
+});
+
+test('encrypted calendar consent, favorite and exact snapshot survive reload; deletion preserves journal', async ({
+  extension: { page },
+}) => {
+  await start(page);
+  await createVault(page);
+  await page.getByRole('button', { name: 'New factual entry', exact: true }).click();
+  await page
+    .getByLabel('What happened? (observable facts)')
+    .fill('Fictional journal retained after calendar deletion');
+  await page.getByRole('button', { name: 'Save encrypted note', exact: true }).click();
+  await page.getByRole('navigation').getByRole('button', { name: 'Home', exact: true }).click();
+  await page
+    .getByRole('button', { name: 'Changing requirements or priorities', exact: true })
+    .click();
+  const selected = await page.locator('.protective-card .charm-text').textContent();
+  await page.getByRole('button', { name: 'Favorite mantra', exact: true }).click();
+  await page.getByRole('button', { name: 'Open private calendar', exact: true }).click();
+  await page.getByLabel('Allow automatic encrypted calendar entries for my own selections').check();
+  await page.locator('.event-summary').click();
+  await expect(page.locator('.calendar-detail')).toContainText('Saved encrypted locally');
+  await expect(page.locator('.calendar-detail .charm-text')).toHaveText(selected!);
+  const disk = await page.evaluate(
+    async () =>
+      new Promise<string>((resolve, reject) => {
+        const req = indexedDB.open('bossdetox-vault', 1);
+        req.onsuccess = () => {
+          const db = req.result;
+          const read = db.transaction('vault').objectStore('vault').get('current');
+          read.onsuccess = () => {
+            resolve(JSON.stringify(read.result));
+            db.close();
+          };
+          read.onerror = reject;
+        };
+        req.onerror = reject;
+      }),
+  );
+  expect(disk).not.toContain(selected!);
+  expect(disk).not.toContain('moving_goalposts');
+  await page.reload();
+  await home(page, 'Write this down');
+  await page.getByLabel('Passphrase', { exact: true }).fill('fictional browser test passphrase');
+  await page.getByRole('button', { name: 'Unlock vault', exact: true }).click();
+  await expect(
+    page.getByText('Fictional journal retained after calendar deletion', { exact: true }),
+  ).toBeVisible();
+  await page.getByRole('button', { name: 'Open private calendar', exact: true }).click();
+  await expect(page.locator('.event-summary')).toHaveCount(1);
+  await page.locator('.event-summary').click();
+  await expect(page.locator('.calendar-detail .charm-text')).toHaveText(selected!);
+  await page.getByRole('button', { name: 'Edit event', exact: true }).click();
+  await page.getByRole('button', { name: 'Need clarity', exact: true }).click();
+  await page.getByLabel('Private notes', { exact: true }).fill('Fictional optional follow-up');
+  await page.getByRole('button', { name: 'Save changes', exact: true }).click();
+  await expect(page.locator('.calendar-detail')).toContainText('Fictional optional follow-up');
+  await page.getByRole('button', { name: 'Delete event', exact: true }).click();
+  await page.getByRole('button', { name: 'Delete permanently', exact: true }).click();
+  await expect(page.locator('.event-summary')).toHaveCount(0);
+  await home(page, 'Write this down');
+  await expect(
+    page.getByText('Fictional journal retained after calendar deletion', { exact: true }),
+  ).toBeVisible();
 });

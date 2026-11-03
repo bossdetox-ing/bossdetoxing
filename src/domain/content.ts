@@ -3,6 +3,7 @@ import seed from '../../BOSSDETOX_ING_V1_HANDOFF/CONTENT_SEED.json';
 import overrides from '../content/en-overrides.json';
 import practices from '../content/en-practices.json';
 import { en } from '../content/en';
+import { mantras, mantraSchema } from './mantras';
 
 const text = z.string().trim().min(1);
 export const toneSchema = z.enum(['yellow', 'grey', 'firm']);
@@ -58,7 +59,7 @@ export const contentSchema = z
         }),
       )
       .min(20),
-    mantras: z.array(z.object({ id: text, text, situationIds: strings })).min(45),
+    mantras: z.array(mantraSchema).length(250),
     tarot: z
       .array(
         z.object({
@@ -109,7 +110,7 @@ export const contentSchema = z
     if (data.mantras.some((m) => m.situationIds.some((id) => !scenarios.has(id))))
       ctx.addIssue({ code: 'custom', message: 'Unknown mantra scenario' });
   });
-export const content = contentSchema.parse(seed);
+export const content = contentSchema.parse({ ...seed, mantras });
 for (const scenario of content.scenarios) {
   const edited = overrides[scenario.id as keyof typeof overrides];
   if (edited) Object.assign(scenario.responses, edited);

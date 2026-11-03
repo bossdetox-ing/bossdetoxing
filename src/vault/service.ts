@@ -10,6 +10,7 @@ import {
 } from './crypto';
 import type { Metadata } from './crypto';
 import { commitArchive, readArchive } from './idb';
+import { calendarEventSchema } from '../domain/calendar';
 
 const short = z.string().max(20_000);
 export const incidentSchema = z
@@ -41,14 +42,29 @@ export const taskRecordSchema = z
     brief: short,
   })
   .strict();
-export const recordSchema = z.discriminatedUnion('kind', [incidentSchema, taskRecordSchema]);
+export const mantraStateSchema = z
+  .object({
+    id: z.uuid(),
+    kind: z.literal('mantra_state'),
+    createdAtISO: z.iso.datetime(),
+    updatedAtISO: z.iso.datetime(),
+    favorites: z.array(z.string().min(1)).max(250),
+    recentIds: z.array(z.string().min(1)).max(64),
+  })
+  .strict();
+export const recordSchema = z.union([
+  incidentSchema,
+  taskRecordSchema,
+  calendarEventSchema,
+  mantraStateSchema,
+]);
 export type VaultRecord = z.infer<typeof recordSchema>;
 export type Incident = z.infer<typeof incidentSchema>;
 export const MAX_ARCHIVE_BYTES = 5 * 1024 * 1024;
 export const archiveSchema = z
   .object({
     format: z.literal('bossdetox.ing-vault'),
-    schemaVersion: z.literal(1),
+    schemaVersion: z.union([z.literal(1), z.literal(2)]),
     revision: z.uuid(),
     metadata: metadataSchema,
     verifier: envelopeSchema.refine((v) => v.kind === 'verifier'),
@@ -59,7 +75,15 @@ export const archiveSchema = z
     const ids = [archive.verifier.id, ...archive.records.map((r) => r.id)];
     if (new Set(ids).size !== ids.length)
       ctx.addIssue({ code: 'custom', message: 'Duplicate records' });
-  });
+    if (
+      archive.schemaVersion === 1 &&
+      archive.records.some(
+        (record) => record.kind === 'calendar_event' || record.kind === 'mantra_state',
+      )
+    )
+      ctx.addIssue({ code: 'custom', message: 'New records require archive version 2' });
+  })
+  .transform((archive) => ({ ...archive, schemaVersion: 2 as const }));
 export type Archive = z.infer<typeof archiveSchema>;
 export function parseArchive(raw: string): Archive {
   if (new TextEncoder().encode(raw).length > MAX_ARCHIVE_BYTES)
@@ -70,6 +94,16 @@ export class Vault {
   private key?: CryptoKey;
   private archive?: Archive;
   private generation = 0;
+  private writes: Promise<void> = Promise.resolve();
+  private enqueue(operation: () => Promise<void>) {
+    const generation = this.generation;
+    const pending = this.writes.then(() => {
+      this.assertSession(generation);
+      return operation();
+    });
+    this.writes = pending.catch(() => undefined);
+    return pending;
+  }
   lock() {
     this.generation++;
     this.key = undefined;
@@ -99,7 +133,7 @@ export class Vault {
     });
     const archive: Archive = {
       format: 'bossdetox.ing-vault',
-      schemaVersion: 1,
+      schemaVersion: 2,
       revision: crypto.randomUUID(),
       metadata,
       verifier,
@@ -143,7 +177,10 @@ export class Vault {
     this.assertSession(generation);
     return records.sort((a, b) => b.createdAtISO.localeCompare(a.createdAtISO));
   }
-  async save(record: VaultRecord) {
+  save(record: VaultRecord) {
+    return this.enqueue(() => this.saveRecord(record));
+  }
+  private async saveRecord(record: VaultRecord) {
     const generation = this.generation;
     if (!this.key || !this.archive) throw new Error('Vault locked');
     const archive = this.archive;
@@ -164,14 +201,20 @@ export class Vault {
     this.assertSession(generation);
     this.archive = next;
   }
-  async remove(id: string) {
+  remove(id: string) {
+    return this.removeMany([id]);
+  }
+  removeMany(ids: readonly string[]) {
+    return this.enqueue(() => this.removeRecords(ids));
+  }
+  private async removeRecords(ids: readonly string[]) {
     if (!this.key || !this.archive) throw new Error('Vault locked');
     const generation = this.generation;
     const archive = this.archive;
     const next = {
       ...archive,
       revision: crypto.randomUUID(),
-      records: archive.records.filter((r) => r.id !== id),
+      records: archive.records.filter((r) => !ids.includes(r.id)),
     };
     await commitArchive(next, archive.revision);
     this.assertSession(generation);

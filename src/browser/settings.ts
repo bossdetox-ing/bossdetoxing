@@ -1,6 +1,7 @@
 import { z } from 'zod';
 export const settingsSchema = z.object({
   onboarded: z.boolean().default(false),
+  privateLogging: z.boolean().default(false),
   tone: z.enum(['yellow', 'grey', 'firm']).default('yellow'),
   theme: z.enum(['system', 'dark', 'light']).default('system'),
   humor: z.boolean().default(true),

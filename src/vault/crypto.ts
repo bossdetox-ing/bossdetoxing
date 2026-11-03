@@ -19,7 +19,7 @@ export const envelopeSchema = z
   .object({
     schemaVersion: z.literal(1),
     id: z.uuid(),
-    kind: z.enum(['verifier', 'incident', 'task']),
+    kind: z.enum(['verifier', 'incident', 'task', 'calendar_event', 'mantra_state']),
     ivB64: b64.refine((v) => fromB64(v).length === 12),
     ciphertextB64: b64,
   })

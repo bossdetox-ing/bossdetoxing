@@ -1,10 +1,13 @@
 {
   "circular_interrogation": {
-    "firm": "Could we keep this to one specific factual question? I can follow up in writing after checking it."
+    "yellow": "I want to answer accurately. Which specific point should we resolve first?",
+    "grey": "Which specific issue needs a decision?",
+    "firm": "I can answer concrete questions. Please identify the issue and expected outcome."
   },
   "moving_goalposts": {
-    "yellow": "Happy to review the change. Could we compare the previous requirement with this request and confirm the acceptance criteria?",
-    "firm": "Please confirm what has changed, the current acceptance criteria and any effect on priority or timing."
+    "yellow": "Happy to review the change. Could we confirm the current requirement and its priority?",
+    "grey": "What is the current requirement?",
+    "firm": "Please confirm the revised scope, acceptance criteria and timing before I commit."
   },
   "competing_priorities": {
     "yellow": "I want to plan this accurately. Could we rank these tasks and agree what can wait?",
@@ -20,5 +23,25 @@
   },
   "ordinary_disagreement": {
     "firm": "Could we compare the options against the decision criteria before committing?"
+  },
+  "dismissal_warning": {
+    "yellow": "I take that seriously. Which specific expectations should I address?",
+    "grey": "Which specific performance requirements are in question?",
+    "firm": "Please clarify whether this is formal performance feedback and provide the criteria in writing."
+  },
+  "guilt_induction": {
+    "yellow": "I hear the concern. Could we identify the work outcome and a feasible priority?",
+    "grey": "What are the priority and deadline?",
+    "firm": "I can address specific work issues. Please identify the requirement and expected outcome."
+  },
+  "colleague_gossip": {
+    "yellow": "I appreciate the context. Could we focus on what the team needs to deliver?",
+    "grey": "Can we focus on the actual work?",
+    "firm": "I prefer not to assess absent colleagues. Let’s discuss the deliverable."
+  },
+  "meeting_loop": {
+    "yellow": "Happy to coordinate. What decision do we need from this meeting?",
+    "grey": "Which decision is needed today?",
+    "firm": "Before scheduling another meeting, please confirm the decision, owner and deadline."
   }
 }

@@ -783,3 +783,467 @@ button[aria-pressed='true'] {
     outline: 2px solid Highlight;
   }
 }
+
+/* The supplied v1.1 direction: mechanical controls and original local arcana. */
+body {
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+h1,
+h2,
+.mantra,
+.tarot-card h2 {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 750;
+  letter-spacing: -0.045em;
+}
+h1 {
+  font-size: 1.75rem;
+  line-height: 1.08;
+}
+h2 {
+  font-size: 1.25rem;
+}
+.mantra {
+  font-size: 1.2rem;
+  line-height: 1.35;
+}
+.wordmark {
+  font:
+    700 0.875rem/1.2 -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  letter-spacing: -0.04em;
+}
+.wordmark .sigil {
+  color: var(--color-text);
+  width: 25px;
+  height: 25px;
+}
+button {
+  border-radius: 999px;
+  padding: 10px 14px;
+}
+button.primary {
+  font-size: 0.8125rem;
+}
+.topbar {
+  min-height: 60px;
+  padding-block: 7px;
+}
+.header-actions {
+  display: flex;
+  gap: 4px;
+}
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 0;
+}
+.ui-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+.eyebrow,
+.arcana,
+.local-meta,
+.category-pill,
+.save-status {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+.eyebrow {
+  letter-spacing: 0.12em;
+}
+.app-shell {
+  max-width: 480px;
+}
+main {
+  padding-block: 18px;
+}
+.bottom-nav button {
+  min-width: 0;
+  padding-inline: 4px;
+  font-size: 0.75rem;
+}
+footer {
+  padding-block: 0 8px;
+}
+.pain-home {
+  display: grid;
+  gap: 12px;
+}
+.pain-home .page-title {
+  margin: 0;
+  gap: 6px;
+}
+.pain-home h1 {
+  max-width: 12ch;
+  text-transform: uppercase;
+  font-size: 1.85rem;
+  font-weight: 850;
+}
+.pain-home .page-title .eyebrow {
+  color: var(--color-muted);
+  margin: 0;
+}
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.pain-tile {
+  height: clamp(104px, 15.5dvh, 132px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  padding: 8px 12px;
+  border-radius: 14px;
+  background: #101113;
+  color: #f5f5f1;
+  border-color: #45474e;
+  overflow: hidden;
+  transition:
+    transform 140ms,
+    border-color 140ms;
+}
+.pain-tile:hover {
+  background: #24262a;
+  border-color: #c8c9cd;
+  transform: translateY(-1px);
+}
+.pain-tile:active {
+  transform: scale(0.98);
+}
+.pain-tile img {
+  width: 100%;
+  height: calc(100% - 23px);
+  object-fit: contain;
+}
+.pain-tile span {
+  font:
+    700 0.6875rem/1.3 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.home-actions {
+  justify-content: space-between;
+}
+.home-actions button {
+  font-size: 0.75rem;
+}
+.local-meta {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-muted);
+  font-size: 0.625rem;
+  text-transform: uppercase;
+}
+.protection-view {
+  display: grid;
+  gap: 10px;
+}
+.protection-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.protection-topline button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  padding-block: 4px;
+}
+.category-pill {
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 7px 10px;
+}
+.protective-card {
+  position: relative;
+  padding: 14px 20px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-height: 238px;
+  background: #101113;
+  color: #f4f4f0;
+  border: 1px solid #55575d;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.protective-card::before {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border: 1px solid #34363c;
+  border-radius: 8px;
+  pointer-events: none;
+}
+.arcana {
+  color: #bfc0c5;
+  font-size: 0.5625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  padding-right: 16px;
+  max-width: 90%;
+}
+.protective-card > img {
+  width: 142px;
+  height: clamp(100px, 16dvh, 138px);
+  object-fit: contain;
+}
+.charm-text {
+  font-size: 1.125rem;
+  line-height: 1.35;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  margin: 0;
+  text-align: center;
+  max-width: 30ch;
+}
+.favorite-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 10px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  color: #f5f5f1;
+}
+.favorite-button:hover {
+  background: #2a2c30;
+}
+.favorite-button[aria-pressed='true'] {
+  color: #ff8794;
+  background: #282025;
+}
+.favorite-button[aria-pressed='true'] svg {
+  fill: currentColor;
+}
+.protection-view .style-switch {
+  border: 0;
+  border-radius: 999px;
+  padding: 4px;
+  gap: 3px;
+}
+.protection-view .style-switch span {
+  border-radius: 999px;
+  min-height: 42px;
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  font-weight: 750;
+}
+.protection-view .suggested-response {
+  font-size: 1rem;
+  font-weight: 550;
+  line-height: 1.4;
+  min-height: 44px;
+}
+.protection-view .response {
+  gap: 10px;
+}
+.protection-view .copy-control > .primary {
+  width: 100%;
+  justify-self: stretch;
+  color: #fafaf6;
+  background: var(--color-signal);
+  border-color: var(--color-signal);
+  min-height: 46px;
+}
+.protection-actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 8px;
+}
+.protection-actions button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.6875rem;
+  padding: 9px 7px;
+}
+.save-status {
+  font-size: 0.625rem;
+  line-height: 1.5;
+  color: var(--color-muted);
+  text-align: center;
+}
+.protection-view > details {
+  margin-top: 2px;
+}
+.calendar-view {
+  display: grid;
+  gap: 12px;
+}
+.calendar-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.calendar-heading h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  text-align: center;
+}
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 4px;
+}
+.calendar-grid .weekday {
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.625rem;
+  min-width: 0;
+  padding-bottom: 5px;
+}
+.calendar-grid button {
+  position: relative;
+  padding: 7px 1px;
+  border-radius: 8px;
+  min-width: 0;
+  min-height: 44px;
+  font-size: 0.75rem;
+  background: var(--color-surface);
+}
+.calendar-grid button[aria-pressed='true'] {
+  border-color: var(--color-accent);
+  color: var(--color-text);
+  outline: 1px solid var(--color-accent);
+}
+.calendar-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #ed3342;
+  flex-shrink: 0;
+}
+.calendar-grid .calendar-dot {
+  position: absolute;
+  bottom: 4px;
+  left: calc(50% - 2px);
+}
+.calendar-events {
+  display: grid;
+  gap: 8px;
+}
+.event-summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  border-radius: 12px;
+  padding: 12px;
+}
+.event-summary strong {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+}
+.event-summary small {
+  display: block;
+  font-size: 0.6875rem;
+  margin-top: 4px;
+}
+.calendar-detail {
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 14px;
+  display: grid;
+  gap: 12px;
+}
+.calendar-detail .charm-text {
+  text-align: left;
+}
+.small-copy {
+  font-size: 0.75rem;
+}
+.tarot-card {
+  border-radius: 14px;
+  background: #101113;
+  color: #f4f4f0;
+  gap: 12px;
+}
+.tarot-card .eyebrow {
+  color: #bfc0c5;
+}
+.tarot-art {
+  width: min(220px, 100%);
+  height: 190px;
+  object-fit: contain;
+}
+.tarot-card h2 {
+  font-size: 1.45rem;
+}
+.tarot-card .symbolism {
+  color: #bfc0c5;
+}
+.timer-dial {
+  position: relative;
+  width: min(270px, 100%);
+  aspect-ratio: 1;
+  align-self: center;
+  display: grid;
+  place-items: center;
+}
+.timer-dial svg {
+  width: 100%;
+  height: 100%;
+}
+.timer-dial .timer {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  font:
+    500 3.3rem/1 ui-monospace,
+    SFMono-Regular,
+    Consolas,
+    monospace;
+}
+.timer-dial .timer span {
+  color: var(--color-muted);
+}
+.bingo-grid button {
+  border-radius: 8px;
+  min-height: 85px;
+}
+@media (max-width: 350px) {
+  .calendar-grid {
+    gap: 2px;
+  }
+  .pain-tile {
+    padding-inline: 10px;
+  }
+  .protection-view .style-switch span {
+    font-size: 0.625rem;
+  }
+}
+@media (forced-colors: active) {
+  .style-switch input:checked + span {
+    outline: 2px solid Highlight;
+  }
+  .calendar-dot {
+    background: Highlight;
+  }
+  .pain-tile {
+    border: 1px solid ButtonText;
+  }
+}

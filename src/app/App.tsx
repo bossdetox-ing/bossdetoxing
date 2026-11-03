@@ -2,6 +2,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { defaults, loadSettings, saveSettings, type Settings } from '../browser/settings';
 import { messages as t } from '../content';
 import { Vault } from '../vault/service';
+import { CompanionContext, CompanionStore } from './companion-store';
+import { PainHome, ProtectionCard, Icon } from './views/Protection';
+import { PrivateCalendar } from './views/Calendar';
 import { PageTitle, Sigil } from './components';
 import { Home, Shield, Reply, Serious } from './views/Support';
 import { TaskShield } from './views/TaskShield';
@@ -10,6 +13,9 @@ import { Explore, Bestiary, Tarot, Bingo, Focus } from './views/Explore';
 import { Onboarding, Preferences } from './views/Preferences';
 export type Route =
   | 'home'
+  | 'tools'
+  | 'protection'
+  | 'calendar'
   | 'shield'
   | 'reply'
   | 'task'
@@ -33,15 +39,17 @@ export function App() {
   const [serious, setSerious] = useState(false);
   const [generation, setGeneration] = useState(0);
   const [vault] = useState(() => new Vault());
+  const [companion] = useState(() => new CompanionStore(vault));
   const lastActivity = useRef(Date.now());
   const mainRef = useRef<HTMLElement>(null);
   const settingsRevision = useRef(0);
   const blank = useCallback(() => {
     vault.lock();
+    companion.clear();
     setGeneration((n) => n + 1);
     setSerious(false);
     setRoute('blank');
-  }, [vault]);
+  }, [vault, companion]);
   const panic = useCallback(() => {
     blank();
     if (typeof chrome !== 'undefined')
@@ -49,10 +57,11 @@ export function App() {
   }, [blank]);
   const lock = useCallback(() => {
     vault.lock();
+    companion.clear();
     setGeneration((n) => n + 1);
     if (typeof chrome !== 'undefined')
       void chrome.runtime.sendMessage({ type: 'safe-blank' }).catch(() => undefined);
-  }, [vault]);
+  }, [vault, companion]);
   useEffect(() => {
     let live = true;
     void loadSettings()
@@ -73,6 +82,9 @@ export function App() {
       vault.lock();
     };
   }, [vault]);
+  useEffect(() => {
+    companion.configure(settings.privateLogging, settings.humor && !settings.quiet, serious);
+  }, [companion, settings.privateLogging, settings.humor, settings.quiet, serious]);
   useEffect(() => {
     document.documentElement.dataset.theme = settings.theme;
     document.documentElement.dataset.motion = settings.reducedMotion ? 'reduce' : 'system';
@@ -125,12 +137,14 @@ export function App() {
     const revision = ++settingsRevision.current;
     const previous = settings;
     setSettings(next);
+    companion.configure(next.privateLogging, next.humor && !next.quiet, serious);
     setSettingsError(false);
     try {
       await saveSettings(next);
     } catch {
       if (revision === settingsRevision.current) {
         setSettings(previous);
+        companion.configure(previous.privateLogging, previous.humor && !previous.quiet, serious);
         setSettingsError(true);
       }
     }
@@ -139,6 +153,10 @@ export function App() {
     if (next === 'serious') setSerious(true);
     if ((serious || !settings.humor || settings.quiet) && (next === 'tarot' || next === 'bingo'))
       return;
+    if (next === 'shield')
+      companion.loose('shield', { situationId: undefined, purpose: 'grounding' });
+    if (next === 'reply')
+      companion.loose('reply:vague_accusation', { situationId: 'vague_accusation' });
     setRoute(next);
   }
   if (!ready)
@@ -156,100 +174,132 @@ export function App() {
     );
   const common = { navigate, settings };
   return (
-    <div className="app-shell">
-      <a className="skip-link" href="#main">
-        {t.home}
-      </a>
-      <header className="topbar">
-        <button className="wordmark" onClick={() => navigate('home')} aria-label={t.home}>
-          <Sigil />
-          {settings.quiet ? t.notes : t.brand}
-        </button>
-        <button className="blank-button" onClick={panic}>
-          {t.blank}
-          <kbd>Esc</kbd>
-        </button>
-      </header>
-      <main ref={mainRef} id="main" tabIndex={-1} key={`${generation}-${route}`}>
-        {settingsError && (
-          <p role="alert" className="notice">
-            {t.settingsError}
-          </p>
-        )}
-        {!settings.onboarded ? (
-          <Onboarding settings={settings} update={updateSettings} />
-        ) : (
+    <CompanionContext.Provider value={companion}>
+      <div className="app-shell">
+        <a className="skip-link" href="#main">
+          {t.home}
+        </a>
+        <header className="topbar">
+          <button className="wordmark" onClick={() => navigate('home')} aria-label={t.home}>
+            <Sigil />
+            {settings.quiet ? t.notes : t.brand}
+          </button>
+          <div className="header-actions">
+            <button
+              className="icon-button"
+              aria-label={t.redesign.openCalendar}
+              onClick={() => navigate('calendar')}
+            >
+              <Icon name="calendar" />
+            </button>
+            <button className="icon-button" aria-label={t.blank} title={t.blank} onClick={panic}>
+              <Icon name="blank" />
+            </button>
+          </div>
+        </header>
+        <main ref={mainRef} id="main" tabIndex={-1} key={`${generation}-${route}`}>
+          {settingsError && (
+            <p role="alert" className="notice">
+              {t.settingsError}
+            </p>
+          )}
+          {!settings.onboarded ? (
+            <Onboarding settings={settings} update={updateSettings} />
+          ) : (
+            <>
+              {route === 'home' && <PainHome navigate={navigate} />}
+              {route === 'tools' && <Home {...common} serious={serious} />}
+              {route === 'protection' && (
+                <ProtectionCard
+                  navigate={navigate}
+                  defaultTone={settings.tone}
+                  humorAllowed={settings.humor && !settings.quiet && !serious}
+                />
+              )}
+              {route === 'calendar' && (
+                <PrivateCalendar vault={vault} settings={settings} update={updateSettings} />
+              )}
+              {route === 'shield' && <Shield {...common} serious={serious} />}
+              {route === 'reply' && <Reply {...common} serious={serious} />}
+              {route === 'task' && <TaskShield vault={vault} navigate={navigate} />}
+              {route === 'diary' && (
+                <Grimoire
+                  vault={vault}
+                  lock={lock}
+                  onUnlocked={() => void companion.enablePersistence()}
+                />
+              )}
+              {route === 'closure' && <Closure vault={vault} navigate={navigate} />}
+              {route === 'explore' && <Explore {...common} serious={serious} />}
+              {route === 'bestiary' && <Bestiary navigate={navigate} />}
+              {route === 'tarot' && !serious && settings.humor && !settings.quiet && (
+                <Tarot navigate={navigate} />
+              )}
+              {route === 'bingo' && !serious && settings.humor && !settings.quiet && (
+                <Bingo navigate={navigate} />
+              )}
+              {route === 'focus' && <Focus />}
+              {route === 'settings' && (
+                <Preferences
+                  settings={settings}
+                  update={updateSettings}
+                  vault={vault}
+                  reset={async () => {
+                    await vault.wipe();
+                    if (globalThis.chrome?.storage?.local) await chrome.storage.local.clear();
+                    await updateSettings(defaults);
+                    panic();
+                    setRoute('home');
+                  }}
+                />
+              )}
+              {route === 'serious' && (
+                <Serious
+                  leave={() => {
+                    setSerious(false);
+                    navigate('home');
+                  }}
+                />
+              )}
+            </>
+          )}
+        </main>
+        {settings.onboarded && (
           <>
-            {route === 'home' && <Home {...common} serious={serious} />}
-            {route === 'shield' && <Shield {...common} serious={serious} />}
-            {route === 'reply' && <Reply {...common} />}
-            {route === 'task' && <TaskShield vault={vault} navigate={navigate} />}
-            {route === 'diary' && <Grimoire vault={vault} lock={lock} />}
-            {route === 'closure' && <Closure vault={vault} navigate={navigate} />}
-            {route === 'explore' && <Explore {...common} serious={serious} />}
-            {route === 'bestiary' && <Bestiary navigate={navigate} />}
-            {route === 'tarot' && !serious && settings.humor && !settings.quiet && (
-              <Tarot navigate={navigate} />
-            )}
-            {route === 'bingo' && !serious && settings.humor && !settings.quiet && (
-              <Bingo navigate={navigate} />
-            )}
-            {route === 'focus' && <Focus />}
-            {route === 'settings' && (
-              <Preferences
-                settings={settings}
-                update={updateSettings}
-                vault={vault}
-                reset={async () => {
-                  await vault.wipe();
-                  if (globalThis.chrome?.storage?.local) await chrome.storage.local.clear();
-                  await updateSettings(defaults);
-                  panic();
-                  setRoute('home');
-                }}
-              />
-            )}
-            {route === 'serious' && (
-              <Serious
-                leave={() => {
-                  setSerious(false);
-                  navigate('home');
-                }}
-              />
-            )}
+            <nav className="bottom-nav" aria-label={t.explore}>
+              <button
+                aria-current={route === 'home' ? 'page' : undefined}
+                onClick={() => navigate('home')}
+              >
+                {t.home}
+              </button>
+              <button
+                aria-current={route === 'tools' ? 'page' : undefined}
+                onClick={() => navigate('tools')}
+              >
+                {t.redesign.tools}
+              </button>
+              <button
+                aria-current={route === 'explore' ? 'page' : undefined}
+                onClick={() => navigate('explore')}
+              >
+                {t.explore}
+              </button>
+              <button
+                aria-current={route === 'settings' ? 'page' : undefined}
+                onClick={() => navigate('settings')}
+              >
+                {t.settings}
+              </button>
+            </nav>
+            <footer>
+              <button className="text-button" onClick={() => navigate('serious')}>
+                {t.support}
+              </button>
+            </footer>
           </>
         )}
-      </main>
-      {settings.onboarded && (
-        <>
-          <nav className="bottom-nav" aria-label={t.explore}>
-            <button
-              aria-current={route === 'home' ? 'page' : undefined}
-              onClick={() => navigate('home')}
-            >
-              {t.home}
-            </button>
-            <button
-              aria-current={route === 'explore' ? 'page' : undefined}
-              onClick={() => navigate('explore')}
-            >
-              {t.explore}
-            </button>
-            <button
-              aria-current={route === 'settings' ? 'page' : undefined}
-              onClick={() => navigate('settings')}
-            >
-              {t.settings}
-            </button>
-          </nav>
-          <footer>
-            <p>{t.local}</p>
-            <button className="text-button" onClick={() => navigate('serious')}>
-              {t.support}
-            </button>
-          </footer>
-        </>
-      )}
-    </div>
+      </div>
+    </CompanionContext.Provider>
   );
 }

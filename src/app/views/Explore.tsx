@@ -4,7 +4,7 @@ import { messages as t } from '../../content';
 import { content } from '../../domain/content';
 import { hasLine, remainingSeconds, shuffled } from '../../domain/session';
 import type { Navigate } from '../App';
-import { Field, PageTitle, Select, Sigil } from '../components';
+import { Field, PageTitle, Select } from '../components';
 import { TechniqueDetails } from './Support';
 
 export function Explore({
@@ -115,13 +115,26 @@ export function Tarot({ navigate }: { navigate: Navigate }) {
   const [deck] = useState(() => shuffled(content.tarot));
   const [draw, setDraw] = useState(0);
   const [weather, setWeather] = useState(0);
+  const [pointer, setPointer] = useState<{ x: number; y: number }>();
   const card = deck[draw % deck.length]!;
   return (
     <>
       <PageTitle eyebrow={t.symbolic}>{t.tarot}</PageTitle>
-      <article className="tarot-card">
+      <article
+        className="tarot-card"
+        onPointerDown={(event) => setPointer({ x: event.clientX, y: event.clientY })}
+        onPointerUp={(event) => {
+          if (
+            pointer &&
+            Math.abs(event.clientX - pointer.x) > 60 &&
+            Math.abs(event.clientX - pointer.x) > Math.abs(event.clientY - pointer.y) * 1.5
+          )
+            setDraw((value) => value + 1);
+          setPointer(undefined);
+        }}
+      >
         <p className="eyebrow">{String((draw % deck.length) + 1).padStart(2, '0')} / XII</p>
-        <Sigil decorative={false} />
+        <img className="tarot-art" src={`/art/${card.id}.webp`} alt={card.fictionalSymbolism} />
         <h2>{card.title}</h2>
         <p className="symbolism">{card.fictionalSymbolism}</p>
         <p className="mantra">{card.groundedMantra}</p>
@@ -237,11 +250,33 @@ export function Focus() {
           </button>
         ))}
       </div>
-      <p className="timer" role="timer" aria-live="off">
-        {String(Math.floor(remaining / 60)).padStart(2, '0')}
-        <span>:</span>
-        {String(remaining % 60).padStart(2, '0')}
-      </p>
+      <div className="timer-dial">
+        <svg viewBox="0 0 240 240" aria-hidden="true">
+          <circle
+            cx="120"
+            cy="120"
+            r="106"
+            fill="none"
+            stroke="var(--color-border)"
+            strokeWidth="2"
+          />
+          <circle
+            cx="120"
+            cy="120"
+            r="106"
+            fill="none"
+            stroke="var(--color-accent)"
+            strokeWidth="4"
+            strokeDasharray={`${(remaining / (duration * 60)) * 666} 666`}
+            transform="rotate(-90 120 120)"
+          />
+        </svg>
+        <p className="timer" role="timer" aria-live="off">
+          {String(Math.floor(remaining / 60)).padStart(2, '0')}
+          <span>:</span>
+          {String(remaining % 60).padStart(2, '0')}
+        </p>
+      </div>
       <div className="button-row">
         <button
           className="primary"

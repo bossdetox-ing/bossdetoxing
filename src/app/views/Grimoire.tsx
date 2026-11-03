@@ -2,10 +2,16 @@ import { useEffect, useState } from 'react';
 import { formatDate, messages as t } from '../../content';
 import { content } from '../../domain/content';
 import { newIncident, type Incident, type Vault, type VaultRecord } from '../../vault/service';
+type JournalRecord = Extract<VaultRecord, { kind: 'incident' | 'task' }>;
+const journalRecords = (records: VaultRecord[]) =>
+  records.filter(
+    (record): record is JournalRecord => record.kind === 'incident' || record.kind === 'task',
+  );
+
 import type { Navigate } from '../App';
 import { Field, PageTitle, Select, Toggle, storageFeedback } from '../components';
 
-function VaultGate({ vault, opened }: { vault: Vault; opened: () => void }) {
+export function VaultGate({ vault, opened }: { vault: Vault; opened: () => void }) {
   const [exists, setExists] = useState<boolean>();
   const [pass, setPass] = useState('');
   const [repeat, setRepeat] = useState('');
@@ -94,9 +100,17 @@ function VaultGate({ vault, opened }: { vault: Vault; opened: () => void }) {
     </section>
   );
 }
-export function Grimoire({ vault, lock }: { vault: Vault; lock: () => void }) {
+export function Grimoire({
+  vault,
+  lock,
+  onUnlocked,
+}: {
+  vault: Vault;
+  lock: () => void;
+  onUnlocked?: () => void;
+}) {
   const [unlocked, setUnlocked] = useState(vault.unlocked);
-  const [records, setRecords] = useState<VaultRecord[]>([]);
+  const [records, setRecords] = useState<JournalRecord[]>([]);
   const [draft, setDraft] = useState<Incident>();
   const [search, setSearch] = useState('');
   const [error, setError] = useState('');
@@ -109,7 +123,7 @@ export function Grimoire({ vault, lock }: { vault: Vault; lock: () => void }) {
       void vault
         .list()
         .then((value) => {
-          if (active) setRecords(value);
+          if (active) setRecords(journalRecords(value));
         })
         .catch(() => {
           if (active) setError(t.storageError);
@@ -127,7 +141,7 @@ export function Grimoire({ vault, lock }: { vault: Vault; lock: () => void }) {
     setError('');
     try {
       await vault.save({ ...draft, updatedAtISO: new Date().toISOString() });
-      setRecords(await vault.list());
+      setRecords(journalRecords(await vault.list()));
       setDraft(undefined);
       setStatus(t.saved);
     } catch (error) {
@@ -140,7 +154,7 @@ export function Grimoire({ vault, lock }: { vault: Vault; lock: () => void }) {
     setBusy(true);
     try {
       await vault.remove(id);
-      setRecords(await vault.list());
+      setRecords(journalRecords(await vault.list()));
       setDeleting(undefined);
     } catch {
       setError(t.storageError);
@@ -171,7 +185,13 @@ export function Grimoire({ vault, lock }: { vault: Vault; lock: () => void }) {
     <>
       <PageTitle>{t.vaultTitle}</PageTitle>
       {!unlocked ? (
-        <VaultGate vault={vault} opened={() => setUnlocked(true)} />
+        <VaultGate
+          vault={vault}
+          opened={() => {
+            setUnlocked(true);
+            onUnlocked?.();
+          }}
+        />
       ) : (
         <>
           <div className="button-row">
