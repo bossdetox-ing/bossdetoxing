@@ -103,32 +103,40 @@ test('fresh MV3 install, disclosures, default voices, exact clipboard and no pag
   expect(manifest.action.default_popup).toBeUndefined();
   await page.screenshot({ path: 'test-results/home-dark.png', fullPage: true });
 });
-test('response tones, edit protection, factual follow-up and clipboard failure', async ({
+test('instant response styles, visible mantra and methods, optional edit and clipboard fallback', async ({
   extension: { page },
 }) => {
   await start(page);
+  const started = Date.now();
   await home(page, 'Help me answer');
-  await page.getByRole('button', { name: 'Deep', exact: true }).click();
-  await page.getByLabel('Observed situation').selectOption('dismissal_warning');
-  await expect(page.getByLabel('Your professional sentence')).toHaveValue(/concrete expectations/);
-  await page.getByLabel('Response tone').selectOption('firm');
-  await expect(page.getByLabel('Your professional sentence')).toHaveValue(
-    /formal performance feedback/,
+  await expect(page.locator('.suggested-response')).toContainText('specific deliverable');
+  await expect(page.locator('textarea:visible')).toHaveCount(0);
+  await expect(page.getByRole('radio', { name: 'Yellow', exact: true })).toBeChecked();
+  await page.screenshot({ path: 'test-results/reply-quick.png', fullPage: true });
+  await page.getByRole('button', { name: 'Job warning', exact: true }).click();
+  await expect(page.locator('.private-reminder')).toContainText('A warning deserves clarity');
+  await expect(page.locator('.suggested-response')).toContainText('concrete expectations');
+  await page.getByRole('radio', { name: 'Firm', exact: true }).check();
+  await expect(page.locator('.suggested-response')).toContainText('formal performance feedback');
+  expect(Date.now() - started).toBeLessThan(10000);
+  await page.getByRole('radio', { name: 'Neutral', exact: true }).check();
+  await expect(page.locator('.suggested-response')).toHaveText(
+    'Is there a specific performance concern I should address?',
   );
+  await page.getByRole('button', { name: 'Edit', exact: true }).click();
   await page.getByLabel('Your professional sentence').fill('My edited response');
-  await page.getByLabel('Response tone').selectOption('grey');
-  await expect(page.getByLabel('Your professional sentence')).toHaveValue('My edited response');
-  await page.getByRole('button', { name: 'Cancel', exact: true }).click();
-  await page.getByLabel('Response tone').selectOption('yellow');
-  await page.getByRole('button', { name: 'Replace', exact: true }).click();
-  await page.getByLabel('Observed situation').selectOption('colleague_gossip');
-  await expect(page.getByLabel('Your professional sentence')).not.toHaveValue(
-    /narcissist|psychopath/,
-  );
+  await page.getByRole('radio', { name: 'Yellow', exact: true }).check();
+  await expect(page.locator('.suggested-response')).toContainText('concrete expectations');
+  await expect(page.locator('textarea:visible')).toHaveCount(0);
+  await expect(page.getByRole('dialog')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Replace', exact: true })).toHaveCount(0);
+  await page.getByRole('button', { name: 'Colleague gossip', exact: true }).click();
+  await expect(page.locator('.suggested-response')).not.toContainText(/narcissist|psychopath/);
+  await page.getByRole('button', { name: 'Yellow Rock', exact: true }).click();
+  await expect(page.locator('.method-practice')).toContainText('courteous opening');
+  await page.getByText('More options', { exact: true }).click();
   await page.getByLabel('Response format').selectOption('follow_up');
-  await expect(page.getByLabel('Your professional sentence')).toHaveValue(
-    /Decision: Not specified/,
-  );
+  await expect(page.locator('.suggested-response')).toContainText('Decision: Not specified');
   await page.evaluate(() => {
     Object.defineProperty(navigator, 'clipboard', {
       configurable: true,
@@ -141,6 +149,93 @@ test('response tones, edit protection, factual follow-up and clipboard failure',
   });
   await page.getByRole('button', { name: 'Copy sentence' }).click();
   await expect(page.getByRole('status')).toContainText('Clipboard unavailable');
+});
+
+test('keyboard style switching, all situations and exact edited-text copy without confirmations', async ({
+  extension: { page },
+}) => {
+  await start(page);
+  await home(page, 'Help me answer');
+  await page.getByRole('radio', { name: 'Yellow', exact: true }).focus();
+  await page.keyboard.press('ArrowRight');
+  await expect(page.getByRole('radio', { name: 'Neutral', exact: true })).toBeChecked();
+  await expect(page.locator('.suggested-response')).toHaveText(
+    'Which deliverable needs improvement?',
+  );
+  await page.getByRole('button', { name: 'More situations', exact: true }).click();
+  await expect(
+    page.getByRole('group', { name: 'Observed situation', exact: true }).getByRole('button'),
+  ).toHaveCount(21);
+  await page
+    .getByRole('group', { name: 'Observed situation', exact: true })
+    .getByRole('button')
+    .nth(12)
+    .click();
+  await expect(page.getByRole('button', { name: 'More situations', exact: true })).toHaveAttribute(
+    'aria-expanded',
+    'false',
+  );
+  await page.getByRole('button', { name: 'Edit', exact: true }).click();
+  await page.getByLabel('Your professional sentence').fill('Please confirm the priority.');
+  await page.getByRole('button', { name: 'Use my edit', exact: true }).click();
+  await page.evaluate(() => {
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: {
+        writeText: async (value: string) => {
+          (window as unknown as { copiedText: string }).copiedText = value;
+        },
+      },
+    });
+  });
+  await page.getByRole('button', { name: 'Copy sentence' }).click();
+  expect(await page.evaluate(() => (window as unknown as { copiedText: string }).copiedText)).toBe(
+    await page.locator('.suggested-response').textContent(),
+  );
+  await page.getByRole('radio', { name: 'Firm', exact: true }).check();
+  await expect(page.locator('.suggested-response')).not.toHaveText('Please confirm the priority.');
+  await expect(page.getByRole('button', { name: 'Replace', exact: true })).toHaveCount(0);
+});
+test('response remains immediately usable in a narrow side panel', async ({
+  extension: { page },
+}) => {
+  await page.setViewportSize({ width: 320, height: 800 });
+  await start(page);
+  await home(page, 'Help me answer');
+  const copy = page.getByRole('button', { name: 'Copy sentence' });
+  const bounds = await copy.boundingBox();
+  expect(bounds!.y + bounds!.height).toBeLessThan(700);
+  await expect(page.getByRole('radio', { name: 'Neutral', exact: true })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(
+    true,
+  );
+  await page.screenshot({ path: 'test-results/reply-320.png', fullPage: true });
+});
+test('calm, task clarification, closure and focus start without visible writing fields', async ({
+  extension: { page },
+}) => {
+  await start(page);
+  await home(page, 'Calm me');
+  await expect(page.locator('.private-reminder .mantra')).toBeVisible();
+  await expect(page.locator('input:visible, textarea:visible, select:visible')).toHaveCount(0);
+  const first = await page.locator('.private-reminder .mantra').textContent();
+  await page.getByRole('button', { name: 'Another reminder', exact: true }).click();
+  await expect(page.locator('.private-reminder .mantra')).not.toHaveText(first!);
+  await page.getByRole('button', { name: 'STOP', exact: true }).click();
+  await expect(page.locator('.method-practice')).toContainText('Pause. Step back');
+  await page.screenshot({ path: 'test-results/shield-quick.png', fullPage: true });
+  await home(page, 'Clarify the task');
+  await expect(page.getByRole('button', { name: 'Copy clarification', exact: true })).toBeEnabled();
+  await expect(page.locator('textarea:visible')).toHaveCount(0);
+  await page.screenshot({ path: 'test-results/task-quick.png', fullPage: true });
+  await home(page, 'Help me let go');
+  await expect(page.getByRole('button', { name: 'Finish and close' })).toBeVisible();
+  await expect(page.locator('input:visible, textarea:visible')).toHaveCount(0);
+  await page.screenshot({ path: 'test-results/closure-quick.png', fullPage: true });
+  await page.getByRole('button', { name: 'Finish and close' }).click();
+  await page.getByRole('button', { name: 'Return to focus', exact: true }).click();
+  await expect(page.locator('input:visible, textarea:visible')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Start', exact: true })).toBeEnabled();
 });
 test('accessibility, light theme, behavior library, keyboard blank and no humor preference', async ({
   extension: { page },
@@ -180,6 +275,7 @@ test('ambiguous work stays unverified, change comparison and explicit copy revie
 }) => {
   await start(page);
   await home(page, 'Clarify the task');
+  await page.getByText('Structure my notes', { exact: true }).click();
   await page.getByLabel('What were you asked to do?').fill('The homepage must be changed');
   await page.getByText('Add confirmed details', { exact: true }).click();
   await page.getByLabel('Previous requirement', { exact: true }).fill('Old heading');
@@ -188,6 +284,7 @@ test('ambiguous work stays unverified, change comparison and explicit copy revie
   await expect(page.locator('.brief-fields').getByText('Not specified')).toHaveCount(10);
   await expect(page.getByRole('heading', { name: 'Requirement change' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Copy clarification' })).toBeDisabled();
+  await page.getByRole('button', { name: 'Edit', exact: true }).click();
   await page
     .getByLabel('Edit the clarification before copying')
     .fill('Please contact fake@example.test to clarify.');
@@ -242,6 +339,7 @@ test('auto-lock clears drafts and safe blank removes task content from accessibl
   await page.getByRole('navigation').getByRole('button', { name: 'Settings' }).click();
   await page.getByLabel('Lock after inactivity').selectOption('1');
   await home(page, 'Clarify the task');
+  await page.getByText('Structure my notes', { exact: true }).click();
   await page.getByLabel('What were you asked to do?').fill('FICTIONAL_VOLATILE_TASK');
   await page.clock.fastForward(61_000);
   await expect(page.getByRole('heading', { name: 'Notes', exact: true })).toBeVisible();
@@ -311,6 +409,7 @@ test('encrypted task save, export download, intentional full wipe and authentica
   await start(page);
   await createVault(page);
   await home(page, 'Clarify the task');
+  await page.getByText('Structure my notes', { exact: true }).click();
   await page.getByLabel('What were you asked to do?').fill('Fictional task saved only on request');
   await page.getByRole('button', { name: 'Create structured brief' }).click();
   await page.getByRole('button', { name: 'Save brief to unlocked vault' }).click();

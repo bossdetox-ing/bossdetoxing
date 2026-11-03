@@ -221,10 +221,7 @@ export function Focus() {
   }, [deadline]);
   return (
     <>
-      <PageTitle eyebrow={t.focus} intro={t.timerHint}>
-        {t.timerTitle}
-      </PageTitle>
-      <Field label={t.timerTask} value={task} onChange={setTask} />
+      <PageTitle>{t.timerTitle}</PageTitle>
       <div className="segments">
         {[15, 25, 45].map((value) => (
           <button
@@ -271,6 +268,11 @@ export function Focus() {
           {t.reset}
         </button>
       </div>
+      <p className="muted">{t.timerHint}</p>
+      <details>
+        <summary>{t.quickUi.timerTask}</summary>
+        <Field label={t.timerTask} value={task} onChange={setTask} />
+      </details>
       {remaining === 0 && <p role="status">{t.timerDone}</p>}
     </>
   );

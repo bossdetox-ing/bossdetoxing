@@ -49,7 +49,11 @@ function VaultGate({ vault, opened }: { vault: Vault; opened: () => void }) {
   return (
     <section>
       <h2>{t.vaultLocked}</h2>
-      <p>{t.privacy}</p>
+      <p className="muted">{t.quickUi.vaultPrivacy}</p>
+      <details>
+        <summary>{t.quickUi.privacyDetails}</summary>
+        <p>{t.privacy}</p>
+      </details>
       {exists !== undefined && (
         <form
           onSubmit={(e) => {
@@ -165,7 +169,7 @@ export function Grimoire({ vault, lock }: { vault: Vault; lock: () => void }) {
   ];
   return (
     <>
-      <PageTitle eyebrow={t.grimoire}>{t.vaultTitle}</PageTitle>
+      <PageTitle>{t.vaultTitle}</PageTitle>
       {!unlocked ? (
         <VaultGate vault={vault} opened={() => setUnlocked(true)} />
       ) : (
@@ -199,21 +203,21 @@ export function Grimoire({ vault, lock }: { vault: Vault; lock: () => void }) {
                 multiline
                 required
               />
-              <Field
-                label={t.impact}
-                value={draft.workImpact}
-                onChange={(workImpact) => setDraft({ ...draft, workImpact })}
-                multiline
-              />
-              <Field
-                label={t.next}
-                value={draft.nextAction}
-                onChange={(nextAction) => setDraft({ ...draft, nextAction })}
-                multiline
-              />
               <details>
-                <summary>{t.moreEntry}</summary>
+                <summary>{t.quickUi.entryDetails}</summary>
                 <div className="stack">
+                  <Field
+                    label={t.impact}
+                    value={draft.workImpact}
+                    onChange={(workImpact) => setDraft({ ...draft, workImpact })}
+                    multiline
+                  />
+                  <Field
+                    label={t.next}
+                    value={draft.nextAction}
+                    onChange={(nextAction) => setDraft({ ...draft, nextAction })}
+                    multiline
+                  />
                   {fields.map((field) => (
                     <Field
                       key={field.key}
@@ -359,17 +363,20 @@ export function Closure({ vault, navigate }: { vault: Vault; navigate: Navigate 
     );
   return (
     <>
-      <PageTitle eyebrow={t.observer} intro={t.closureIntro}>
-        {t.closureTitle}
-      </PageTitle>
-      <Field label={t.closureFacts} value={facts} onChange={setFacts} multiline />
-      <Field label={t.closureAction} value={action} onChange={setAction} />
+      <PageTitle>{t.closureTitle}</PageTitle>
       <p className="mantra">{t.closureReframe}</p>
-      {vault.unlocked && (
-        <button disabled={!facts.trim() || busy || saved} onClick={() => void save()}>
-          {t.saveClosure}
-        </button>
-      )}
+      <details>
+        <summary>{t.quickUi.reflect}</summary>
+        <div className="stack">
+          <Field label={t.closureFacts} value={facts} onChange={setFacts} multiline />
+          <Field label={t.closureAction} value={action} onChange={setAction} />
+          {vault.unlocked && (
+            <button disabled={!facts.trim() || busy || saved} onClick={() => void save()}>
+              {t.saveClosure}
+            </button>
+          )}
+        </div>
+      </details>
       <p role="status">{status}</p>
       <div className="button-row">
         <button className="primary" onClick={finish}>

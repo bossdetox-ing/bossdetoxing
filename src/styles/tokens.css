@@ -10,8 +10,8 @@
   --color-on-accent: #24251e;
   --color-danger: #f0aca0;
   --space-sm: 8px;
-  --space-md: 24px;
-  --space-lg: 32px;
+  --space-md: 16px;
+  --space-lg: 24px;
 }
 :root[data-theme='light'] {
   color-scheme: light;

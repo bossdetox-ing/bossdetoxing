@@ -18,6 +18,8 @@ import {
 } from '../../src/vault/service';
 
 const pass = 'fictional test passphrase';
+// Real KDF operations must complete before the next test touches the shared fixture database.
+vi.setConfig({ testTimeout: 20_000 });
 beforeEach(async () => {
   const current = await readArchive();
   await commitArchive(undefined, current?.revision);

@@ -180,11 +180,6 @@ export function App() {
           <Onboarding settings={settings} update={updateSettings} />
         ) : (
           <>
-            {route !== 'home' && (
-              <button className="back" onClick={() => navigate('home')}>
-                ← {t.home}
-              </button>
-            )}
             {route === 'home' && <Home {...common} serious={serious} />}
             {route === 'shield' && <Shield {...common} serious={serious} />}
             {route === 'reply' && <Reply {...common} />}
