@@ -8,7 +8,7 @@ A free, local-first Chrome side-panel companion for calm, professional responses
 2. In Chrome 116 or later, enter `chrome://extensions` and enable Developer mode.
 3. Choose **Load unpacked** and select the extracted folder containing `manifest.json`. Source builds use `.output/chrome-mv3`.
 4. Pin the original Search-style toolbar icon. Click it to open the side panel.
-5. Read the privacy disclosure and select **Open my tools**. A professional sentence is available immediately.
+5. Read the privacy disclosure and select **Open my tools**. Tap a situation for a private charm and professional sentence.
 
 No browser is opened automatically by these instructions or the dev command. Chrome may prevent installation on managed profiles. The neutral icon is a discretion choice; the extension identity remains visible in Chrome.
 
@@ -50,7 +50,7 @@ Packaging typechecks, rebuilds and audits the extension, then produces the loada
 
 ## Product and code map
 
-The binding scope is [BOSSDETOX_V1_FULL_SPEC.md](BOSSDETOX_ING_V1_HANDOFF/BOSSDETOX_V1_FULL_SPEC.md). Older `The Ward` documents are reference material and never override the current name, privacy decisions or full v1 scope. DOCX copies are for reading; Markdown wins conflicts.
+The binding feature/privacy scope is [BOSSDETOX_V1_FULL_SPEC.md](BOSSDETOX_ING_V1_HANDOFF/BOSSDETOX_V1_FULL_SPEC.md). The supplied [v1.1 redesign brief](BOSSDETOX_REDESIGN_FILES/BOSSDETOX_VISUAL_UX_BRIEF.md) supersedes its visual hierarchy. [REDESIGN_PLAN.md](docs/REDESIGN_PLAN.md) records the component and state architecture. Older `The Ward` documents are reference material and never override the current name, privacy decisions or full v1 scope. DOCX copies are for reading; Markdown wins conflicts.
 
 | Area                                                            | Location                        |
 | --------------------------------------------------------------- | ------------------------------- |
@@ -69,7 +69,9 @@ Multilingual support is a recorded product requirement. English is the initial p
 
 ## Sensitive notes
 
-Unsaved notes are volatile. Navigating away from a screen discards its drafts. Saving is always explicit and requires an unlocked passphrase vault. Saved notes are encrypted locally with a passphrase. There is no account, reset email, cloud backup or passphrase recovery. Export an encrypted backup if needed.
+New exports use archive version 2. Existing version 1 backups remain importable; ciphertext and crypto parameters are preserved. Older extension versions cannot read the new calendar/mantra record kinds. Keep a pre-upgrade backup if rollback is needed.
+
+Unsaved notes are volatile. Navigating away from a screen discards its drafts. Journal and task saving is explicit and requires an unlocked passphrase vault. Pain selections create session-only private calendar events. Optional encrypted history saves those events, favorites and recent-mantra IDs only after consent and while the vault is unlocked. Mantras remain pinned until an explicit new selection or reroll. Saved notes are encrypted locally with a passphrase. There is no account, reset email, cloud backup or passphrase recovery. Export an encrypted backup if needed.
 
 **Hide & lock**, Escape, the registered blank shortcut, panel backgrounding and idle lock remove private UI state and lock the vault. The panel starts locked after reload. The timer and Bingo session end when their view is left. Focus timing is not reliable after closing the panel and does not create notifications.
 
