@@ -102,15 +102,6 @@ export function Shield({ navigate, settings, serious }: Props) {
     </>
   );
 }
-const quickSituations = [
-  'vague_accusation',
-  'dismissal_warning',
-  'moving_goalposts',
-  'public_criticism',
-  'colleague_gossip',
-  'guilt_induction',
-];
-
 export function SituationPicker({
   value,
   onChange,
@@ -118,37 +109,20 @@ export function SituationPicker({
   value: string;
   onChange: (id: string) => void;
 }) {
-  const [expanded, setExpanded] = useState(false);
-  const visible = content.scenarios.filter(
-    (s) => expanded || quickSituations.includes(s.id) || s.id === value,
-  );
-  function choose(id: string) {
-    onChange(id);
-    setExpanded(false);
-  }
   return (
     <section className="situation-picker" aria-label={t.quickUi.situations}>
       <div className="section-line">
         <h2>{t.quickUi.situations}</h2>
-        <Button
-          className="text-button"
-          aria-expanded={expanded}
-          onClick={() => setExpanded(!expanded)}
-        >
-          {expanded ? t.quickUi.fewerSituations : t.quickUi.moreSituations}
-        </Button>
       </div>
       <div className="chips" role="group" aria-label={t.situation}>
-        {visible.map((s) => (
-          <Button key={s.id} aria-pressed={s.id === value} onClick={() => choose(s.id)}>
+        {content.scenarios.map((s) => (
+          <Button key={s.id} aria-pressed={s.id === value} onClick={() => onChange(s.id)}>
             {t.quickUi.scenarioLabels[s.id as keyof typeof t.quickUi.scenarioLabels] ?? s.label}
           </Button>
         ))}
-        {(expanded || value === 'custom') && (
-          <Button aria-pressed={value === 'custom'} onClick={() => choose('custom')}>
-            {t.custom}
-          </Button>
-        )}
+        <Button aria-pressed={value === 'custom'} onClick={() => onChange('custom')}>
+          {t.custom}
+        </Button>
       </div>
     </section>
   );

@@ -612,9 +612,6 @@ button.pain-tile:hover {
   line-height: 1.3;
   color: var(--color-muted);
 }
-.home-actions button {
-  width: 100%;
-}
 
 /* ───────────── Protection ───────────── */
 .protection-view {

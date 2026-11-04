@@ -103,8 +103,8 @@ test('fresh MV3 install, disclosures, default voices, exact clipboard and no pag
   await expect(page.getByText(/A personal device can still have a managed/)).toBeVisible();
   await start(page);
   await page.setViewportSize({ width: 360, height: 800 });
-  await expect(page.locator('.pain-tile')).toHaveCount(6);
-  const tile = await page.locator('.pain-tile').last().boundingBox();
+  await expect(page.locator('.pain-tile')).toHaveCount(20);
+  const tile = await page.locator('.pain-tile').nth(5).boundingBox();
   expect(tile!.y + tile!.height).toBeLessThan(700);
   await page.screenshot({ path: 'test-results/visual-regression-home.png', fullPage: true });
   await page
@@ -197,7 +197,6 @@ test('keyboard style switching, all situations and exact edited-text copy withou
   await expect(page.getByRole('radio', { name: 'Grey Rock', exact: true })).toBeChecked();
   await page.keyboard.up('ArrowRight');
   await responseIs(page, 'vague_accusation', 'grey');
-  await page.getByRole('button', { name: 'More situations', exact: true }).click();
   await expect(
     page.getByRole('group', { name: 'Observed situation', exact: true }).getByRole('button'),
   ).toHaveCount(21);
@@ -206,10 +205,6 @@ test('keyboard style switching, all situations and exact edited-text copy withou
     .getByRole('button')
     .nth(12)
     .click();
-  await expect(page.getByRole('button', { name: 'More situations', exact: true })).toHaveAttribute(
-    'aria-expanded',
-    'false',
-  );
   await page.getByRole('button', { name: 'Edit', exact: true }).click();
   await page.getByLabel('Your professional sentence').fill('Please confirm the priority.');
   await page.getByRole('button', { name: 'Use my edit', exact: true }).click();
@@ -652,7 +647,7 @@ test('WordArt tarot system renders and remains accessible in both themes', async
     backgrounds.push(
       await page.locator('body').evaluate((node) => getComputedStyle(node).backgroundColor),
     );
-    await expect(page.locator('.pain-wordart')).toHaveCount(6);
+    await expect(page.locator('.pain-wordart')).toHaveCount(20);
     await expect(page.getByText('Local only', { exact: true })).toHaveCount(0);
     await expect(page.getByText('No typing', { exact: true })).toHaveCount(0);
     await expect(page.getByRole('button', { name: 'Return to focus', exact: true })).toHaveCount(0);
@@ -668,7 +663,7 @@ test('WordArt tarot system renders and remains accessible in both themes', async
           ),
       )
       .toBe(true);
-    const last = await page.locator('.pain-tile').last().boundingBox();
+    const last = await page.locator('.pain-tile').nth(5).boundingBox();
     expect(last!.y + last!.height).toBeLessThan(700);
     await audit();
     await page.screenshot({ path: `docs/evidence/color-home-${theme}.png` });

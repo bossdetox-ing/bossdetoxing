@@ -62,8 +62,6 @@ export const en = {
   },
   redesign: {
     homeTitle: 'What is your boss doing now?',
-    more: 'More patterns',
-    fewer: 'Fewer patterns',
     searchSituations: 'Search situations',
     scenarioBlurbs: {
       vague_accusation: 'Criticism with no example attached',
@@ -167,8 +165,6 @@ export const en = {
     styles: 'Response style',
     styleLabels: { yellow: 'Yellow Rock', grey: 'Grey Rock', firm: 'Firm Rock' },
     situations: 'Situation',
-    moreSituations: 'More situations',
-    fewerSituations: 'Fewer situations',
     methods: 'Methods',
     allMethods: 'All methods',
     methodDetails: 'Evidence & cautions',

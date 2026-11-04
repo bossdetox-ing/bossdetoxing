@@ -52,7 +52,6 @@ const searchText = (card: (typeof cards)[number]) => {
 };
 export function PainHome({ navigate, title }: { navigate: Navigate; title: string }) {
   const { store } = useCompanion();
-  const [more, setMore] = useState(false);
   const [query, setQuery] = useState('');
   function choose(id: string) {
     store.choose(id);
@@ -61,7 +60,7 @@ export function PainHome({ navigate, title }: { navigate: Navigate; title: strin
   const words = query.toLowerCase().split(/\s+/).filter(Boolean);
   const visible = words.length
     ? cards.filter((card) => words.every((word) => searchText(card).includes(word)))
-    : cards.filter((card) => card.primary || more);
+    : cards;
   return (
     <div className="pain-home">
       <PageTitle>{title}</PageTitle>
@@ -87,13 +86,6 @@ export function PainHome({ navigate, title }: { navigate: Navigate; title: strin
         ))}
       </div>
       {words.length > 0 && visible.length === 0 && <p className="muted">{t.noResults}</p>}
-      {!words.length && (
-        <div className="button-row home-actions">
-          <Button aria-expanded={more} onClick={() => setMore(!more)}>
-            {more ? t.redesign.fewer : t.redesign.more}
-          </Button>
-        </div>
-      )}
     </div>
   );
 }
