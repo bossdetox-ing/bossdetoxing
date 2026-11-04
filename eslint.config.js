@@ -13,6 +13,8 @@ export default ts.config(
       'playwright-report/**',
       'BOSSDETOX_ING_V1_HANDOFF/**',
       'docs-v1-old/**',
+      '.cache/**',
+      '.taste-skill/**',
     ],
   },
   js.configs.recommended,
