@@ -1,15 +1,14 @@
-import { useId, useState } from 'react';
+import { responseVersion, responseSet } from '../../domain/replies';
+import { useViewCopy } from '../useViewCopy';
+import { Icon } from '../PixelIcon';
+import { Button } from '../../components/ui/button';
+import { StyleSwitch } from '../StyleSwitch';
+import { useState } from 'react';
 import type { Settings } from '../../browser/settings';
 import { messages as t } from '../../content';
 import { useCompanion } from '../companion-store';
 import { professionalResponse } from '../../domain/scripts';
-import {
-  content,
-  defaultScenario,
-  evidenceLabels,
-  type Technique,
-  type Tone,
-} from '../../domain/content';
+import { content, defaultScenario, type Tone } from '../../domain/content';
 import type { Navigate } from '../App';
 import { CopyButton, Field, PageTitle, Select } from '../components';
 type Props = { navigate: Navigate; settings: Settings; serious?: boolean };
@@ -19,16 +18,16 @@ export function Home({ navigate, serious }: Props) {
     <div className="home-view">
       <PageTitle>{t.redesign.tools}</PageTitle>
       <div className="action-list">
-        {(['calm', 'reply', 'task', 'diary', 'closure'] as const).map((key, i) => (
-          <button key={key} onClick={() => navigate(key === 'calm' ? 'shield' : key)}>
+        {(['calm', 'reply', 'closure'] as const).map((key, i) => (
+          <Button key={key} onClick={() => navigate(key === 'calm' ? 'shield' : key)}>
             <span className="index" aria-hidden="true">
               0{i + 1}
             </span>
             <span>
               <strong>{t[key]}</strong>
             </span>
-            <span aria-hidden="true">↗</span>
-          </button>
+            <Icon name="next" />
+          </Button>
         ))}
       </div>
       {serious && <p className="notice">{t.seriousHidden}</p>}
@@ -37,6 +36,7 @@ export function Home({ navigate, serious }: Props) {
   );
 }
 export function Shield({ navigate, settings, serious }: Props) {
+  const voiceTitle = useViewCopy('shield');
   const [emotion, setEmotion] = useState<keyof typeof t.emotions>('other');
   const [scenarioId, setScenarioId] = useState('');
   const [cue, setCue] = useState(0);
@@ -48,11 +48,10 @@ export function Shield({ navigate, settings, serious }: Props) {
       : (selected?.text ?? t.emotionMantras.other);
   return (
     <>
-      <PageTitle>{t.calm}</PageTitle>
-      <div className="private-reminder">
-        <p className="eyebrow">{t.private}</p>
+      <PageTitle>{voiceTitle}</PageTitle>
+      <div className="private-reminder" role="region" aria-label={t.private}>
         <p className="mantra">{mantra}</p>
-        <button
+        <Button
           className="text-button"
           onClick={() =>
             store.loose(
@@ -63,17 +62,13 @@ export function Shield({ navigate, settings, serious }: Props) {
           }
         >
           {t.quickUi.anotherMantra}
-        </button>
+        </Button>
       </div>
-      <MethodPicker
-        ids={['grounding', 'stop', 'defusion', 'self_distancing']}
-        initialId="grounding"
-      />
       <div className="button-row">
-        <button className="primary" onClick={() => navigate('home')}>
+        <Button className="primary" onClick={() => navigate('home')}>
           {t.done}
-        </button>
-        <button onClick={() => navigate('reply')}>{t.needWords}</button>
+        </Button>
+        <Button onClick={() => navigate('reply')}>{t.needWords}</Button>
       </div>
       <details>
         <summary>{t.deep}</summary>
@@ -82,7 +77,7 @@ export function Shield({ navigate, settings, serious }: Props) {
             <legend>{t.feel}</legend>
             <div className="chips">
               {Object.entries(t.emotions).map(([value, label]) => (
-                <button
+                <Button
                   key={value}
                   aria-pressed={emotion === value}
                   onClick={() => {
@@ -90,7 +85,7 @@ export function Shield({ navigate, settings, serious }: Props) {
                   }}
                 >
                   {label}
-                </button>
+                </Button>
               ))}
             </div>
           </fieldset>
@@ -101,57 +96,10 @@ export function Shield({ navigate, settings, serious }: Props) {
             }}
           />
           <p>{t.cues[cue % t.cues.length]}</p>
-          <button onClick={() => setCue((value) => value + 1)}>{t.groundingNext}</button>
+          <Button onClick={() => setCue((value) => value + 1)}>{t.groundingNext}</Button>
         </div>
       </details>
     </>
-  );
-}
-export function TechniqueDetails({ technique }: { technique: Technique }) {
-  return (
-    <section className="technique">
-      <h3>{technique.title}</h3>
-      <p className="evidence">{evidenceLabels[technique.evidenceType]}</p>
-      <p>{technique.mechanism}</p>
-      <p className="muted">{t.evidenceLimit}</p>
-      {technique.whenUseful.length > 0 && (
-        <>
-          <h4>{t.useful}</h4>
-          {technique.whenUseful.map((s) => (
-            <p key={s}>{s}</p>
-          ))}
-        </>
-      )}
-      {technique.microExercise.length > 0 && (
-        <>
-          <h4>{t.practice}</h4>
-          {technique.microExercise.map((s) => (
-            <p key={s}>{s}</p>
-          ))}
-        </>
-      )}
-      <h4>{t.caution}</h4>
-      {technique.caution.map((s) => (
-        <p key={s}>{s}</p>
-      ))}
-      {technique.sourceIds.length ? (
-        <>
-          <h4>{t.sources}</h4>
-          {technique.sourceIds.map((id) => {
-            const source = content.sources.find((s) => s.id === id)!;
-            return (
-              <p key={id}>
-                <a href={source.url} target="_blank" rel="noopener noreferrer">
-                  {source.title} ↗
-                </a>
-              </p>
-            );
-          })}
-        </>
-      ) : (
-        <p className="muted">{t.pending}</p>
-      )}
-    </section>
   );
 }
 const quickSituations = [
@@ -182,68 +130,24 @@ export function SituationPicker({
     <section className="situation-picker" aria-label={t.quickUi.situations}>
       <div className="section-line">
         <h2>{t.quickUi.situations}</h2>
-        <button
+        <Button
           className="text-button"
           aria-expanded={expanded}
           onClick={() => setExpanded(!expanded)}
         >
           {expanded ? t.quickUi.fewerSituations : t.quickUi.moreSituations}
-        </button>
+        </Button>
       </div>
       <div className="chips" role="group" aria-label={t.situation}>
         {visible.map((s) => (
-          <button key={s.id} aria-pressed={s.id === value} onClick={() => choose(s.id)}>
+          <Button key={s.id} aria-pressed={s.id === value} onClick={() => choose(s.id)}>
             {t.quickUi.scenarioLabels[s.id as keyof typeof t.quickUi.scenarioLabels] ?? s.label}
-          </button>
+          </Button>
         ))}
         {(expanded || value === 'custom') && (
-          <button aria-pressed={value === 'custom'} onClick={() => choose('custom')}>
+          <Button aria-pressed={value === 'custom'} onClick={() => choose('custom')}>
             {t.custom}
-          </button>
-        )}
-      </div>
-    </section>
-  );
-}
-
-export function MethodPicker({ ids, initialId }: { ids: readonly string[]; initialId?: string }) {
-  const [selected, setSelected] = useState<string | undefined>(initialId);
-  const id = useId();
-  const technique = content.techniques.find((item) => item.id === selected);
-  const choice = (item: Technique) => (
-    <button
-      key={item.id}
-      aria-expanded={item.id === selected}
-      aria-controls={id}
-      onClick={() => setSelected(item.id === selected ? undefined : item.id)}
-    >
-      {item.title}
-    </button>
-  );
-  return (
-    <section className="method-picker" aria-label={t.quickUi.methods}>
-      <h2>{t.quickUi.methods}</h2>
-      <div className="chips">
-        {ids.map((id) => choice(content.techniques.find((item) => item.id === id)!))}
-      </div>
-      <details className="method-library">
-        <summary>{t.quickUi.allMethods}</summary>
-        <div className="chips">
-          {content.techniques.filter((item) => !ids.includes(item.id)).map(choice)}
-        </div>
-      </details>
-      <div id={id}>
-        {technique && (
-          <div className="method-practice">
-            <h3>{technique.title}</h3>
-            {technique.microExercise.map((step) => (
-              <p key={step}>{step}</p>
-            ))}
-            <details>
-              <summary>{t.quickUi.methodDetails}</summary>
-              <TechniqueDetails technique={technique} />
-            </details>
-          </div>
+          </Button>
         )}
       </div>
     </section>
@@ -251,14 +155,18 @@ export function MethodPicker({ ids, initialId }: { ids: readonly string[]; initi
 }
 
 export function Reply({ settings, serious }: Props) {
+  const voiceTitle = useViewCopy('reply');
+  const [versions] = useState(() =>
+    Object.fromEntries(content.scenarios.map((s) => [s.id, responseVersion(s.id)])),
+  );
   const [scenarioId, setScenarioId] = useState(defaultScenario.id);
   const [tone, setTone] = useState<Tone>(settings.tone);
   const [format, setFormat] = useState('written');
-  const [draft, setDraft] = useState(defaultScenario.responses[settings.tone]);
+  const [draft, setDraft] = useState(
+    responseSet(defaultScenario, versions[defaultScenario.id]!)[settings.tone],
+  );
   const [editing, setEditing] = useState(false);
   const [beforeEdit, setBeforeEdit] = useState('');
-  const [facts, setFacts] = useState('');
-  const radioName = useId();
   const { store, state } = useCompanion();
   const selected = state.looseCharms[`reply:${scenarioId}`];
   const scenario = content.scenarios.find((s) => s.id === scenarioId);
@@ -269,59 +177,51 @@ export function Reply({ settings, serious }: Props) {
     setFormat(nextFormat);
     setDraft(
       professionalResponse(
-        content.scenarios.find((s) => s.id === id),
+        {
+          ...content.scenarios.find((s) => s.id === id)!,
+          responses: responseSet(
+            content.scenarios.find((s) => s.id === id)!,
+            versions[id]!,
+          ),
+        },
         nextTone,
         nextFormat,
       ),
     );
     setEditing(false);
     setBeforeEdit('');
-    setFacts('');
   }
   return (
     <div className="reply-view">
-      <PageTitle>{t.reply}</PageTitle>
+      <PageTitle>{voiceTitle}</PageTitle>
       <div className="response-pair">
-        <div className="private-reminder">
-          <p className="eyebrow">{t.private}</p>
+        <div className="private-reminder" role="region" aria-label={t.private}>
           <p className="mantra">
             {selected?.purpose === 'dark_humor' && (!settings.humor || settings.quiet || serious)
               ? t.redesign.noHumor
-              : (selected?.text ?? defaultScenario.privateMantras[0]!)}
+              : (selected?.text ?? t.emotionMantras.other)}
           </p>
         </div>
         <section className="response" aria-label={t.professional}>
-          <fieldset className="style-switch">
-            <legend className="sr-only">{t.quickUi.styles}</legend>
-            {(['yellow', 'grey', 'firm'] as const).map((value) => (
-              <label key={value}>
-                <input
-                  type="radio"
-                  name={radioName}
-                  value={value}
-                  checked={tone === value}
-                  onChange={() =>
-                    replace(scenarioId, value, format === 'follow_up' ? 'written' : format)
-                  }
-                />
-                <span>{t.quickUi.styleLabels[value]}</span>
-              </label>
-            ))}
-          </fieldset>
-          <p className="eyebrow">{t.professional}</p>
+          <StyleSwitch
+            value={tone}
+            onChange={(value) =>
+              replace(scenarioId, value, format === 'follow_up' ? 'written' : format)
+            }
+          />
           {editing ? (
             <>
               <Field label={t.editReply} value={draft} multiline onChange={setDraft} />
               <div className="button-row">
-                <button onClick={() => setEditing(false)}>{t.quickUi.applyEdit}</button>
-                <button
+                <Button onClick={() => setEditing(false)}>{t.quickUi.applyEdit}</Button>
+                <Button
                   onClick={() => {
                     setDraft(beforeEdit);
                     setEditing(false);
                   }}
                 >
                   {t.cancel}
-                </button>
+                </Button>
               </div>
             </>
           ) : (
@@ -332,7 +232,7 @@ export function Reply({ settings, serious }: Props) {
           <div className="response-actions">
             <CopyButton key={draft} value={draft} review />
             {!editing && (
-              <button
+              <Button
                 className="text-button"
                 onClick={() => {
                   setBeforeEdit(draft);
@@ -340,13 +240,12 @@ export function Reply({ settings, serious }: Props) {
                 }}
               >
                 {t.edit}
-              </button>
+              </Button>
             )}
           </div>
         </section>
       </div>
       <SituationPicker value={scenarioId} onChange={(id) => replace(id, tone, format)} />
-      <MethodPicker key={scenarioId} ids={scenario?.techniqueIds ?? ['documentation']} />
       <details>
         <summary>{t.quickUi.options}</summary>
         <div className="stack">
@@ -360,16 +259,6 @@ export function Reply({ settings, serious }: Props) {
               { value: 'follow_up', label: t.followUp },
             ]}
           />
-          <Field label={t.concreteFacts} value={facts} onChange={setFacts} multiline />
-          <button
-            disabled={!facts.trim()}
-            onClick={() => {
-              setDraft((value) => `${value}\n\n${facts}`);
-              setFacts('');
-            }}
-          >
-            {t.applyFacts}
-          </button>
           <p className="muted">{scenario?.nextAction ?? t.generic}</p>
         </div>
       </details>
@@ -377,16 +266,9 @@ export function Reply({ settings, serious }: Props) {
   );
 }
 export function Serious({ leave }: { leave: () => void }) {
-  const [risk, setRisk] = useState(t.risks[4]!);
   return (
     <>
       <PageTitle intro={t.seriousIntro}>{t.seriousTitle}</PageTitle>
-      <Select
-        label={t.support}
-        value={risk}
-        onChange={setRisk}
-        options={t.risks.map((label) => ({ value: label, label }))}
-      />
       <p className="mantra">{t.seriousGround}</p>
       <div className="stack">
         <p>{t.seriousImmediate}</p>
@@ -394,9 +276,9 @@ export function Serious({ leave }: { leave: () => void }) {
         <p>{t.seriousHealth}</p>
       </div>
       <p className="muted">{t.seriousHidden}</p>
-      <button className="primary" onClick={leave}>
+      <Button className="primary" onClick={leave}>
         {t.neutral}
-      </button>
+      </Button>
     </>
   );
 }

@@ -1,0 +1,24 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { messages as t } from '../src/content';
+import { App } from '../src/app/App';
+import '../src/styles/global.css';
+import './web.css';
+
+document.documentElement.dataset.platform = 'web';
+createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+);
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    void navigator.serviceWorker.register('/sw.js').catch(() => {
+      const notice = document.createElement('p');
+      notice.className = 'offline-error';
+      notice.textContent = t.pwa.offlineFailed;
+      notice.setAttribute('role', 'alert');
+      document.body.append(notice);
+    });
+  });
+}

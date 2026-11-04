@@ -1,7 +1,7 @@
 [
   {
     "id": "m_vague_accusation",
-    "text": "A vague criticism is not a complete assessment of my work.",
+    "text": "I am more than this vague criticism.",
     "situationIds": ["vague_accusation"],
     "behaviorIds": ["behavior_vague_accusation"],
     "purpose": "distancing",
@@ -12,7 +12,7 @@
   },
   {
     "id": "m_guilt_induction",
-    "text": "I can care about the team without promising everything.",
+    "text": "My care has limits, and those limits matter.",
     "situationIds": ["guilt_induction"],
     "behaviorIds": ["behavior_guilt_induction"],
     "purpose": "self_respect",
@@ -23,7 +23,7 @@
   },
   {
     "id": "m_dismissal_warning",
-    "text": "A warning deserves clarity, not catastrophic certainty.",
+    "text": "I face this warning one fact at a time.",
     "situationIds": ["dismissal_warning"],
     "behaviorIds": ["behavior_dismissal_warning"],
     "purpose": "grounding",
@@ -34,7 +34,7 @@
   },
   {
     "id": "m_public_criticism",
-    "text": "I can remain composed without accepting humiliation as a definition of me.",
+    "text": "My dignity stays mine in this room.",
     "situationIds": ["public_criticism"],
     "behaviorIds": ["behavior_public_criticism"],
     "purpose": "self_respect",
@@ -45,7 +45,7 @@
   },
   {
     "id": "m_colleague_gossip",
-    "text": "My colleagues are not characters in someone else's story.",
+    "text": "I choose my own view of my colleagues.",
     "situationIds": ["colleague_gossip"],
     "behaviorIds": ["behavior_colleague_gossip"],
     "purpose": "self_respect",
@@ -56,7 +56,7 @@
   },
   {
     "id": "m_unattributed_consensus",
-    "text": "A vague collective opinion is not a verified fact.",
+    "text": "I need specifics, even from an invisible crowd.",
     "situationIds": ["unattributed_consensus"],
     "behaviorIds": ["behavior_unattributed_consensus"],
     "purpose": "distancing",
@@ -67,7 +67,7 @@
   },
   {
     "id": "m_circular_interrogation",
-    "text": "I do not need to defend a moving target indefinitely.",
+    "text": "I owe one answer, not endless self-defense.",
     "situationIds": ["circular_interrogation"],
     "behaviorIds": ["behavior_circular_interrogation"],
     "purpose": "self_respect",
@@ -78,7 +78,7 @@
   },
   {
     "id": "m_moving_goalposts",
-    "text": "An unrecorded change is not evidence that I failed.",
+    "text": "My work belongs to the brief I receive.",
     "situationIds": ["moving_goalposts"],
     "behaviorIds": ["behavior_moving_goalposts"],
     "purpose": "distancing",
@@ -89,7 +89,7 @@
   },
   {
     "id": "m_withheld_information",
-    "text": "Missing information is a dependency, not a character flaw.",
+    "text": "I am capable, even with information missing.",
     "situationIds": ["withheld_information"],
     "behaviorIds": ["behavior_withheld_information"],
     "purpose": "distancing",
@@ -100,7 +100,7 @@
   },
   {
     "id": "m_meeting_loop",
-    "text": "A meeting is not the same thing as progress.",
+    "text": "My time matters beyond this meeting invitation.",
     "situationIds": ["meeting_loop"],
     "behaviorIds": ["behavior_meeting_loop"],
     "purpose": "distancing",
@@ -111,7 +111,7 @@
   },
   {
     "id": "m_responsibility_diffusion",
-    "text": "Vague ownership is a coordination problem I can clarify.",
+    "text": "I notice a task without inheriting it.",
     "situationIds": ["responsibility_diffusion"],
     "behaviorIds": ["behavior_responsibility_diffusion"],
     "purpose": "self_respect",
@@ -122,7 +122,7 @@
   },
   {
     "id": "m_micromanagement",
-    "text": "Oversight can be negotiated into a clearer process.",
+    "text": "My attention belongs to the work, too.",
     "situationIds": ["micromanagement"],
     "behaviorIds": ["behavior_micromanagement"],
     "purpose": "self_respect",
@@ -133,7 +133,7 @@
   },
   {
     "id": "m_competing_priorities",
-    "text": "Capacity is finite even when someone calls everything urgent.",
+    "text": "I have one capacity, however many priorities appear.",
     "situationIds": ["competing_priorities"],
     "behaviorIds": ["behavior_competing_priorities"],
     "purpose": "self_respect",
@@ -144,7 +144,7 @@
   },
   {
     "id": "m_credit_dispute",
-    "text": "My contribution exists even when someone overlooks it.",
+    "text": "My contribution exists beyond the credits slide.",
     "situationIds": ["credit_dispute"],
     "behaviorIds": ["behavior_credit_dispute"],
     "purpose": "self_respect",
@@ -155,7 +155,7 @@
   },
   {
     "id": "m_workload_overload",
-    "text": "I cannot create extra hours by apologizing.",
+    "text": "I have limits, not extra hours in reserve.",
     "situationIds": ["workload_overload"],
     "behaviorIds": ["behavior_workload_overload"],
     "purpose": "self_respect",
@@ -166,7 +166,7 @@
   },
   {
     "id": "m_surveillance_concern",
-    "text": "Monitoring does not automatically establish poor performance.",
+    "text": "My worth is not a monitoring metric.",
     "situationIds": ["surveillance_concern"],
     "behaviorIds": ["behavior_surveillance_concern"],
     "purpose": "distancing",
@@ -177,7 +177,7 @@
   },
   {
     "id": "m_no_response",
-    "text": "Silence can be an unresolved dependency rather than a personal verdict.",
+    "text": "I am waiting for information, not a verdict.",
     "situationIds": ["no_response"],
     "behaviorIds": ["behavior_no_response"],
     "purpose": "distancing",
@@ -188,7 +188,7 @@
   },
   {
     "id": "m_suspected_retaliation",
-    "text": "A sequence of events needs facts before conclusions.",
+    "text": "I take my concern seriously and keep my judgment.",
     "situationIds": ["suspected_retaliation"],
     "behaviorIds": ["behavior_suspected_retaliation"],
     "purpose": "distancing",
@@ -199,7 +199,7 @@
   },
   {
     "id": "m_after_meeting_replay",
-    "text": "Remembering an event doesn't require reliving it.",
+    "text": "I remember the meeting without living inside it.",
     "situationIds": ["after_meeting_replay"],
     "behaviorIds": ["behavior_after_meeting_replay"],
     "purpose": "distancing",
@@ -210,7 +210,7 @@
   },
   {
     "id": "m_ordinary_disagreement",
-    "text": "A disagreement is not automatically a threat.",
+    "text": "My view has room in a disagreement.",
     "situationIds": ["ordinary_disagreement"],
     "behaviorIds": ["behavior_ordinary_disagreement"],
     "purpose": "distancing",
@@ -221,7 +221,7 @@
   },
   {
     "id": "m_general_01",
-    "text": "I am allowed to ask for a specific example.",
+    "text": "I deserve a specific example, not a guessing game.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "self_respect",
@@ -232,7 +232,7 @@
   },
   {
     "id": "m_general_02",
-    "text": "An uncomfortable meeting is one event, not my whole career.",
+    "text": "My career is bigger than this uncomfortable room.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "distancing",
@@ -243,7 +243,7 @@
   },
   {
     "id": "m_general_03",
-    "text": "I do not need to invent certainty from an ambiguous warning.",
+    "text": "I leave uncertainty open instead of filling it with fear.",
     "situationIds": ["dismissal_warning"],
     "behaviorIds": ["behavior_dismissal_warning"],
     "purpose": "distancing",
@@ -254,7 +254,7 @@
   },
   {
     "id": "m_general_04",
-    "text": "I can be warm without sharing my private feelings.",
+    "text": "I am warm without opening my whole life.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "self_respect",
@@ -265,7 +265,7 @@
   },
   {
     "id": "m_general_05",
-    "text": "My next sentence can be short and accurate.",
+    "text": "My next sentence is short and accurate.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "grounding",
@@ -276,7 +276,7 @@
   },
   {
     "id": "m_general_06",
-    "text": "Unclear expectations are questions, not proof of incompetence.",
+    "text": "I ask for clarity without questioning my worth.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "distancing",
@@ -287,7 +287,7 @@
   },
   {
     "id": "m_general_07",
-    "text": "I can acknowledge a real mistake without accepting every accusation.",
+    "text": "I own my part without swallowing every accusation.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "self_respect",
@@ -298,7 +298,7 @@
   },
   {
     "id": "m_general_08",
-    "text": "I can stop rehearsing a conversation once I have written the next action.",
+    "text": "I let this conversation end in my head.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "self_respect",
@@ -309,7 +309,7 @@
   },
   {
     "id": "m_general_09",
-    "text": "I can protect my relationships with colleagues directly.",
+    "text": "My relationships are mine, beyond the office narrative.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "self_respect",
@@ -320,7 +320,7 @@
   },
   {
     "id": "m_general_10",
-    "text": "No decision is still an unresolved decision.",
+    "text": "I recognize an open decision as still open.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "distancing",
@@ -331,7 +331,7 @@
   },
   {
     "id": "m_general_11",
-    "text": "I do not need to solve someone else's emotional state.",
+    "text": "I am not responsible for managing every mood.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "self_respect",
@@ -342,7 +342,7 @@
   },
   {
     "id": "m_general_12",
-    "text": "My financial needs are real, and so are my boundaries.",
+    "text": "My income matters. My boundaries matter too.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "self_respect",
@@ -353,7 +353,7 @@
   },
   {
     "id": "m_general_13",
-    "text": "I can choose a professional response even while feeling angry.",
+    "text": "I choose my words with anger beside me.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "grounding",
@@ -364,7 +364,7 @@
   },
   {
     "id": "m_general_14",
-    "text": "I am experiencing fear; that is not a prediction.",
+    "text": "I feel fear without treating it as a forecast.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "grounding",
@@ -375,7 +375,7 @@
   },
   {
     "id": "m_general_15",
-    "text": "I can give myself time to verify a claim before answering.",
+    "text": "I give myself a moment to check.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "grounding",
@@ -386,7 +386,7 @@
   },
   {
     "id": "m_general_16",
-    "text": "Other people's urgency does not erase the task constraints.",
+    "text": "My task constraints remain real under pressure.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "self_respect",
@@ -397,7 +397,7 @@
   },
   {
     "id": "m_general_17",
-    "text": "I can be courteous without agreeing to an inaccurate story.",
+    "text": "I stay courteous without endorsing an inaccurate story.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "self_respect",
@@ -408,7 +408,7 @@
   },
   {
     "id": "m_general_18",
-    "text": "Today's feedback does not replace my whole work history.",
+    "text": "My work history is larger than today's feedback.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "distancing",
@@ -419,7 +419,7 @@
   },
   {
     "id": "m_general_19",
-    "text": "People can disagree with me without defining me.",
+    "text": "I hear disagreement without surrendering my identity.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "distancing",
@@ -430,7 +430,7 @@
   },
   {
     "id": "m_general_20",
-    "text": "If nothing further is required tonight, I may stop working on it.",
+    "text": "I stop when my work for today is done.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "self_respect",
@@ -441,7 +441,7 @@
   },
   {
     "id": "m_general_21",
-    "text": "One next action is enough for now.",
+    "text": "I take one next step, right here.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "grounding",
@@ -452,7 +452,7 @@
   },
   {
     "id": "m_general_22",
-    "text": "I can ask who owns the decision.",
+    "text": "I ask who decides without volunteering myself.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "self_respect",
@@ -463,7 +463,7 @@
   },
   {
     "id": "m_general_23",
-    "text": "I do not have to decode every hidden meaning.",
+    "text": "I release the job of decoding every subtext.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "distancing",
@@ -474,7 +474,7 @@
   },
   {
     "id": "m_general_24",
-    "text": "A manager's tone and the actual request are different things.",
+    "text": "I separate the tone from the actual request.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "distancing",
@@ -485,7 +485,7 @@
   },
   {
     "id": "m_general_25",
-    "text": "I can let the meeting end, even if my thoughts are still loud.",
+    "text": "I leave the meeting while my thoughts settle.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "distancing",
@@ -496,7 +496,7 @@
   },
   {
     "id": "m_general_26",
-    "text": "My professional worth is not settled in one conversation.",
+    "text": "My worth stays outside this performance review.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "self_respect",
@@ -507,7 +507,7 @@
   },
   {
     "id": "m_vague_accusation_01",
-    "text": "I can feel my feet before I explain my work.",
+    "text": "I notice the floor before I explain myself.",
     "situationIds": ["vague_accusation"],
     "behaviorIds": ["behavior_vague_accusation"],
     "purpose": "grounding",
@@ -518,7 +518,7 @@
   },
   {
     "id": "m_vague_accusation_02",
-    "text": "One precise question is enough to begin this conversation.",
+    "text": "I begin with one clear question.",
     "situationIds": ["vague_accusation"],
     "behaviorIds": ["behavior_vague_accusation"],
     "purpose": "grounding",
@@ -529,7 +529,7 @@
   },
   {
     "id": "m_vague_accusation_03",
-    "text": "An undefined standard cannot tell the whole story of my effort.",
+    "text": "I measure my work against an actual standard.",
     "situationIds": ["vague_accusation"],
     "behaviorIds": ["behavior_vague_accusation"],
     "purpose": "self_respect",
@@ -540,7 +540,7 @@
   },
   {
     "id": "m_vague_accusation_04",
-    "text": "I deserve feedback I can understand and act on.",
+    "text": "I deserve feedback with something usable in it.",
     "situationIds": ["vague_accusation"],
     "behaviorIds": ["behavior_vague_accusation"],
     "purpose": "self_respect",
@@ -551,7 +551,7 @@
   },
   {
     "id": "m_vague_accusation_05",
-    "text": "Specific accountability does not require a blanket confession.",
+    "text": "I take responsibility for specifics, not a blanket verdict.",
     "situationIds": ["vague_accusation"],
     "behaviorIds": ["behavior_vague_accusation"],
     "purpose": "self_respect",
@@ -562,7 +562,7 @@
   },
   {
     "id": "m_vague_accusation_06",
-    "text": "This claim needs an example before it becomes useful information.",
+    "text": "I ask for the example before accepting the label.",
     "situationIds": ["vague_accusation"],
     "behaviorIds": ["behavior_vague_accusation"],
     "purpose": "distancing",
@@ -573,7 +573,7 @@
   },
   {
     "id": "m_vague_accusation_07",
-    "text": "I can examine the criticism without turning it into my identity.",
+    "text": "I examine this criticism without becoming it.",
     "situationIds": ["vague_accusation"],
     "behaviorIds": ["behavior_vague_accusation"],
     "purpose": "distancing",
@@ -584,7 +584,7 @@
   },
   {
     "id": "m_vague_accusation_08",
-    "text": "What was actually said is smaller than everything I feared it meant.",
+    "text": "I hear the words without writing a catastrophe.",
     "situationIds": ["vague_accusation"],
     "behaviorIds": ["behavior_vague_accusation"],
     "purpose": "distancing",
@@ -595,7 +595,7 @@
   },
   {
     "id": "m_vague_accusation_09",
-    "text": "The accusation arrived without its supporting paperwork.",
+    "text": "I am not submitting my soul to this fog machine.",
     "situationIds": ["vague_accusation"],
     "behaviorIds": ["behavior_vague_accusation"],
     "purpose": "dark_humor",
@@ -606,7 +606,7 @@
   },
   {
     "id": "m_vague_accusation_10",
-    "text": "A fog machine is a poor performance rubric.",
+    "text": "My competence does not depend on decoding corporate mist.",
     "situationIds": ["vague_accusation"],
     "behaviorIds": ["behavior_vague_accusation"],
     "purpose": "dark_humor",
@@ -617,7 +617,7 @@
   },
   {
     "id": "m_guilt_induction_01",
-    "text": "I can notice the pressure without answering it immediately.",
+    "text": "I take a second before answering this pressure.",
     "situationIds": ["guilt_induction"],
     "behaviorIds": ["behavior_guilt_induction"],
     "purpose": "grounding",
@@ -628,7 +628,7 @@
   },
   {
     "id": "m_guilt_induction_02",
-    "text": "My shoulders can soften while the request remains unresolved.",
+    "text": "I give my shoulders room while I think.",
     "situationIds": ["guilt_induction"],
     "behaviorIds": ["behavior_guilt_induction"],
     "purpose": "grounding",
@@ -639,7 +639,7 @@
   },
   {
     "id": "m_guilt_induction_03",
-    "text": "Commitment to my work does not mean unlimited availability.",
+    "text": "I care about work without being permanently available.",
     "situationIds": ["guilt_induction"],
     "behaviorIds": ["behavior_guilt_induction"],
     "purpose": "self_respect",
@@ -650,7 +650,7 @@
   },
   {
     "id": "m_guilt_induction_04",
-    "text": "Gratitude does not sign away my right to ask questions.",
+    "text": "My gratitude leaves my right to question intact.",
     "situationIds": ["guilt_induction"],
     "behaviorIds": ["behavior_guilt_induction"],
     "purpose": "self_respect",
@@ -661,7 +661,7 @@
   },
   {
     "id": "m_guilt_induction_05",
-    "text": "I can own my responsibilities without adopting someone else's disappointment.",
+    "text": "I do my part without carrying this disappointment.",
     "situationIds": ["guilt_induction"],
     "behaviorIds": ["behavior_guilt_induction"],
     "purpose": "self_respect",
@@ -672,7 +672,7 @@
   },
   {
     "id": "m_guilt_induction_06",
-    "text": "A loyalty test is different from a clear work instruction.",
+    "text": "I look for the task beneath the loyalty speech.",
     "situationIds": ["guilt_induction"],
     "behaviorIds": ["behavior_guilt_induction"],
     "purpose": "distancing",
@@ -683,7 +683,7 @@
   },
   {
     "id": "m_guilt_induction_07",
-    "text": "Feeling guilty does not tell me which task takes priority.",
+    "text": "I feel guilt without letting it set the schedule.",
     "situationIds": ["guilt_induction"],
     "behaviorIds": ["behavior_guilt_induction"],
     "purpose": "distancing",
@@ -694,7 +694,7 @@
   },
   {
     "id": "m_guilt_induction_08",
-    "text": "I can review the request without replaying the accusation.",
+    "text": "I review the request instead of replaying the accusation.",
     "situationIds": ["guilt_induction"],
     "behaviorIds": ["behavior_guilt_induction"],
     "purpose": "distancing",
@@ -705,7 +705,7 @@
   },
   {
     "id": "m_guilt_induction_09",
-    "text": "The guilt invoice still needs an itemized work requirement.",
+    "text": "I decline the guilt invoice's mystery charges.",
     "situationIds": ["guilt_induction"],
     "behaviorIds": ["behavior_guilt_induction"],
     "purpose": "dark_humor",
@@ -716,7 +716,7 @@
   },
   {
     "id": "m_guilt_induction_10",
-    "text": "My employment contract did not appoint me the office sacrifice.",
+    "text": "My job title is not Designated Office Sacrifice.",
     "situationIds": ["guilt_induction"],
     "behaviorIds": ["behavior_guilt_induction"],
     "purpose": "dark_humor",
@@ -727,7 +727,7 @@
   },
   {
     "id": "m_dismissal_warning_01",
-    "text": "I can notice the room while I take this warning seriously.",
+    "text": "I notice my surroundings and take this seriously.",
     "situationIds": ["dismissal_warning"],
     "behaviorIds": ["behavior_dismissal_warning"],
     "purpose": "grounding",
@@ -738,7 +738,7 @@
   },
   {
     "id": "m_dismissal_warning_02",
-    "text": "My next breath can be ordinary; my next question can be specific.",
+    "text": "I take one ordinary breath before seeking clarity.",
     "situationIds": ["dismissal_warning"],
     "behaviorIds": ["behavior_dismissal_warning"],
     "purpose": "grounding",
@@ -749,7 +749,7 @@
   },
   {
     "id": "m_dismissal_warning_03",
-    "text": "Fear can be present while I check what is actually being proposed.",
+    "text": "I feel scared and stay with the stated facts.",
     "situationIds": ["dismissal_warning"],
     "behaviorIds": ["behavior_dismissal_warning"],
     "purpose": "grounding",
@@ -760,7 +760,7 @@
   },
   {
     "id": "m_dismissal_warning_04",
-    "text": "My income matters, and I can seek clear information about the risk.",
+    "text": "My livelihood deserves clear information about this risk.",
     "situationIds": ["dismissal_warning"],
     "behaviorIds": ["behavior_dismissal_warning"],
     "purpose": "self_respect",
@@ -771,7 +771,7 @@
   },
   {
     "id": "m_dismissal_warning_05",
-    "text": "Asking for expectations is a legitimate response to a job warning.",
+    "text": "I ask what is expected before committing.",
     "situationIds": ["dismissal_warning"],
     "behaviorIds": ["behavior_dismissal_warning"],
     "purpose": "self_respect",
@@ -782,7 +782,7 @@
   },
   {
     "id": "m_dismissal_warning_06",
-    "text": "I can protect my options without proving fearlessness.",
+    "text": "I protect my options with fear still present.",
     "situationIds": ["dismissal_warning"],
     "behaviorIds": ["behavior_dismissal_warning"],
     "purpose": "self_respect",
@@ -793,7 +793,7 @@
   },
   {
     "id": "m_dismissal_warning_07",
-    "text": "The stated concern, formal status and possible outcome are separate questions.",
+    "text": "I ask for the process behind this warning.",
     "situationIds": ["dismissal_warning"],
     "behaviorIds": ["behavior_dismissal_warning"],
     "purpose": "distancing",
@@ -804,7 +804,7 @@
   },
   {
     "id": "m_dismissal_warning_08",
-    "text": "I do not yet know everything this warning will mean.",
+    "text": "I leave unknown outcomes unknown for this moment.",
     "situationIds": ["dismissal_warning"],
     "behaviorIds": ["behavior_dismissal_warning"],
     "purpose": "distancing",
@@ -815,7 +815,7 @@
   },
   {
     "id": "m_dismissal_warning_09",
-    "text": "I can record the words I remember without adding a predicted ending.",
+    "text": "I stay with what I know about this exchange.",
     "situationIds": ["dismissal_warning"],
     "behaviorIds": ["behavior_dismissal_warning"],
     "purpose": "distancing",
@@ -826,7 +826,7 @@
   },
   {
     "id": "m_dismissal_warning_10",
-    "text": "Seeking qualified support is a practical option, not a personal failure.",
+    "text": "I deserve support while I consider my options.",
     "situationIds": ["dismissal_warning"],
     "behaviorIds": ["behavior_dismissal_warning"],
     "purpose": "self_respect",
@@ -837,7 +837,7 @@
   },
   {
     "id": "m_public_criticism_01",
-    "text": "I can look at one steady object while the room feels charged.",
+    "text": "I rest my eyes on something steady.",
     "situationIds": ["public_criticism"],
     "behaviorIds": ["behavior_public_criticism"],
     "purpose": "grounding",
@@ -848,7 +848,7 @@
   },
   {
     "id": "m_public_criticism_02",
-    "text": "I do not have to fill every silence with a defense.",
+    "text": "I leave silence without filling it with a defense.",
     "situationIds": ["public_criticism"],
     "behaviorIds": ["behavior_public_criticism"],
     "purpose": "grounding",
@@ -859,7 +859,7 @@
   },
   {
     "id": "m_public_criticism_03",
-    "text": "An audience does not make a broad judgment more accurate.",
+    "text": "I keep my worth separate from the audience.",
     "situationIds": ["public_criticism"],
     "behaviorIds": ["behavior_public_criticism"],
     "purpose": "self_respect",
@@ -870,7 +870,7 @@
   },
   {
     "id": "m_public_criticism_04",
-    "text": "My dignity does not depend on winning this exchange in public.",
+    "text": "I keep my dignity without winning this exchange.",
     "situationIds": ["public_criticism"],
     "behaviorIds": ["behavior_public_criticism"],
     "purpose": "self_respect",
@@ -881,7 +881,7 @@
   },
   {
     "id": "m_public_criticism_05",
-    "text": "I can request useful feedback without performing self-blame.",
+    "text": "I ask for useful feedback without shrinking myself.",
     "situationIds": ["public_criticism"],
     "behaviorIds": ["behavior_public_criticism"],
     "purpose": "self_respect",
@@ -892,7 +892,7 @@
   },
   {
     "id": "m_public_criticism_06",
-    "text": "I can separate the work issue from the way it was delivered.",
+    "text": "I separate the work issue from the delivery.",
     "situationIds": ["public_criticism"],
     "behaviorIds": ["behavior_public_criticism"],
     "purpose": "distancing",
@@ -903,7 +903,7 @@
   },
   {
     "id": "m_public_criticism_07",
-    "text": "Other people witnessed a moment, not the whole of my competence.",
+    "text": "I exist beyond what this room witnesses.",
     "situationIds": ["public_criticism"],
     "behaviorIds": ["behavior_public_criticism"],
     "purpose": "distancing",
@@ -914,7 +914,7 @@
   },
   {
     "id": "m_public_criticism_08",
-    "text": "I can describe the event without replaying every face in the room.",
+    "text": "I let the audience leave my thoughts, too.",
     "situationIds": ["public_criticism"],
     "behaviorIds": ["behavior_public_criticism"],
     "purpose": "distancing",
@@ -925,7 +925,7 @@
   },
   {
     "id": "m_public_criticism_09",
-    "text": "The review acquired an audience, but still needs an actionable point.",
+    "text": "I am not auditioning for this public performance.",
     "situationIds": ["public_criticism"],
     "behaviorIds": ["behavior_public_criticism"],
     "purpose": "dark_humor",
@@ -936,7 +936,7 @@
   },
   {
     "id": "m_public_criticism_10",
-    "text": "A public performance is not a complete quality review.",
+    "text": "My competence needs no approval from the peanut gallery.",
     "situationIds": ["public_criticism"],
     "behaviorIds": ["behavior_public_criticism"],
     "purpose": "dark_humor",
@@ -947,7 +947,7 @@
   },
   {
     "id": "m_colleague_gossip_01",
-    "text": "I can pause before accepting an invitation to judge someone absent.",
+    "text": "I pause before joining someone else's gossip.",
     "situationIds": ["colleague_gossip"],
     "behaviorIds": ["behavior_colleague_gossip"],
     "purpose": "grounding",
@@ -958,7 +958,7 @@
   },
   {
     "id": "m_colleague_gossip_02",
-    "text": "The next useful topic can be the shared work.",
+    "text": "I bring my attention back to shared work.",
     "situationIds": ["colleague_gossip"],
     "behaviorIds": ["behavior_colleague_gossip"],
     "purpose": "grounding",
@@ -969,7 +969,7 @@
   },
   {
     "id": "m_colleague_gossip_03",
-    "text": "My relationships with colleagues are mine to build directly.",
+    "text": "My connections with colleagues belong to me.",
     "situationIds": ["colleague_gossip"],
     "behaviorIds": ["behavior_colleague_gossip"],
     "purpose": "self_respect",
@@ -980,7 +980,7 @@
   },
   {
     "id": "m_colleague_gossip_04",
-    "text": "I can stay courteous without endorsing a personal assessment.",
+    "text": "I stay polite without joining the verdict.",
     "situationIds": ["colleague_gossip"],
     "behaviorIds": ["behavior_colleague_gossip"],
     "purpose": "self_respect",
@@ -991,7 +991,7 @@
   },
   {
     "id": "m_colleague_gossip_05",
-    "text": "Receiving gossip does not make me responsible for passing it on.",
+    "text": "I choose where this rumor stops with me.",
     "situationIds": ["colleague_gossip"],
     "behaviorIds": ["behavior_colleague_gossip"],
     "purpose": "self_respect",
@@ -1002,7 +1002,7 @@
   },
   {
     "id": "m_colleague_gossip_06",
-    "text": "Secondhand opinions are different from firsthand observations.",
+    "text": "I distinguish what I hear from what I observe.",
     "situationIds": ["colleague_gossip"],
     "behaviorIds": ["behavior_colleague_gossip"],
     "purpose": "distancing",
@@ -1013,7 +1013,7 @@
   },
   {
     "id": "m_colleague_gossip_07",
-    "text": "Warmth toward me does not verify a story about someone else.",
+    "text": "I keep a compliment separate from the attached rumor.",
     "situationIds": ["colleague_gossip"],
     "behaviorIds": ["behavior_colleague_gossip"],
     "purpose": "distancing",
@@ -1024,7 +1024,7 @@
   },
   {
     "id": "m_colleague_gossip_08",
-    "text": "I can keep the relevant work fact and leave the speculation here.",
+    "text": "I keep the work detail and release the speculation.",
     "situationIds": ["colleague_gossip"],
     "behaviorIds": ["behavior_colleague_gossip"],
     "purpose": "distancing",
@@ -1035,7 +1035,7 @@
   },
   {
     "id": "m_colleague_gossip_09",
-    "text": "The rumor arrived dressed as a project update.",
+    "text": "I am not this office's rumor subscription service.",
     "situationIds": ["colleague_gossip"],
     "behaviorIds": ["behavior_colleague_gossip"],
     "purpose": "dark_humor",
@@ -1046,7 +1046,7 @@
   },
   {
     "id": "m_colleague_gossip_10",
-    "text": "I do not need a membership in the office whispering circle.",
+    "text": "My name is off the whispering-circle guest list.",
     "situationIds": ["colleague_gossip"],
     "behaviorIds": ["behavior_colleague_gossip"],
     "purpose": "dark_humor",
@@ -1057,7 +1057,7 @@
   },
   {
     "id": "m_unattributed_consensus_01",
-    "text": "I can hear a collective claim and still ask one concrete question.",
+    "text": "I meet a sweeping claim with a specific question.",
     "situationIds": ["unattributed_consensus"],
     "behaviorIds": ["behavior_unattributed_consensus"],
     "purpose": "grounding",
@@ -1068,7 +1068,7 @@
   },
   {
     "id": "m_unattributed_consensus_02",
-    "text": "I only need to respond to the concern that has actually been stated.",
+    "text": "I answer the concern that is actually stated.",
     "situationIds": ["unattributed_consensus"],
     "behaviorIds": ["behavior_unattributed_consensus"],
     "purpose": "grounding",
@@ -1079,7 +1079,7 @@
   },
   {
     "id": "m_unattributed_consensus_03",
-    "text": "I do not owe an apology to an unnamed audience.",
+    "text": "I owe no apology to an unnamed jury.",
     "situationIds": ["unattributed_consensus"],
     "behaviorIds": ["behavior_unattributed_consensus"],
     "purpose": "self_respect",
@@ -1090,7 +1090,7 @@
   },
   {
     "id": "m_unattributed_consensus_04",
-    "text": "A request for a usable example is a reasonable work response.",
+    "text": "I deserve an example behind a general judgment.",
     "situationIds": ["unattributed_consensus"],
     "behaviorIds": ["behavior_unattributed_consensus"],
     "purpose": "self_respect",
@@ -1101,7 +1101,7 @@
   },
   {
     "id": "m_unattributed_consensus_05",
-    "text": "My accuracy matters even when the feedback sounds unanimous.",
+    "text": "My accuracy matters under a chorus of opinions.",
     "situationIds": ["unattributed_consensus"],
     "behaviorIds": ["behavior_unattributed_consensus"],
     "purpose": "self_respect",
@@ -1112,7 +1112,7 @@
   },
   {
     "id": "m_unattributed_consensus_06",
-    "text": "The number of concerned people is not established by the word everyone.",
+    "text": "I ask whose concern is being raised.",
     "situationIds": ["unattributed_consensus"],
     "behaviorIds": ["behavior_unattributed_consensus"],
     "purpose": "distancing",
@@ -1123,7 +1123,7 @@
   },
   {
     "id": "m_unattributed_consensus_07",
-    "text": "An unspecified group is not a set of verified individual accounts.",
+    "text": "I leave unnamed people out of my imagination.",
     "situationIds": ["unattributed_consensus"],
     "behaviorIds": ["behavior_unattributed_consensus"],
     "purpose": "distancing",
@@ -1134,7 +1134,7 @@
   },
   {
     "id": "m_unattributed_consensus_08",
-    "text": "I can write down the claim without inventing its supporters.",
+    "text": "I separate the claim from its missing evidence.",
     "situationIds": ["unattributed_consensus"],
     "behaviorIds": ["behavior_unattributed_consensus"],
     "purpose": "distancing",
@@ -1145,7 +1145,7 @@
   },
   {
     "id": "m_unattributed_consensus_09",
-    "text": "The Royal We has yet to submit a witness list.",
+    "text": "I await the Royal We's actual witness list.",
     "situationIds": ["unattributed_consensus"],
     "behaviorIds": ["behavior_unattributed_consensus"],
     "purpose": "dark_humor",
@@ -1156,7 +1156,7 @@
   },
   {
     "id": "m_unattributed_consensus_10",
-    "text": "An invisible committee cannot replace a specific acceptance criterion.",
+    "text": "I reserve my concern for a committee that exists.",
     "situationIds": ["unattributed_consensus"],
     "behaviorIds": ["behavior_unattributed_consensus"],
     "purpose": "dark_humor",
@@ -1167,7 +1167,7 @@
   },
   {
     "id": "m_circular_interrogation_01",
-    "text": "I can pause long enough to identify the question on the table.",
+    "text": "I pause and find the question underneath.",
     "situationIds": ["circular_interrogation"],
     "behaviorIds": ["behavior_circular_interrogation"],
     "purpose": "grounding",
@@ -1178,7 +1178,7 @@
   },
   {
     "id": "m_circular_interrogation_02",
-    "text": "My attention can return to one issue at a time.",
+    "text": "My attention returns to one issue at a time.",
     "situationIds": ["circular_interrogation"],
     "behaviorIds": ["behavior_circular_interrogation"],
     "purpose": "grounding",
@@ -1189,7 +1189,7 @@
   },
   {
     "id": "m_circular_interrogation_03",
-    "text": "I can be cooperative without supplying endless new defenses.",
+    "text": "I help without living on a defense loop.",
     "situationIds": ["circular_interrogation"],
     "behaviorIds": ["behavior_circular_interrogation"],
     "purpose": "self_respect",
@@ -1200,7 +1200,7 @@
   },
   {
     "id": "m_circular_interrogation_04",
-    "text": "Not having another answer does not require inventing one.",
+    "text": "I acknowledge when I have no new answer.",
     "situationIds": ["circular_interrogation"],
     "behaviorIds": ["behavior_circular_interrogation"],
     "purpose": "self_respect",
@@ -1211,7 +1211,7 @@
   },
   {
     "id": "m_circular_interrogation_05",
-    "text": "I can ask for a pause when the discussion stops being workable.",
+    "text": "I take a pause from a circular exchange.",
     "situationIds": ["circular_interrogation"],
     "behaviorIds": ["behavior_circular_interrogation"],
     "purpose": "self_respect",
@@ -1222,7 +1222,7 @@
   },
   {
     "id": "m_circular_interrogation_06",
-    "text": "A repeated question is not automatically new evidence.",
+    "text": "I recognize repetition without mistaking it for evidence.",
     "situationIds": ["circular_interrogation"],
     "behaviorIds": ["behavior_circular_interrogation"],
     "purpose": "distancing",
@@ -1233,7 +1233,7 @@
   },
   {
     "id": "m_circular_interrogation_07",
-    "text": "I can notice the loop without making it my whole afternoon.",
+    "text": "I notice the loop without donating my afternoon.",
     "situationIds": ["circular_interrogation"],
     "behaviorIds": ["behavior_circular_interrogation"],
     "purpose": "distancing",
@@ -1244,7 +1244,7 @@
   },
   {
     "id": "m_circular_interrogation_08",
-    "text": "The conversation can remain unresolved while I choose a factual follow-up.",
+    "text": "I leave an unresolved question outside my identity.",
     "situationIds": ["circular_interrogation"],
     "behaviorIds": ["behavior_circular_interrogation"],
     "purpose": "distancing",
@@ -1255,7 +1255,7 @@
   },
   {
     "id": "m_circular_interrogation_09",
-    "text": "This question has completed another lap without finding a destination.",
+    "text": "I am off the interrogation's endless sequel contract.",
     "situationIds": ["circular_interrogation"],
     "behaviorIds": ["behavior_circular_interrogation"],
     "purpose": "dark_humor",
@@ -1266,7 +1266,7 @@
   },
   {
     "id": "m_circular_interrogation_10",
-    "text": "The interrogation has a sequel; my explanation does not need one.",
+    "text": "My answer has no subscription renewal clause.",
     "situationIds": ["circular_interrogation"],
     "behaviorIds": ["behavior_circular_interrogation"],
     "purpose": "dark_humor",
@@ -1277,7 +1277,7 @@
   },
   {
     "id": "m_moving_goalposts_01",
-    "text": "I can slow down enough to compare the earlier and current request.",
+    "text": "I compare the earlier request with this one.",
     "situationIds": ["moving_goalposts"],
     "behaviorIds": ["behavior_moving_goalposts"],
     "purpose": "grounding",
@@ -1288,7 +1288,7 @@
   },
   {
     "id": "m_moving_goalposts_02",
-    "text": "First identify the change; then consider the work it creates.",
+    "text": "I name the change before calculating the extra work.",
     "situationIds": ["moving_goalposts"],
     "behaviorIds": ["behavior_moving_goalposts"],
     "purpose": "grounding",
@@ -1299,7 +1299,7 @@
   },
   {
     "id": "m_moving_goalposts_03",
-    "text": "Adapting to a change does not require pretending it was always there.",
+    "text": "I keep the new requirement distinct from the old.",
     "situationIds": ["moving_goalposts"],
     "behaviorIds": ["behavior_moving_goalposts"],
     "purpose": "self_respect",
@@ -1310,7 +1310,7 @@
   },
   {
     "id": "m_moving_goalposts_04",
-    "text": "My previous effort deserves an accurate account of its original requirements.",
+    "text": "My earlier effort belongs to its original scope.",
     "situationIds": ["moving_goalposts"],
     "behaviorIds": ["behavior_moving_goalposts"],
     "purpose": "self_respect",
@@ -1321,7 +1321,7 @@
   },
   {
     "id": "m_moving_goalposts_05",
-    "text": "A revised request can also need a revised estimate.",
+    "text": "I make room for an estimate that changes too.",
     "situationIds": ["moving_goalposts"],
     "behaviorIds": ["behavior_moving_goalposts"],
     "purpose": "self_respect",
@@ -1332,7 +1332,7 @@
   },
   {
     "id": "m_moving_goalposts_06",
-    "text": "A new criterion and an earlier mistake are different possibilities.",
+    "text": "I check the brief before blaming myself.",
     "situationIds": ["moving_goalposts"],
     "behaviorIds": ["behavior_moving_goalposts"],
     "purpose": "distancing",
@@ -1343,7 +1343,7 @@
   },
   {
     "id": "m_moving_goalposts_07",
-    "text": "I can track the requirement without deciding why it changed.",
+    "text": "I follow the requirement without guessing the motive.",
     "situationIds": ["moving_goalposts"],
     "behaviorIds": ["behavior_moving_goalposts"],
     "purpose": "distancing",
@@ -1354,7 +1354,7 @@
   },
   {
     "id": "m_moving_goalposts_08",
-    "text": "The useful record is what changed, when and with what work impact.",
+    "text": "I recognize the extra work this change creates.",
     "situationIds": ["moving_goalposts"],
     "behaviorIds": ["behavior_moving_goalposts"],
     "purpose": "distancing",
@@ -1365,7 +1365,7 @@
   },
   {
     "id": "m_moving_goalposts_09",
-    "text": "The goalposts moved; the estimate is allowed to travel too.",
+    "text": "My estimate travels with these wandering goalposts.",
     "situationIds": ["moving_goalposts"],
     "behaviorIds": ["behavior_moving_goalposts"],
     "purpose": "dark_humor",
@@ -1376,7 +1376,7 @@
   },
   {
     "id": "m_moving_goalposts_10",
-    "text": "The latest definition of done needs a version number.",
+    "text": "I am not a time traveler for retroactive requirements.",
     "situationIds": ["moving_goalposts"],
     "behaviorIds": ["behavior_moving_goalposts"],
     "purpose": "dark_humor",
@@ -1387,7 +1387,7 @@
   },
   {
     "id": "m_withheld_information_01",
-    "text": "I can identify the missing input before questioning my ability.",
+    "text": "I find the missing input without doubting my ability.",
     "situationIds": ["withheld_information"],
     "behaviorIds": ["behavior_withheld_information"],
     "purpose": "grounding",
@@ -1398,7 +1398,7 @@
   },
   {
     "id": "m_withheld_information_02",
-    "text": "A clear dependency is a more useful starting point than panic.",
+    "text": "I name the information this task needs.",
     "situationIds": ["withheld_information"],
     "behaviorIds": ["behavior_withheld_information"],
     "purpose": "grounding",
@@ -1409,7 +1409,7 @@
   },
   {
     "id": "m_withheld_information_03",
-    "text": "I am allowed to name what I need to do accurate work.",
+    "text": "I deserve the details that make accurate work possible.",
     "situationIds": ["withheld_information"],
     "behaviorIds": ["behavior_withheld_information"],
     "purpose": "self_respect",
@@ -1420,7 +1420,7 @@
   },
   {
     "id": "m_withheld_information_04",
-    "text": "My responsibility does not include knowing information I have not received.",
+    "text": "I am not accountable for knowing an undisclosed detail.",
     "situationIds": ["withheld_information"],
     "behaviorIds": ["behavior_withheld_information"],
     "purpose": "self_respect",
@@ -1431,7 +1431,7 @@
   },
   {
     "id": "m_withheld_information_05",
-    "text": "I can state a limit without accusing anyone of an intention.",
+    "text": "I state my limit without explaining anyone's intentions.",
     "situationIds": ["withheld_information"],
     "behaviorIds": ["behavior_withheld_information"],
     "purpose": "self_respect",
@@ -1442,7 +1442,7 @@
   },
   {
     "id": "m_withheld_information_06",
-    "text": "An unavailable detail is an unknown, not proof that I missed it.",
+    "text": "I leave a missing fact clearly unknown.",
     "situationIds": ["withheld_information"],
     "behaviorIds": ["behavior_withheld_information"],
     "purpose": "distancing",
@@ -1453,7 +1453,7 @@
   },
   {
     "id": "m_withheld_information_07",
-    "text": "I can distinguish waiting for an input from avoiding the task.",
+    "text": "I recognize a dependency without calling myself lazy.",
     "situationIds": ["withheld_information"],
     "behaviorIds": ["behavior_withheld_information"],
     "purpose": "distancing",
@@ -1464,7 +1464,7 @@
   },
   {
     "id": "m_withheld_information_08",
-    "text": "I can record the request and stop mentally searching an empty inbox.",
+    "text": "I stop searching myself for someone else's missing answer.",
     "situationIds": ["withheld_information"],
     "behaviorIds": ["behavior_withheld_information"],
     "purpose": "distancing",
@@ -1475,7 +1475,7 @@
   },
   {
     "id": "m_withheld_information_09",
-    "text": "The missing attachment has not become a test of character.",
+    "text": "My deliverables do not include corporate clairvoyance.",
     "situationIds": ["withheld_information"],
     "behaviorIds": ["behavior_withheld_information"],
     "purpose": "dark_humor",
@@ -1486,7 +1486,7 @@
   },
   {
     "id": "m_withheld_information_10",
-    "text": "Clairvoyance remains outside the agreed deliverables.",
+    "text": "I am a worker, not an attachment-summoning oracle.",
     "situationIds": ["withheld_information"],
     "behaviorIds": ["behavior_withheld_information"],
     "purpose": "dark_humor",
@@ -1497,7 +1497,7 @@
   },
   {
     "id": "m_meeting_loop_01",
-    "text": "I can bring my attention back to the decision this meeting needs.",
+    "text": "I ask which decision needs attention here.",
     "situationIds": ["meeting_loop"],
     "behaviorIds": ["behavior_meeting_loop"],
     "purpose": "grounding",
@@ -1508,7 +1508,7 @@
   },
   {
     "id": "m_meeting_loop_02",
-    "text": "One question about the next step can be enough for now.",
+    "text": "I return to the next useful step.",
     "situationIds": ["meeting_loop"],
     "behaviorIds": ["behavior_meeting_loop"],
     "purpose": "grounding",
@@ -1519,7 +1519,7 @@
   },
   {
     "id": "m_meeting_loop_03",
-    "text": "My working time deserves a clear purpose.",
+    "text": "My working time deserves a purpose.",
     "situationIds": ["meeting_loop"],
     "behaviorIds": ["behavior_meeting_loop"],
     "purpose": "self_respect",
@@ -1530,7 +1530,7 @@
   },
   {
     "id": "m_meeting_loop_04",
-    "text": "I can ask what needs deciding without apologizing for the question.",
+    "text": "I have a place in the decision, too.",
     "situationIds": ["meeting_loop"],
     "behaviorIds": ["behavior_meeting_loop"],
     "purpose": "self_respect",
@@ -1541,7 +1541,7 @@
   },
   {
     "id": "m_meeting_loop_05",
-    "text": "Being present does not require volunteering for every unresolved action.",
+    "text": "I attend without inheriting every open action.",
     "situationIds": ["meeting_loop"],
     "behaviorIds": ["behavior_meeting_loop"],
     "purpose": "self_respect",
@@ -1552,7 +1552,7 @@
   },
   {
     "id": "m_meeting_loop_06",
-    "text": "Discussion, agreement and assignment are different events.",
+    "text": "I separate discussion, decision and responsibility.",
     "situationIds": ["meeting_loop"],
     "behaviorIds": ["behavior_meeting_loop"],
     "purpose": "distancing",
@@ -1563,7 +1563,7 @@
   },
   {
     "id": "m_meeting_loop_07",
-    "text": "A full calendar does not tell me which decisions were made.",
+    "text": "I measure progress beyond a crowded calendar.",
     "situationIds": ["meeting_loop"],
     "behaviorIds": ["behavior_meeting_loop"],
     "purpose": "distancing",
@@ -1574,7 +1574,7 @@
   },
   {
     "id": "m_meeting_loop_08",
-    "text": "I can leave the open question written down rather than carry it home.",
+    "text": "I let this meeting leave my evening alone.",
     "situationIds": ["meeting_loop"],
     "behaviorIds": ["behavior_meeting_loop"],
     "purpose": "distancing",
@@ -1585,7 +1585,7 @@
   },
   {
     "id": "m_meeting_loop_09",
-    "text": "Another meeting was summoned; the decision is still missing.",
+    "text": "I am not the meeting's renewable human resource.",
     "situationIds": ["meeting_loop"],
     "behaviorIds": ["behavior_meeting_loop"],
     "purpose": "dark_humor",
@@ -1596,7 +1596,7 @@
   },
   {
     "id": "m_meeting_loop_10",
-    "text": "The calendar reproduced faster than the action list.",
+    "text": "My calendar is full; my soul declines the sequel.",
     "situationIds": ["meeting_loop"],
     "behaviorIds": ["behavior_meeting_loop"],
     "purpose": "dark_humor",
@@ -1607,7 +1607,7 @@
   },
   {
     "id": "m_responsibility_diffusion_01",
-    "text": "I can ask who owns the next action before taking it on.",
+    "text": "I check ownership before accepting another action.",
     "situationIds": ["responsibility_diffusion"],
     "behaviorIds": ["behavior_responsibility_diffusion"],
     "purpose": "grounding",
@@ -1618,7 +1618,7 @@
   },
   {
     "id": "m_responsibility_diffusion_02",
-    "text": "A named decision is easier to work with than a vague collective task.",
+    "text": "I look for a name beside this task.",
     "situationIds": ["responsibility_diffusion"],
     "behaviorIds": ["behavior_responsibility_diffusion"],
     "purpose": "grounding",
@@ -1629,7 +1629,7 @@
   },
   {
     "id": "m_responsibility_diffusion_03",
-    "text": "I do not become the owner merely by noticing an unanswered question.",
+    "text": "I notice loose ends without becoming their owner.",
     "situationIds": ["responsibility_diffusion"],
     "behaviorIds": ["behavior_responsibility_diffusion"],
     "purpose": "self_respect",
@@ -1640,7 +1640,7 @@
   },
   {
     "id": "m_responsibility_diffusion_04",
-    "text": "Helping the team does not require absorbing every loose end.",
+    "text": "My help has a boundary around it.",
     "situationIds": ["responsibility_diffusion"],
     "behaviorIds": ["behavior_responsibility_diffusion"],
     "purpose": "self_respect",
@@ -1651,7 +1651,7 @@
   },
   {
     "id": "m_responsibility_diffusion_05",
-    "text": "I can ask for clear responsibility and still be collaborative.",
+    "text": "I contribute without absorbing everyone's unfinished work.",
     "situationIds": ["responsibility_diffusion"],
     "behaviorIds": ["behavior_responsibility_diffusion"],
     "purpose": "self_respect",
@@ -1662,7 +1662,7 @@
   },
   {
     "id": "m_responsibility_diffusion_06",
-    "text": "The word we does not identify a specific accountable person.",
+    "text": "I keep the word we separate from my name.",
     "situationIds": ["responsibility_diffusion"],
     "behaviorIds": ["behavior_responsibility_diffusion"],
     "purpose": "distancing",
@@ -1673,7 +1673,7 @@
   },
   {
     "id": "m_responsibility_diffusion_07",
-    "text": "Shared interest and assigned ownership are different things.",
+    "text": "I distinguish helping from owning the whole task.",
     "situationIds": ["responsibility_diffusion"],
     "behaviorIds": ["behavior_responsibility_diffusion"],
     "purpose": "distancing",
@@ -1684,7 +1684,7 @@
   },
   {
     "id": "m_responsibility_diffusion_08",
-    "text": "I can document what remains unassigned without filling the gap myself.",
+    "text": "I leave unassigned work visible instead of swallowing it.",
     "situationIds": ["responsibility_diffusion"],
     "behaviorIds": ["behavior_responsibility_diffusion"],
     "purpose": "distancing",
@@ -1695,7 +1695,7 @@
   },
   {
     "id": "m_responsibility_diffusion_09",
-    "text": "Everyone owns it, which leaves the owner field curiously empty.",
+    "text": "My job title is not Department of Everything.",
     "situationIds": ["responsibility_diffusion"],
     "behaviorIds": ["behavior_responsibility_diffusion"],
     "purpose": "dark_humor",
@@ -1706,7 +1706,7 @@
   },
   {
     "id": "m_responsibility_diffusion_10",
-    "text": "The task has joined a collective; it still needs a contact person.",
+    "text": "I am not the emergency contact for ownerless tasks.",
     "situationIds": ["responsibility_diffusion"],
     "behaviorIds": ["behavior_responsibility_diffusion"],
     "purpose": "dark_humor",
@@ -1717,7 +1717,7 @@
   },
   {
     "id": "m_micromanagement_01",
-    "text": "I can notice the interruption before rushing into another status explanation.",
+    "text": "I breathe before providing another status update.",
     "situationIds": ["micromanagement"],
     "behaviorIds": ["behavior_micromanagement"],
     "purpose": "grounding",
@@ -1728,7 +1728,7 @@
   },
   {
     "id": "m_micromanagement_02",
-    "text": "The next useful step may be agreeing on a review point.",
+    "text": "I make space for work between checkpoints.",
     "situationIds": ["micromanagement"],
     "behaviorIds": ["behavior_micromanagement"],
     "purpose": "grounding",
@@ -1739,7 +1739,7 @@
   },
   {
     "id": "m_micromanagement_03",
-    "text": "I can ask for working space without rejecting reasonable oversight.",
+    "text": "I deserve room to work and remain accountable.",
     "situationIds": ["micromanagement"],
     "behaviorIds": ["behavior_micromanagement"],
     "purpose": "self_respect",
@@ -1750,7 +1750,7 @@
   },
   {
     "id": "m_micromanagement_04",
-    "text": "My attention is part of the capacity this task needs.",
+    "text": "My attention is part of this task's resources.",
     "situationIds": ["micromanagement"],
     "behaviorIds": ["behavior_micromanagement"],
     "purpose": "self_respect",
@@ -1761,7 +1761,7 @@
   },
   {
     "id": "m_micromanagement_05",
-    "text": "A request for clear checkpoints is compatible with accountability.",
+    "text": "I bring my focus back from constant interruptions.",
     "situationIds": ["micromanagement"],
     "behaviorIds": ["behavior_micromanagement"],
     "purpose": "self_respect",
@@ -1772,7 +1772,7 @@
   },
   {
     "id": "m_micromanagement_06",
-    "text": "A frequent check does not automatically establish a failure in my work.",
+    "text": "I separate frequent checking from evidence about my work.",
     "situationIds": ["micromanagement"],
     "behaviorIds": ["behavior_micromanagement"],
     "purpose": "distancing",
@@ -1783,7 +1783,7 @@
   },
   {
     "id": "m_micromanagement_07",
-    "text": "I can discuss the review process without guessing its motive.",
+    "text": "I discuss the pattern without inventing its motive.",
     "situationIds": ["micromanagement"],
     "behaviorIds": ["behavior_micromanagement"],
     "purpose": "distancing",
@@ -1794,7 +1794,7 @@
   },
   {
     "id": "m_micromanagement_08",
-    "text": "I can separate time spent reporting from time available for delivery.",
+    "text": "I count reporting time as time already spent.",
     "situationIds": ["micromanagement"],
     "behaviorIds": ["behavior_micromanagement"],
     "purpose": "distancing",
@@ -1805,7 +1805,7 @@
   },
   {
     "id": "m_micromanagement_09",
-    "text": "The status update has requested its own status update.",
+    "text": "I am not the status update's personal assistant.",
     "situationIds": ["micromanagement"],
     "behaviorIds": ["behavior_micromanagement"],
     "purpose": "dark_humor",
@@ -1816,7 +1816,7 @@
   },
   {
     "id": "m_micromanagement_10",
-    "text": "The approval queue has become an additional project.",
+    "text": "My work needs oxygen between the approval rituals.",
     "situationIds": ["micromanagement"],
     "behaviorIds": ["behavior_micromanagement"],
     "purpose": "dark_humor",
@@ -1827,7 +1827,7 @@
   },
   {
     "id": "m_competing_priorities_01",
-    "text": "I can name the competing tasks before promising a sequence.",
+    "text": "I name the competing tasks before promising an order.",
     "situationIds": ["competing_priorities"],
     "behaviorIds": ["behavior_competing_priorities"],
     "purpose": "grounding",
@@ -1838,7 +1838,7 @@
   },
   {
     "id": "m_competing_priorities_02",
-    "text": "One ranking question is more useful than trying to accelerate everything.",
+    "text": "I start with a question about what comes first.",
     "situationIds": ["competing_priorities"],
     "behaviorIds": ["behavior_competing_priorities"],
     "purpose": "grounding",
@@ -1849,7 +1849,7 @@
   },
   {
     "id": "m_competing_priorities_03",
-    "text": "Choosing a priority also means acknowledging what must wait.",
+    "text": "I choose a priority and acknowledge the waiting work.",
     "situationIds": ["competing_priorities"],
     "behaviorIds": ["behavior_competing_priorities"],
     "purpose": "self_respect",
@@ -1860,7 +1860,7 @@
   },
   {
     "id": "m_competing_priorities_04",
-    "text": "My capacity does not expand when several requests share the same label.",
+    "text": "My hours stay finite under an urgent label.",
     "situationIds": ["competing_priorities"],
     "behaviorIds": ["behavior_competing_priorities"],
     "purpose": "self_respect",
@@ -1871,7 +1871,7 @@
   },
   {
     "id": "m_competing_priorities_05",
-    "text": "I can offer a workable tradeoff without defending my entire work ethic.",
+    "text": "I offer a trade-off without defending my character.",
     "situationIds": ["competing_priorities"],
     "behaviorIds": ["behavior_competing_priorities"],
     "purpose": "self_respect",
@@ -1882,7 +1882,7 @@
   },
   {
     "id": "m_competing_priorities_06",
-    "text": "Urgency describes a request; it does not resolve a scheduling conflict.",
+    "text": "I separate the demand from the available time.",
     "situationIds": ["competing_priorities"],
     "behaviorIds": ["behavior_competing_priorities"],
     "purpose": "distancing",
@@ -1893,7 +1893,7 @@
   },
   {
     "id": "m_competing_priorities_07",
-    "text": "The conflict belongs in the plan, rather than inside my self-assessment.",
+    "text": "I make the clash visible instead of absorbing it.",
     "situationIds": ["competing_priorities"],
     "behaviorIds": ["behavior_competing_priorities"],
     "purpose": "distancing",
@@ -1904,7 +1904,7 @@
   },
   {
     "id": "m_competing_priorities_08",
-    "text": "I can record the chosen order without continuing to negotiate it in my head.",
+    "text": "I let a stated priority quiet the internal bidding war.",
     "situationIds": ["competing_priorities"],
     "behaviorIds": ["behavior_competing_priorities"],
     "purpose": "distancing",
@@ -1915,7 +1915,7 @@
   },
   {
     "id": "m_competing_priorities_09",
-    "text": "Everything is priority one; arithmetic has raised an objection.",
+    "text": "My capacity is offline while ASAP enters the chat.",
     "situationIds": ["competing_priorities"],
     "behaviorIds": ["behavior_competing_priorities"],
     "purpose": "dark_humor",
@@ -1926,7 +1926,7 @@
   },
   {
     "id": "m_competing_priorities_10",
-    "text": "The urgent pile still needs a queue.",
+    "text": "I refuse the secret ninth day of this workweek.",
     "situationIds": ["competing_priorities"],
     "behaviorIds": ["behavior_competing_priorities"],
     "purpose": "dark_humor",
@@ -1937,7 +1937,7 @@
   },
   {
     "id": "m_credit_dispute_01",
-    "text": "I can check the work record before deciding how to correct it.",
+    "text": "I return to the work I actually contributed.",
     "situationIds": ["credit_dispute"],
     "behaviorIds": ["behavior_credit_dispute"],
     "purpose": "grounding",
@@ -1948,7 +1948,7 @@
   },
   {
     "id": "m_credit_dispute_02",
-    "text": "One factual contribution is enough to begin an attribution question.",
+    "text": "I start with one contribution I recognize.",
     "situationIds": ["credit_dispute"],
     "behaviorIds": ["behavior_credit_dispute"],
     "purpose": "grounding",
@@ -1959,7 +1959,7 @@
   },
   {
     "id": "m_credit_dispute_03",
-    "text": "I am allowed to care about an accurate account of my work.",
+    "text": "My part deserves an accurate account.",
     "situationIds": ["credit_dispute"],
     "behaviorIds": ["behavior_credit_dispute"],
     "purpose": "self_respect",
@@ -1970,7 +1970,7 @@
   },
   {
     "id": "m_credit_dispute_04",
-    "text": "Correcting attribution does not require minimizing another person's contribution.",
+    "text": "I claim my contribution without erasing another person's.",
     "situationIds": ["credit_dispute"],
     "behaviorIds": ["behavior_credit_dispute"],
     "purpose": "self_respect",
@@ -1981,7 +1981,7 @@
   },
   {
     "id": "m_credit_dispute_05",
-    "text": "My work deserves specifics rather than a contest of personalities.",
+    "text": "I keep this about the work I did.",
     "situationIds": ["credit_dispute"],
     "behaviorIds": ["behavior_credit_dispute"],
     "purpose": "self_respect",
@@ -1992,7 +1992,7 @@
   },
   {
     "id": "m_credit_dispute_06",
-    "text": "An omission can be checked before I conclude what caused it.",
+    "text": "I check the omission without supplying a motive.",
     "situationIds": ["credit_dispute"],
     "behaviorIds": ["behavior_credit_dispute"],
     "purpose": "distancing",
@@ -2003,7 +2003,7 @@
   },
   {
     "id": "m_credit_dispute_07",
-    "text": "The contribution record is more useful than an argument about intent.",
+    "text": "I return to the evidence instead of rehearsing intent.",
     "situationIds": ["credit_dispute"],
     "behaviorIds": ["behavior_credit_dispute"],
     "purpose": "distancing",
@@ -2014,7 +2014,7 @@
   },
   {
     "id": "m_credit_dispute_08",
-    "text": "I can preserve the relevant evidence without rehearsing a future confrontation.",
+    "text": "I hold my contribution without rehearsing a confrontation.",
     "situationIds": ["credit_dispute"],
     "behaviorIds": ["behavior_credit_dispute"],
     "purpose": "distancing",
@@ -2025,7 +2025,7 @@
   },
   {
     "id": "m_credit_dispute_09",
-    "text": "The byline needs an audit, not an origin myth.",
+    "text": "My contribution survives the credits slide's selective memory.",
     "situationIds": ["credit_dispute"],
     "behaviorIds": ["behavior_credit_dispute"],
     "purpose": "dark_humor",
@@ -2036,7 +2036,7 @@
   },
   {
     "id": "m_credit_dispute_10",
-    "text": "The credits rolled before the contribution check was finished.",
+    "text": "I am present in the work, even offstage.",
     "situationIds": ["credit_dispute"],
     "behaviorIds": ["behavior_credit_dispute"],
     "purpose": "dark_humor",
@@ -2047,7 +2047,7 @@
   },
   {
     "id": "m_workload_overload_01",
-    "text": "I can notice the pressure before adding another promise.",
+    "text": "I pause before adding another promise.",
     "situationIds": ["workload_overload"],
     "behaviorIds": ["behavior_workload_overload"],
     "purpose": "grounding",
@@ -2058,7 +2058,7 @@
   },
   {
     "id": "m_workload_overload_02",
-    "text": "The next task can wait long enough for a priority question.",
+    "text": "I leave time for a priority question.",
     "situationIds": ["workload_overload"],
     "behaviorIds": ["behavior_workload_overload"],
     "purpose": "grounding",
@@ -2069,7 +2069,7 @@
   },
   {
     "id": "m_workload_overload_03",
-    "text": "A realistic estimate is useful information, not a lack of dedication.",
+    "text": "My honest estimate is part of the work.",
     "situationIds": ["workload_overload"],
     "behaviorIds": ["behavior_workload_overload"],
     "purpose": "self_respect",
@@ -2080,7 +2080,7 @@
   },
   {
     "id": "m_workload_overload_04",
-    "text": "Rest is not a debt I owe back in extra work.",
+    "text": "My rest is not a debt to repay.",
     "situationIds": ["workload_overload"],
     "behaviorIds": ["behavior_workload_overload"],
     "purpose": "self_respect",
@@ -2091,7 +2091,7 @@
   },
   {
     "id": "m_workload_overload_05",
-    "text": "I can name a capacity limit without listing every sacrifice I have made.",
+    "text": "I state my limit without proving my exhaustion.",
     "situationIds": ["workload_overload"],
     "behaviorIds": ["behavior_workload_overload"],
     "purpose": "self_respect",
@@ -2102,7 +2102,7 @@
   },
   {
     "id": "m_workload_overload_06",
-    "text": "A crowded workload does not measure the worth of the person carrying it.",
+    "text": "I separate my workload from my human worth.",
     "situationIds": ["workload_overload"],
     "behaviorIds": ["behavior_workload_overload"],
     "purpose": "distancing",
@@ -2113,7 +2113,7 @@
   },
   {
     "id": "m_workload_overload_07",
-    "text": "The plan needs a tradeoff before my body needs another apology.",
+    "text": "I ask what comes off the list.",
     "situationIds": ["workload_overload"],
     "behaviorIds": ["behavior_workload_overload"],
     "purpose": "distancing",
@@ -2124,7 +2124,7 @@
   },
   {
     "id": "m_workload_overload_08",
-    "text": "If an urgent action remains, I can name it; the rest can have a boundary.",
+    "text": "I distinguish the next step from everything after it.",
     "situationIds": ["workload_overload"],
     "behaviorIds": ["behavior_workload_overload"],
     "purpose": "distancing",
@@ -2135,7 +2135,7 @@
   },
   {
     "id": "m_workload_overload_09",
-    "text": "My calendar does not contain a secret eighth working day.",
+    "text": "My calendar has no secret expansion pack.",
     "situationIds": ["workload_overload"],
     "behaviorIds": ["behavior_workload_overload"],
     "purpose": "dark_humor",
@@ -2146,7 +2146,7 @@
   },
   {
     "id": "m_workload_overload_10",
-    "text": "The task list has mistaken me for an unlimited subscription.",
+    "text": "I am one person, not an unlimited plan.",
     "situationIds": ["workload_overload"],
     "behaviorIds": ["behavior_workload_overload"],
     "purpose": "dark_humor",
@@ -2157,7 +2157,7 @@
   },
   {
     "id": "m_surveillance_concern_01",
-    "text": "I can orient to the room before responding to a monitoring concern.",
+    "text": "I notice the room around this concern.",
     "situationIds": ["surveillance_concern"],
     "behaviorIds": ["behavior_surveillance_concern"],
     "purpose": "grounding",
@@ -2168,7 +2168,7 @@
   },
   {
     "id": "m_surveillance_concern_02",
-    "text": "I can ask what reporting is expected without making a legal conclusion.",
+    "text": "I ask about reporting without declaring a legal conclusion.",
     "situationIds": ["surveillance_concern"],
     "behaviorIds": ["behavior_surveillance_concern"],
     "purpose": "grounding",
@@ -2179,7 +2179,7 @@
   },
   {
     "id": "m_surveillance_concern_03",
-    "text": "I can take privacy concerns seriously while checking the actual policy.",
+    "text": "I take privacy seriously and check what is known.",
     "situationIds": ["surveillance_concern"],
     "behaviorIds": ["behavior_surveillance_concern"],
     "purpose": "self_respect",
@@ -2190,7 +2190,7 @@
   },
   {
     "id": "m_surveillance_concern_04",
-    "text": "I am allowed to consider where sensitive notes are safe to keep.",
+    "text": "I choose carefully where my private information lives.",
     "situationIds": ["surveillance_concern"],
     "behaviorIds": ["behavior_surveillance_concern"],
     "purpose": "self_respect",
@@ -2201,7 +2201,7 @@
   },
   {
     "id": "m_surveillance_concern_05",
-    "text": "A request for clear reporting rules is a legitimate work question.",
+    "text": "I deserve clarity about what reporting requires.",
     "situationIds": ["surveillance_concern"],
     "behaviorIds": ["behavior_surveillance_concern"],
     "purpose": "self_respect",
@@ -2212,7 +2212,7 @@
   },
   {
     "id": "m_surveillance_concern_06",
-    "text": "A monitoring signal alone does not tell me its purpose or extent.",
+    "text": "I separate a signal from assumptions about its reach.",
     "situationIds": ["surveillance_concern"],
     "behaviorIds": ["behavior_surveillance_concern"],
     "purpose": "distancing",
@@ -2223,7 +2223,7 @@
   },
   {
     "id": "m_surveillance_concern_07",
-    "text": "I can separate what I observed from what I suspect is being collected.",
+    "text": "I distinguish my observation from my suspicion.",
     "situationIds": ["surveillance_concern"],
     "behaviorIds": ["behavior_surveillance_concern"],
     "purpose": "distancing",
@@ -2234,7 +2234,7 @@
   },
   {
     "id": "m_surveillance_concern_08",
-    "text": "I can record the concrete concern without treating every uncertainty as confirmed.",
+    "text": "I leave unverified details outside my account.",
     "situationIds": ["surveillance_concern"],
     "behaviorIds": ["behavior_surveillance_concern"],
     "purpose": "distancing",
@@ -2245,7 +2245,7 @@
   },
   {
     "id": "m_surveillance_concern_09",
-    "text": "Trusted qualified advice may help me assess the practical options.",
+    "text": "I seek qualified support for my own choices.",
     "situationIds": ["surveillance_concern"],
     "behaviorIds": ["behavior_surveillance_concern"],
     "purpose": "self_respect",
@@ -2256,7 +2256,7 @@
   },
   {
     "id": "m_surveillance_concern_10",
-    "text": "I can choose the next cautious step without solving the entire situation tonight.",
+    "text": "I choose one cautious step for the present.",
     "situationIds": ["surveillance_concern"],
     "behaviorIds": ["behavior_surveillance_concern"],
     "purpose": "grounding",
@@ -2267,7 +2267,7 @@
   },
   {
     "id": "m_no_response_01",
-    "text": "I can state the unanswered decision instead of repeatedly checking for a reply.",
+    "text": "I name the open decision and leave the refresh loop.",
     "situationIds": ["no_response"],
     "behaviorIds": ["behavior_no_response"],
     "purpose": "grounding",
@@ -2278,7 +2278,7 @@
   },
   {
     "id": "m_no_response_02",
-    "text": "One clear follow-up is enough to make the dependency visible.",
+    "text": "I begin with one clear follow-up.",
     "situationIds": ["no_response"],
     "behaviorIds": ["behavior_no_response"],
     "purpose": "grounding",
@@ -2289,7 +2289,7 @@
   },
   {
     "id": "m_no_response_03",
-    "text": "Waiting for an answer does not make the original question unreasonable.",
+    "text": "My question remains reasonable while it awaits an answer.",
     "situationIds": ["no_response"],
     "behaviorIds": ["behavior_no_response"],
     "purpose": "self_respect",
@@ -2300,7 +2300,7 @@
   },
   {
     "id": "m_no_response_04",
-    "text": "I can communicate the work impact without apologizing for needing a decision.",
+    "text": "I acknowledge the work impact of this wait.",
     "situationIds": ["no_response"],
     "behaviorIds": ["behavior_no_response"],
     "purpose": "self_respect",
@@ -2311,7 +2311,7 @@
   },
   {
     "id": "m_no_response_05",
-    "text": "I am not required to pretend an unanswered request was approved.",
+    "text": "I leave an unanswered request clearly unapproved.",
     "situationIds": ["no_response"],
     "behaviorIds": ["behavior_no_response"],
     "purpose": "self_respect",
@@ -2322,7 +2322,7 @@
   },
   {
     "id": "m_no_response_06",
-    "text": "Silence does not establish consent, rejection or a motive.",
+    "text": "I distinguish silence from permission or rejection.",
     "situationIds": ["no_response"],
     "behaviorIds": ["behavior_no_response"],
     "purpose": "distancing",
@@ -2333,7 +2333,7 @@
   },
   {
     "id": "m_no_response_07",
-    "text": "An empty reply field is not a complete account of my professional standing.",
+    "text": "I separate an empty inbox from my competence.",
     "situationIds": ["no_response"],
     "behaviorIds": ["behavior_no_response"],
     "purpose": "distancing",
@@ -2344,7 +2344,7 @@
   },
   {
     "id": "m_no_response_08",
-    "text": "I can note when I followed up and return to work that is actually available.",
+    "text": "I turn toward work that is available now.",
     "situationIds": ["no_response"],
     "behaviorIds": ["behavior_no_response"],
     "purpose": "distancing",
@@ -2355,7 +2355,7 @@
   },
   {
     "id": "m_no_response_09",
-    "text": "The decision is apparently still in the astral approval queue.",
+    "text": "My peace is not waiting in the astral approval queue.",
     "situationIds": ["no_response"],
     "behaviorIds": ["behavior_no_response"],
     "purpose": "dark_humor",
@@ -2366,7 +2366,7 @@
   },
   {
     "id": "m_no_response_10",
-    "text": "The inbox has preserved its silence with remarkable consistency.",
+    "text": "I unsubscribe from the inbox's silent-era fan club.",
     "situationIds": ["no_response"],
     "behaviorIds": ["behavior_no_response"],
     "purpose": "dark_humor",
@@ -2377,7 +2377,7 @@
   },
   {
     "id": "m_suspected_retaliation_01",
-    "text": "I can steady my attention while I identify the concrete change.",
+    "text": "I name the change I actually observe.",
     "situationIds": ["suspected_retaliation"],
     "behaviorIds": ["behavior_suspected_retaliation"],
     "purpose": "grounding",
@@ -2388,7 +2388,7 @@
   },
   {
     "id": "m_suspected_retaliation_02",
-    "text": "I do not need an immediate theory to take a concern seriously.",
+    "text": "I take my concern seriously without an instant theory.",
     "situationIds": ["suspected_retaliation"],
     "behaviorIds": ["behavior_suspected_retaliation"],
     "purpose": "grounding",
@@ -2399,7 +2399,7 @@
   },
   {
     "id": "m_suspected_retaliation_03",
-    "text": "I can seek support without having to prove the whole pattern alone.",
+    "text": "I deserve support without proving everything alone.",
     "situationIds": ["suspected_retaliation"],
     "behaviorIds": ["behavior_suspected_retaliation"],
     "purpose": "self_respect",
@@ -2410,7 +2410,7 @@
   },
   {
     "id": "m_suspected_retaliation_04",
-    "text": "My concern deserves careful consideration rather than a rushed verdict.",
+    "text": "I protect my judgment from a rushed verdict.",
     "situationIds": ["suspected_retaliation"],
     "behaviorIds": ["behavior_suspected_retaliation"],
     "purpose": "self_respect",
@@ -2421,7 +2421,7 @@
   },
   {
     "id": "m_suspected_retaliation_05",
-    "text": "Keeping a chronology is one practical step, not assured protection.",
+    "text": "I stay with the dates and events I know.",
     "situationIds": ["suspected_retaliation"],
     "behaviorIds": ["behavior_suspected_retaliation"],
     "purpose": "self_respect",
@@ -2432,7 +2432,7 @@
   },
   {
     "id": "m_suspected_retaliation_06",
-    "text": "Timing can be relevant without establishing the reason for a change.",
+    "text": "I distinguish a sequence from a proven cause.",
     "situationIds": ["suspected_retaliation"],
     "behaviorIds": ["behavior_suspected_retaliation"],
     "purpose": "distancing",
@@ -2443,7 +2443,7 @@
   },
   {
     "id": "m_suspected_retaliation_07",
-    "text": "I can record the sequence and leave the causal question open.",
+    "text": "I keep the order of events and the uncertainty.",
     "situationIds": ["suspected_retaliation"],
     "behaviorIds": ["behavior_suspected_retaliation"],
     "purpose": "distancing",
@@ -2454,7 +2454,7 @@
   },
   {
     "id": "m_suspected_retaliation_08",
-    "text": "A factual record can include uncertainty without becoming less honest.",
+    "text": "My account has room for what remains unknown.",
     "situationIds": ["suspected_retaliation"],
     "behaviorIds": ["behavior_suspected_retaliation"],
     "purpose": "distancing",
@@ -2465,7 +2465,7 @@
   },
   {
     "id": "m_suspected_retaliation_09",
-    "text": "I can check confidentiality before choosing whom to approach.",
+    "text": "I check confidentiality before choosing my support.",
     "situationIds": ["suspected_retaliation"],
     "behaviorIds": ["behavior_suspected_retaliation"],
     "purpose": "self_respect",
@@ -2476,7 +2476,7 @@
   },
   {
     "id": "m_suspected_retaliation_10",
-    "text": "One safe next step matters more than completing every possible explanation.",
+    "text": "I protect my options one careful step at a time.",
     "situationIds": ["suspected_retaliation"],
     "behaviorIds": ["behavior_suspected_retaliation"],
     "purpose": "grounding",
@@ -2487,7 +2487,7 @@
   },
   {
     "id": "m_after_meeting_replay_01",
-    "text": "I can notice the room I am in now, after the conversation.",
+    "text": "I return to the room I am in.",
     "situationIds": ["after_meeting_replay"],
     "behaviorIds": ["behavior_after_meeting_replay"],
     "purpose": "grounding",
@@ -2498,7 +2498,7 @@
   },
   {
     "id": "m_after_meeting_replay_02",
-    "text": "My attention can rest on one ordinary object for a moment.",
+    "text": "I rest my attention on an ordinary object.",
     "situationIds": ["after_meeting_replay"],
     "behaviorIds": ["behavior_after_meeting_replay"],
     "purpose": "grounding",
@@ -2509,7 +2509,7 @@
   },
   {
     "id": "m_after_meeting_replay_03",
-    "text": "I do not have to earn rest by reaching a perfect explanation.",
+    "text": "I rest without solving the whole conversation.",
     "situationIds": ["after_meeting_replay"],
     "behaviorIds": ["behavior_after_meeting_replay"],
     "purpose": "self_respect",
@@ -2520,7 +2520,7 @@
   },
   {
     "id": "m_after_meeting_replay_04",
-    "text": "Leaving the replay does not mean the event did not matter.",
+    "text": "I leave the replay without dismissing what matters.",
     "situationIds": ["after_meeting_replay"],
     "behaviorIds": ["behavior_after_meeting_replay"],
     "purpose": "self_respect",
@@ -2531,7 +2531,7 @@
   },
   {
     "id": "m_after_meeting_replay_05",
-    "text": "I can make space for recovery while keeping necessary follow-up in view.",
+    "text": "I take a break with unfinished questions still present.",
     "situationIds": ["after_meeting_replay"],
     "behaviorIds": ["behavior_after_meeting_replay"],
     "purpose": "self_respect",
@@ -2542,7 +2542,7 @@
   },
   {
     "id": "m_after_meeting_replay_06",
-    "text": "Remembering the same sentence again is not new information.",
+    "text": "I notice a repeated thought without calling it new information.",
     "situationIds": ["after_meeting_replay"],
     "behaviorIds": ["behavior_after_meeting_replay"],
     "purpose": "distancing",
@@ -2553,7 +2553,7 @@
   },
   {
     "id": "m_after_meeting_replay_07",
-    "text": "The next useful action can live on a note instead of in a mental rehearsal.",
+    "text": "I release the rehearsal and keep my next step.",
     "situationIds": ["after_meeting_replay"],
     "behaviorIds": ["behavior_after_meeting_replay"],
     "purpose": "distancing",
@@ -2564,7 +2564,7 @@
   },
   {
     "id": "m_after_meeting_replay_08",
-    "text": "I can let an unanswered motive remain unanswered tonight.",
+    "text": "I let an unanswered motive stay unanswered tonight.",
     "situationIds": ["after_meeting_replay"],
     "behaviorIds": ["behavior_after_meeting_replay"],
     "purpose": "distancing",
@@ -2575,7 +2575,7 @@
   },
   {
     "id": "m_after_meeting_replay_09",
-    "text": "The meeting has ended; its unauthorized encore can lose the stage.",
+    "text": "My evening is not the meeting's director's cut.",
     "situationIds": ["after_meeting_replay"],
     "behaviorIds": ["behavior_after_meeting_replay"],
     "purpose": "dark_humor",
@@ -2586,7 +2586,7 @@
   },
   {
     "id": "m_after_meeting_replay_10",
-    "text": "My mind has scheduled a sequel that I do not need to attend.",
+    "text": "I skip the sequel my brain keeps pitching.",
     "situationIds": ["after_meeting_replay"],
     "behaviorIds": ["behavior_after_meeting_replay"],
     "purpose": "dark_humor",
@@ -2597,7 +2597,7 @@
   },
   {
     "id": "m_ordinary_disagreement_01",
-    "text": "I can listen for the work objective before preparing a defense.",
+    "text": "I return to the actual work question.",
     "situationIds": ["ordinary_disagreement"],
     "behaviorIds": ["behavior_ordinary_disagreement"],
     "purpose": "grounding",
@@ -2608,7 +2608,7 @@
   },
   {
     "id": "m_ordinary_disagreement_02",
-    "text": "A difference in approach can leave room for another question.",
+    "text": "I leave space for another way to proceed.",
     "situationIds": ["ordinary_disagreement"],
     "behaviorIds": ["behavior_ordinary_disagreement"],
     "purpose": "grounding",
@@ -2619,7 +2619,7 @@
   },
   {
     "id": "m_ordinary_disagreement_03",
-    "text": "I can disagree respectfully without making myself smaller.",
+    "text": "I disagree without making myself smaller.",
     "situationIds": ["ordinary_disagreement"],
     "behaviorIds": ["behavior_ordinary_disagreement"],
     "purpose": "self_respect",
@@ -2630,7 +2630,7 @@
   },
   {
     "id": "m_ordinary_disagreement_04",
-    "text": "Changing my mind after useful evidence is part of doing the work.",
+    "text": "I change my view when the evidence fits.",
     "situationIds": ["ordinary_disagreement"],
     "behaviorIds": ["behavior_ordinary_disagreement"],
     "purpose": "self_respect",
@@ -2641,7 +2641,7 @@
   },
   {
     "id": "m_ordinary_disagreement_05",
-    "text": "I do not need unanimous approval to contribute a considered view.",
+    "text": "I contribute without waiting for unanimous approval.",
     "situationIds": ["ordinary_disagreement"],
     "behaviorIds": ["behavior_ordinary_disagreement"],
     "purpose": "self_respect",
@@ -2652,7 +2652,7 @@
   },
   {
     "id": "m_ordinary_disagreement_06",
-    "text": "A challenge to an approach is different from a judgment of a person.",
+    "text": "I keep the challenge attached to the idea.",
     "situationIds": ["ordinary_disagreement"],
     "behaviorIds": ["behavior_ordinary_disagreement"],
     "purpose": "distancing",
@@ -2663,7 +2663,7 @@
   },
   {
     "id": "m_ordinary_disagreement_07",
-    "text": "I can compare the options without turning the discussion into a loyalty test.",
+    "text": "I compare approaches without taking a loyalty test.",
     "situationIds": ["ordinary_disagreement"],
     "behaviorIds": ["behavior_ordinary_disagreement"],
     "purpose": "distancing",
@@ -2674,7 +2674,7 @@
   },
   {
     "id": "m_ordinary_disagreement_08",
-    "text": "The disagreement can remain specific rather than become a story about everything.",
+    "text": "I keep this disagreement close to its specific choice.",
     "situationIds": ["ordinary_disagreement"],
     "behaviorIds": ["behavior_ordinary_disagreement"],
     "purpose": "distancing",
@@ -2685,7 +2685,7 @@
   },
   {
     "id": "m_ordinary_disagreement_09",
-    "text": "The spreadsheet does not need a winner's crown.",
+    "text": "I am not campaigning for Mayor of the Spreadsheet.",
     "situationIds": ["ordinary_disagreement"],
     "behaviorIds": ["behavior_ordinary_disagreement"],
     "purpose": "dark_humor",
@@ -2696,7 +2696,7 @@
   },
   {
     "id": "m_ordinary_disagreement_10",
-    "text": "Two methods entered the meeting; neither needs a villain.",
+    "text": "My work does not require a debate-club trophy.",
     "situationIds": ["ordinary_disagreement"],
     "behaviorIds": ["behavior_ordinary_disagreement"],
     "purpose": "dark_humor",
@@ -2707,7 +2707,7 @@
   },
   {
     "id": "m_general_added_01",
-    "text": "For this moment, the floor is a more reliable anchor than a feared prediction.",
+    "text": "I begin here, with my feet beneath me.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "grounding",
@@ -2718,7 +2718,7 @@
   },
   {
     "id": "m_general_added_02",
-    "text": "My boundaries can be practical even when my options are limited.",
+    "text": "My boundaries remain valid when my options are limited.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "self_respect",
@@ -2729,7 +2729,7 @@
   },
   {
     "id": "m_general_added_03",
-    "text": "I can hold a thought lightly while treating the underlying concern seriously.",
+    "text": "I notice a thought without adopting its verdict.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "distancing",
@@ -2740,7 +2740,7 @@
   },
   {
     "id": "m_general_added_04",
-    "text": "I can look away from the screen and notice what needs my attention here.",
+    "text": "I look away from the screen and return to this room.",
     "situationIds": [],
     "behaviorIds": [],
     "purpose": "grounding",

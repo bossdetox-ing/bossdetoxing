@@ -1,91 +1,99 @@
-import { useId, useState } from 'react';
+import { responseVersion, responseSet } from '../../domain/replies';
+import { Button } from '../../components/ui/button';
+import { useState } from 'react';
 import { messages as t } from '../../content';
 import { content, type Tone } from '../../domain/content';
 import { pains, painForScenario, scenarioFor } from '../../domain/pains';
-import { phases, mantraPurposes } from '../../domain/mantras';
 import { useCompanion } from '../companion-store';
-import { CopyButton, Field, PageTitle, Select } from '../components';
-import { MethodPicker } from './Support';
+import { CopyButton, Field, PageTitle } from '../components';
+import { Icon } from '../PixelIcon';
+import { StyleSwitch } from '../StyleSwitch';
+import { Card } from '../../components/ui/card';
+import { WordArt } from '../WordArt';
 import type { Navigate } from '../App';
 
-export function Icon({ name }: { name: 'calendar' | 'blank' | 'star' | 'back' | 'reroll' }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="ui-icon"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-    >
-      {name === 'calendar' ? (
-        <>
-          <rect x="3" y="5" width="18" height="16" rx="2" />
-          <path d="M7 3v4M17 3v4M3 10h18M8 14h2M14 14h2M8 17h2" />
-        </>
-      ) : name === 'blank' ? (
-        <path d="m3 3 18 18M10 4h10v10M4 10v10h16v-3" />
-      ) : name === 'star' ? (
-        <path d="m12 3 2.8 5.8 6.4.9-4.6 4.5 1.1 6.3-5.7-3-5.7 3 1.1-6.3L2.8 9.7l6.4-.9L12 3Z" />
-      ) : name === 'back' ? (
-        <path d="m14 5-7 7 7 7M7 12h14" />
-      ) : (
-        <path d="M20 7v5h-5M4 17v-5h5M5 8a8 8 0 0 1 14-2l1 2M4 16l1 2a8 8 0 0 0 14-2" />
-      )}
-    </svg>
-  );
-}
-export function PainHome({ navigate }: { navigate: Navigate }) {
+export { Icon } from '../PixelIcon';
+// Every situation card: the six pains first, then the remaining scenarios.
+const cards = [
+  ...pains.map((pain) => ({
+    key: pain.id,
+    scenarioId: pain.scenarioId,
+    art: pain.id,
+    className: `pain-tile pain-${pain.id}`,
+    label: t.redesign.pains[pain.id],
+    description: t.redesign.painDescriptions[pain.id],
+    primary: true,
+  })),
+  ...content.scenarios
+    .filter((s) => !pains.some((p) => p.scenarioId === s.id))
+    .map((s) => ({
+      key: s.id,
+      scenarioId: s.id,
+      art: s.id,
+      className: 'pain-tile',
+      label: s.label,
+      description: t.redesign.scenarioBlurbs[s.id] ?? '',
+      primary: false,
+    })),
+];
+const searchText = (card: (typeof cards)[number]) => {
+  const scenario = content.scenarios.find((s) => s.id === card.scenarioId);
+  return [
+    card.label,
+    card.description,
+    scenario?.label,
+    scenario?.observedExample,
+    scenario?.nextAction,
+    ...Object.values(scenario?.responses ?? {}),
+    ...(scenario?.privateMantras ?? []),
+  ]
+    .join(' ')
+    .toLowerCase();
+};
+export function PainHome({ navigate, title }: { navigate: Navigate; title: string }) {
   const { store } = useCompanion();
   const [more, setMore] = useState(false);
+  const [query, setQuery] = useState('');
   function choose(id: string) {
     store.choose(id);
     navigate('protection');
   }
+  const words = query.toLowerCase().split(/\s+/).filter(Boolean);
+  const visible = words.length
+    ? cards.filter((card) => words.every((word) => searchText(card).includes(word)))
+    : cards.filter((card) => card.primary || more);
   return (
     <div className="pain-home">
-      <PageTitle eyebrow={t.redesign.homeTag}>{t.redesign.homeTitle}</PageTitle>
-      <div className="pain-grid">
-        {pains.map((pain) => (
-          <button
-            className={`pain-tile pain-${pain.id}`}
-            key={pain.id}
-            aria-label={t.redesign.painDescriptions[pain.id]}
-            onClick={() => choose(pain.scenarioId)}
+      <PageTitle>{title}</PageTitle>
+      <input
+        className="search-field"
+        type="search"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder={t.redesign.searchSituations}
+        aria-label={t.redesign.searchSituations}
+      />
+      <div className="pain-grid" role="group" aria-label={t.situation}>
+        {visible.map((card) => (
+          <Button
+            className={card.className}
+            key={card.key}
+            aria-label={card.primary ? card.description : `${card.label}. ${card.description}`}
+            onClick={() => choose(card.scenarioId)}
           >
-            <span className="tile-index" aria-hidden="true">
-              {pain.arcana} /
-            </span>
-            <img src={`/art/${pain.art}.svg`} alt="" />
-            <span className={`pain-wordart wordart-${pain.id}`} aria-hidden="true">
-              {t.redesign.pains[pain.id]}
-            </span>
-          </button>
+            <WordArt style={card.art} />
+            <span className="pain-desc">{card.description}</span>
+          </Button>
         ))}
       </div>
-      <div className="button-row home-actions">
-        <button aria-expanded={more} onClick={() => setMore(!more)}>
-          {t.redesign.more}
-        </button>
-        <button onClick={() => navigate('focus')}>{t.focus}</button>
-      </div>
-      {more && (
-        <div className="chips" role="group" aria-label={t.situation}>
-          {content.scenarios
-            .filter((s) => !pains.some((p) => p.scenarioId === s.id))
-            .map((s) => (
-              <button key={s.id} onClick={() => choose(s.id)}>
-                {s.label}
-              </button>
-            ))}
+      {words.length > 0 && visible.length === 0 && <p className="muted">{t.noResults}</p>}
+      {!words.length && (
+        <div className="button-row home-actions">
+          <Button aria-expanded={more} onClick={() => setMore(!more)}>
+            {more ? t.redesign.fewer : t.redesign.more}
+          </Button>
         </div>
       )}
-      <div className="local-meta">
-        <span>{t.redesign.local}</span>
-        <span>{t.redesign.noTyping}</span>
-      </div>
     </div>
   );
 }
@@ -100,42 +108,37 @@ export function ProtectionCard({
 }) {
   const { store, state } = useCompanion();
   const event = store.active();
+  const [version] = useState(() => responseVersion(event?.situationId ?? 'vague_accusation'));
   const [tone, setTone] = useState<Tone>(defaultTone);
   const [edited, setEdited] = useState<string>();
   const [editing, setEditing] = useState(false);
-  const radioName = useId();
-  const [purpose, setPurpose] = useState('');
   if (!event)
     return (
       <>
         <PageTitle>{t.redesign.homeTitle}</PageTitle>
-        <button onClick={() => navigate('home')}>{t.home}</button>
+        <Button onClick={() => navigate('situations')}>{t.home}</Button>
       </>
     );
   const scenario = scenarioFor(event.situationId);
   const pain = painForScenario(event.situationId);
-  const response = edited ?? scenario.responses[tone];
+  const response = edited ?? responseSet(scenario, version)[tone];
   return (
     <div className={`protection-view pain-${pain?.id ?? 'questions'}`}>
       <div className="protection-topline">
-        <button className="text-button" onClick={() => navigate('home')}>
+        <Button className="text-button" onClick={() => navigate('situations')}>
           <Icon name="back" />
           {t.redesign.back}
-        </button>
+        </Button>
         <span className="category-pill">{pain ? t.redesign.pains[pain.id] : scenario.label}</span>
       </div>
-      <section className="protective-card" aria-label={t.redesign.internal}>
-        <p className="arcana">
-          {t.redesign.arcana} {pain?.arcana ?? '07'} /{' '}
-          {pain ? t.redesign.symbols[pain.id] : scenario.label}
-        </p>
+      <Card role="region" className="protective-card" aria-label={t.redesign.internal}>
         <img src={`/art/${pain?.art ?? 'card_11'}.svg`} alt="" />
         <p className="charm-text" aria-live="polite" aria-atomic="true">
           {!humorAllowed && event.mantra.purpose === 'dark_humor'
             ? t.redesign.noHumor
             : event.mantra.text}
         </p>
-        <button
+        <Button
           className="favorite-button"
           aria-label={
             state.favorites.includes(event.mantra.id) ? t.redesign.unfavorite : t.redesign.favorite
@@ -144,27 +147,17 @@ export function ProtectionCard({
           onClick={() => store.toggleFavorite(event.mantra.id)}
         >
           <Icon name="star" />
-        </button>
-      </section>
+        </Button>
+      </Card>
       <section className="response" aria-label={t.redesign.external}>
-        <fieldset className="style-switch">
-          <legend className="sr-only">{t.quickUi.styles}</legend>
-          {(['yellow', 'grey', 'firm'] as const).map((value) => (
-            <label key={value}>
-              <input
-                type="radio"
-                name={radioName}
-                checked={tone === value}
-                onChange={() => {
-                  setTone(value);
-                  setEdited(undefined);
-                  setEditing(false);
-                }}
-              />
-              <span>{t.quickUi.styleLabels[value]}</span>
-            </label>
-          ))}
-        </fieldset>
+        <StyleSwitch
+          value={tone}
+          onChange={(value) => {
+            setTone(value);
+            setEdited(undefined);
+            setEditing(false);
+          }}
+        />
         {editing ? (
           <Field label={t.editReply} value={response} onChange={setEdited} multiline />
         ) : (
@@ -172,22 +165,31 @@ export function ProtectionCard({
             {response}
           </p>
         )}
-        <CopyButton key={response} value={response} review />
+        <div className="copy-row">
+          <CopyButton key={response} value={response} review />
+          <Button onClick={() => setEditing(!editing)}>
+            {editing ? t.quickUi.applyEdit : t.edit}
+          </Button>
+        </div>
       </section>
       <div className="protection-actions">
-        <button
+        <Button
           className="primary"
           onClick={() => {
-            store.plan(tone, response);
+            store.plan(
+              tone,
+              response,
+              `${scenario.id}:${tone}:${version}${edited ? ':edited' : ''}`,
+            );
             navigate('home');
           }}
         >
           {t.redesign.done}
-        </button>
-        <button onClick={() => store.reroll()}>
+        </Button>
+        <Button onClick={() => store.reroll()}>
           <Icon name="reroll" />
           {t.redesign.another}
-        </button>
+        </Button>
       </div>
       <p className="save-status" role="status">
         {state.error
@@ -199,36 +201,8 @@ export function ProtectionCard({
               : t.redesign.session}
       </p>
       {state.error && (
-        <button onClick={() => void store.enablePersistence()}>{t.redesign.retry}</button>
+        <Button onClick={() => void store.enablePersistence()}>{t.redesign.retry}</Button>
       )}
-      <details>
-        <summary>{t.redesign.options}</summary>
-        <div className="stack">
-          <button onClick={() => setEditing(!editing)}>
-            {editing ? t.quickUi.applyEdit : t.edit}
-          </button>
-          <Select
-            label={t.redesign.phase}
-            value={event.phase}
-            onChange={(phase) => store.update({ ...event, phase })}
-            options={phases.map((value) => ({ value, label: t.redesign.phases[value] }))}
-          />
-          <Select
-            label={t.redesign.purpose}
-            value={purpose}
-            onChange={(value) => {
-              setPurpose(value);
-              store.setPurpose(value ? (value as (typeof mantraPurposes)[number]) : undefined);
-            }}
-            options={[
-              { value: '', label: t.redesign.automaticPurpose },
-              ...mantraPurposes.map((value) => ({ value, label: t.redesign.purposes[value] })),
-            ]}
-          />
-          <p className="muted">{t.redesign.phaseHint}</p>
-          <MethodPicker ids={scenario.techniqueIds} />
-        </div>
-      </details>
     </div>
   );
 }

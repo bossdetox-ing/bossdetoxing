@@ -94,6 +94,9 @@ export class CompanionStore {
     this.savePreferences();
     return selected;
   }
+  isPlayful() {
+    return this.context.humor && !this.context.serious;
+  }
   setPurpose(purpose: MantraContext['purpose']) {
     this.context = { ...this.context, purpose };
   }
@@ -267,14 +270,14 @@ export class CompanionStore {
     });
     this.savePreferences();
   }
-  plan(style: 'yellow' | 'grey' | 'firm', text: string) {
+  plan(style: 'yellow' | 'grey' | 'firm', text: string, responseId?: string) {
     const event = this.active();
     if (!event) return;
     this.update({
       ...event,
       status: 'planned',
       plannedResponseStyle: style,
-      plannedResponseId: `${event.situationId}:${style}`,
+      plannedResponseId: responseId ?? `${event.situationId}:${style}`,
       plannedResponseText: text,
     });
   }

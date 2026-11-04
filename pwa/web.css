@@ -1,0 +1,26 @@
+/* Web app: the shared 540px app column (global.css), safe-area aware. */
+html[data-platform='web'] .app-shell {
+  width: 100%;
+  padding-top: env(safe-area-inset-top);
+}
+html[data-platform='web'] .blank {
+  margin-inline: auto;
+}
+.offline-error {
+  position: fixed;
+  inset: auto 12px 90px;
+  padding: 12px 16px;
+  border-radius: var(--radius-panel);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.18);
+  z-index: 20;
+}
+@media (min-width: 760px) {
+  html[data-platform='web'] .app-shell > main {
+    padding-inline: 24px;
+  }
+  html[data-platform='web'] h1 {
+    font-size: 2.25rem;
+  }
+}

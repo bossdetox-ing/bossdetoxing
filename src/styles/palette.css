@@ -1,0 +1,52 @@
+/* Cross-surface palette for the extension, PWA and bossdetox.ing site.
+   Primitives are sampled from owner references 12 (Material music devices), 13 (Quick Chat
+   radios) and 15 (Music OS). Components use the semantic roles below, never primitives. */
+:root {
+  /* Neutrals */
+  --c-paper: #e2e0d5; /* ref 13 warm paper */
+  --c-paper-deep: #c9c7bb; /* ref 13 paper tile */
+  --c-mist: #e7e7e7; /* ref 15 screen */
+  --c-silver: #d2d2d2; /* ref 15 grey key */
+  --c-sand: #ccc6ba; /* ref 15 sand card */
+  --c-grey: #787878; /* ref 12 grey device */
+  --c-grey-deep: #4e4e4e; /* ref 12 grey tile */
+  --c-night: #16191c; /* ref 12 canvas */
+  --c-ink: #0b0d0c; /* knobs and type */
+  --c-white: #ffffff;
+
+  /* Accents */
+  --c-yellow: #fbef32; /* ref 12 */
+  --c-yellow-deep: #9c961e;
+  --c-lemon: #f6fc8a; /* ref 15 */
+  --c-orange: #fc8430; /* ref 12 */
+  --c-orange-deep: #9c541e;
+  --c-tomato: #f45c38; /* ref 13 red / ref 15 card */
+  --c-purple: #a845fc; /* ref 12 */
+  --c-purple-deep: #6c2aa2;
+  --c-lilac: #aea2fc; /* ref 15 */
+  --c-mauve: #deccde; /* ref 15 */
+  --c-pink: #fc6078; /* ref 15 */
+  --c-green: #2a7e42; /* ref 13 */
+  --c-green-bright: #12ae5a; /* ref 15 */
+  --c-mustard: #c69006; /* ref 15 */
+
+  /* Semantic roles shared by every surface (light) */
+  --role-canvas: var(--c-paper);
+  --role-surface: var(--c-white);
+  --role-surface-sunken: var(--c-paper-deep);
+  --role-text: var(--c-ink);
+  --role-text-muted: var(--c-grey-deep);
+  --role-line: var(--c-ink);
+  --role-on-accent: var(--c-ink);
+  --role-signal: var(--c-yellow);
+  --role-night: var(--c-night);
+  --role-on-night: var(--c-mist);
+
+  /* Six pain tiles: one accent each, ink text on top */
+  --role-pain-threats: var(--c-tomato);
+  --role-pain-guilt: var(--c-purple);
+  --role-pain-chaos: var(--c-green-bright);
+  --role-pain-questions: var(--c-yellow);
+  --role-pain-gossip: var(--c-pink);
+  --role-pain-meetings: var(--c-lilac);
+}

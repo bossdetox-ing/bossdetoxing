@@ -1,11 +1,16 @@
-import { useEffect, useState } from 'react';
+import { useViewCopy } from '../useViewCopy';
+import { Icon } from '../PixelIcon';
+import { Card } from '../../components/ui/card';
+import { useCompanion } from '../companion-store';
+import { bingoBoard, bingoCategory, customSquares } from '../../domain/bingo';
+import { Button } from '../../components/ui/button';
+import { useState } from 'react';
 import type { Settings } from '../../browser/settings';
 import { messages as t } from '../../content';
 import { content } from '../../domain/content';
-import { hasLine, remainingSeconds, shuffled } from '../../domain/session';
+import { hasLine, shuffled } from '../../domain/session';
 import type { Navigate } from '../App';
 import { Field, PageTitle, Select } from '../components';
-import { TechniqueDetails } from './Support';
 
 export function Explore({
   navigate,
@@ -21,22 +26,17 @@ export function Explore({
     <>
       <PageTitle>{t.libraryTitle}</PageTitle>
       <div className="action-list">
-        {(['bestiary', ...(humor ? (['tarot', 'bingo'] as const) : []), 'focus'] as const).map(
-          (key) => (
-            <button key={key} onClick={() => navigate(key)}>
-              <span>
-                <strong>{t[key]}</strong>
-                <small>{t[`${key}Sub`]}</small>
-              </span>
-              <span aria-hidden="true">↗</span>
-            </button>
-          ),
-        )}
+        {(['bestiary', ...(humor ? (['tarot', 'bingo'] as const) : [])] as const).map((key) => (
+          <Button key={key} onClick={() => navigate(key)}>
+            <span>
+              <strong>{t[key]}</strong>
+              <small>{t[`${key}Sub`]}</small>
+            </span>
+            <Icon name="next" />
+          </Button>
+        ))}
       </div>
       {!humor && <p className="muted">{t.humorOff}</p>}
-      <button className="text-button" onClick={() => navigate('reply')}>
-        {t.techniques}
-      </button>
     </>
   );
 }
@@ -58,18 +58,18 @@ export function Bestiary({ navigate }: { navigate: Navigate }) {
           {matches.length === 0 && <p>{t.noResults}</p>}
           <div className="action-list">
             {matches.map((b) => (
-              <button key={b.id} onClick={() => setSelected(b.id)}>
+              <Button key={b.id} onClick={() => setSelected(b.id)}>
                 <span>{b.title}</span>
-                <span aria-hidden="true">↗</span>
-              </button>
+                <Icon name="next" />
+              </Button>
             ))}
           </div>
         </>
       ) : (
         <>
-          <button className="text-button" onClick={() => setSelected('')}>
+          <Button className="text-button" onClick={() => setSelected('')}>
             ← {t.back}
-          </button>
+          </Button>
           <h2>{behavior.title}</h2>
           {[
             { title: t.observed, items: behavior.observedIndicators },
@@ -97,219 +97,189 @@ export function Bestiary({ navigate }: { navigate: Navigate }) {
             options={t.layerNames.map((label, i) => ({ value: String(i), label }))}
           />
           <p>{t.layerGuidance[Number(layer)]}</p>
-          <details>
-            <summary>{t.techniques}</summary>
-            {behavior.techniqueIds.map((id) => (
-              <TechniqueDetails
-                key={id}
-                technique={content.techniques.find((item) => item.id === id)!}
-              />
-            ))}
-          </details>
         </>
       )}
     </>
   );
 }
 export function Tarot({ navigate }: { navigate: Navigate }) {
+  const outro = useViewCopy('tarotOutro');
   const [deck] = useState(() => shuffled(content.tarot));
   const [draw, setDraw] = useState(0);
-  const [weather, setWeather] = useState(0);
   const [pointer, setPointer] = useState<{ x: number; y: number }>();
+  const [browsing, setBrowsing] = useState(false);
   const card = deck[draw % deck.length]!;
   return (
     <>
-      <PageTitle eyebrow={t.symbolic}>{t.tarot}</PageTitle>
-      <article
-        className="tarot-card"
-        data-arcana={card.id}
-        onPointerDown={(event) => setPointer({ x: event.clientX, y: event.clientY })}
-        onPointerUp={(event) => {
-          if (
-            pointer &&
-            Math.abs(event.clientX - pointer.x) > 60 &&
-            Math.abs(event.clientX - pointer.x) > Math.abs(event.clientY - pointer.y) * 1.5
-          )
-            setDraw((value) => value + 1);
-          setPointer(undefined);
-        }}
-      >
-        <p className="eyebrow">{String((draw % deck.length) + 1).padStart(2, '0')} / XII</p>
-        <img className="tarot-art" src={`/art/${card.id}.svg`} alt={card.fictionalSymbolism} />
-        <h2>{card.title}</h2>
-        <p className="symbolism">{card.fictionalSymbolism}</p>
-        <p className="mantra">{card.groundedMantra}</p>
-        <p className="eyebrow">{t.nextAction}</p>
-        <p>{card.nextAction}</p>
-      </article>
-      <button onClick={() => setDraw((d) => d + 1)}>{t.draw}</button>
-      <details>
-        <summary>{t.weather}</summary>
-        <p>{content.corporateWeather[weather % content.corporateWeather.length]}</p>
-        <button onClick={() => setWeather((w) => w + 1)}>{t.nextWeather}</button>
-      </details>
-      <p className="muted">{t.tarotEnd}</p>
-      <button className="primary" onClick={() => navigate('home')}>
-        {t.done}
-      </button>
+      <PageTitle>{t.tarot}</PageTitle>
+      <div className="deck-heading">
+        <span>{t.deck.count}</span>
+        <Button aria-expanded={browsing} onClick={() => setBrowsing(!browsing)}>
+          {t.deck.browse}
+        </Button>
+      </div>
+      {browsing && (
+        <section className="deck-library" aria-label={t.deck.choose}>
+          {content.tarot.map((item) => (
+            <Button
+              key={item.id}
+              aria-pressed={item.id === card.id}
+              onClick={() => {
+                setDraw(deck.findIndex((c) => c.id === item.id));
+                setBrowsing(false);
+              }}
+            >
+              <img src={`/art/${item.id}.svg`} alt="" loading="lazy" />
+              <span>{item.title}</span>
+              <small>
+                {item.traditionalName !== item.title ? item.traditionalName : item.suit}
+              </small>
+            </Button>
+          ))}
+        </section>
+      )}
+      <div className="tarot-deck">
+        <Card
+          role="article"
+          className="tarot-card"
+          data-arcana={card.id}
+          data-suit={card.suit ?? 'major'}
+          onPointerDown={(event) => setPointer({ x: event.clientX, y: event.clientY })}
+          onPointerUp={(event) => {
+            if (
+              pointer &&
+              Math.abs(event.clientX - pointer.x) > 60 &&
+              Math.abs(event.clientX - pointer.x) > Math.abs(event.clientY - pointer.y) * 1.5
+            )
+              setDraw((value) => value + 1);
+            setPointer(undefined);
+          }}
+        >
+          <img className="tarot-art" src={`/art/${card.id}.svg`} alt={card.fictionalSymbolism} />
+          <h2>{card.title}</h2>
+          {card.traditionalName !== card.title && (
+            <p className="arcana-name">{card.traditionalName}</p>
+          )}
+          <p className="symbolism">{card.fictionalSymbolism}</p>
+          <p className="mantra">{card.groundedMantra}</p>
+          <p>{card.nextAction}</p>
+        </Card>
+      </div>
+      <Button className="primary" onClick={() => setDraw((value) => value + 1)}>
+        {t.draw}
+      </Button>
+      <p className="muted">{outro}</p>
+      <Button onClick={() => navigate('home')}>{t.done}</Button>
     </>
   );
 }
 export function Bingo({ navigate }: { navigate: Navigate }) {
-  const [squares, setSquares] = useState(() => shuffled(content.bingoSquares).slice(0, 9));
+  const intro = useViewCopy('bingoIntro');
+  const { store } = useCompanion();
+  const category = bingoCategory(store.active()?.situationId);
+  const [own, setOwn] = useState<string[]>([]);
+  const [squares, setSquares] = useState(() => bingoBoard([], category));
   const [marks, setMarks] = useState<number[]>([]);
   const [ended, setEnded] = useState(false);
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState('');
+  const [error, setError] = useState('');
+  function fresh(items = own) {
+    setSquares(bingoBoard(items, category, Math.random, squares));
+    setMarks([]);
+    setEnded(false);
+  }
+  function apply() {
+    try {
+      const items = customSquares(draft);
+      if (!items.length) {
+        setError(t.customBingo.empty);
+        return;
+      }
+      setOwn(items);
+      fresh(items);
+      setEditing(false);
+      setError('');
+    } catch {
+      setError(t.customBingo.limit);
+    }
+  }
   return (
     <>
-      <PageTitle eyebrow={t.symbolic} intro={t.bingoHint}>
-        {t.bingo}
-      </PageTitle>
+      <PageTitle intro={intro}>{t.bingo}</PageTitle>
       {!ended ? (
         <>
           <div className="bingo-grid">
-            {squares.map((text, i) => (
-              <button
+            {squares.map((text, index) => (
+              <Button
                 key={text}
-                aria-pressed={marks.includes(i)}
+                aria-pressed={marks.includes(index)}
                 onClick={() =>
                   setMarks((current) =>
-                    current.includes(i) ? current.filter((n) => n !== i) : [...current, i],
+                    current.includes(index)
+                      ? current.filter((n) => n !== index)
+                      : [...current, index],
                   )
                 }
               >
                 {text}
-              </button>
+              </Button>
             ))}
           </div>
-          {hasLine(marks) && (
-            <p role="status" className="notice">
-              {t.bingoLine}
-            </p>
+          {hasLine(marks) && <p role="status">{t.bingoLine}</p>}
+          {!!own.length && <p className="muted">{t.customBingo.custom}</p>}
+          <div className="button-row">
+            <Button onClick={() => fresh()}>{t.customBingo.fresh}</Button>
+            <Button
+              aria-expanded={editing}
+              onClick={() => {
+                setEditing(!editing);
+                setDraft(own.join('\n'));
+                setError('');
+              }}
+            >
+              {t.customBingo.title}
+            </Button>
+          </div>
+          {editing && (
+            <Card className="bingo-editor">
+              <p>{t.customBingo.hint}</p>
+              <Field label={t.customBingo.label} value={draft} onChange={setDraft} multiline />
+              <p className="small-copy">{t.customBingo.limit}</p>
+              <p role="alert">{error}</p>
+              <Button className="primary" onClick={apply}>
+                {t.customBingo.apply}
+              </Button>
+              <Button
+                onClick={() => {
+                  setEditing(false);
+                  setDraft('');
+                }}
+              >
+                {t.cancel}
+              </Button>
+            </Card>
           )}
-          <button
+          <Button
             onClick={() => {
               setMarks([]);
               setSquares([]);
+              setOwn([]);
+              setDraft('');
+              setEditing(false);
               setEnded(true);
             }}
           >
             {t.endSession}
-          </button>
-          <button className="text-button" onClick={() => navigate('diary')}>
-            {t.diary}
-          </button>
+          </Button>
         </>
       ) : (
         <>
           <p role="status">{t.bingoEnded}</p>
-          <button
-            onClick={() => {
-              setMarks([]);
-              setSquares(shuffled(content.bingoSquares).slice(0, 9));
-              setEnded(false);
-            }}
-          >
-            {t.bingoReset}
-          </button>
-          <button onClick={() => navigate('home')}>{t.done}</button>
+          <Button onClick={() => fresh([])}>{t.bingoReset}</Button>
+          <Button onClick={() => navigate('home')}>{t.done}</Button>
         </>
       )}
-    </>
-  );
-}
-export function Focus() {
-  const [duration, setDuration] = useState(25);
-  const [remaining, setRemaining] = useState(25 * 60);
-  const [deadline, setDeadline] = useState<number>();
-  const [task, setTask] = useState('');
-  useEffect(() => {
-    if (deadline === undefined) return;
-    const tick = () => {
-      const value = remainingSeconds(deadline, Date.now());
-      setRemaining(value);
-      if (value === 0) setDeadline(undefined);
-    };
-    tick();
-    const timer = window.setInterval(tick, 250);
-    return () => window.clearInterval(timer);
-  }, [deadline]);
-  return (
-    <>
-      <PageTitle>{t.timerTitle}</PageTitle>
-      <div className="segments">
-        {[15, 25, 45].map((value) => (
-          <button
-            key={value}
-            aria-pressed={duration === value}
-            onClick={() => {
-              setDuration(value);
-              setRemaining(value * 60);
-              setDeadline(undefined);
-            }}
-          >
-            {value} {t.minutes}
-          </button>
-        ))}
-      </div>
-      <div className="timer-dial">
-        <svg viewBox="0 0 240 240" aria-hidden="true">
-          <circle
-            cx="120"
-            cy="120"
-            r="106"
-            fill="none"
-            stroke="var(--color-border)"
-            strokeWidth="2"
-          />
-          <circle
-            cx="120"
-            cy="120"
-            r="106"
-            fill="none"
-            stroke="var(--color-ink)"
-            strokeWidth="4"
-            strokeDasharray={`${(remaining / (duration * 60)) * 666} 666`}
-            transform="rotate(-90 120 120)"
-          />
-        </svg>
-        <p className="timer" role="timer" aria-live="off">
-          {String(Math.floor(remaining / 60)).padStart(2, '0')}
-          <span>:</span>
-          {String(remaining % 60).padStart(2, '0')}
-        </p>
-      </div>
-      <div className="button-row">
-        <button
-          className="primary"
-          disabled={remaining === 0}
-          onClick={() => {
-            if (deadline !== undefined) {
-              setRemaining(remainingSeconds(deadline, Date.now()));
-              setDeadline(undefined);
-            } else setDeadline(Date.now() + remaining * 1000);
-          }}
-        >
-          {deadline !== undefined
-            ? t.pause
-            : remaining === duration * 60
-              ? t.startTimer
-              : t.resumeTimer}
-        </button>
-        <button
-          onClick={() => {
-            setDeadline(undefined);
-            setRemaining(duration * 60);
-          }}
-        >
-          {t.reset}
-        </button>
-      </div>
-      <p className="muted">{t.timerHint}</p>
-      <details>
-        <summary>{t.quickUi.timerTask}</summary>
-        <Field label={t.timerTask} value={task} onChange={setTask} />
-      </details>
-      {remaining === 0 && <p role="status">{t.timerDone}</p>}
     </>
   );
 }

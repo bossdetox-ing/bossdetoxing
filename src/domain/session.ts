@@ -21,6 +21,3 @@ export function hasLine(marks: readonly number[]) {
     [2, 4, 6],
   ].some((line) => line.every((i) => marks.includes(i)));
 }
-export function remainingSeconds(deadline: number, now: number) {
-  return Math.max(0, Math.ceil((deadline - now) / 1000));
-}

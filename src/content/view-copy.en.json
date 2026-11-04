@@ -1,0 +1,66 @@
+{
+  "shield": {
+    "plain": ["Get your bearings.", "A moment to settle.", "One thing at a time."],
+    "playful": ["Back in the room.", "Let's lower the volume.", "Your brain gets a breather."]
+  },
+  "reply": {
+    "plain": ["Find the words.", "A reply you can use.", "Keep your answer clear."],
+    "playful": [
+      "Let's draft the sensible version.",
+      "A little less over-explaining.",
+      "Words with a backbone."
+    ]
+  },
+  "closure": {
+    "plain": ["Let the meeting end.", "You can pause here.", "Leave the conversation here."],
+    "playful": [
+      "Close the mental tabs.",
+      "The meeting can skip its encore.",
+      "No director's cut required."
+    ]
+  },
+  "finished": {
+    "plain": ["Enough for now.", "That's enough for now.", "You can leave this here."],
+    "playful": [
+      "The sequel can wait.",
+      "No post-credits scene needed.",
+      "Meeting closed. You're allowed to leave."
+    ]
+  },
+  "bingoIntro": {
+    "plain": [
+      "Mark what you observe. The board stays in this session.",
+      "Tap a square when it happens. Leaving clears the board.",
+      "Mark the moments yourself. Nothing is automatically detected."
+    ],
+    "playful": [
+      "Spot the meeting clichés. Participation remains unpaid.",
+      "Mark what happens. No points for predicting the next email.",
+      "A small game for a meeting with too many side quests."
+    ]
+  },
+  "tarotOutro": {
+    "plain": [
+      "Keep any useful next step. This is a metaphor.",
+      "Choose what is useful for the actual situation.",
+      "A card can offer a question. You choose the next step."
+    ],
+    "playful": [
+      "The cards have notes. You still get the final say.",
+      "Keep the useful bit. Leave the prophecy in the stationery drawer.",
+      "Consult the cardboard. Check the actual facts."
+    ]
+  },
+  "closureReminder": {
+    "plain": [
+      "I keep my next step and release the replay.",
+      "I rest with unfinished questions still present.",
+      "My life is larger than this one meeting."
+    ],
+    "playful": [
+      "I skip the bonus episode in my head.",
+      "My evening is not this meeting’s overnight accommodation.",
+      "I end the corporate séance and keep my evening."
+    ]
+  }
+}

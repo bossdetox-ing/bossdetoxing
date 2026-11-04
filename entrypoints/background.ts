@@ -1,19 +1,36 @@
+import { dailyCard } from '../src/domain/daily';
 import { defineBackground } from 'wxt/utils/define-background';
+import { settingsSchema, toolbarIconPath } from '../src/browser/settings';
 
 export default defineBackground(() => {
+  let dailyQueue = Promise.resolve();
+  chrome.runtime.onMessage.addListener((message, sender, reply) => {
+    if (
+      message?.type !== 'daily-card' ||
+      sender.id !== chrome.runtime.id ||
+      typeof message.day !== 'string' ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(message.day)
+    )
+      return;
+    dailyQueue = dailyQueue
+      .then(async () => {
+        const stored = await chrome.storage.local.get('dailyCard');
+        const card = dailyCard(stored.dailyCard, message.day);
+        if (JSON.stringify(card) !== JSON.stringify(stored.dailyCard))
+          await chrome.storage.local.set({ dailyCard: card });
+        reply({ ok: true, card });
+      })
+      .catch(() => reply({ ok: false }));
+    return true;
+  });
   const configure = () => {
     void chrome.storage.local
       .get('preferences')
       .then(({ preferences }) => {
-        const icon =
-          preferences && typeof preferences === 'object' && 'icon' in preferences
-            ? preferences.icon
-            : undefined;
-        if (icon === 'search' || icon === 'notes' || icon === 'sigil')
+        const saved = settingsSchema.safeParse(preferences ?? {});
+        if (saved.success)
           return chrome.action.setIcon({
-            path: Object.fromEntries(
-              [16, 32, 48, 128].map((size) => [size, `icons/${icon}${size}.png`]),
-            ),
+            path: toolbarIconPath(saved.data.icon, saved.data.toolbarScheme),
           });
       })
       .catch(() => undefined);

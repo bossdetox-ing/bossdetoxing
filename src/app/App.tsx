@@ -1,3 +1,11 @@
+import { broadcastBlank, clearPublic, isExtension } from '../browser/platform';
+import { clearReplyHistory } from '../domain/replies';
+import { Daily } from './views/Daily';
+import { clearCopyHistory } from './useViewCopy';
+import { chooseHeading, headingText } from '../domain/headings';
+import { BrandLogo } from './BrandLogo';
+import { randomLogo } from '../domain/logo';
+import { Button } from '../components/ui/button';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { defaults, loadSettings, saveSettings, type Settings } from '../browser/settings';
 import { messages as t } from '../content';
@@ -5,33 +13,32 @@ import { Vault } from '../vault/service';
 import { CompanionContext, CompanionStore } from './companion-store';
 import { PainHome, ProtectionCard, Icon } from './views/Protection';
 import { PrivateCalendar } from './views/Calendar';
-import { PageTitle, Sigil } from './components';
+import { PageTitle } from './components';
 import { Home, Shield, Reply, Serious } from './views/Support';
-import { TaskShield } from './views/TaskShield';
-import { Grimoire, Closure } from './views/Grimoire';
-import { Explore, Bestiary, Tarot, Bingo, Focus } from './views/Explore';
+import { Closure } from './views/Closure';
+import { Explore, Bestiary, Tarot, Bingo } from './views/Explore';
 import { Onboarding, Preferences } from './views/Preferences';
 export type Route =
   | 'home'
+  | 'situations'
   | 'tools'
   | 'protection'
   | 'calendar'
   | 'shield'
   | 'reply'
-  | 'task'
-  | 'diary'
   | 'closure'
   | 'explore'
   | 'bestiary'
   | 'tarot'
   | 'bingo'
-  | 'focus'
   | 'settings'
   | 'serious'
   | 'blank';
 export type Navigate = (route: Route) => void;
 
 export function App() {
+  const [logoId, setLogoId] = useState(() => randomLogo());
+  const [headlineId, setHeadlineId] = useState(() => chooseHeading(true, true));
   const [settings, setSettings] = useState<Settings>(defaults);
   const [ready, setReady] = useState(false);
   const [settingsError, setSettingsError] = useState(false);
@@ -46,28 +53,24 @@ export function App() {
   const blank = useCallback(() => {
     vault.lock();
     companion.clear();
+    clearCopyHistory();
+    clearReplyHistory();
     setGeneration((n) => n + 1);
     setSerious(false);
     setRoute('blank');
   }, [vault, companion]);
   const panic = useCallback(() => {
     blank();
-    if (typeof chrome !== 'undefined')
-      void chrome.runtime.sendMessage({ type: 'safe-blank' }).catch(() => undefined);
+    broadcastBlank();
   }, [blank]);
-  const lock = useCallback(() => {
-    vault.lock();
-    companion.clear();
-    setGeneration((n) => n + 1);
-    if (typeof chrome !== 'undefined')
-      void chrome.runtime.sendMessage({ type: 'safe-blank' }).catch(() => undefined);
-  }, [vault, companion]);
   useEffect(() => {
     let live = true;
     void loadSettings()
       .then((value) => {
         if (live) {
+          companion.configure(value.privateLogging, value.humor && !value.quiet, false);
           setSettings(value);
+          setHeadlineId(chooseHeading(value.humor && !value.quiet, value.strongLanguage));
           setReady(true);
         }
       })
@@ -81,7 +84,7 @@ export function App() {
       live = false;
       vault.lock();
     };
-  }, [vault]);
+  }, [vault, companion]);
   useEffect(() => {
     companion.configure(settings.privateLogging, settings.humor && !settings.quiet, serious);
   }, [companion, settings.privateLogging, settings.humor, settings.quiet, serious]);
@@ -89,6 +92,25 @@ export function App() {
     document.documentElement.dataset.theme = settings.theme;
     document.documentElement.dataset.motion = settings.reducedMotion ? 'reduce' : 'system';
   }, [settings]);
+  useEffect(() => {
+    if (!ready) return;
+    if (!isExtension()) {
+      const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+      if (link) link.href = `/disguise/${settings.icon}.svg`;
+      return;
+    }
+    // The toolbar icon follows the browser's light/dark chrome; remember it for startup.
+    const media = matchMedia('(prefers-color-scheme: dark)');
+    const sync = () => {
+      const scheme = media.matches ? 'dark' : 'light';
+      if (scheme === settings.toolbarScheme) return;
+      void updateSettings({ ...settings, toolbarScheme: scheme });
+    };
+    sync();
+    media.addEventListener('change', sync);
+    return () => media.removeEventListener('change', sync);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ready, settings.icon, settings.toolbarScheme]);
   useEffect(() => {
     const activity = () => {
       lastActivity.current = Date.now();
@@ -117,7 +139,7 @@ export function App() {
     document.addEventListener('keydown', key);
     document.addEventListener('visibilitychange', visibility);
     window.addEventListener('pagehide', blank);
-    if (globalThis.chrome?.runtime?.onMessage) chrome.runtime.onMessage.addListener(message);
+    if (isExtension()) chrome.runtime.onMessage.addListener(message);
     return () => {
       window.clearInterval(interval);
       document.removeEventListener('pointerdown', activity);
@@ -125,13 +147,13 @@ export function App() {
       document.removeEventListener('keydown', key);
       document.removeEventListener('visibilitychange', visibility);
       window.removeEventListener('pagehide', blank);
-      if (globalThis.chrome?.runtime?.onMessage) chrome.runtime.onMessage.removeListener(message);
+      if (isExtension()) chrome.runtime.onMessage.removeListener(message);
     };
   }, [blank, panic, vault, settings.lockMinutes]);
   useEffect(() => {
     const target = mainRef.current?.querySelector<HTMLElement>('h1') ?? mainRef.current;
     target?.focus();
-    window.scrollTo(0, 0);
+    mainRef.current?.scrollTo(0, 0);
   }, [route]);
   async function updateSettings(next: Settings) {
     const revision = ++settingsRevision.current;
@@ -157,6 +179,15 @@ export function App() {
       companion.loose('shield', { situationId: undefined, purpose: 'grounding' });
     if (next === 'reply')
       companion.loose('reply:vague_accusation', { situationId: 'vague_accusation' });
+    setLogoId((current) => randomLogo(current));
+    if (next === 'situations')
+      setHeadlineId((current) =>
+        chooseHeading(
+          settings.humor && !settings.quiet && !serious,
+          settings.strongLanguage,
+          current,
+        ),
+      );
     setRoute(next);
   }
   if (!ready)
@@ -168,8 +199,8 @@ export function App() {
   if (route === 'blank')
     return (
       <main className="blank">
-        <PageTitle>{t.notes}</PageTitle>
-        <button onClick={() => setRoute('home')}>{t.resume}</button>
+        <PageTitle>{t.neutralTitle}</PageTitle>
+        <Button onClick={() => navigate('home')}>{t.resume}</Button>
       </main>
     );
   const common = { navigate, settings };
@@ -180,21 +211,21 @@ export function App() {
           {t.home}
         </a>
         <header className="topbar">
-          <button className="wordmark" onClick={() => navigate('home')} aria-label={t.home}>
-            <Sigil />
-            {settings.quiet ? t.notes : t.brand}
-          </button>
+          <Button className="wordmark" onClick={() => navigate('home')} aria-label={t.home}>
+            <BrandLogo index={logoId} />
+            {settings.quiet ? t.neutralTitle : t.brand}
+          </Button>
           <div className="header-actions">
-            <button
+            <Button
               className="icon-button"
               aria-label={t.redesign.openCalendar}
               onClick={() => navigate('calendar')}
             >
               <Icon name="calendar" />
-            </button>
-            <button className="icon-button" aria-label={t.blank} title={t.blank} onClick={panic}>
+            </Button>
+            <Button className="icon-button" aria-label={t.blank} title={t.blank} onClick={panic}>
               <Icon name="blank" />
-            </button>
+            </Button>
           </div>
         </header>
         <main ref={mainRef} id="main" tabIndex={-1} key={`${generation}-${route}`}>
@@ -204,10 +235,28 @@ export function App() {
             </p>
           )}
           {!settings.onboarded ? (
-            <Onboarding settings={settings} update={updateSettings} />
+            <Onboarding settings={settings} update={updateSettings} logoId={logoId} />
           ) : (
             <>
-              {route === 'home' && <PainHome navigate={navigate} />}
+              {(route === 'situations' ||
+                (route === 'home' && (!settings.humor || settings.quiet || serious))) && (
+                <PainHome
+                  navigate={navigate}
+                  title={headingText(
+                    headlineId,
+                    settings.bossPronouns,
+                    settings.humor && !settings.quiet && !serious,
+                    settings.strongLanguage,
+                  )}
+                />
+              )}
+              {route === 'home' && settings.humor && !settings.quiet && !serious && (
+                <Daily
+                  navigate={navigate}
+                  strongLanguage={settings.strongLanguage}
+                  timeZone={settings.timeZone}
+                />
+              )}
               {route === 'tools' && <Home {...common} serious={serious} />}
               {route === 'protection' && (
                 <ProtectionCard
@@ -221,15 +270,7 @@ export function App() {
               )}
               {route === 'shield' && <Shield {...common} serious={serious} />}
               {route === 'reply' && <Reply {...common} serious={serious} />}
-              {route === 'task' && <TaskShield vault={vault} navigate={navigate} />}
-              {route === 'diary' && (
-                <Grimoire
-                  vault={vault}
-                  lock={lock}
-                  onUnlocked={() => void companion.enablePersistence()}
-                />
-              )}
-              {route === 'closure' && <Closure vault={vault} navigate={navigate} />}
+              {route === 'closure' && <Closure navigate={navigate} />}
               {route === 'explore' && <Explore {...common} serious={serious} />}
               {route === 'bestiary' && <Bestiary navigate={navigate} />}
               {route === 'tarot' && !serious && settings.humor && !settings.quiet && (
@@ -238,7 +279,6 @@ export function App() {
               {route === 'bingo' && !serious && settings.humor && !settings.quiet && (
                 <Bingo navigate={navigate} />
               )}
-              {route === 'focus' && <Focus />}
               {route === 'settings' && (
                 <Preferences
                   settings={settings}
@@ -246,7 +286,7 @@ export function App() {
                   vault={vault}
                   reset={async () => {
                     await vault.wipe();
-                    if (globalThis.chrome?.storage?.local) await chrome.storage.local.clear();
+                    await clearPublic();
                     await updateSettings(defaults);
                     panic();
                     setRoute('home');
@@ -267,36 +307,35 @@ export function App() {
         {settings.onboarded && (
           <>
             <nav className="bottom-nav" aria-label={t.explore}>
-              <button
-                aria-current={route === 'home' ? 'page' : undefined}
+              <Button
+                aria-current={route === 'home' || route === 'situations' ? 'page' : undefined}
                 onClick={() => navigate('home')}
               >
-                {t.home}
-              </button>
-              <button
+                <Icon name="home" />
+                <span>{t.home}</span>
+              </Button>
+              <Button
                 aria-current={route === 'tools' ? 'page' : undefined}
                 onClick={() => navigate('tools')}
               >
-                {t.redesign.tools}
-              </button>
-              <button
+                <Icon name="tools" />
+                <span>{t.redesign.tools}</span>
+              </Button>
+              <Button
                 aria-current={route === 'explore' ? 'page' : undefined}
                 onClick={() => navigate('explore')}
               >
-                {t.explore}
-              </button>
-              <button
+                <Icon name="explore" />
+                <span>{t.explore}</span>
+              </Button>
+              <Button
                 aria-current={route === 'settings' ? 'page' : undefined}
                 onClick={() => navigate('settings')}
               >
-                {t.settings}
-              </button>
+                <Icon name="settings" />
+                <span>{t.settings}</span>
+              </Button>
             </nav>
-            <footer>
-              <button className="text-button" onClick={() => navigate('serious')}>
-                {t.support}
-              </button>
-            </footer>
           </>
         )}
       </div>

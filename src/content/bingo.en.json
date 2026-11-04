@@ -1,0 +1,602 @@
+[
+  {
+    "id": "bingo_001",
+    "text": "Another meeting proposed",
+    "category": "general"
+  },
+  {
+    "id": "bingo_002",
+    "text": "No decision recorded",
+    "category": "general"
+  },
+  {
+    "id": "bingo_003",
+    "text": "Unattributed \"we\"",
+    "category": "general"
+  },
+  {
+    "id": "bingo_004",
+    "text": "Acceptance criteria changed",
+    "category": "general"
+  },
+  {
+    "id": "bingo_005",
+    "text": "Owner not identified",
+    "category": "general"
+  },
+  {
+    "id": "bingo_006",
+    "text": "Deadline left unclear",
+    "category": "general"
+  },
+  {
+    "id": "bingo_007",
+    "text": "Priority described as \"urgent\"",
+    "category": "general"
+  },
+  {
+    "id": "bingo_008",
+    "text": "Previous agreement disputed",
+    "category": "general"
+  },
+  {
+    "id": "bingo_009",
+    "text": "Decision postponed",
+    "category": "general"
+  },
+  {
+    "id": "bingo_010",
+    "text": "New approval checkpoint",
+    "category": "general"
+  },
+  {
+    "id": "bingo_011",
+    "text": "Task expands mid-conversation",
+    "category": "general"
+  },
+  {
+    "id": "bingo_012",
+    "text": "Feedback without example",
+    "category": "general"
+  },
+  {
+    "id": "bingo_013",
+    "text": "Someone talks over a deliverable",
+    "category": "general"
+  },
+  {
+    "id": "bingo_014",
+    "text": "New process proposed",
+    "category": "general"
+  },
+  {
+    "id": "bingo_015",
+    "text": "Action item without owner",
+    "category": "general"
+  },
+  {
+    "id": "bingo_016",
+    "text": "A meeting is booked to plan another meeting.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_017",
+    "text": "The agenda arrives after the meeting starts.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_018",
+    "text": "A decision is postponed to an unnamed future meeting.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_019",
+    "text": "Someone asks for the deck that is already on screen.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_020",
+    "text": "The last five minutes acquire a new topic.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_021",
+    "text": "A calendar invitation contains no purpose.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_022",
+    "text": "A meeting ends without naming a decision.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_023",
+    "text": "Two participants offer conflicting summaries.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_024",
+    "text": "The discussion returns to the opening question.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_025",
+    "text": "An action item has no named owner.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_026",
+    "text": "Someone asks whether this needs a meeting.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_027",
+    "text": "The meeting starts before the necessary document is available.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_028",
+    "text": "An optional attendee receives an unexpected task.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_029",
+    "text": "A recurring meeting has outlived its original purpose.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_030",
+    "text": "A quick sync gains another half hour.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_031",
+    "text": "A question is answered with a new meeting invitation.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_032",
+    "text": "The meeting title no longer matches the topic.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_033",
+    "text": "The last slide contains the first concrete question.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_034",
+    "text": "A follow-up is suggested without a date.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_035",
+    "text": "The decision maker is not in the meeting.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_036",
+    "text": "A familiar topic is introduced as a new discussion.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_037",
+    "text": "The notes contain more questions than decisions.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_038",
+    "text": "The meeting moves rooms but not forward.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_039",
+    "text": "Someone proposes taking the main topic offline.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_040",
+    "text": "The summary names a different outcome from the agenda.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_041",
+    "text": "A status update becomes a planning session.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_042",
+    "text": "The call ends just before the next step is named.",
+    "category": "meetings"
+  },
+  {
+    "id": "bingo_043",
+    "text": "The deadline is described only as ASAP.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_044",
+    "text": "A reference example replaces an acceptance criterion.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_045",
+    "text": "The word urgent arrives without a deadline.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_046",
+    "text": "Two instructions use different definitions of done.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_047",
+    "text": "A request contains an adjective and no example.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_048",
+    "text": "A task title is more specific than its brief.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_049",
+    "text": "A question about scope receives a question about attitude.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_050",
+    "text": "The deliverable changes during the clarification.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_051",
+    "text": "A requirement is described as obvious.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_052",
+    "text": "A key term has two different meanings in the discussion.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_053",
+    "text": "The priority list has more than one top priority.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_054",
+    "text": "An estimate is requested before the scope is available.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_055",
+    "text": "A missing decision is described as alignment.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_056",
+    "text": "The question asks for a yes or no about an unknown detail.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_057",
+    "text": "A request to simplify adds another requirement.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_058",
+    "text": "The answer identifies a preference rather than a requirement.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_059",
+    "text": "A screenshot arrives without an explanation.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_060",
+    "text": "A deadline appears in the subject line but not the brief.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_061",
+    "text": "The same task has two different owners in two documents.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_062",
+    "text": "The new brief still links to the old requirements.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_063",
+    "text": "An unspecified stakeholder is expected to approve.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_064",
+    "text": "A question about timing receives a vision statement.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_065",
+    "text": "The phrase just a small change introduces a new deliverable.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_066",
+    "text": "Someone asks for more detail without naming what is missing.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_067",
+    "text": "A proposed solution arrives before the problem is stated.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_068",
+    "text": "The word final appears on another revision.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_069",
+    "text": "A priority is called non-negotiable without naming the trade-off.",
+    "category": "clarity"
+  },
+  {
+    "id": "bingo_070",
+    "text": "A group message asks who owns a task already assigned.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_071",
+    "text": "The reply skips the specific question that was asked.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_072",
+    "text": "A message says as discussed without a linked decision.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_073",
+    "text": "A forwarded thread contains no request.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_074",
+    "text": "A question receives a reaction instead of an answer.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_075",
+    "text": "The answer is split across three channels.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_076",
+    "text": "The useful attachment is in a different thread.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_077",
+    "text": "A reply-all creates a new side discussion.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_078",
+    "text": "A message asks for an update already posted in the thread.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_079",
+    "text": "A colleague is discussed while absent.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_080",
+    "text": "A request mentions everyone but names no owner.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_081",
+    "text": "The subject line says quick question.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_082",
+    "text": "A long reply contains no concrete next step.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_083",
+    "text": "Two people repeat the same point in different terminology.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_084",
+    "text": "A comment requests the previous version.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_085",
+    "text": "A thread has competing definitions of success.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_086",
+    "text": "An unanswered question returns with a new subject line.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_087",
+    "text": "The message ends with thoughts and no specific question.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_088",
+    "text": "A private suggestion is repeated as a group expectation.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_089",
+    "text": "A request quotes only part of the earlier message.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_090",
+    "text": "A status question is repeated before its stated check-in.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_091",
+    "text": "A message adds a new recipient without context.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_092",
+    "text": "A statement about the work becomes a statement about loyalty.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_093",
+    "text": "The useful answer appears below several greetings.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_094",
+    "text": "Someone asks for the answer in a different format.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_095",
+    "text": "The same question appears in email and chat.",
+    "category": "communication"
+  },
+  {
+    "id": "bingo_096",
+    "text": "A review is requested before the reviewer has access.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_097",
+    "text": "A form asks for a decision that has not been made.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_098",
+    "text": "A required field has no applicable answer.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_099",
+    "text": "The approval route contains an unnamed approver.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_100",
+    "text": "A new tool is proposed before the current process is explained.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_101",
+    "text": "The status label changes while the task stays blocked.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_102",
+    "text": "A dependency is described as a minor detail.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_103",
+    "text": "A missing permission prevents the requested work.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_104",
+    "text": "The template contains instructions for an older process.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_105",
+    "text": "A task is reassigned without the supporting context.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_106",
+    "text": "A document is called the source of truth beside another source of truth.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_107",
+    "text": "The plan assumes resources that have not been confirmed.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_108",
+    "text": "The progress report introduces a new measurement.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_109",
+    "text": "A date is copied from an earlier draft without confirmation.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_110",
+    "text": "The review checklist changes after submission.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_111",
+    "text": "A new approval is added after an earlier approval.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_112",
+    "text": "A task is called complete while its acceptance criteria remain open.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_113",
+    "text": "The process requires uploading the same file twice.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_114",
+    "text": "A risk is moved to a different document.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_115",
+    "text": "An existing task is renamed as a new initiative.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_116",
+    "text": "A work estimate becomes a commitment without a check.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_117",
+    "text": "A resource request receives a link to the mission statement.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_118",
+    "text": "A change request has no description of the change.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_119",
+    "text": "The tracker and the meeting notes show different statuses.",
+    "category": "process"
+  },
+  {
+    "id": "bingo_120",
+    "text": "A handover contains a link to an inaccessible folder.",
+    "category": "process"
+  }
+]

@@ -1,15 +1,69 @@
+import { BrandLogo } from '../BrandLogo';
+import { Button } from '../../components/ui/button';
 import { useState } from 'react';
 import type { Settings } from '../../browser/settings';
 import { messages as t } from '../../content';
-import { content, evidenceLabels } from '../../domain/content';
 import { MAX_ARCHIVE_BYTES, type Vault } from '../../vault/service';
-import { Field, PageTitle, Select, Sigil, Toggle } from '../components';
+import { Field, PageTitle, Select, Toggle } from '../components';
+import { isExtension } from '../../browser/platform';
+import { brandNames, brands, lookAlikes, monkeys } from '../../domain/disguise';
 type Props = { settings: Settings; update: (settings: Settings) => Promise<void> };
 
+function iconName(id: string) {
+  if (id.startsWith('monkey-')) return `${t.icons.monkey} ${Number(id.slice(7))}`;
+  return brandNames[id as keyof typeof brandNames] ?? t.icons[id as keyof typeof t.icons] ?? id;
+}
+function IconPicker({ value, onChange }: { value: string; onChange: (id: string) => void }) {
+  const groups = [
+    ...(isExtension() ? [] : [{ label: t.iconGroups.apps, ids: brands as readonly string[] }]),
+    { label: t.iconGroups.lookAlikes, ids: lookAlikes as readonly string[] },
+    { label: t.iconGroups.monkeys, ids: monkeys },
+  ];
+  const title = isExtension() ? t.icon : t.tabIcon;
+  return (
+    <div className="icon-picker" role="radiogroup" aria-label={title}>
+      <p className="field-label">{title}</p>
+      <p className="muted small-copy">{t.iconHint}</p>
+      {groups.map((group) => (
+        <div key={group.label} className="icon-group">
+          <p className="group-label">{group.label}</p>
+          <div className="icon-grid">
+            {group.ids.map((id) => (
+              <Button
+                key={id}
+                role="radio"
+                aria-checked={value === id}
+                aria-label={iconName(id)}
+                title={iconName(id)}
+                onClick={() => onChange(id)}
+              >
+                <img src={`/disguise/mono/${id}.svg`} alt="" />
+              </Button>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
 function Appearance({ settings, update }: Props) {
   const patch = (value: Partial<Settings>) => void update({ ...settings, ...value });
   return (
     <div className="stack">
+      <Select
+        label={t.bossPronouns}
+        value={settings.bossPronouns}
+        onChange={(bossPronouns) => patch({ bossPronouns })}
+        options={Object.entries(t.pronouns).map(([value, label]) => ({
+          value: value as Settings['bossPronouns'],
+          label,
+        }))}
+      />
+      <Toggle
+        label={t.strongLanguage}
+        checked={settings.strongLanguage}
+        onChange={(strongLanguage) => patch({ strongLanguage })}
+      />
       <Select
         label={t.theme}
         value={settings.theme}
@@ -20,14 +74,18 @@ function Appearance({ settings, update }: Props) {
         }))}
       />
       <Select
-        label={t.icon}
-        value={settings.icon}
-        onChange={(icon) => patch({ icon })}
-        options={Object.entries(t.icons).map(([value, label]) => ({
-          value: value as Settings['icon'],
-          label,
-        }))}
+        label={t.timeZone}
+        value={settings.timeZone}
+        onChange={(timeZone) => patch({ timeZone })}
+        options={[
+          { value: '', label: t.timeZoneAuto },
+          ...Intl.supportedValuesOf('timeZone').map((zone) => ({
+            value: zone,
+            label: zone.replaceAll('_', ' '),
+          })),
+        ]}
       />
+      <IconPicker value={settings.icon} onChange={(icon) => patch({ icon })} />
       <Select
         label={t.tone}
         value={settings.tone}
@@ -47,10 +105,10 @@ function Appearance({ settings, update }: Props) {
     </div>
   );
 }
-export function Onboarding({ settings, update }: Props) {
+export function Onboarding({ settings, update, logoId }: Props & { logoId: number }) {
   return (
     <section className="onboarding">
-      <Sigil />
+      <BrandLogo index={logoId} />
       <PageTitle intro={t.welcomeIntro}>{t.welcome}</PageTitle>
       <section className="notice">
         <h2>{t.privacyTitle}</h2>
@@ -64,9 +122,9 @@ export function Onboarding({ settings, update }: Props) {
           {t.manageHelp} ↗
         </a>
       </section>
-      <button className="primary" onClick={() => void update({ ...settings, onboarded: true })}>
+      <Button className="primary" onClick={() => void update({ ...settings, onboarded: true })}>
         {t.start}
-      </button>
+      </Button>
       <details>
         <summary>{t.preferences}</summary>
         <Appearance settings={settings} update={update} />
@@ -114,9 +172,9 @@ function Backup({ vault }: { vault: Vault }) {
   }
   return (
     <section className="stack">
-      <button disabled={busy} onClick={() => void exportArchive()}>
+      <Button disabled={busy} onClick={() => void exportArchive()}>
         {t.export}
-      </button>
+      </Button>
       <details>
         <summary>{t.import}</summary>
         <p>{t.noRecovery}</p>
@@ -148,9 +206,9 @@ function Backup({ vault }: { vault: Vault }) {
           onChange={setPassphrase}
         />
         <Toggle label={t.replaceVault} checked={replace} onChange={setReplace} />
-        <button disabled={!raw || !passphrase || busy} onClick={() => void restoreArchive()}>
+        <Button disabled={!raw || !passphrase || busy} onClick={() => void restoreArchive()}>
           {busy ? t.busy : t.restore}
-        </button>
+        </Button>
       </details>
       <p role="status">{status}</p>
     </section>
@@ -185,7 +243,7 @@ export function Preferences({
         }
         options={[1, 5, 15].map((value) => ({
           value: String(value),
-          label: `${value} ${t.minutes}`,
+          label: `${value} ${value === 1 ? t.minute : t.minutes}`,
         }))}
       />
       <Backup vault={vault} />
@@ -203,28 +261,14 @@ export function Preferences({
           {t.manageHelp} ↗
         </a>
       </details>
-      <details>
-        <summary>{t.sources}</summary>
-        {Object.values(evidenceLabels).map((label) => (
-          <p key={label}>{label}</p>
-        ))}
-        <p>{t.evidenceLimit}</p>
-        {content.sources.map((source) => (
-          <p key={source.id}>
-            <a href={source.url} target="_blank" rel="noopener noreferrer">
-              {source.title} ↗
-            </a>
-          </p>
-        ))}
-      </details>
-      <button className="danger" onClick={() => setDeleting(true)}>
+      <Button className="danger" onClick={() => setDeleting(true)}>
         {t.wipe}
-      </button>
+      </Button>
       {deleting && (
         <section className="notice">
           <p>{t.wipeWarning}</p>
           <Toggle label={t.wipeAck} checked={ack} onChange={setAck} />
-          <button
+          <Button
             disabled={!ack || busy}
             className="danger"
             onClick={() => {
@@ -236,8 +280,8 @@ export function Preferences({
             }}
           >
             {t.wipeConfirm}
-          </button>
-          <button onClick={() => setDeleting(false)}>{t.cancel}</button>
+          </Button>
+          <Button onClick={() => setDeleting(false)}>{t.cancel}</Button>
         </section>
       )}
       <p role="alert">{error}</p>

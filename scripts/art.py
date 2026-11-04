@@ -96,11 +96,56 @@ def illustration(kind):
         poly([(66,172),(56,136),(67,108),(80,103),(83,166)],100)
         poly([(70,116),(88,103),(107,108),(120,121),(101,133),(85,134)],0)
         oval((88,109,104,127),235);oval((94,113,100,123),0)
+    elif kind=='key':
+        oval((31,27,98,94),230);oval((46,42,83,79),0)
+        line([(82,82),(152,154)],235,17);line([(127,130),(112,146)],225,10);line([(146,148),(134,164)],225,10)
+    elif kind=='garden':
+        line([(94,174),(94,36)],210,9)
+        for x,y in [(45,60),(111,92),(49,120)]:
+            oval((x,y,x+40,y+22),240);line([(x+20,y+11),(94,y+30)],180,4)
+        poly([(47,157),(142,157),(128,183),(63,183)],180)
+    elif kind=='choice':
+        line([(95,178),(95,99),(43,50)],230,11);line([(95,99),(149,50)],230,11)
+        for x in (30,136):
+            oval((x,22,x+26,48),210);poly([(x,35),(x+13,65),(x+26,35)],210)
+    elif kind=='lion':
+        poly([(94,10),(119,31),(150,35),(160,65),(181,91),(159,117),(151,153),(119,161),(94,182),(67,161),(35,154),(28,119),(8,94),(27,69),(36,36),(64,29)],145)
+        oval((43,41,148,151),235);line([(62,77),(79,77)],0,6);line([(111,77),(130,77)],0,6)
+        poly([(82,99),(109,99),(96,116)],0);line([(96,117),(96,135)],0,4)
+    elif kind=='hourglass':
+        line([(42,20),(151,20)],230,11);line([(42,174),(151,174)],230,11)
+        poly([(53,30),(139,30),(131,69),(107,98),(133,133),(141,166),(51,166),(59,133),(83,98),(59,69)],200)
+        poly([(66,37),(126,37),(120,63),(96,91),(72,63)],0)
+        poly([(64,158),(96,120),(128,158)],0)
+    elif kind=='archive':
+        poly([(24,59),(24,35),(82,35),(103,53),(169,53),(169,164),(24,164)],230)
+        poly([(36,73),(178,73),(158,168),(18,168)],140)
+        line([(98,105),(98,150)],0,4);oval((84,93,111,116),235)
+    elif kind=='pour':
+        for x,y in [(25,37),(118,110)]:
+            poly([(x,y),(x+49,y),(x+42,y+39),(x+8,y+39)],230)
+            line([(x+14,y+42),(x+36,y+42)],140,6)
+        line([(60,64),(87,84),(104,81),(133,107)],220,6)
+    elif kind=='star':
+        pts=[]
+        for i in range(16):
+            r=82 if i%2==0 else 23;a=i*math.pi/8-math.pi/2;pts.append((96+r*math.cos(a),96+r*math.sin(a)))
+        poly(pts,240);oval((80,80,112,112),100)
+    elif kind=='sun':
+        for a in range(0,360,30):
+            x=96+72*math.cos(math.radians(a));y=96+72*math.sin(math.radians(a));line([(x,y),(96+86*math.cos(math.radians(a)),96+86*math.sin(math.radians(a)))],230,7)
+        oval((42,42,150,150),230);line([(62,84),(80,84)],0,5);line([(110,84),(128,84)],0,5)
+        line([(75,115),(95,125),(117,113)],0,4)
+    elif kind=='world':
+        oval((27,27,165,165),220);oval((36,36,156,156),0)
+        line([(95,36),(95,156)],170,3);line([(36,96),(156,96)],170,3)
+        poly([(55,48),(87,43),(100,66),(86,88),(69,85),(68,113),(53,104)],230)
+        poly([(118,90),(145,101),(138,137),(119,149),(107,123)],230)
     return im
 
 
-def svg_art(kind, frame):
-    im=illustration(kind)
+def svg_art(kind, frame, im=None):
+    if im is None: im=illustration(kind)
     marks=[]
     for y in range(4,188,3):
         for x in range(4,188,3):
@@ -121,10 +166,46 @@ def svg_art(kind, frame):
     return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"><title>Original cross-stitch tarot illustration</title>'+ornaments+'<path d="'+' '.join(marks)+'" fill="#151319" stroke="#151319" stroke-width=".55"/></svg>'
 
 
-mapping={'pain-threats':'sword','pain-guilt':'chain','pain-chaos':'tower','pain-questions':'eye','pain-gossip':'masks','pain-meetings':'serpent','card_01':'crown','card_02':'serpent','card_03':'tower','card_04':'chain','card_05':'eye','card_06':'masks','card_07':'tiny_crown','card_08':'portal','card_09':'moon','card_10':'process','card_11':'hand','card_12':'door'}
+mapping={'pain-threats':'sword','pain-guilt':'chain','pain-chaos':'tower','pain-questions':'eye','pain-gossip':'masks','pain-meetings':'serpent','card_01':'crown','card_02':'serpent','card_03':'tower','card_04':'chain','card_05':'eye','card_06':'masks','card_07':'tiny_crown','card_08':'portal','card_09':'moon','card_10':'process','card_11':'hand','card_12':'door','card_13':'key','card_14':'garden','card_15':'choice','card_16':'lion','card_17':'hourglass','card_18':'archive','card_19':'pour','card_20':'star','card_21':'sun','card_22':'world'}
 for name,kind in mapping.items():
     art=svg_art(kind,name.startswith('card_'))
     for folder in (OUT,SOURCE):
         folder.mkdir(parents=True,exist_ok=True)
         (folder/(name+'.svg')).write_text(art)
-print('Authored 18 original cross-stitch SVG illustrations; no network or fonts')
+print('Authored original major arcana and pain illustrations; no network or fonts')
+
+
+def minor_art(suit,rank):
+    im=Image.new('L',(192,192),0);d=ImageDraw.Draw(im)
+    def pip(x,y,r):
+        if suit=='swords':
+            d.polygon([(x,y-r),(x+r*.25,y+r*.4),(x,y+r*.6),(x-r*.25,y+r*.4)],fill=235);d.line([(x-r*.55,y+r*.5),(x+r*.55,y+r*.5)],fill=140,width=3);d.line([(x,y+r*.5),(x,y+r)],fill=220,width=3)
+        elif suit=='cups':
+            d.polygon([(x-r*.7,y-r*.7),(x+r*.7,y-r*.7),(x+r*.5,y+r*.2),(x-r*.5,y+r*.2)],fill=225);d.line([(x,y+r*.2),(x,y+r*.8)],fill=190,width=3);d.line([(x-r*.5,y+r*.8),(x+r*.5,y+r*.8)],fill=225,width=3)
+        elif suit=='wands':
+            d.line([(x-r*.35,y+r),(x+r*.3,y-r)],fill=220,width=5);d.ellipse((x-r*.3,y-r*.4,x+r*.5,y+r*.1),fill=145)
+        else:
+            d.ellipse((x-r,y-r,x+r,y+r),fill=180);pts=[]
+            for i in [0,2,4,1,3,0]:pts.append((x+r*.7*math.cos(i*math.pi*2/5-math.pi/2),y+r*.7*math.sin(i*math.pi*2/5-math.pi/2)))
+            d.line(pts,fill=245,width=2)
+    if rank<=10:
+        if rank==1:positions=[(96,96)];r=52
+        else:
+            cols=2 if rank<9 else 3;rows=math.ceil(rank/cols);r=min(22,60/rows);positions=[]
+            for i in range(rank):
+                row=i//cols;count=min(cols,rank-row*cols);x=96 if count==1 else 46+(i%cols)*100/(count-1);y=96 if rows==1 else 35+row*122/(rows-1);positions.append((x,y))
+        for x,y in positions:pip(x,y,r)
+    else:
+        d.ellipse((58,31,132,108),fill=160+rank*4);d.polygon([(49,174),(62,110),(126,110),(145,174)],fill=140)
+        if rank>=13:d.polygon([(57,38),(52,13),(77,25),(96,7),(115,25),(140,13),(133,38)],fill=235)
+        elif rank==12:d.line([(64,42),(125,42),(145,62)],fill=240,width=8)
+        else:d.polygon([(59,37),(110,15),(134,38)],fill=240)
+        d.line([(72,66),(83,66)],fill=0,width=4);d.line([(110,66),(121,66)],fill=0,width=4)
+        if rank==14:d.polygon([(72,93),(120,93),(96,121)],fill=235)
+        pip(96,139,25)
+    return im
+for suit in ['swords','cups','wands','pentacles']:
+    for rank in range(1,15):
+        art=svg_art('',True,minor_art(suit,rank));name=f'card_{suit}_{rank:02}.svg'
+        for folder in (OUT,SOURCE):(folder/name).write_text(art)
+print('Full deck: 78 original card illustrations plus 6 pain illustrations')

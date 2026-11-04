@@ -1,3 +1,5 @@
+import { Icon } from '../PixelIcon';
+import { Button } from '../../components/ui/button';
 import { useEffect, useState } from 'react';
 import { messages as t, formatDate } from '../../content';
 import { localDay, type CalendarEvent } from '../../domain/calendar';
@@ -5,8 +7,8 @@ import { painForScenario, scenarioFor } from '../../domain/pains';
 import { useCompanion } from '../companion-store';
 import type { Settings } from '../../browser/settings';
 import type { Vault } from '../../vault/service';
-import { Field, PageTitle, Toggle } from '../components';
-import { VaultGate } from './Grimoire';
+import { PageTitle, Toggle } from '../components';
+import { VaultGate } from './VaultGate';
 
 export function PrivateCalendar({
   vault,
@@ -23,7 +25,6 @@ export function PrivateCalendar({
   );
   const [day, setDay] = useState(() => localDay(new Date().toISOString()));
   const [selected, setSelected] = useState<string>();
-  const [editing, setEditing] = useState(false);
   const [setup, setSetup] = useState(false);
   const [unlocked, setUnlocked] = useState(vault.unlocked);
   const [deleting, setDeleting] = useState(false);
@@ -31,7 +32,6 @@ export function PrivateCalendar({
   const [error, setError] = useState(false);
   const [busy, setBusy] = useState(false);
   const event = state.events.find((item) => item.id === selected);
-  const [notes, setNotes] = useState('');
   useEffect(() => {
     if (unlocked) void store.hydrate();
   }, [unlocked, store]);
@@ -82,13 +82,13 @@ export function PrivateCalendar({
     <div className="calendar-view">
       <PageTitle>{t.redesign.calendar}</PageTitle>
       <div className="calendar-heading">
-        <button aria-label={t.redesign.previousMonth} onClick={() => changeMonth(-1)}>
-          ←
-        </button>
+        <Button aria-label={t.redesign.previousMonth} onClick={() => changeMonth(-1)}>
+          <Icon name="back" />
+        </Button>
         <h2>{title}</h2>
-        <button aria-label={t.redesign.nextMonth} onClick={() => changeMonth(1)}>
-          →
-        </button>
+        <Button aria-label={t.redesign.nextMonth} onClick={() => changeMonth(1)}>
+          <Icon name="next" />
+        </Button>
       </div>
       <div className="calendar-grid" role="group" aria-label={title}>
         {Array.from({ length: 7 }, (_, i) => (
@@ -104,7 +104,7 @@ export function PrivateCalendar({
           const value = localDay(new Date(year, index, n).toISOString());
           const logged = state.events.some((item) => localDay(item.createdAtISO) === value);
           return (
-            <button
+            <Button
               key={value}
               aria-label={`${new Intl.DateTimeFormat('en', { dateStyle: 'full' }).format(new Date(year, index, n))}${logged ? `. ${t.redesign.taggedDay}` : ''}`}
               aria-pressed={day === value}
@@ -112,12 +112,11 @@ export function PrivateCalendar({
               onClick={() => {
                 setDay(value);
                 setSelected(undefined);
-                setEditing(false);
               }}
             >
               {n}
               {logged && <span className="calendar-dot" aria-hidden="true" />}
-            </button>
+            </Button>
           );
         })}
       </div>
@@ -126,15 +125,13 @@ export function PrivateCalendar({
         {selectedEvents.map((item) => {
           const pain = painForScenario(item.situationId);
           return (
-            <button
+            <Button
               className="event-summary"
               key={item.id}
               aria-expanded={selected === item.id}
               onClick={() => {
                 setSelected(selected === item.id ? undefined : item.id);
-                setEditing(false);
                 setDeleting(false);
-                setNotes(item.notes);
               }}
             >
               <span className="calendar-dot" aria-hidden="true" />
@@ -149,23 +146,22 @@ export function PrivateCalendar({
                   · {item.status === 'planned' ? t.redesign.planned : t.redesign.tagged}
                 </small>
               </span>
-            </button>
+            </Button>
           );
         })}
       </section>
       {event && (
         <article className="calendar-detail">
-          <p className="eyebrow">{formatDate(event.createdAtISO)}</p>
+          <p className="muted small-copy">{formatDate(event.createdAtISO)}</p>
           <p className="charm-text">{event.mantra.text}</p>
           {event.plannedResponseText && (
             <>
-              <p className="eyebrow">{t.redesign.planned}</p>
               <p className="preserve">{event.plannedResponseText}</p>
             </>
           )}
           <div className="chips" role="group" aria-label={t.redesign.outcome}>
             {Object.entries(t.redesign.outcomes).map(([value, label]) => (
-              <button
+              <Button
                 key={value}
                 aria-pressed={event.outcome === value}
                 onClick={() =>
@@ -176,40 +172,24 @@ export function PrivateCalendar({
                 }
               >
                 {label}
-              </button>
+              </Button>
             ))}
           </div>
-          {event.notes && <p className="preserve">{event.notes}</p>}
           <p className="save-status">
             {settings.privateLogging && state.savedIds.includes(event.id)
               ? t.redesign.encrypted
               : t.redesign.session}
           </p>
-          <button onClick={() => setEditing(!editing)}>{t.redesign.editEvent}</button>
-          {editing && (
-            <div className="stack">
-              <Field label={t.redesign.eventNotes} value={notes} onChange={setNotes} multiline />
-
-              <button
-                onClick={() => {
-                  store.update({ ...event, notes });
-                  setEditing(false);
-                }}
-              >
-                {t.redesign.saveEvent}
-              </button>
-            </div>
-          )}
-          <button className="danger" onClick={() => setDeleting(true)}>
+          <Button className="danger" onClick={() => setDeleting(true)}>
             {t.redesign.deleteEvent}
-          </button>
+          </Button>
           {deleting && (
             <section className="notice">
               <p>{t.redesign.deleteConfirm}</p>
-              <button disabled={busy} onClick={() => void remove()}>
+              <Button disabled={busy} onClick={() => void remove()}>
                 {t.confirmDelete}
-              </button>
-              <button onClick={() => setDeleting(false)}>{t.cancel}</button>
+              </Button>
+              <Button onClick={() => setDeleting(false)}>{t.cancel}</Button>
             </section>
           )}
         </article>
@@ -226,9 +206,9 @@ export function PrivateCalendar({
       {(!settings.privateLogging || !unlocked) && (
         <>
           <p className="muted small-copy">{t.redesign.historyNotice}</p>
-          <button aria-expanded={setup} onClick={() => setSetup(!setup)}>
+          <Button aria-expanded={setup} onClick={() => setSetup(!setup)}>
             {t.redesign.enableHistory}
-          </button>
+          </Button>
         </>
       )}
       {setup && !unlocked && (
@@ -250,17 +230,17 @@ export function PrivateCalendar({
         />
       )}
       {!!state.events.length && (
-        <button className="text-button" onClick={() => setClearing(true)}>
+        <Button className="text-button" onClick={() => setClearing(true)}>
           {t.redesign.clearCalendar}
-        </button>
+        </Button>
       )}
       {clearing && (
         <section className="notice">
           <p>{t.redesign.clearWarning}</p>
-          <button className="danger" disabled={busy} onClick={() => void clear()}>
+          <Button className="danger" disabled={busy} onClick={() => void clear()}>
             {t.redesign.clearConfirm}
-          </button>
-          <button onClick={() => setClearing(false)}>{t.cancel}</button>
+          </Button>
+          <Button onClick={() => setClearing(false)}>{t.cancel}</Button>
         </section>
       )}
     </div>

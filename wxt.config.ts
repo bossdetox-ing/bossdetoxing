@@ -1,8 +1,9 @@
 import { defineConfig } from 'wxt';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   modules: ['@wxt-dev/module-react'],
-  vite: () => ({ build: { modulePreload: { polyfill: false } } }),
+  vite: () => ({ plugins: [tailwindcss()], build: { modulePreload: { polyfill: false } } }),
   manifest: {
     name: 'bossdetox.ing',
     description:
@@ -12,15 +13,18 @@ export default defineConfig({
     permissions: ['sidePanel', 'storage'],
     host_permissions: [],
     action: {
-      default_title: 'Open notes',
-      default_icon: { 16: 'icons/search16.png', 32: 'icons/search32.png' },
+      default_title: 'Open desk',
+      default_icon: {
+        16: 'disguise/png/search-light-16.png',
+        32: 'disguise/png/search-light-32.png',
+      },
     },
     icons: { 16: 'icons/sigil16.png', 48: 'icons/sigil48.png', 128: 'icons/sigil128.png' },
     commands: {
       _execute_action: { suggested_key: { default: 'Alt+Shift+O' } },
       'blank-panel': {
         suggested_key: { default: 'Alt+Shift+X' },
-        description: 'Blank bossdetox.ing and lock saved notes',
+        description: 'Blank bossdetox.ing and lock saved history',
       },
     },
     content_security_policy: {

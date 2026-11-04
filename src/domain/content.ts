@@ -1,9 +1,12 @@
+import workerChecks from '../content/worker-first.en.json';
 import { z } from 'zod';
 import seed from '../../BOSSDETOX_ING_V1_HANDOFF/CONTENT_SEED.json';
 import overrides from '../content/en-overrides.json';
 import practices from '../content/en-practices.json';
 import { en } from '../content/en';
 import { mantras, mantraSchema } from './mantras';
+import { tarot, tarotDeckSchema } from './tarot';
+import { bingo } from './bingo';
 
 const text = z.string().trim().min(1);
 export const toneSchema = z.enum(['yellow', 'grey', 'firm']);
@@ -60,21 +63,9 @@ export const contentSchema = z
       )
       .min(20),
     mantras: z.array(mantraSchema).length(250),
-    tarot: z
-      .array(
-        z.object({
-          id: text,
-          title: text,
-          fictionalSymbolism: text,
-          groundedMantra: text,
-          nextAction: text,
-          notPrediction: z.literal(true),
-          humorAllowed: z.boolean(),
-        }),
-      )
-      .min(12),
+    tarot: tarotDeckSchema,
     corporateWeather: strings.min(12),
-    bingoSquares: strings.min(12),
+    bingoSquares: strings.length(120),
     sources: z.array(
       z.object({
         id: text,
@@ -110,7 +101,12 @@ export const contentSchema = z
     if (data.mantras.some((m) => m.situationIds.some((id) => !scenarios.has(id))))
       ctx.addIssue({ code: 'custom', message: 'Unknown mantra scenario' });
   });
-export const content = contentSchema.parse({ ...seed, mantras });
+export const content = contentSchema.parse({
+  ...seed,
+  mantras,
+  tarot,
+  bingoSquares: bingo.map((item) => item.text),
+});
 for (const scenario of content.scenarios) {
   const edited = overrides[scenario.id as keyof typeof overrides];
   if (edited) Object.assign(scenario.responses, edited);
@@ -128,3 +124,8 @@ export const defaultScenario = content.scenarios[0]!;
 // This is a product synthesis, rather than a named, validated clinical skill.
 const controlledPause = content.techniques.find((t) => t.id === 'controlled_pause');
 if (controlledPause) controlledPause.evidenceType = 'practitioner_heuristic';
+
+for (const behavior of content.behaviors) {
+  const key = behavior.id.replace(/^behavior_/, '') as keyof typeof workerChecks;
+  behavior.alternativeExplanations = workerChecks[key];
+}

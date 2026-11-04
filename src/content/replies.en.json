@@ -1,0 +1,237 @@
+{
+  "vague_accusation": {
+    "yellow": [
+      "Could you point to the deliverable that needs changing?",
+      "I'd like to understand the feedback. Which deliverable needs work?"
+    ],
+    "grey": ["Which deliverable needs a change?", "What specifically needs improving?"],
+    "firm": [
+      "Please name the deliverable and the criterion it hasn't met.",
+      "I can address specific feedback. Please identify the deliverable and required change."
+    ]
+  },
+  "guilt_induction": {
+    "yellow": [
+      "I want to help. Which work outcome should take priority?",
+      "Could we turn this into a specific request and a workable priority?"
+    ],
+    "grey": ["What task needs doing, and by when?", "Which work requirement are we discussing?"],
+    "firm": [
+      "Please keep this to the work requirement and the available capacity.",
+      "I can discuss a concrete work request. What needs doing and what can move?"
+    ]
+  },
+  "dismissal_warning": {
+    "yellow": [
+      "I hear the concern. Which specific expectations should I address?",
+      "I'd like to understand this clearly. What performance criteria are in question?"
+    ],
+    "grey": [
+      "Which performance expectation is in question?",
+      "What specific requirement should I address?"
+    ],
+    "firm": [
+      "Please confirm whether this is formal performance feedback and share the criteria in writing.",
+      "I need to know whether this is formal performance feedback. Please provide the expectations in writing."
+    ]
+  },
+  "public_criticism": {
+    "yellow": [
+      "I'd like to address the work issue. Could you give me a specific example?",
+      "Could we identify the concrete change needed and discuss the details privately?"
+    ],
+    "grey": ["What specific change is needed?", "Which work issue needs addressing?"],
+    "firm": [
+      "I can discuss the work issue. Please give specific feedback in a private conversation.",
+      "Please keep the feedback specific to the work and move personal comments to a private discussion."
+    ]
+  },
+  "colleague_gossip": {
+    "yellow": [
+      "Could we bring this back to what the team needs to deliver?",
+      "I'd rather check work concerns with the person involved. What needs doing here?"
+    ],
+    "grey": ["What does the work require?", "Which deliverable needs attention?"],
+    "firm": [
+      "I prefer to discuss the work rather than assess someone who isn't here.",
+      "Please keep this to the deliverable. I don't want to speculate about an absent colleague."
+    ]
+  },
+  "unattributed_consensus": {
+    "yellow": [
+      "I'd like to understand the concern. Could you share a concrete example?",
+      "Could we focus on one specific concern I can address?"
+    ],
+    "grey": ["What specific concern should I address?", "Which example are we discussing?"],
+    "firm": [
+      "Please provide the specific feedback rather than an unnamed group's assessment.",
+      "I can address an observable work issue. Please identify the example and expected change."
+    ]
+  },
+  "circular_interrogation": {
+    "yellow": [
+      "Could we pick the specific point that still needs resolving?",
+      "I want to answer accurately. Which question should we settle first?"
+    ],
+    "grey": [
+      "Which point remains unresolved?",
+      "What decision does this question need to support?"
+    ],
+    "firm": [
+      "Please identify the concrete issue and the answer or outcome you're asking for.",
+      "I can work through specific questions. Let's name the unresolved point before continuing."
+    ]
+  },
+  "moving_goalposts": {
+    "yellow": [
+      "I can review the change. Could we confirm the current scope and priority?",
+      "Could we identify what's changed and check the impact on timing?"
+    ],
+    "grey": ["What's the revised requirement?", "Which version of the requirement applies now?"],
+    "firm": [
+      "Please confirm the changed scope, acceptance criteria and timing before I commit.",
+      "A revised requirement needs a revised estimate. Please confirm the current scope and deadline."
+    ]
+  },
+  "withheld_information": {
+    "yellow": [
+      "I can move this forward once the needed input is clear. What can be shared?",
+      "Could we identify the information needed for the next step?"
+    ],
+    "grey": ["What input is available?", "Where can I get the required information?"],
+    "firm": [
+      "Please confirm the missing input and who can provide it before the work is assessed.",
+      "I need the relevant information to complete this accurately. Please identify the source and access route."
+    ]
+  },
+  "meeting_loop": {
+    "yellow": [
+      "Could we name the decision we need from this conversation?",
+      "Happy to coordinate. What should be decided before we finish?"
+    ],
+    "grey": ["What needs deciding today?", "Which outcome does this meeting need?"],
+    "firm": [
+      "Please identify the decision, owner and required input before we schedule another discussion.",
+      "Let's record the unresolved decision and its owner before adding another meeting."
+    ]
+  },
+  "responsibility_diffusion": {
+    "yellow": [
+      "Could we give the next action a named owner?",
+      "I'd like to make sure this moves. Who has responsibility for the next step?"
+    ],
+    "grey": ["Who owns the next action?", "Who can make this decision?"],
+    "firm": [
+      "Please name the owner and decision authority before assigning the next step.",
+      "I can support the work, but responsibility and authority need to be explicit."
+    ]
+  },
+  "micromanagement": {
+    "yellow": [
+      "Could we agree a useful checkpoint so I can keep the work moving?",
+      "I'd like to keep you informed. What review point would be useful?"
+    ],
+    "grey": ["When should we review progress?", "What update do you need at the next checkpoint?"],
+    "firm": [
+      "Please agree the review points and required updates so I have time to do the work.",
+      "I can provide updates at checkpoints we agree on. Let's confirm the schedule and review criteria."
+    ]
+  },
+  "competing_priorities": {
+    "yellow": [
+      "I can help prioritize. Which task should come first, and what can move?",
+      "Could we put these requests in order and confirm the trade-off?"
+    ],
+    "grey": ["Which task is first?", "What should move to make room?"],
+    "firm": [
+      "Please confirm the priority and which existing commitment should change.",
+      "These requests compete for capacity. I need a priority decision before committing to both."
+    ]
+  },
+  "credit_dispute": {
+    "yellow": [
+      "Could we check the contribution record so the summary is accurate?",
+      "I'd like the record to reflect the work. Could we review the specific contributions?"
+    ],
+    "grey": [
+      "Can we check the contribution record?",
+      "Which work records should the summary reflect?"
+    ],
+    "firm": [
+      "Please review the relevant contributions before finalizing the attribution.",
+      "I want an accurate record of the work. Let's check the specific contributions rather than speculate about intent."
+    ]
+  },
+  "workload_overload": {
+    "yellow": [
+      "Could we review the workload and choose what should move?",
+      "I want to give a realistic commitment. Which existing task can be deprioritized?"
+    ],
+    "grey": ["What should come off the list?", "Which task can move to make room?"],
+    "firm": [
+      "Please confirm what should be removed or delayed before adding this commitment.",
+      "I can't commit accurately without a capacity trade-off. Please identify what can move."
+    ]
+  },
+  "surveillance_concern": {
+    "yellow": [
+      "Could you explain the reporting expectation and the policy that applies?",
+      "I'd like to understand what information is required and how it is used."
+    ],
+    "grey": ["Which reporting policy applies?", "What information is required?"],
+    "firm": [
+      "Please provide the applicable reporting policy and expected process in writing.",
+      "I need clear reporting requirements and an explanation of how the information is used."
+    ]
+  },
+  "no_response": {
+    "yellow": [
+      "Could you confirm the decision needed so I can plan the next step?",
+      "I'd appreciate an update on the open question and any timing I should plan for."
+    ],
+    "grey": [
+      "What is the status of the open decision?",
+      "Is a decision available on this question?"
+    ],
+    "firm": [
+      "Please confirm the open decision and expected response timing before I proceed on an assumption.",
+      "I don't want to assume approval. Please confirm the decision or the next review point."
+    ]
+  },
+  "suspected_retaliation": {
+    "yellow": [
+      "Could you clarify the reason for the change and the current expectations?",
+      "I'd like to understand the change. Could you share the relevant criteria?"
+    ],
+    "grey": ["What criteria explain the change?", "What are the current expectations?"],
+    "firm": [
+      "Please provide the change, its stated reason and the applicable criteria in writing.",
+      "I need a clear written account of the change and the expectations that now apply."
+    ]
+  },
+  "after_meeting_replay": {
+    "yellow": [
+      "Could we confirm the decisions and any remaining next steps in writing?",
+      "I'd like to close the loop. What was decided and what remains open?"
+    ],
+    "grey": ["What was decided, and what is still open?", "Which next step is confirmed?"],
+    "firm": [
+      "Please distinguish confirmed decisions from unresolved questions in the written summary.",
+      "Let's record the confirmed requirements and leave any unmade decisions explicitly open."
+    ]
+  },
+  "ordinary_disagreement": {
+    "yellow": [
+      "I see another option. Could we compare it against the work objective?",
+      "Could we review the options using the same criteria?"
+    ],
+    "grey": [
+      "Which criterion should guide the choice?",
+      "How do the options compare against the objective?"
+    ],
+    "firm": [
+      "Let's assess the approaches against the work objective rather than personal preferences.",
+      "I can discuss the alternatives. Please identify the criteria we should use to choose."
+    ]
+  }
+}

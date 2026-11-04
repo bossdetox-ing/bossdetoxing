@@ -1,0 +1,272 @@
+[
+  {
+    "id": "doing",
+    "tone": "plain",
+    "templates": {
+      "he": "What's he doing now?",
+      "she": "What's she doing now?",
+      "they": "What are they doing now?"
+    }
+  },
+  {
+    "id": "happening",
+    "tone": "plain",
+    "templates": {
+      "he": "What's happening with him?",
+      "she": "What's happening with her?",
+      "they": "What's happening with them?"
+    }
+  },
+  {
+    "id": "asking",
+    "tone": "plain",
+    "templates": {
+      "he": "What's he asking for?",
+      "she": "What's she asking for?",
+      "they": "What are they asking for?"
+    }
+  },
+  {
+    "id": "said",
+    "tone": "plain",
+    "templates": {
+      "he": "What did he say?",
+      "she": "What did she say?",
+      "they": "What did they say?"
+    }
+  },
+  {
+    "id": "changed",
+    "tone": "plain",
+    "templates": {
+      "he": "What has he changed?",
+      "she": "What has she changed?",
+      "they": "What have they changed?"
+    }
+  },
+  {
+    "id": "need",
+    "tone": "plain",
+    "templates": {
+      "he": "What does he need from you?",
+      "she": "What does she need from you?",
+      "they": "What do they need from you?"
+    }
+  },
+  {
+    "id": "cooking",
+    "tone": "playful",
+    "templates": {
+      "he": "What's he cooking now?",
+      "she": "What's she cooking now?",
+      "they": "What are they cooking now?"
+    }
+  },
+  {
+    "id": "plot",
+    "tone": "playful",
+    "templates": {
+      "he": "What's his latest plot twist?",
+      "she": "What's her latest plot twist?",
+      "they": "What's their latest plot twist?"
+    }
+  },
+  {
+    "id": "quest",
+    "tone": "playful",
+    "templates": {
+      "he": "What's his new side quest?",
+      "she": "What's her new side quest?",
+      "they": "What's their new side quest?"
+    }
+  },
+  {
+    "id": "menu",
+    "tone": "playful",
+    "templates": {
+      "he": "What's on his nonsense menu?",
+      "she": "What's on her nonsense menu?",
+      "they": "What's on their nonsense menu?"
+    }
+  },
+  {
+    "id": "episode",
+    "tone": "playful",
+    "templates": {
+      "he": "What's happening in his latest episode?",
+      "she": "What's happening in her latest episode?",
+      "they": "What's happening in their latest episode?"
+    }
+  },
+  {
+    "id": "summon",
+    "tone": "playful",
+    "templates": {
+      "he": "What has he summoned this time?",
+      "she": "What has she summoned this time?",
+      "they": "What have they summoned this time?"
+    }
+  },
+  {
+    "id": "urgent",
+    "tone": "playful",
+    "templates": {
+      "he": "What's he calling urgent today?",
+      "she": "What's she calling urgent today?",
+      "they": "What are they calling urgent today?"
+    }
+  },
+  {
+    "id": "lore",
+    "tone": "playful",
+    "templates": {
+      "he": "What's the latest in his office lore?",
+      "she": "What's the latest in her office lore?",
+      "they": "What's the latest in their office lore?"
+    }
+  },
+  {
+    "id": "stirring",
+    "tone": "playful",
+    "templates": {
+      "he": "What's he stirring up?",
+      "she": "What's she stirring up?",
+      "they": "What are they stirring up?"
+    }
+  },
+  {
+    "id": "bosslevel",
+    "tone": "playful",
+    "templates": {
+      "he": "What's his next boss move?",
+      "she": "What's her next boss move?",
+      "they": "What's their next boss move?"
+    }
+  },
+  {
+    "id": "maincharacter",
+    "tone": "playful",
+    "templates": {
+      "he": "What's his main-character moment today?",
+      "she": "What's her main-character moment today?",
+      "they": "What's their main-character moment today?"
+    }
+  },
+  {
+    "id": "unpack",
+    "tone": "playful",
+    "templates": {
+      "he": "What are we unpacking from him today?",
+      "she": "What are we unpacking from her today?",
+      "they": "What are we unpacking from them today?"
+    }
+  },
+  {
+    "id": "asshole",
+    "tone": "unfiltered",
+    "templates": {
+      "he": "What's this asshole doing now?",
+      "she": "What's this asshole doing now?",
+      "they": "What's this asshole doing now?"
+    }
+  },
+  {
+    "id": "chef",
+    "tone": "unfiltered",
+    "templates": {
+      "he": "What's this motherfucker cooking?",
+      "she": "What's this motherfucker cooking?",
+      "they": "What's this motherfucker cooking?"
+    }
+  },
+  {
+    "id": "bullshit",
+    "tone": "unfiltered",
+    "templates": {
+      "he": "What's his latest bullshit?",
+      "she": "What's her latest bullshit?",
+      "they": "What's their latest bullshit?"
+    }
+  },
+  {
+    "id": "fresh",
+    "tone": "unfiltered",
+    "templates": {
+      "he": "What fresh bullshit has he brought?",
+      "she": "What fresh bullshit has she brought?",
+      "they": "What fresh bullshit have they brought?"
+    }
+  },
+  {
+    "id": "trying",
+    "tone": "unfiltered",
+    "templates": {
+      "he": "What the fuck is he trying now?",
+      "she": "What the fuck is she trying now?",
+      "they": "What the fuck are they trying now?"
+    }
+  },
+  {
+    "id": "request",
+    "tone": "unfiltered",
+    "templates": {
+      "he": "What's his latest bullshit request?",
+      "she": "What's her latest bullshit request?",
+      "they": "What's their latest bullshit request?"
+    }
+  },
+  {
+    "id": "stunt",
+    "tone": "unfiltered",
+    "templates": {
+      "he": "What shit is he pulling today?",
+      "she": "What shit is she pulling today?",
+      "they": "What shit are they pulling today?"
+    }
+  },
+  {
+    "id": "mess",
+    "tone": "unfiltered",
+    "templates": {
+      "he": "What's this asshole's latest side quest?",
+      "she": "What's this asshole's latest side quest?",
+      "they": "What's this asshole's latest side quest?"
+    }
+  },
+  {
+    "id": "sauce",
+    "tone": "unfiltered",
+    "templates": {
+      "he": "What bullshit is he serving now?",
+      "she": "What bullshit is she serving now?",
+      "they": "What bullshit are they serving now?"
+    }
+  },
+  {
+    "id": "cluster",
+    "tone": "unfiltered",
+    "templates": {
+      "he": "What's his latest clusterfuck?",
+      "she": "What's her latest clusterfuck?",
+      "they": "What's their latest clusterfuck?"
+    }
+  },
+  {
+    "id": "sequel",
+    "tone": "unfiltered",
+    "templates": {
+      "he": "What's his bullshit sequel about?",
+      "she": "What's her bullshit sequel about?",
+      "they": "What's their bullshit sequel about?"
+    }
+  },
+  {
+    "id": "audacity",
+    "tone": "unfiltered",
+    "templates": {
+      "he": "What's this motherfucker's big idea?",
+      "she": "What's this motherfucker's big idea?",
+      "they": "What's this motherfucker's big idea?"
+    }
+  }
+]

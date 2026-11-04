@@ -16,7 +16,11 @@ const context: MantraContext = {
 };
 test('250 original internal phrases retain IDs and pass editorial lint', () => {
   expect(mantras).toHaveLength(250);
-  for (const m of seed.mantras) expect(mantras.find((item) => item.id === m.id)?.text).toBe(m.text);
+  for (const m of seed.mantras) expect(mantras.some((item) => item.id === m.id)).toBe(true);
+  for (const mantra of mantras) {
+    expect(mantra.text).toMatch(/^(I |I'|My )/);
+    expect(mantra.text).not.toMatch(/\b(?:will|should|you|your|you’re)\b/i);
+  }
   expect(
     reviewMantras(
       mantras,

@@ -1,70 +1,31 @@
+import { Button } from '../components/ui/button';
+import { Input } from '../components/ui/input';
+import { Textarea } from '../components/ui/textarea';
+import {
+  Select as SelectRoot,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '../components/ui/select';
+import { Popover, PopoverContent, PopoverTrigger } from '../components/ui/popover';
+import {
+  Command,
+  CommandEmpty,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '../components/ui/command';
+import { Icon } from './PixelIcon';
 import { useId, useState, type ReactNode } from 'react';
 import { messages as t } from '../content';
-import { copyRisks } from '../domain/task';
-export function storageFeedback(error: unknown) {
-  return error instanceof Error && error.message === 'record-limit'
-    ? t.recordLimit
-    : t.storageError;
-}
-
-export function Sigil({ decorative = true }: { decorative?: boolean }) {
-  return (
-    <svg
-      className="sigil"
-      viewBox="0 0 48 48"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1"
-      aria-hidden={decorative}
-      role={decorative ? undefined : 'img'}
-      aria-label={decorative ? undefined : t.tarotArt}
-    >
-      <circle cx="24" cy="24" r="20" />
-      <circle cx="24" cy="24" r="16" strokeDasharray="1 5" />
-      <path d="M24 5v38M9 33 24 12l15 21H9ZM17 24h14" />
-    </svg>
-  );
-}
-export function PageTitle({
-  eyebrow,
-  children,
-  intro,
-}: {
-  eyebrow?: string;
-  children: ReactNode;
-  intro?: string;
-}) {
+import { copyRisks } from '../domain/copy-review';
+export function PageTitle({ children, intro }: { children: ReactNode; intro?: string }) {
   return (
     <div className="page-title">
-      {eyebrow && <p className="eyebrow">{eyebrow}</p>}
       <h1 tabIndex={-1}>{children}</h1>
       {intro && <p className="muted">{intro}</p>}
     </div>
-  );
-}
-export function Voice({
-  inside,
-  outside,
-  action,
-}: {
-  inside: string;
-  outside?: string;
-  action?: ReactNode;
-}) {
-  return (
-    <section className="voices">
-      <div className="inside">
-        <p className="eyebrow">{t.private}</p>
-        <p className="mantra">{inside}</p>
-      </div>
-      {outside && (
-        <div className="outside">
-          <p className="eyebrow">{t.professional}</p>
-          <p className="sentence">{outside}</p>
-          {action}
-        </div>
-      )}
-    </section>
   );
 }
 export function CopyButton({
@@ -99,16 +60,16 @@ export function CopyButton({
   }
   return (
     <div className="copy-control">
-      <button className="primary" disabled={disabled || busy} onClick={() => void write()}>
+      <Button className="primary" disabled={disabled || busy} onClick={() => void write()}>
         {label}
-        <span aria-hidden="true"> ↗</span>
-      </button>
+        <Icon name="copy" />
+      </Button>
       {pending && (
         <section className="notice">
           <h3>{t.copyReview}</h3>
           <p>{t.copyWarning}</p>
-          <button onClick={() => void write(true)}>{t.copyAnyway}</button>
-          <button onClick={() => setPending(false)}>{t.cancel}</button>
+          <Button onClick={() => void write(true)}>{t.copyAnyway}</Button>
+          <Button onClick={() => setPending(false)}>{t.cancel}</Button>
         </section>
       )}
       <p className="feedback" role="status">
@@ -140,7 +101,7 @@ export function Field({
     <div className="field">
       <label htmlFor={id}>{label}</label>
       {multiline ? (
-        <textarea
+        <Textarea
           id={id}
           aria-describedby={describedBy}
           value={value}
@@ -150,7 +111,7 @@ export function Field({
           required={required}
         />
       ) : (
-        <input
+        <Input
           id={id}
           aria-describedby={describedBy}
           type={type}
@@ -164,6 +125,8 @@ export function Field({
     </div>
   );
 }
+// Radix items cannot use '' as a value; '' options ("Automatic") travel under this sentinel.
+const EMPTY = '__empty__';
 export function Select<T extends string>({
   label,
   value,
@@ -176,16 +139,69 @@ export function Select<T extends string>({
   options: readonly { value: T; label: string }[];
 }) {
   const id = useId();
+  const [open, setOpen] = useState(false);
+  const current = options.find((o) => o.value === value);
+  if (options.length > 12)
+    return (
+      <div className="field">
+        <label htmlFor={id}>{label}</label>
+        <Popover open={open} onOpenChange={setOpen}>
+          <PopoverTrigger asChild>
+            <button
+              id={id}
+              type="button"
+              role="combobox"
+              aria-expanded={open}
+              className="select-trigger"
+            >
+              <span>{current?.label ?? value}</span>
+              <span className="select-chevron" aria-hidden="true" />
+            </button>
+          </PopoverTrigger>
+          <PopoverContent className="combobox-content">
+            <Command
+              filter={(item, search) => (item.toLowerCase().includes(search.toLowerCase()) ? 1 : 0)}
+            >
+              <CommandInput placeholder={t.searchList} aria-label={`${t.searchList}: ${label}`} />
+              <CommandList>
+                <CommandEmpty className="select-empty">{t.noMatches}</CommandEmpty>
+                {options.map((o) => (
+                  <CommandItem
+                    key={o.value || EMPTY}
+                    value={`${o.label} ${o.value}`}
+                    data-checked={o.value === value}
+                    onSelect={() => {
+                      onChange(o.value);
+                      setOpen(false);
+                    }}
+                  >
+                    {o.label}
+                  </CommandItem>
+                ))}
+              </CommandList>
+            </Command>
+          </PopoverContent>
+        </Popover>
+      </div>
+    );
   return (
     <div className="field">
       <label htmlFor={id}>{label}</label>
-      <select id={id} value={value} onChange={(e) => onChange(e.target.value as T)}>
-        {options.map((o) => (
-          <option key={o.value} value={o.value}>
-            {o.label}
-          </option>
-        ))}
-      </select>
+      <SelectRoot
+        value={value || EMPTY}
+        onValueChange={(next) => onChange((next === EMPTY ? '' : next) as T)}
+      >
+        <SelectTrigger id={id}>
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent>
+          {options.map((o) => (
+            <SelectItem key={o.value || EMPTY} value={o.value || EMPTY}>
+              {o.label}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </SelectRoot>
     </div>
   );
 }

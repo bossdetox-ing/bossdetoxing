@@ -1,0 +1,82 @@
+{
+  "vague_accusation": [
+    "Ask for the specific example and the criterion used.",
+    "Keep a note of what was said without filling in a missing accusation."
+  ],
+  "guilt_induction": [
+    "Write down the requested work separately from the loyalty language.",
+    "Check your actual commitments before accepting another demand."
+  ],
+  "dismissal_warning": [
+    "Check whether the warning is formal, what criteria apply and what response is requested.",
+    "Record the words you remember and consider qualified support about your options."
+  ],
+  "public_criticism": [
+    "Separate the work issue from any personal remarks and who witnessed them.",
+    "Keep details that help you describe the impact on you."
+  ],
+  "colleague_gossip": [
+    "Check work-related claims directly when safe.",
+    "You do not owe participation in a personal verdict about an absent colleague."
+  ],
+  "unattributed_consensus": [
+    "Ask for a specific concern and its example.",
+    "Record the collective claim as a claim rather than supplying unnamed supporters."
+  ],
+  "circular_interrogation": [
+    "Identify the question that remains open and what you have already answered.",
+    "A factual follow-up or a pause can help you avoid endless self-defense."
+  ],
+  "moving_goalposts": [
+    "Compare the written versions and note what changed.",
+    "Check the extra work, time and resource impact before recommitting."
+  ],
+  "withheld_information": [
+    "List the information or access you need.",
+    "Keep a record of when you requested it and what work depends on it."
+  ],
+  "meeting_loop": [
+    "Identify the actual decision, its owner and what remains open.",
+    "Check whether another meeting serves a useful next step for you."
+  ],
+  "responsibility_diffusion": [
+    "Ask who has responsibility and who has authority to decide.",
+    "Check what you are being asked to own before accepting an unnamed obligation."
+  ],
+  "micromanagement": [
+    "Record the requested updates and how they affect time for your work.",
+    "Check whether clear review points would give you a workable boundary."
+  ],
+  "competing_priorities": [
+    "List the competing demands and request a priority decision.",
+    "Keep the trade-off visible rather than absorbing it as personal overtime."
+  ],
+  "credit_dispute": [
+    "Keep the drafts, messages or work records that show your contribution.",
+    "Ask for the record to reflect the specific work you can verify."
+  ],
+  "workload_overload": [
+    "Compare the new demand with your available time and current commitments.",
+    "Ask what will be removed, delayed or resourced before making another promise."
+  ],
+  "surveillance_concern": [
+    "Check the actual monitoring or reporting policy where it is safe to do so.",
+    "Separate what you observed from unknown collection details and consider qualified advice."
+  ],
+  "no_response": [
+    "Keep the unanswered question, your follow-up and the work impact together.",
+    "Do not treat silence as approval or fill in a decision for someone else."
+  ],
+  "suspected_retaliation": [
+    "Keep the sequence of events and the concrete changes you observed.",
+    "Check confidentiality before sharing a sensitive record or seeking qualified support."
+  ],
+  "after_meeting_replay": [
+    "Keep one factual note and any necessary next step.",
+    "Repeating the memory is not required to make the event matter."
+  ],
+  "ordinary_disagreement": [
+    "Check the work question, the stated criteria and how the interaction affects you.",
+    "You can hold your view or ask a question without excusing disrespect."
+  ]
+}
