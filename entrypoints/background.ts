@@ -1,6 +1,7 @@
 import { dailyCard } from '../src/domain/daily';
 import { defineBackground } from 'wxt/utils/define-background';
 import { settingsSchema, toolbarIconPath } from '../src/browser/settings';
+import { disguiseTitle } from '../src/domain/disguise';
 
 export default defineBackground(() => {
   let dailyQueue = Promise.resolve();
@@ -29,9 +30,12 @@ export default defineBackground(() => {
       .then(({ preferences }) => {
         const saved = settingsSchema.safeParse(preferences ?? {});
         if (saved.success)
-          return chrome.action.setIcon({
-            path: toolbarIconPath(saved.data.icon, saved.data.toolbarScheme),
-          });
+          return Promise.all([
+            chrome.action.setIcon({
+              path: toolbarIconPath(saved.data.icon, saved.data.toolbarScheme),
+            }),
+            chrome.action.setTitle({ title: disguiseTitle(saved.data.icon) }),
+          ]);
       })
       .catch(() => undefined);
     void chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true }).catch(() => {
@@ -43,6 +47,10 @@ export default defineBackground(() => {
   configure();
   chrome.runtime.onInstalled.addListener(configure);
   chrome.runtime.onStartup.addListener(configure);
+  // A new icon in Settings applies to the toolbar straight away, title included.
+  chrome.storage.onChanged.addListener((changes, area) => {
+    if (area === 'local' && 'preferences' in changes) configure();
+  });
   chrome.commands.onCommand.addListener((command) => {
     if (command === 'blank-panel')
       void chrome.runtime.sendMessage({ type: 'safe-blank' }).catch(() => undefined);

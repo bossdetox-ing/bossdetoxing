@@ -20,7 +20,18 @@ html[data-platform='web'] .blank {
   html[data-platform='web'] .app-shell > main {
     padding-inline: 24px;
   }
-  html[data-platform='web'] h1 {
+  html[data-platform='web'] .page-title h1 {
     font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 760px) {
+  html[data-platform='web'] .tarot-deck {
+    width: calc(100% - 12px);
+    max-width: 640px;
+    margin-inline: auto;
+  }
+  html[data-platform='web'] .daily-view .tarot-deck {
+    max-width: none;
   }
 }

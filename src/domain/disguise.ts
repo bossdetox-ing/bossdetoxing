@@ -1,3 +1,4 @@
+import { messages } from '../content';
 // Tab / toolbar icon choices. Look-alikes and monkeys work everywhere; real service logos are
 // offered only on the web app (Chrome Web Store impersonation policy keeps them out of the extension).
 export const lookAlikes = [
@@ -68,3 +69,10 @@ export const extensionIcons: readonly string[] = [...lookAlikes, ...monkeys];
 export const webIcons: readonly string[] = [...brands, ...lookAlikes, ...monkeys];
 // Earlier releases stored these ids.
 export const legacyIcons: Record<string, string> = { notes: 'notebook', sigil: 'monkey-01' };
+
+// The real name shows only with a boss headshot; any other icon borrows its service or use case.
+export function disguiseTitle(icon: string) {
+  if (icon.startsWith('monkey-')) return messages.appTitle;
+  if (icon in brandNames) return brandNames[icon as keyof typeof brandNames];
+  return messages.iconTitles[icon as keyof typeof messages.iconTitles] ?? messages.appTitle;
+}

@@ -4,14 +4,12 @@ import { extensionIcons, legacyIcons, webIcons } from '../domain/disguise';
 const iconChoices = () => (isExtension() ? extensionIcons : webIcons);
 export const settingsSchema = z.object({
   bossPronouns: z.enum(['he', 'she', 'they']).default('they'),
+  bossName: z.string().max(40).default(''),
   strongLanguage: z.boolean().default(true),
   onboarded: z.boolean().default(false),
   privateLogging: z.boolean().default(false),
-  tone: z.enum(['yellow', 'grey', 'firm']).default('yellow'),
+  tone: z.enum(['yellow', 'grey', 'firm']).default('grey'),
   theme: z.enum(['system', 'dark', 'light']).default('system'),
-  humor: z.boolean().default(true),
-  reducedMotion: z.boolean().default(false),
-  quiet: z.boolean().default(false),
   icon: z
     .string()
     .default(() => (isExtension() ? 'search' : 'google'))
@@ -31,7 +29,17 @@ export const settingsSchema = z.object({
         return '';
       }
     }),
-  lockMinutes: z.union([z.literal(1), z.literal(5), z.literal(15)]).default(5),
+  // 0 = never. Hiding the tab or panel still locks.
+  lockMinutes: z
+    .union([
+      z.literal(1),
+      z.literal(5),
+      z.literal(15),
+      z.literal(60),
+      z.literal(1440),
+      z.literal(0),
+    ])
+    .default(5),
 });
 export type Settings = z.infer<typeof settingsSchema>;
 export const defaults = settingsSchema.parse({});

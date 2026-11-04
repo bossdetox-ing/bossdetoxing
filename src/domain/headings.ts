@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import authored from '../content/headings.en.json';
+import { cleanBossName, withBossName } from './boss-name';
 export const headings = z
   .array(
     z
@@ -28,11 +29,13 @@ export function headingText(
   pronouns: 'he' | 'she' | 'they',
   humor: boolean,
   strong: boolean,
+  name = '',
 ) {
   const chosen = headings.find((h) => h.id === id);
   const safe =
     chosen && (humor || chosen.tone === 'plain') && (strong || chosen.tone !== 'unfiltered')
       ? chosen
       : headings[0]!;
-  return safe.templates[pronouns];
+  // A named boss reads as singular, so the name replaces the pronouns of the "he" form.
+  return cleanBossName(name) ? withBossName(safe.templates.he, name) : safe.templates[pronouns];
 }

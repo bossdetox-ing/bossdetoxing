@@ -4,11 +4,13 @@ import { useEffect, useState } from 'react';
 import { messages as t, formatDate } from '../../content';
 import { localDay, type CalendarEvent } from '../../domain/calendar';
 import { painForScenario, scenarioFor } from '../../domain/pains';
+import { isCustomThreat } from '../../domain/custom-threats';
 import { useCompanion } from '../companion-store';
 import type { Settings } from '../../browser/settings';
 import type { Vault } from '../../vault/service';
 import { PageTitle, Toggle } from '../components';
 import { VaultGate } from './VaultGate';
+import { MonthPicker } from '../MonthPicker';
 
 export function PrivateCalendar({
   vault,
@@ -44,7 +46,9 @@ export function PrivateCalendar({
     .filter((item) => localDay(item.createdAtISO) === day)
     .sort((a, b) => b.createdAtISO.localeCompare(a.createdAtISO));
   function changeMonth(delta: number) {
-    const next = new Date(year, index + delta, 1);
+    showMonth(new Date(year, index + delta, 1));
+  }
+  function showMonth(next: Date) {
     setMonth(next);
     setDay(localDay(next.toISOString()));
     setSelected(undefined);
@@ -85,7 +89,9 @@ export function PrivateCalendar({
         <Button aria-label={t.redesign.previousMonth} onClick={() => changeMonth(-1)}>
           <Icon name="back" />
         </Button>
-        <h2>{title}</h2>
+        <h2>
+          <MonthPicker value={month} label={title} onChange={showMonth} />
+        </h2>
         <Button aria-label={t.redesign.nextMonth} onClick={() => changeMonth(1)}>
           <Icon name="next" />
         </Button>
@@ -137,7 +143,12 @@ export function PrivateCalendar({
               <span className="calendar-dot" aria-hidden="true" />
               <span>
                 <strong>
-                  {pain ? t.redesign.pains[pain.id] : scenarioFor(item.situationId).label}
+                  {pain
+                    ? t.redesign.pains[pain.id]
+                    : isCustomThreat(item.situationId)
+                      ? (state.customThreats.find((own) => own.id === item.situationId)?.label ??
+                        t.own.yours)
+                      : scenarioFor(item.situationId).label}
                 </strong>
                 <small>
                   {new Intl.DateTimeFormat('en', { hour: '2-digit', minute: '2-digit' }).format(
@@ -175,11 +186,9 @@ export function PrivateCalendar({
               </Button>
             ))}
           </div>
-          <p className="save-status">
-            {settings.privateLogging && state.savedIds.includes(event.id)
-              ? t.redesign.encrypted
-              : t.redesign.session}
-          </p>
+          {settings.privateLogging && state.savedIds.includes(event.id) && (
+            <p className="save-status">{t.redesign.encrypted}</p>
+          )}
           <Button className="danger" onClick={() => setDeleting(true)}>
             {t.redesign.deleteEvent}
           </Button>
@@ -194,15 +203,16 @@ export function PrivateCalendar({
           )}
         </article>
       )}
-      <p className="save-status">
-        {state.error || error
-          ? t.redesign.failed
-          : state.busy
-            ? t.redesign.saving
-            : unlocked && settings.privateLogging
-              ? t.redesign.encrypted
-              : t.redesign.session}
-      </p>
+      {/* Status only when it says something: saving, saved encrypted, or a failure. */}
+      {(state.error || error || state.busy || (unlocked && settings.privateLogging)) && (
+        <p className="save-status">
+          {state.error || error
+            ? t.redesign.failed
+            : state.busy
+              ? t.redesign.saving
+              : t.redesign.encrypted}
+        </p>
+      )}
       {(!settings.privateLogging || !unlocked) && (
         <>
           <p className="muted small-copy">{t.redesign.historyNotice}</p>

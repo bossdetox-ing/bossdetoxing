@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+<defs>
+<radialGradient id="b" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#ffb08a"/><stop offset=".55" stop-color="#e0623a"/><stop offset="1" stop-color="#8e2a14"/></radialGradient>
+<radialGradient id="h" cx="34%" cy="26%" r="34%"><stop offset="0" stop-color="#fff" stop-opacity=".75"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="r" cx="50%" cy="50%" r="50%"><stop offset=".78" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".28"/></radialGradient>
+<clipPath id="c"><circle cx="64" cy="64" r="52"/></clipPath>
+</defs>
+<circle cx="64" cy="64" r="52" fill="url(#b)"/>
+<g clip-path="url(#c)"><path d="M28 56 C40 46 58 52 62 62 C54 70 36 70 28 56Z" fill="#6e1e0c" fill-opacity=".28"/><path d="M70 82 C82 74 98 78 100 90 C88 96 74 94 70 82Z" fill="#6e1e0c" fill-opacity=".24"/><ellipse cx="64" cy="16" rx="22" ry="8" fill="#fff" fill-opacity=".55"/></g>
+<circle cx="64" cy="64" r="52" fill="url(#r)"/>
+<circle cx="64" cy="64" r="52" fill="url(#h)"/>
+</svg>

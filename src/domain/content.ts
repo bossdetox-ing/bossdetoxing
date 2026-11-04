@@ -6,7 +6,6 @@ import practices from '../content/en-practices.json';
 import { en } from '../content/en';
 import { mantras, mantraSchema } from './mantras';
 import { tarot, tarotDeckSchema } from './tarot';
-import { bingo } from './bingo';
 
 const text = z.string().trim().min(1);
 export const toneSchema = z.enum(['yellow', 'grey', 'firm']);
@@ -65,7 +64,6 @@ export const contentSchema = z
     mantras: z.array(mantraSchema).length(250),
     tarot: tarotDeckSchema,
     corporateWeather: strings.min(12),
-    bingoSquares: strings.length(120),
     sources: z.array(
       z.object({
         id: text,
@@ -105,7 +103,6 @@ export const content = contentSchema.parse({
   ...seed,
   mantras,
   tarot,
-  bingoSquares: bingo.map((item) => item.text),
 });
 for (const scenario of content.scenarios) {
   const edited = overrides[scenario.id as keyof typeof overrides];

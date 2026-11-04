@@ -1,6 +1,13 @@
-import { BrandLogo } from '../BrandLogo';
+import { HistoryDialog } from '../HistoryDialog';
 import { Button } from '../../components/ui/button';
-import { useState } from 'react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '../../components/ui/accordion';
+import { useEffect, useState } from 'react';
+import { demonNames } from '../../domain/boss-name';
 import type { Settings } from '../../browser/settings';
 import { messages as t } from '../../content';
 import { MAX_ARCHIVE_BYTES, type Vault } from '../../vault/service';
@@ -46,6 +53,29 @@ function IconPicker({ value, onChange }: { value: string; onChange: (id: string)
     </div>
   );
 }
+// While the field is empty its placeholder cycles through demon names.
+function BossName({ value, onChange }: { value: string; onChange: (value: string) => void }) {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    if (value) return;
+    const slow = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const timer = window.setInterval(
+      () => setIndex((current) => (current + 1) % demonNames.length),
+      slow ? 2400 : 650,
+    );
+    return () => window.clearInterval(timer);
+  }, [value]);
+  return (
+    <Field
+      label={t.bossName}
+      hint={t.bossNameHint}
+      value={value}
+      maxLength={40}
+      placeholder={demonNames[index]}
+      onChange={onChange}
+    />
+  );
+}
 function Appearance({ settings, update }: Props) {
   const patch = (value: Partial<Settings>) => void update({ ...settings, ...value });
   return (
@@ -59,6 +89,7 @@ function Appearance({ settings, update }: Props) {
           label,
         }))}
       />
+      <BossName value={settings.bossName} onChange={(bossName) => patch({ bossName })} />
       <Toggle
         label={t.strongLanguage}
         checked={settings.strongLanguage}
@@ -95,33 +126,29 @@ function Appearance({ settings, update }: Props) {
           label,
         }))}
       />
-      <Toggle label={t.humor} checked={settings.humor} onChange={(humor) => patch({ humor })} />
-      <Toggle
-        label={t.motion}
-        checked={settings.reducedMotion}
-        onChange={(reducedMotion) => patch({ reducedMotion })}
-      />
-      <Toggle label={t.quiet} checked={settings.quiet} onChange={(quiet) => patch({ quiet })} />
     </div>
   );
 }
-export function Onboarding({ settings, update, logoId }: Props & { logoId: number }) {
+export function Onboarding({ settings, update }: Props) {
   return (
     <section className="onboarding">
-      <BrandLogo index={logoId} />
       <PageTitle intro={t.welcomeIntro}>{t.welcome}</PageTitle>
-      <section className="notice">
-        <h2>{t.privacyTitle}</h2>
-        <p>{t.privacy}</p>
-        <p>{t.sharing}</p>
-        <a
-          href="https://support.google.com/chrome/answer/9281740"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {t.manageHelp} ↗
-        </a>
-      </section>
+      <Accordion type="single" collapsible className="notice">
+        <AccordionItem value="privacy">
+          <AccordionTrigger>{t.privacyTitle}</AccordionTrigger>
+          <AccordionContent>
+            <p>{t.privacy}</p>
+            <p>{t.sharing}</p>
+            <a
+              href="https://support.google.com/chrome/answer/9281740"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t.manageHelp} ↗
+            </a>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
       <Button className="primary" onClick={() => void update({ ...settings, onboarded: true })}>
         {t.start}
       </Button>
@@ -221,6 +248,7 @@ export function Preferences({
   reset,
 }: Props & { vault: Vault; reset: () => Promise<void> }) {
   const [deleting, setDeleting] = useState(false);
+  const [history, setHistory] = useState(false);
   const [ack, setAck] = useState(false);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
@@ -231,7 +259,6 @@ export function Preferences({
       <Appearance settings={settings} update={update} />
       <h2>{t.language}</h2>
       <p>{t.english}</p>
-      <p className="muted">{t.languageHint}</p>
       <h2>{t.shortcuts}</h2>
       <p>{t.shortcutsText}</p>
       <h2>{t.data}</h2>
@@ -241,10 +268,20 @@ export function Preferences({
         onChange={(value) =>
           void update({ ...settings, lockMinutes: Number(value) as Settings['lockMinutes'] })
         }
-        options={[1, 5, 15].map((value) => ({
+        options={([1, 5, 15, 60, 1440, 0] as const).map((value) => ({
           value: String(value),
-          label: `${value} ${value === 1 ? t.minute : t.minutes}`,
+          label: t.lockChoices[value],
         }))}
+      />
+      {(!settings.privateLogging || !vault.unlocked) && (
+        <Button onClick={() => setHistory(true)}>{t.redesign.enableHistory}</Button>
+      )}
+      <HistoryDialog
+        vault={vault}
+        settings={settings}
+        update={update}
+        open={history}
+        onOpenChange={setHistory}
       />
       <Backup vault={vault} />
       <details>

@@ -24,16 +24,15 @@ test('one explicit tap creates one tagged event; configure and favorite changes 
   expect(store.active()?.plannedResponseId).toBeNull();
   expect(await vault.exists()).toBe(false);
 });
-test('reroll changes only the mantra of the same event, never its professional-response history', () => {
+test('peek offers another line for the threat without changing the logged event', () => {
   const store = new CompanionStore(new Vault());
   const first = store.choose('moving_goalposts');
   store.plan('firm', 'Please confirm the current requirement.');
-  store.reroll();
-  const next = store.active()!;
-  expect(next.id).toBe(first.id);
-  expect(next.mantra.id).not.toBe(first.mantra.id);
-  expect(next.plannedResponseText).toBe('Please confirm the current requirement.');
-  expect(next.status).toBe('planned');
+  const next = store.peek(first.mantra.id)!;
+  expect(next.id).not.toBe(first.mantra.id);
+  const event = store.active()!;
+  expect(event.mantra.id).toBe(first.mantra.id);
+  expect(event.plannedResponseText).toBe('Please confirm the current requirement.');
   expect(store.getSnapshot().events).toHaveLength(1);
 });
 test('calendar snapshots, favorites and no-repeat state persist only encrypted and survive unlock', async () => {
@@ -83,7 +82,6 @@ test('calendar bulk deletion preserves journal notes and favorites, and serial w
   store.configure(true, true, false);
   const first = store.choose('meeting_loop');
   store.toggleFavorite(first.mantra.id);
-  store.reroll();
   await vault.save({ ...newIncident(), observableFacts: 'Fictional independent journal fact' });
   store.choose('colleague_gossip');
   await store.settled();

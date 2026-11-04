@@ -27,6 +27,24 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('/fonts/IBMPlexMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('/fonts/IBMPlexMono-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  src: url('/fonts/IBMPlexMono-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
 /* shadcn/ui theme bridge: primitives read these through Tailwind utilities. */
 @theme inline {
   --color-background: var(--color-bg);
@@ -206,14 +224,6 @@ button[aria-pressed='true'] {
   background: var(--color-accent);
   color: var(--color-on-accent);
 }
-.button-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-}
-.button-row > * {
-  flex: 1 1 0;
-}
 .chips {
   display: flex;
   flex-wrap: wrap;
@@ -238,6 +248,48 @@ button[aria-pressed='true'] {
 }
 .field small {
   color: var(--color-muted);
+}
+/* Vault form: even spacing, an eye inside each passphrase field, a calm recovery warning. */
+.vault-gate,
+.vault-gate form {
+  display: grid;
+  gap: 14px;
+}
+.vault-gate h2,
+.vault-gate p {
+  margin: 0;
+}
+.pass-input {
+  position: relative;
+}
+.pass-input input {
+  padding-right: 48px;
+}
+.vault-gate .accordion-header {
+  font: 600 0.875rem/1.3 var(--font-ui);
+  letter-spacing: 0;
+}
+.pass-input button.icon-button {
+  color: var(--color-text);
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  transform: translateY(-50%);
+  background: transparent;
+}
+.vault-gate button.suggest-pass {
+  justify-self: start;
+  margin-top: -6px;
+}
+.vault-warning {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--color-sunken);
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+}
+.vault-gate form > button.primary {
+  width: 100%;
 }
 input:not([type='checkbox']):not([type='radio']),
 textarea,
@@ -367,9 +419,65 @@ details > :not(summary) {
   background: var(--color-sunken);
   font-size: 0.9375rem;
 }
-.notice .button-row,
 .notice > button {
   margin-top: 4px;
+}
+
+/* Accordion (shadcn): a heading that opens its section in place. */
+.accordion-header {
+  margin: 0;
+}
+button.accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  width: 100%;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.accordion-trigger .select-chevron {
+  transition: transform 160ms ease-out;
+}
+.accordion-trigger[data-state='open'] .select-chevron {
+  margin-top: 4px;
+  transform: rotate(-135deg);
+}
+.accordion-content {
+  overflow: hidden;
+}
+.accordion-content[data-state='open'] {
+  animation: accordion-open 200ms ease-out;
+}
+.accordion-content[data-state='closed'] {
+  animation: accordion-close 160ms ease-out;
+}
+.accordion-body {
+  display: grid;
+  gap: var(--space-sm);
+  padding-bottom: 4px;
+}
+@keyframes accordion-open {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+@keyframes accordion-close {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
 }
 .stack {
   display: grid;
@@ -382,63 +490,10 @@ details > :not(summary) {
 }
 
 /* Inset grouped list (rows with chevrons) */
-.action-list {
-  display: grid;
-  overflow: hidden;
-  border-radius: var(--radius-panel);
-  background: var(--color-surface);
-}
-.action-list > button {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 56px;
-  padding: 10px var(--space-md);
-  border-radius: 0;
-  background: transparent;
-  text-align: left;
-  font-weight: 500;
-  font-size: 1.0625rem;
-}
-.action-list > button + button {
-  box-shadow: inset 0 1px 0 var(--color-hairline);
-}
-.action-list > button:hover {
-  background: var(--color-sunken);
-}
-.action-list > button > span:not(.index) {
-  flex: 1;
-}
-.action-list > button strong {
-  font-weight: 600;
-}
-.action-list .index {
-  font: 500 0.75rem var(--font-mono);
-  color: var(--color-muted);
-  width: 20px;
-}
-.action-list .ui-icon {
-  color: var(--color-muted);
-  width: 18px;
-  height: 18px;
-}
-.action-list a.list-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 56px;
-  padding: 10px var(--space-md);
-  text-decoration: none;
-  font-size: 1.0625rem;
-  font-weight: 500;
-  box-shadow: inset 0 1px 0 var(--color-hairline);
-}
-.action-list a.list-link span {
-  flex: 1;
-}
 
 /* ───────────── Shell ───────────── */
 .app-shell {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -459,17 +514,22 @@ details > :not(summary) {
 .skip-link:focus {
   top: 8px;
 }
+/* No header band: the logo and an icon pill float over the scrolling content. */
 .topbar {
-  position: relative;
-  z-index: 2;
-  flex-shrink: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-sm);
-  min-height: 52px;
-  padding: 6px 10px 6px 12px;
-  background: var(--color-bg);
+  padding: 8px 10px 0 10px;
+  pointer-events: none;
+}
+.topbar > * {
+  pointer-events: auto;
 }
 button.wordmark {
   display: flex;
@@ -485,60 +545,35 @@ button.wordmark:hover {
   background: var(--color-sunken);
 }
 .brand-avatar {
-  width: 30px;
-  height: 30px;
-  padding: 3px;
-  border-radius: 50%;
-  background: #fff;
+  width: 40px;
+  height: 40px;
+  /* Ink that flips with the theme, plus a halo in the page colour for legibility over content. */
+  filter: var(--art-invert) drop-shadow(0 0 3px var(--color-bg))
+    drop-shadow(0 0 6px var(--color-bg));
 }
 .header-actions {
   display: flex;
   gap: 2px;
+  padding: 2px;
+  border-radius: var(--radius-control);
+  background: color-mix(in srgb, var(--color-surface) 82%, transparent);
+  backdrop-filter: blur(14px) saturate(1.4);
+  box-shadow:
+    0 1px 2px rgb(0 0 0 / 0.08),
+    0 6px 18px rgb(0 0 0 / 0.08);
 }
 .app-shell > main {
   flex: 1 1 0%;
   min-height: 0;
+  overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-  padding: 4px var(--space-md) var(--space-lg);
-}
-.bottom-nav {
-  flex-shrink: 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  padding: 4px 4px max(4px, env(safe-area-inset-bottom));
-  background: var(--color-bg);
-  box-shadow: inset 0 1px 0 var(--color-hairline);
-}
-.bottom-nav button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  min-height: 50px;
-  padding: 6px 2px 4px;
-  background: transparent;
-  color: var(--color-muted);
-  font: 500 0.6875rem/1.1 var(--font-ui);
-  border-radius: 10px;
-}
-.bottom-nav button:hover {
-  background: transparent;
-  color: var(--color-text);
-}
-.bottom-nav .ui-icon {
-  width: 24px;
-  height: 24px;
-}
-.bottom-nav [aria-current='page'] {
-  color: var(--color-text);
-  font-weight: 700;
-}
-.bottom-nav [aria-current='page'] .ui-icon {
-  color: var(--color-signal);
+  padding: 64px var(--space-md) calc(var(--space-lg) + env(safe-area-inset-bottom));
+  /* Scroll-edge fade: content dissolves under the floating logo and icon pill. */
+  mask-image: linear-gradient(to bottom, transparent 0, transparent 24px, #000 68px);
 }
 .blank {
   display: flex;
@@ -585,20 +620,30 @@ button.pain-tile {
   align-content: center;
   justify-items: start;
   gap: 2px;
+  height: auto;
   min-height: 80px;
   padding: 8px 14px 10px;
   border-radius: var(--radius-panel);
-  background: var(--color-surface);
+  background: var(--color-tile);
+  color: var(--color-tile-text);
   text-align: left;
+  align-content: start;
 }
 button.pain-tile:hover {
-  background: var(--color-surface);
+  background: var(--color-tile);
   box-shadow: inset 0 0 0 1px var(--color-border);
+}
+.pain-tile .pain-desc {
+  color: var(--color-tile-muted);
 }
 .pain-tile .pain-wordart {
   display: block;
   width: 100%;
-  height: 48px;
+}
+/* Grid tiles: the WordArt spans the full card width; height follows each artwork. */
+.pain-tile .pain-wordart img {
+  display: block;
+  height: auto;
 }
 .pain-wordart img {
   width: 100%;
@@ -658,8 +703,7 @@ button.pain-tile:hover {
 .pain-meetings {
   --pain-color: var(--role-pain-meetings);
 }
-.protective-card,
-.private-reminder {
+.protective-card {
   position: relative;
   display: grid;
   justify-items: center;
@@ -700,11 +744,16 @@ button.favorite-button {
   background: transparent;
   color: var(--color-muted);
 }
-button.favorite-button[aria-pressed='true'] {
+/* A saved favourite: the star itself fills with yellow, outline in the text colour. */
+button.favorite-button[aria-pressed='true'],
+button.favorite-button[aria-pressed='true']:hover {
   background: transparent;
-  color: var(--color-signal);
+  color: var(--color-text);
 }
-button.favorite-button[aria-pressed='true'] .ui-icon {
+.filled-star .star-body {
+  fill: var(--c-yellow);
+}
+.filled-star .star-outline {
   fill: currentColor;
 }
 .response {
@@ -761,14 +810,14 @@ button.favorite-button[aria-pressed='true'] .ui-icon {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2px;
   padding: 2px;
-  border-radius: 10px;
+  border-radius: var(--radius-control);
   background: var(--color-sunken);
 }
 button.rock-option {
   min-height: 36px;
   height: 36px;
   padding: 4px 6px;
-  border-radius: 8px;
+  border-radius: var(--radius-control);
   background: transparent;
   color: var(--color-text);
   font-size: 0.875rem;
@@ -789,7 +838,6 @@ button.rock-option[data-state='checked'] {
 }
 
 /* ───────────── Tools / support ───────────── */
-.home-view,
 .reply-view {
   display: grid;
   gap: var(--space-md);
@@ -800,8 +848,7 @@ button.rock-option[data-state='checked'] {
   padding-inline: 4px;
 }
 .method-picker,
-.method-library,
-.situation-picker {
+.method-library {
   display: grid;
   gap: 10px;
 }
@@ -822,12 +869,6 @@ button.rock-option[data-state='checked'] {
   display: flex;
   gap: var(--space-sm);
   flex-wrap: wrap;
-}
-.section-line {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-sm);
 }
 
 /* ───────────── Daily / Tarot ───────────── */
@@ -866,6 +907,108 @@ button.rock-option[data-state='checked'] {
 .daily-browse {
   width: 100%;
 }
+
+/* Today's label: a tiny eyebrow inside the card, revealed as the shuffle lands. */
+h1.daily-label {
+  margin: 0 0 -4px;
+  color: var(--color-muted);
+  font: 500 0.5625rem/1.2 var(--font-ui);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.tarot-stack[data-shuffle] .daily-label {
+  animation: daily-label-in 1500ms ease-out both;
+}
+@keyframes daily-label-in {
+  0%,
+  70% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* Today's card sits on a small fan of card backs; the backs open the deck. */
+.tarot-stack {
+  display: grid;
+  justify-items: center;
+  padding: 8px 28px 16px;
+}
+.tarot-stack > * {
+  grid-area: 1 / 1;
+}
+.tarot-stack .tarot-card {
+  z-index: 1;
+}
+.tarot-back {
+  --fan-x: -17%;
+  --fan-r: -3deg;
+  width: min(100%, 340px);
+  align-self: stretch;
+  border: 1px solid var(--color-text);
+  border-radius: 14px;
+  outline: 1px solid var(--color-text);
+  outline-offset: -7px;
+  background:
+    radial-gradient(circle, var(--color-text) 1px, transparent 1.5px) 0 0 / 12px 12px,
+    var(--color-surface);
+  background-clip: padding-box;
+  cursor: pointer;
+  transform: translateX(var(--fan-x)) scale(0.86) rotate(var(--fan-r));
+  transition: transform 220ms cubic-bezier(0.2, 0, 0, 1);
+}
+.tarot-back[data-side='right'] {
+  --fan-x: 17%;
+  --fan-r: 3deg;
+}
+.tarot-back:hover {
+  transform: translateX(calc(var(--fan-x) * 1.18)) scale(0.86) rotate(var(--fan-r));
+}
+.tarot-stack[data-shuffle] .tarot-back {
+  animation: tarot-shuffle 1100ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.tarot-stack[data-shuffle] .tarot-back[data-side='right'] {
+  animation-delay: 120ms;
+}
+.tarot-stack[data-shuffle] .tarot-card {
+  animation: tarot-settle 1100ms cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .tarot-stack[data-shuffle] > * {
+    animation: none;
+  }
+}
+@keyframes tarot-shuffle {
+  0% {
+    transform: translateX(0) scale(0.86) rotate(0);
+  }
+  28% {
+    transform: translateX(calc(var(--fan-x) * 2)) scale(0.86) rotate(calc(var(--fan-r) * 2));
+    z-index: 0;
+  }
+  48% {
+    transform: translateX(0) scale(0.9) rotate(0);
+    z-index: 2;
+  }
+  72% {
+    transform: translateX(calc(var(--fan-x) * 1.5)) scale(0.86) rotate(calc(var(--fan-r) * 1.5));
+    z-index: 0;
+  }
+  100% {
+    transform: translateX(var(--fan-x)) scale(0.86) rotate(var(--fan-r));
+  }
+}
+@keyframes tarot-settle {
+  0%,
+  60% {
+    transform: translateY(-10px) scale(0.97);
+  }
+  100% {
+    transform: none;
+  }
+}
 .cosmic-weather {
   display: grid;
   grid-template-columns: 56px minmax(0, 1fr);
@@ -882,10 +1025,70 @@ button.rock-option[data-state='checked'] {
   grid-column: 2;
 }
 .cosmic-weather .moon-icon {
+  position: relative;
   grid-column: 1;
   grid-row: 1 / span 4;
   width: 56px;
   height: 56px;
+}
+.moon-icon img {
+  width: 56px;
+  height: 56px;
+}
+.moon-icon img.moon-sign {
+  position: absolute;
+  right: -6px;
+  bottom: -4px;
+  width: 26px;
+  height: 26px;
+}
+/* A reading: body and sign icons beside the title, meta and line. */
+.sky-reading {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  column-gap: 12px;
+  row-gap: 4px;
+}
+.sky-reading > :not(.sky-icons) {
+  grid-column: 2;
+}
+.sky-icons {
+  position: relative;
+  grid-row: 1 / span 3;
+  width: 40px;
+  height: 40px;
+}
+.sky-icons img {
+  width: 34px;
+  height: 34px;
+}
+.sky-icons img + img {
+  position: absolute;
+  right: -4px;
+  bottom: -2px;
+  width: 20px;
+  height: 20px;
+}
+.moon-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: -8px -8px 0 0;
+}
+.moon-heading button.icon-button {
+  flex-shrink: 0;
+  width: 36px;
+  min-height: 36px;
+  height: 36px;
+  color: var(--color-muted);
+}
+.select-content.info-popover {
+  display: grid;
+  gap: 4px;
+  width: auto;
+  padding: 10px 14px;
+  font: 500 0.8125rem/1.4 var(--font-ui);
 }
 .cosmic-weather h2 {
   font-size: 1.25rem;
@@ -894,78 +1097,151 @@ button.rock-option[data-state='checked'] {
   font: 500 0.6875rem var(--font-mono);
   color: var(--color-muted);
 }
-.deck-heading {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-sm);
-  font: 500 0.75rem var(--font-mono);
-  color: var(--color-muted);
+/* Boss forecast: a real sky event read as a fictional office omen. */
+.cosmic-weather > .forecast,
+.cosmic-weather > .forecast-rest {
+  grid-column: 1 / -1;
 }
-.deck-heading button {
-  min-height: 36px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 0.8125rem;
-}
-.deck-library {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding: 4px 2px 12px;
-  scroll-snap-type: x mandatory;
-  overscroll-behavior-x: contain;
-}
-.deck-library button {
-  flex: 0 0 120px;
+.forecast {
   display: grid;
+  gap: 4px;
+  margin-top: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-hairline);
+}
+.forecast h3,
+.forecast-rest li h3 {
+  font-size: 1.125rem;
+}
+.forecast-rest {
+  border-top: 1px solid var(--color-hairline);
+}
+.forecast-rest .accordion-header {
+  font: 600 0.875rem/1.3 var(--font-ui);
+}
+.forecast-rest ul {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.forecast-rest li {
+  display: grid;
+  gap: 4px;
+}
+.deck-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+@media (min-width: 480px) {
+  .deck-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.deck-grid button {
+  display: grid;
+  grid-template-rows: auto 1fr;
   justify-items: center;
+  align-content: start;
   gap: 6px;
+  min-width: 0;
   min-height: 150px;
-  padding: 10px;
-  scroll-snap-align: start;
-  border-radius: 14px;
+  padding: 12px 8px 14px;
+  border-radius: 12px;
   background: var(--color-surface);
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 500;
+  line-height: 1.25;
+  text-align: center;
 }
-.deck-library button[aria-pressed='true'] {
-  background: var(--color-surface);
-  color: var(--color-text);
-  box-shadow: inset 0 0 0 2px var(--color-signal);
+.deck-grid button small {
+  color: var(--color-muted);
+  font-size: 0.625rem;
 }
-.deck-library img {
-  height: 84px;
+.deck-grid img {
+  width: 100%;
+  aspect-ratio: 1;
   object-fit: contain;
 }
 
-/* Bingo */
-.bingo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 6px;
+/* Card dialog: one tarot card centred over a dimmed deck, with previous/next below. */
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgb(0 0 0 / 0.45);
+  backdrop-filter: blur(4px);
+  animation: dialog-fade 160ms ease-out;
 }
-.bingo-grid button {
-  min-height: 96px;
-  padding: 8px 6px;
-  border-radius: 12px;
-  background: var(--color-surface);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  line-height: 1.2;
-}
-.bingo-grid button[aria-pressed='true'] {
-  background: var(--color-accent);
-  color: var(--color-on-accent);
-}
-.bingo-editor {
+.dialog-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 41;
   display: grid;
   gap: 10px;
-  padding: var(--space-md);
-  border: 0;
-  border-radius: var(--radius-panel);
+  width: min(380px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  transform: translate(-50%, -50%);
+  outline: none;
+  animation: dialog-in 200ms cubic-bezier(0.2, 0, 0, 1);
+}
+.dialog-content .tarot-card {
+  width: 100%;
+  min-height: 0;
+}
+.dialog-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dialog-bar button.icon-button,
+.dialog-count {
   background: var(--color-surface);
-  box-shadow: none;
+  color: var(--color-text);
+}
+.dialog-count {
+  padding: 6px 12px;
+  border-radius: var(--radius-control);
+  font: 500 0.75rem var(--font-ui);
+}
+.dialog-nav {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 56px;
+  gap: 10px;
+}
+.dialog-nav .share-status:empty,
+.daily-view .share-status:empty {
+  display: none;
+}
+.dialog-nav .share-status {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin: 0;
+  padding: 4px 12px;
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+.daily-share {
+  width: 100%;
+}
+.dialog-nav button {
+  background: var(--color-surface);
+}
+@keyframes dialog-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.97);
+  }
 }
 
 /* ───────────── Calendar ───────────── */
@@ -992,6 +1268,57 @@ button.rock-option[data-state='checked'] {
 }
 .calendar-heading button:hover {
   background: var(--color-sunken);
+}
+/* Month title opens the month → year → decade picker. */
+.calendar-heading h2 {
+  margin: 0;
+}
+.calendar-heading button.month-trigger {
+  width: auto;
+  gap: 8px;
+  padding-inline: 14px;
+  border-radius: var(--radius-control);
+  font: inherit;
+}
+.select-content.month-picker {
+  display: grid;
+  gap: 8px;
+  width: min(300px, calc(100vw - 32px));
+  padding: 10px;
+}
+.month-picker-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+.month-picker-bar button.month-picker-up {
+  flex: 1;
+  background: transparent;
+  font-weight: 600;
+}
+.month-picker-bar button.month-picker-up:disabled {
+  opacity: 1;
+}
+.month-picker-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+}
+.month-picker-grid button {
+  min-height: 40px;
+  background: transparent;
+  color: var(--color-text);
+}
+.month-picker-grid button:hover {
+  background: var(--color-sunken);
+}
+.month-picker-grid button[data-outside] {
+  color: var(--color-muted);
+}
+.month-picker-grid button[aria-pressed='true'] {
+  background: var(--color-text);
+  color: var(--color-bg);
 }
 .calendar-grid {
   display: grid;
@@ -1108,7 +1435,6 @@ button.event-summary[aria-pressed='true'] {
   .pain-tile,
   .protective-card,
   .tarot-card,
-  .action-list,
   details {
     border: 1px solid ButtonText;
   }
@@ -1118,13 +1444,10 @@ button.event-summary[aria-pressed='true'] {
 }
 
 /* Two-line rows: title over a muted subtitle */
-.action-list > button > span > strong,
-.action-list > button > span > small,
 .event-summary > span > strong,
 .event-summary > span > small {
   display: block;
 }
-.action-list > button > span > small,
 .event-summary > span > small {
   margin-top: 2px;
   font-size: 0.8125rem;
@@ -1200,9 +1523,549 @@ address {
 /* Line art is drawn in ink; flip it on dark themes. */
 .protective-card img,
 .tarot-art,
-.deck-library img,
+.deck-grid img,
 .icon-grid img {
   filter: var(--art-invert);
+}
+/* Top-left corner: numeral or rank plus its Golden Dawn sign, planet or element. */
+.card-corner {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+}
+.corner-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.card-numeral {
+  font: 600 0.8125rem/1 var(--font-ui);
+  letter-spacing: 0.04em;
+  margin-right: 2px;
+}
+.card-corner img {
+  width: 22px;
+  height: 22px;
+}
+.sky-badge {
+  padding: 2px 8px;
+  border-radius: var(--radius-control);
+  background: var(--color-text);
+  color: var(--color-surface);
+  font: 500 0.625rem/1.4 var(--font-ui);
+}
+.arcana-lord {
+  margin-top: -6px;
+  color: var(--color-muted);
+  font-size: 0.75rem;
+}
+/* The major's Hebrew letter, bottom-right inside the frame, mirroring the numeral. */
+.card-letter {
+  position: absolute;
+  right: 22px;
+  bottom: 18px;
+  font:
+    400 1.25rem/1 'Noto Sans Hebrew',
+    'Arial Hebrew',
+    'Times New Roman',
+    serif;
+  color: var(--color-muted);
+}
+/* The artwork credit sits in the card's top-right corner, inside the frame. */
+.tarot-card button.art-credit {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  min-height: 32px;
+  height: 32px;
+  color: var(--color-muted);
+}
+.art-credit-work {
+  font-weight: 600;
+  color: var(--color-text);
+}
+.select-content.info-popover {
+  max-width: min(280px, calc(100vw - 32px));
+}
+/* Encrypted-history dialog: the vault form on a surface panel. */
+.history-dialog .dialog-title {
+  margin: 0;
+  padding: 6px 12px;
+  border-radius: var(--radius-control);
+  background: var(--color-surface);
+  font: 600 0.875rem/1.3 var(--font-ui);
+}
+.history-panel {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+  border-radius: var(--radius-panel);
+  background: var(--color-surface);
+}
+.note-keep {
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+}
+/* Bingo marks on the threat grid: logged count and last date from the calendar. */
+.tile-marks {
+  justify-self: start;
+  margin-top: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-control);
+  background: var(--c-yellow);
+  color: var(--c-ink);
+  font: 600 0.625rem/1.4 var(--font-ui);
+}
+/* Live WordArt: a gradient face over an extruded copy of the same text (::before). */
+.live-wordart {
+  --wa-font: Impact, Haettenschweiler, 'Arial Narrow Bold', 'Franklin Gothic Bold', sans-serif;
+  --wa-weight: 400;
+  --wa-fill: linear-gradient(#fff36b, #ffc400 40%, #ff7a00 70%, #e23d00);
+  --wa-edge: #6e1d00;
+  --wa-side: #a33000;
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  padding: 0 6px 6px 0;
+  font: var(--wa-weight) calc(var(--wa-base, 1.75rem) * var(--wa-scale, 1)) / 1.05 var(--wa-font);
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+  isolation: isolate;
+}
+.live-wordart::before {
+  content: attr(data-text);
+  position: absolute;
+  /* Same box as the face (minus the extrusion padding) so lines break identically. */
+  inset: 0 6px 6px 0;
+  z-index: 0;
+  color: var(--wa-side);
+  text-shadow:
+    1px 1px 0 var(--wa-side),
+    2px 2px 0 var(--wa-side),
+    3px 3px 0 var(--wa-side),
+    4px 4px 0 var(--wa-side);
+}
+.wa-face {
+  position: relative;
+  z-index: 1;
+  background: var(--wa-fill);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--wa-edge);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.live-wordart[data-len='m'] {
+  --wa-scale: 0.85;
+}
+.live-wordart[data-len='l'] {
+  --wa-scale: 0.72;
+}
+.wa-neon {
+  --wa-font: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+  --wa-weight: 900;
+  --wa-fill: linear-gradient(#ff7cff, #f000f0 40%, #a100e6 70%, #5200b0);
+  --wa-edge: #33075f;
+  --wa-side: rgb(29 16 48 / 0.45);
+}
+.wa-rainbow {
+  --wa-font: Arial, Helvetica, sans-serif;
+  --wa-weight: 700;
+  --wa-fill: linear-gradient(90deg, #ff1a1a, #ff9500, #ffee00, #22c34a, #0a84ff, #7a1fd1);
+  --wa-edge: #1e1e1e;
+  --wa-side: rgb(0 0 0 / 0.3);
+}
+.wa-chrome {
+  --wa-font: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+  --wa-weight: 900;
+  --wa-fill: linear-gradient(#ffffff, #c9ccd2 35%, #4f5660 55%, #f2f4f6 75%, #8c939c);
+  --wa-edge: #15191e;
+  --wa-side: #30353c;
+}
+.wa-ocean {
+  --wa-fill: linear-gradient(#e9fcff, #62d9ff 35%, #0a7cff 70%, #08208f);
+  --wa-edge: #021457;
+  --wa-side: #00104a;
+}
+.wa-bronze {
+  --wa-font: 'Times New Roman', Times, serif;
+  --wa-weight: 700;
+  --wa-fill: linear-gradient(#f7d49a, #c7873e 30%, #8a4b16 55%, #e0ad66 75%, #6b3510);
+  --wa-edge: #2e1404;
+  --wa-side: #4a2508;
+}
+.wa-ice {
+  --wa-font: Arial, Helvetica, sans-serif;
+  --wa-weight: 700;
+  --wa-fill: linear-gradient(#ffffff, #8fb8ff);
+  --wa-edge: #1d3a6e;
+  --wa-side: rgb(47 79 134 / 0.35);
+}
+.wa-ink {
+  --wa-font: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+  --wa-weight: 900;
+  --wa-fill: linear-gradient(#3a3a3a, #000000);
+  --wa-edge: #000000;
+  --wa-side: rgb(138 138 138 / 0.6);
+}
+/* Style picker: each option previews the typed word. */
+.wa-picker {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+button.wa-option {
+  display: grid;
+  place-items: center;
+  min-height: 56px;
+  height: auto;
+  padding: 6px;
+  border-radius: 12px;
+  background: var(--color-sunken);
+  overflow: hidden;
+}
+button.wa-option[aria-checked='true'] {
+  box-shadow: inset 0 0 0 2px var(--color-text);
+  background: var(--color-surface);
+}
+.wa-option .live-wordart {
+  --wa-base: 1.5rem;
+}
+.pain-tile .live-wordart {
+  --wa-base: 1.6rem;
+}
+/* Mantra reading-time bar: fills, then the next line shows. Pauses while hovered, pressed or
+   keyboard-focused (a tap on star/reroll does not freeze it); reduced motion turns it off. */
+.mantra-progress {
+  justify-self: center;
+  width: 48px;
+  height: 2px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--color-hairline);
+}
+.mantra-progress > span {
+  display: block;
+  height: 100%;
+  background: var(--color-muted);
+  transform-origin: left;
+  animation: mantra-read 6s linear both;
+}
+.mantra-progress > span[data-pace='s'] {
+  animation-duration: 4s;
+}
+.mantra-progress > span[data-pace='l'] {
+  animation-duration: 8s;
+}
+.protective-card:hover .mantra-progress > span,
+.protective-card:has(:focus-visible) .mantra-progress > span,
+.protective-card:active .mantra-progress > span {
+  animation-play-state: paused;
+}
+@keyframes mantra-read {
+  from {
+    transform: scaleX(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mantra-progress {
+    display: none;
+  }
+}
+/* Starts below the reroll and favorite buttons in the card's top corner. */
+.protective-card .live-wordart {
+  --wa-base: 2.6rem;
+  justify-self: center;
+  margin-top: 28px;
+}
+/* "Add your own" tile at the end of the grid. */
+button.pain-tile.add-tile {
+  place-content: center;
+  justify-items: center;
+  border: 2px dashed var(--color-hairline);
+  background: transparent;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+.custom-dialog .history-panel {
+  max-height: calc(100dvh - 120px);
+  overflow-y: auto;
+}
+/* Private note under the replies. */
+.threat-note {
+  display: grid;
+  gap: 8px;
+  justify-items: start;
+  padding: 14px var(--space-md);
+  border-radius: var(--radius-panel);
+  background: var(--color-surface);
+}
+.threat-note .field {
+  width: 100%;
+}
+/* Bestiary row under the note; opens the threat's entry in a bottom sheet. */
+button.bestiary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  height: auto;
+  padding: 14px var(--space-md);
+  border-radius: var(--radius-panel);
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-align: left;
+}
+.bestiary-row > span {
+  display: grid;
+  gap: 2px;
+}
+.bestiary-row small {
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  white-space: normal;
+}
+/* Bottom sheet (Drawer): pinned to the bottom edge, its body scrolls. */
+.drawer-content {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  z-index: 41;
+  display: grid;
+  grid-template-rows: auto auto auto minmax(0, 1fr);
+  gap: 8px;
+  width: min(560px, 100vw);
+  max-height: 85dvh;
+  padding: 8px var(--space-md) calc(16px + env(safe-area-inset-bottom));
+  border-radius: var(--radius-panel) var(--radius-panel) 0 0;
+  background: var(--color-surface);
+  transform: translateX(-50%);
+  outline: none;
+  animation: drawer-in 260ms cubic-bezier(0.2, 0, 0, 1);
+}
+.drawer-handle {
+  justify-self: center;
+  width: 40px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--color-hairline);
+}
+.drawer-title {
+  margin: 0;
+  font: 600 1rem/1.3 var(--font-ui);
+}
+.drawer-content .dialog-bar button.icon-button {
+  background: var(--color-sunken);
+}
+.drawer-body {
+  display: grid;
+  gap: 4px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  justify-items: start;
+}
+.drawer-body section {
+  width: 100%;
+}
+.drawer-body h3 {
+  margin: 10px 0 4px;
+  font: 600 0.8125rem/1.3 var(--font-ui);
+}
+.drawer-body p {
+  margin: 0 0 4px;
+}
+.drawer-threat {
+  margin: 0;
+  font: 700 1.625rem/1.15 var(--font-display);
+  color: var(--color-text);
+}
+/* External support link: muted like text buttons, with a new-tab icon. */
+a.support-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  margin-top: 6px;
+  color: var(--color-muted);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+a.support-link:hover {
+  color: var(--color-text);
+}
+a.support-link svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+@keyframes drawer-in {
+  from {
+    transform: translate(-50%, 100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .drawer-content {
+    animation: dialog-fade 160ms ease-out;
+  }
+}
+.note-text {
+  margin: 0;
+  white-space: pre-wrap;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+/* Reply rows: label, sentence, then a compact copy button. */
+.reply-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px 10px;
+  align-items: start;
+}
+.reply-row + .reply-row {
+  padding-top: 12px;
+  border-top: 1px solid var(--color-hairline);
+}
+.reply-label {
+  grid-column: 1 / -1;
+  font: 500 0.6875rem/1.3 var(--font-ui);
+  color: var(--color-muted);
+}
+.reply-row > p,
+.reply-row > .field {
+  grid-column: 1;
+  margin: 0;
+  padding: 0;
+}
+.reply-tools {
+  grid-column: 2;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+.reply-tools .copy-control .feedback:empty {
+  display: none;
+}
+.reply-row.secondary > p {
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  white-space: pre-line;
+}
+/* The mantra card carries its own reroll beside the favourite star. */
+.protective-card button.reroll-button {
+  position: absolute;
+  top: 8px;
+  right: 52px;
+  width: 40px;
+  min-height: 40px;
+  height: 40px;
+  color: var(--color-muted);
+}
+/* Fight screen top line: back on the left, the threat dropdown on the right. */
+.protection-topline .field {
+  min-width: 0;
+  flex: 0 1 240px;
+}
+.protection-topline .field > label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.protection-topline .select-trigger {
+  min-height: 40px;
+  padding-block: 6px;
+}
+/* Long threat names truncate inside the trigger; the chevron always stays visible. */
+.select-trigger {
+  min-width: 0;
+}
+.select-trigger > span:first-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.select-trigger .select-chevron {
+  flex-shrink: 0;
+}
+/* The reply screen leads with the situation's WordArt and its one-line description. */
+.protective-card .pain-wordart img {
+  width: auto;
+  max-width: 100%;
+  height: 84px;
+}
+.protective-card .pain-desc {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.8125rem;
+  text-align: center;
+}
+/* Grouped list section label (Tools: Right now / Explore). */
+h2.group-label {
+  margin: 4px 4px 0;
+  font: 500 0.8125rem/1.3 var(--font-ui);
+  color: var(--color-muted);
+  letter-spacing: 0;
+}
+/* Glossy cards: the artwork, hugely blurred, tints a frosted surface with a diagonal sheen. */
+.tarot-card,
+.deck-grid button {
+  isolation: isolate;
+  overflow: hidden;
+}
+.card-glass {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.card-glass img {
+  position: absolute;
+  inset: -30%;
+  width: 160%;
+  max-width: none;
+  height: 160%;
+  object-fit: cover;
+  filter: blur(var(--glass-blur, 40px)) saturate(1.6);
+  opacity: var(--glass-tint);
+}
+.card-glass::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(150deg, var(--glass-sheen) 0%, transparent 38%),
+    color-mix(in srgb, var(--color-surface) var(--glass-wash), transparent);
+}
+.deck-grid .card-glass {
+  --glass-blur: 22px;
+}
+img[data-sticker] {
+  position: relative;
+}
+/* Artwork stickers keep their original colours in every theme. */
+img[data-sticker] {
+  filter: none;
 }
 
 /* Content pane children keep their size; scroll containers would otherwise collapse. */
@@ -1216,20 +2079,23 @@ address {
   --on-tone: var(--c-ink);
 }
 .rock-option[data-tone='grey'] {
-  --tone: var(--c-grey);
+  --tone: var(--c-grey-deep);
   --on-tone: #ffffff;
 }
 .rock-option[data-tone='firm'] {
   --tone: var(--c-tomato);
   --on-tone: var(--c-ink);
 }
+/* Each style is marked by a tiny moai head in its colour, with a soft highlight for volume. */
 button.rock-option::before {
   content: '';
-  width: 8px;
-  height: 8px;
-  margin-right: 6px;
-  border-radius: 50%;
-  background: var(--tone);
+  width: 16px;
+  height: 21px;
+  margin-right: 7px;
+  background:
+    radial-gradient(circle at 35% 30%, rgb(255 255 255 / 0.55), transparent 55%),
+    linear-gradient(160deg, transparent 55%, rgb(0 0 0 / 0.18)), var(--tone);
+  mask: url('/rocks/moai.svg') center / contain no-repeat;
   flex-shrink: 0;
 }
 button.rock-option[data-state='checked'] {
@@ -1258,14 +2124,14 @@ button.rock-option[data-state='checked']::before {
 }
 .tarot-card::before,
 .tarot-card::after,
-.deck-library button::before,
-.deck-library button::after {
+.deck-grid button::before,
+.deck-grid button::after {
   content: '✦';
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   padding: 0 6px;
-  background: var(--color-surface);
+  background: none;
   font: 400 0.75rem/1 var(--font-ui);
   color: var(--color-text);
 }
@@ -1275,27 +2141,23 @@ button.rock-option[data-state='checked']::before {
 .tarot-card::after {
   bottom: 3px;
 }
-.deck-library button {
+.deck-grid button {
   position: relative;
   border: 1px solid var(--color-text);
   border-radius: 10px;
   outline: 1px solid var(--color-text);
   outline-offset: -5px;
 }
-.deck-library button::before,
-.deck-library button::after {
+.deck-grid button::before,
+.deck-grid button::after {
   font-size: 0.5625rem;
   padding: 0 3px;
 }
-.deck-library button::before {
+.deck-grid button::before {
   top: 0;
 }
-.deck-library button::after {
+.deck-grid button::after {
   bottom: 0;
-}
-.deck-library button[aria-pressed='true'] {
-  outline-color: var(--color-signal);
-  box-shadow: none;
 }
 
 .copy-row {
@@ -1306,7 +2168,7 @@ button.rock-option[data-state='checked']::before {
 .copy-row .copy-control {
   flex: 1;
 }
-.deck-library button {
+.deck-grid button {
   flex-basis: 128px;
   min-height: 196px;
   align-content: start;
@@ -1323,9 +2185,9 @@ button.select-trigger {
   gap: 10px;
   width: 100%;
   min-height: 44px;
-  padding: 10px 14px;
+  padding: 10px 16px;
   border: 1px solid var(--color-hairline);
-  border-radius: 10px;
+  border-radius: var(--radius-control);
   background: var(--color-surface);
   color: var(--color-text);
   font: 500 0.9375rem/1.3 var(--font-ui);
@@ -1444,14 +2306,35 @@ button.select-trigger[aria-expanded='true'] {
 .pain-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+/* Each tile spans three shared rows (art, description, marks) so a row's descriptions line up. */
 button.pain-tile {
+  grid-row: span 3;
+  grid-template-rows: subgrid;
+  /* No row gap: an empty marks row must not add height; spacing lives on the items. */
+  row-gap: 0;
   align-content: start;
   min-height: 112px;
-  padding: 10px 12px 12px;
+  padding: 8px 12px 10px;
 }
-.pain-tile .pain-wordart {
-  height: 44px;
+.pain-tile > .pain-desc {
+  margin-top: 4px;
+}
+.pain-tile > .pain-wordart,
+.pain-tile > .live-wordart {
+  align-self: end;
+}
+.pain-tile > .pain-desc,
+.pain-tile > .tile-marks {
+  align-self: start;
 }
 .pain-desc {
   font-size: 0.75rem;
+}
+
+.deck-library {
+  flex: none;
+  min-height: 280px;
+}
+.tarot-card {
+  touch-action: pan-y;
 }

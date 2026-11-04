@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { customThreatSchema } from '../domain/custom-threats';
 import {
   calibrateIterations,
   decrypt,
@@ -50,6 +51,13 @@ export const mantraStateSchema = z
     updatedAtISO: z.iso.datetime(),
     favorites: z.array(z.string().min(1)).max(250),
     recentIds: z.array(z.string().min(1)).max(64),
+    // One private note per threat, typed by the user. Optional so older vaults stay valid.
+    notes: z
+      .record(z.string().min(1).max(64), z.string().max(2000))
+      .refine((notes) => Object.keys(notes).length <= 64, 'Too many notes')
+      .optional(),
+    // The user's own threats with their own say and write lines.
+    customThreats: z.array(customThreatSchema).max(24).optional(),
   })
   .strict();
 export const recordSchema = z.union([

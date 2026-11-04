@@ -1,16 +1,32 @@
 import { responseVersion, responseSet } from '../../domain/replies';
 import { Button } from '../../components/ui/button';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { messages as t } from '../../content';
 import { content, type Tone } from '../../domain/content';
 import { pains, painForScenario, scenarioFor } from '../../domain/pains';
+import type { MantraSnapshot } from '../../domain/mantras';
 import { useCompanion } from '../companion-store';
-import { CopyButton, Field, PageTitle } from '../components';
-import { Icon } from '../PixelIcon';
+import { CopyButton, Field, PageTitle, Select } from '../components';
+import { professionalResponse } from '../../domain/scripts';
+import { FilledStar, Icon } from '../PixelIcon';
 import { StyleSwitch } from '../StyleSwitch';
 import { Card } from '../../components/ui/card';
 import { WordArt } from '../WordArt';
 import type { Navigate } from '../App';
+import type { Settings } from '../../browser/settings';
+import type { Vault } from '../../vault/service';
+import { HistoryDialog } from '../HistoryDialog';
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerTitle,
+  DrawerTrigger,
+} from '../../components/ui/drawer';
+import { CustomThreatDialog } from '../CustomThreatDialog';
+import { LiveWordArt } from '../LiveWordArt';
+import { isCustomThreat, type CustomThreat } from '../../domain/custom-threats';
 
 export { Icon } from '../PixelIcon';
 // Every situation card: the six pains first, then the remaining scenarios.
@@ -50,17 +66,53 @@ const searchText = (card: (typeof cards)[number]) => {
     .join(' ')
     .toLowerCase();
 };
-export function PainHome({ navigate, title }: { navigate: Navigate; title: string }) {
-  const { store } = useCompanion();
+export function PainHome({
+  navigate,
+  title,
+  strongLanguage,
+}: {
+  navigate: Navigate;
+  title: string;
+  strongLanguage: boolean;
+}) {
+  const { store, state } = useCompanion();
+  // Bingo marks from the calendar: how often each threat was logged, and when last.
+  const stats = useMemo(() => {
+    const out = new Map<string, { count: number; last: string }>();
+    for (const event of state.events) {
+      const seen = out.get(event.situationId);
+      out.set(event.situationId, {
+        count: (seen?.count ?? 0) + 1,
+        last: seen && seen.last > event.createdAtISO ? seen.last : event.createdAtISO,
+      });
+    }
+    return out;
+  }, [state.events]);
+  const day = new Intl.DateTimeFormat('en', { month: 'short', day: 'numeric' });
+  const search = strongLanguage ? t.redesign.searchBingoStrong : t.redesign.searchBingo;
   const [query, setQuery] = useState('');
+  const [adding, setAdding] = useState(false);
   function choose(id: string) {
     store.choose(id);
     navigate('protection');
   }
   const words = query.toLowerCase().split(/\s+/).filter(Boolean);
-  const visible = words.length
-    ? cards.filter((card) => words.every((word) => searchText(card).includes(word)))
-    : cards;
+  const matches = (text: string) => words.every((word) => text.includes(word));
+  const visible = words.length ? cards.filter((card) => matches(searchText(card))) : cards;
+  // The user's own threats come first; search covers their word and lines too.
+  const own = state.customThreats.filter(
+    (item) =>
+      !words.length ||
+      matches([item.label, item.description, item.say, item.write].join(' ').toLowerCase()),
+  );
+  const markFor = (id: string) => {
+    const mark = stats.get(id);
+    return mark
+      ? t.redesign.marks
+          .replace('{n}', String(mark.count))
+          .replace('{date}', day.format(new Date(mark.last)))
+      : null;
+  };
   return (
     <div className="pain-home">
       <PageTitle>{title}</PageTitle>
@@ -69,42 +121,102 @@ export function PainHome({ navigate, title }: { navigate: Navigate; title: strin
         type="search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        placeholder={t.redesign.searchSituations}
-        aria-label={t.redesign.searchSituations}
+        placeholder={search}
+        aria-label={search}
       />
       <div className="pain-grid" role="group" aria-label={t.situation}>
-        {visible.map((card) => (
-          <Button
-            className={card.className}
-            key={card.key}
-            aria-label={card.primary ? card.description : `${card.label}. ${card.description}`}
-            onClick={() => choose(card.scenarioId)}
-          >
-            <WordArt style={card.art} />
-            <span className="pain-desc">{card.description}</span>
+        {own.map((item) => {
+          const mark = markFor(item.id);
+          return (
+            <Button
+              className="pain-tile own-tile"
+              key={item.id}
+              data-marked={mark ? true : undefined}
+              aria-label={`${item.label}. ${item.description || t.own.yours}`}
+              aria-describedby={mark ? `marks-${item.id}` : undefined}
+              onClick={() => choose(item.id)}
+            >
+              <LiveWordArt text={item.label} style={item.style} />
+              <span className="pain-desc">{item.description || t.own.yours}</span>
+              {mark && (
+                <span className="tile-marks" id={`marks-${item.id}`}>
+                  {mark}
+                </span>
+              )}
+            </Button>
+          );
+        })}
+        {visible.map((card) => {
+          const mark = markFor(card.scenarioId);
+          return (
+            <Button
+              className={card.className}
+              key={card.key}
+              data-marked={mark ? true : undefined}
+              aria-label={card.primary ? card.description : `${card.label}. ${card.description}`}
+              aria-describedby={mark ? `marks-${card.key}` : undefined}
+              onClick={() => choose(card.scenarioId)}
+            >
+              <WordArt style={card.art} />
+              <span className="pain-desc">{card.description}</span>
+              {mark && (
+                <span className="tile-marks" id={`marks-${card.key}`}>
+                  {mark}
+                </span>
+              )}
+            </Button>
+          );
+        })}
+        {!words.length && (
+          <Button className="pain-tile add-tile" onClick={() => setAdding(true)}>
+            <Icon name="plus" />
+            {t.own.add}
           </Button>
-        ))}
+        )}
       </div>
-      {words.length > 0 && visible.length === 0 && <p className="muted">{t.noResults}</p>}
+      {words.length > 0 && visible.length + own.length === 0 && (
+        <p className="muted">{t.noResults}</p>
+      )}
+      {adding && (
+        <CustomThreatDialog open onOpenChange={setAdding} onSaved={(item) => choose(item.id)} />
+      )}
     </div>
   );
 }
 export function ProtectionCard({
   navigate,
   defaultTone,
-  humorAllowed,
+  vault,
+  settings,
+  update,
 }: {
   navigate: Navigate;
   defaultTone: Tone;
-  humorAllowed: boolean;
+  vault: Vault;
+  settings: Settings;
+  update: (next: Settings) => Promise<void>;
 }) {
   const { store, state } = useCompanion();
   const event = store.active();
-  const [version] = useState(() => responseVersion(event?.situationId ?? 'vague_accusation'));
+  const situationId = event?.situationId ?? 'vague_accusation';
+  // A fresh reply variant whenever the threat changes.
+  const version = useMemo(() => responseVersion(situationId), [situationId]);
   const [tone, setTone] = useState<Tone>(defaultTone);
-  const [edited, setEdited] = useState<string>();
+  const [writing, setWriting] = useState(false);
+  const [history, setHistory] = useState(false);
   const [editing, setEditing] = useState(false);
-  if (!event)
+  // Mantras rotate on screen only; the logged event keeps the line it was drawn with.
+  const [shown, setShown] = useState<{ eventId: string; mantra: MantraSnapshot }>();
+  const mantra = shown?.eventId === event?.id ? shown!.mantra : event?.mantra;
+  const advance = () => {
+    const next = event && store.peek(mantra?.id);
+    if (event && next) setShown({ eventId: event.id, mantra: next });
+  };
+  const own =
+    event && isCustomThreat(event.situationId)
+      ? state.customThreats.find((item) => item.id === event.situationId)
+      : undefined;
+  if (!event || (isCustomThreat(event.situationId) && !own))
     return (
       <>
         <PageTitle>{t.redesign.homeTitle}</PageTitle>
@@ -113,7 +225,17 @@ export function ProtectionCard({
     );
   const scenario = scenarioFor(event.situationId);
   const pain = painForScenario(event.situationId);
-  const response = edited ?? responseSet(scenario, version)[tone];
+  const replies = { ...scenario, responses: responseSet(scenario, version) };
+  const written = professionalResponse(replies, tone, 'written');
+  const spoken = professionalResponse(replies, tone, 'spoken');
+  const threats = [
+    ...state.customThreats.map((item) => ({ value: item.id, label: item.label })),
+    ...content.scenarios.map((s) => {
+      const owner = painForScenario(s.id);
+      return { value: s.id, label: owner ? t.redesign.pains[owner.id] : s.label };
+    }),
+  ];
+  const threatId = own?.id ?? scenario.id;
   return (
     <div className={`protection-view pain-${pain?.id ?? 'questions'}`}>
       <div className="protection-topline">
@@ -121,80 +243,227 @@ export function ProtectionCard({
           <Icon name="back" />
           {t.redesign.back}
         </Button>
-        <span className="category-pill">{pain ? t.redesign.pains[pain.id] : scenario.label}</span>
+        {/* Switch the threat here without going back to the grid. */}
+        <Select
+          label={t.situation}
+          value={threatId}
+          onChange={(id) => {
+            store.choose(id);
+          }}
+          options={threats}
+        />
       </div>
       <Card role="region" className="protective-card" aria-label={t.redesign.internal}>
-        <img src={`/art/${pain?.art ?? 'card_11'}.svg`} alt="" />
-        <p className="charm-text" aria-live="polite" aria-atomic="true">
-          {!humorAllowed && event.mantra.purpose === 'dark_humor'
-            ? t.redesign.noHumor
-            : event.mantra.text}
-        </p>
+        {own ? (
+          <>
+            <LiveWordArt text={own.label} style={own.style} />
+            {own.description && <p className="pain-desc">{own.description}</p>}
+          </>
+        ) : (
+          <>
+            <WordArt style={pain?.id ?? scenario.id} />
+            <p className="pain-desc">
+              {pain
+                ? t.redesign.painDescriptions[pain.id]
+                : (t.redesign.scenarioBlurbs[threatId] ?? '')}
+            </p>
+          </>
+        )}
+        <p className="charm-text">{mantra!.text}</p>
+        {/* Reading time by length; the next line comes when the bar fills. Hover, focus or a
+            press pauses it (CSS), and reduced motion stops the rotation. */}
+        <span className="mantra-progress" aria-hidden="true">
+          <span
+            key={mantra!.id}
+            data-pace={mantra!.text.length < 50 ? 's' : mantra!.text.length < 90 ? 'm' : 'l'}
+            onAnimationEnd={advance}
+          />
+        </span>
         <Button
           className="favorite-button"
           aria-label={
-            state.favorites.includes(event.mantra.id) ? t.redesign.unfavorite : t.redesign.favorite
+            state.favorites.includes(mantra!.id) ? t.redesign.unfavorite : t.redesign.favorite
           }
-          aria-pressed={state.favorites.includes(event.mantra.id)}
-          onClick={() => store.toggleFavorite(event.mantra.id)}
+          aria-pressed={state.favorites.includes(mantra!.id)}
+          onClick={() => store.toggleFavorite(mantra!.id)}
         >
-          <Icon name="star" />
+          {state.favorites.includes(mantra!.id) ? <FilledStar /> : <Icon name="star" />}
+        </Button>
+        <Button
+          className="icon-button reroll-button"
+          aria-label={t.redesign.another}
+          onClick={advance}
+        >
+          <Icon name="reroll" />
         </Button>
       </Card>
-      <section className="response" aria-label={t.redesign.external}>
-        <StyleSwitch
-          value={tone}
-          onChange={(value) => {
-            setTone(value);
-            setEdited(undefined);
-            setEditing(false);
-          }}
+      {own ? (
+        <OwnReplies item={own} onEdit={() => setEditing(true)} />
+      ) : (
+        <section className="response" aria-label={t.redesign.external}>
+          <StyleSwitch
+            value={tone}
+            onChange={(value) => {
+              setTone(value);
+            }}
+          />
+          {/* Say it first, then write it: both under the chosen rock, each copyable. */}
+          <div className="reply-row">
+            <span className="reply-label">{t.replyRows.say}</span>
+            <p className="spoken-response">{spoken}</p>
+            <div className="reply-tools">
+              <CopyButton key={spoken} value={spoken} label={t.replyRows.copySpoken} compact />
+            </div>
+          </div>
+          <div className="reply-row">
+            <span className="reply-label">{t.replyRows.write}</span>
+            <p className="suggested-response" aria-live="polite">
+              {written}
+            </p>
+            <div className="reply-tools">
+              <CopyButton key={written} value={written} review compact />
+            </div>
+          </div>
+        </section>
+      )}
+      {own && editing && (
+        <CustomThreatDialog
+          open
+          onOpenChange={setEditing}
+          editing={own}
+          onRemoved={() => navigate('situations')}
         />
-        {editing ? (
-          <Field label={t.editReply} value={response} onChange={setEdited} multiline />
+      )}
+      {/* A private note per threat: collapsed until asked for, encrypted when history is on. */}
+      <section className="threat-note" aria-label={t.note.section}>
+        {writing ? (
+          <>
+            <Field
+              label={t.note.label}
+              value={state.notes[threatId] ?? ''}
+              onChange={(text) => store.setNote(threatId, text)}
+              maxLength={2000}
+              multiline
+            />
+            <Button onClick={() => setWriting(false)}>{t.note.done}</Button>
+          </>
+        ) : state.notes[threatId] ? (
+          <>
+            <p className="note-text">{state.notes[threatId]}</p>
+            <Button className="text-button" onClick={() => setWriting(true)}>
+              {t.note.edit}
+            </Button>
+          </>
         ) : (
-          <p className="suggested-response" aria-live="polite">
-            {response}
-          </p>
-        )}
-        <div className="copy-row">
-          <CopyButton key={response} value={response} review />
-          <Button onClick={() => setEditing(!editing)}>
-            {editing ? t.quickUi.applyEdit : t.edit}
+          <Button className="text-button" onClick={() => setWriting(true)}>
+            {t.note.add}
           </Button>
-        </div>
+        )}
+        {(writing || state.notes[threatId]) &&
+          (store.persisting ? (
+            <p className="muted small-copy">{t.note.saved}</p>
+          ) : (
+            <div className="note-keep">
+              <p className="muted small-copy">{t.note.session}</p>
+              <Button onClick={() => setHistory(true)}>{t.note.keep}</Button>
+            </div>
+          ))}
+        <HistoryDialog
+          vault={vault}
+          settings={settings}
+          update={update}
+          open={history}
+          onOpenChange={setHistory}
+        />
       </section>
-      <div className="protection-actions">
-        <Button
-          className="primary"
-          onClick={() => {
-            store.plan(
-              tone,
-              response,
-              `${scenario.id}:${tone}:${version}${edited ? ':edited' : ''}`,
-            );
-            navigate('home');
-          }}
-        >
-          {t.redesign.done}
-        </Button>
-        <Button onClick={() => store.reroll()}>
-          <Icon name="reroll" />
-          {t.redesign.another}
-        </Button>
-      </div>
-      <p className="save-status" role="status">
-        {state.error
-          ? t.redesign.failed
-          : state.busy
-            ? t.redesign.saving
-            : state.savedIds.includes(event.id)
-              ? t.redesign.encrypted
-              : t.redesign.session}
-      </p>
+      {!own && <BestiaryPanel threatId={scenario.id} />}
+      {state.error && <p role="alert">{t.redesign.failed}</p>}
       {state.error && (
         <Button onClick={() => void store.enablePersistence()}>{t.redesign.retry}</Button>
       )}
     </div>
+  );
+}
+// The user's own lines: only the rows they filled in, plus a way back into the editor.
+function OwnReplies({ item, onEdit }: { item: CustomThreat; onEdit: () => void }) {
+  return (
+    <section className="response" aria-label={t.redesign.external}>
+      {item.say && (
+        <div className="reply-row">
+          <span className="reply-label">{t.replyRows.say}</span>
+          <p className="spoken-response">{item.say}</p>
+          <div className="reply-tools">
+            <CopyButton value={item.say} label={t.replyRows.copySpoken} compact />
+          </div>
+        </div>
+      )}
+      {item.write && (
+        <div className="reply-row">
+          <span className="reply-label">{t.replyRows.write}</span>
+          <p className="suggested-response">{item.write}</p>
+          <div className="reply-tools">
+            <CopyButton value={item.write} review compact />
+          </div>
+        </div>
+      )}
+      <Button className="text-button" onClick={onEdit}>
+        {t.own.edit}
+      </Button>
+    </section>
+  );
+}
+// The threat's Bestiary entry in a bottom sheet: what to observe, verify and keep credible.
+function BestiaryPanel({ threatId }: { threatId: string }) {
+  const behavior = content.behaviors.find((b) => b.id === `behavior_${threatId}`);
+  if (!behavior) return null;
+  return (
+    <Drawer>
+      <DrawerTrigger asChild>
+        <Button className="bestiary-row">
+          <span>
+            <strong>{t.bestiary}</strong>
+            <small>{t.bestiarySub}</small>
+          </span>
+          <Icon name="bestiary" />
+        </Button>
+      </DrawerTrigger>
+      <DrawerContent className="bestiary-sheet">
+        <div className="dialog-bar">
+          <DrawerTitle className="drawer-title">{t.bestiary}</DrawerTitle>
+          <DrawerClose asChild>
+            <Button className="icon-button" aria-label={t.deck.close}>
+              <Icon name="close" />
+            </Button>
+          </DrawerClose>
+        </div>
+        <DrawerDescription className="drawer-threat">{behavior.title}</DrawerDescription>
+        <div className="drawer-body">
+          {[
+            { title: t.observed, items: behavior.observedIndicators },
+            { title: t.alternatives, items: behavior.alternativeExplanations },
+            { title: t.doNotInfer, items: behavior.doNotInfer },
+            { title: t.factualFollowUp, items: [behavior.factualFollowUp] },
+          ].map((section) => (
+            <section key={section.title}>
+              <h3>{section.title}</h3>
+              {section.items.map((item) => (
+                <p key={item}>{item}</p>
+              ))}
+            </section>
+          ))}
+          {/* Serious support lives on the site, outside the app. */}
+          <a
+            className="text-link support-link"
+            href="https://bossdetox.ing/support/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {t.bestiarySupport}
+            <Icon name="external" />
+            <span className="visually-hidden"> {t.newTab}</span>
+          </a>
+        </div>
+      </DrawerContent>
+    </Drawer>
   );
 }

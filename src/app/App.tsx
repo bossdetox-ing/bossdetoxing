@@ -1,8 +1,8 @@
 import { broadcastBlank, clearPublic, isExtension } from '../browser/platform';
 import { clearReplyHistory } from '../domain/replies';
 import { Daily } from './views/Daily';
-import { clearCopyHistory } from './useViewCopy';
 import { chooseHeading, headingText } from '../domain/headings';
+import { disguiseTitle } from '../domain/disguise';
 import { BrandLogo } from './BrandLogo';
 import { randomLogo } from '../domain/logo';
 import { Button } from '../components/ui/button';
@@ -14,26 +14,10 @@ import { CompanionContext, CompanionStore } from './companion-store';
 import { PainHome, ProtectionCard, Icon } from './views/Protection';
 import { PrivateCalendar } from './views/Calendar';
 import { PageTitle } from './components';
-import { Home, Shield, Reply, Serious } from './views/Support';
-import { Closure } from './views/Closure';
-import { Explore, Bestiary, Tarot, Bingo } from './views/Explore';
+import { Tarot } from './views/Explore';
 import { Onboarding, Preferences } from './views/Preferences';
 export type Route =
-  | 'home'
-  | 'situations'
-  | 'tools'
-  | 'protection'
-  | 'calendar'
-  | 'shield'
-  | 'reply'
-  | 'closure'
-  | 'explore'
-  | 'bestiary'
-  | 'tarot'
-  | 'bingo'
-  | 'settings'
-  | 'serious'
-  | 'blank';
+  'home' | 'situations' | 'protection' | 'calendar' | 'tarot' | 'settings' | 'blank';
 export type Navigate = (route: Route) => void;
 
 export function App() {
@@ -43,7 +27,6 @@ export function App() {
   const [ready, setReady] = useState(false);
   const [settingsError, setSettingsError] = useState(false);
   const [route, setRoute] = useState<Route>('home');
-  const [serious, setSerious] = useState(false);
   const [generation, setGeneration] = useState(0);
   const [vault] = useState(() => new Vault());
   const [companion] = useState(() => new CompanionStore(vault));
@@ -53,10 +36,8 @@ export function App() {
   const blank = useCallback(() => {
     vault.lock();
     companion.clear();
-    clearCopyHistory();
     clearReplyHistory();
     setGeneration((n) => n + 1);
-    setSerious(false);
     setRoute('blank');
   }, [vault, companion]);
   const panic = useCallback(() => {
@@ -68,9 +49,9 @@ export function App() {
     void loadSettings()
       .then((value) => {
         if (live) {
-          companion.configure(value.privateLogging, value.humor && !value.quiet, false);
+          companion.configure(value.privateLogging, true, false);
           setSettings(value);
-          setHeadlineId(chooseHeading(value.humor && !value.quiet, value.strongLanguage));
+          setHeadlineId(chooseHeading(true, value.strongLanguage));
           setReady(true);
         }
       })
@@ -86,14 +67,14 @@ export function App() {
     };
   }, [vault, companion]);
   useEffect(() => {
-    companion.configure(settings.privateLogging, settings.humor && !settings.quiet, serious);
-  }, [companion, settings.privateLogging, settings.humor, settings.quiet, serious]);
+    companion.configure(settings.privateLogging, true, false);
+  }, [companion, settings.privateLogging]);
   useEffect(() => {
     document.documentElement.dataset.theme = settings.theme;
-    document.documentElement.dataset.motion = settings.reducedMotion ? 'reduce' : 'system';
   }, [settings]);
   useEffect(() => {
     if (!ready) return;
+    document.title = disguiseTitle(settings.icon);
     if (!isExtension()) {
       const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
       if (link) link.href = `/disguise/${settings.icon}.svg`;
@@ -116,7 +97,11 @@ export function App() {
       lastActivity.current = Date.now();
     };
     const key = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') panic();
+      // Escape closes an open popover, dropdown or card first; only a bare Escape hides and locks.
+      const layer = document.querySelector(
+        '[data-radix-popper-content-wrapper], [role="dialog"][data-state="open"]',
+      );
+      if (event.key === 'Escape' && !layer) panic();
     };
     const message = (message: unknown) => {
       if (
@@ -131,7 +116,11 @@ export function App() {
       if (document.visibilityState === 'hidden') blank();
     };
     const interval = window.setInterval(() => {
-      if (vault.unlocked && Date.now() - lastActivity.current >= settings.lockMinutes * 60_000)
+      if (
+        settings.lockMinutes &&
+        vault.unlocked &&
+        Date.now() - lastActivity.current >= settings.lockMinutes * 60_000
+      )
         blank();
     }, 1000);
     document.addEventListener('pointerdown', activity);
@@ -159,35 +148,22 @@ export function App() {
     const revision = ++settingsRevision.current;
     const previous = settings;
     setSettings(next);
-    companion.configure(next.privateLogging, next.humor && !next.quiet, serious);
+    companion.configure(next.privateLogging, true, false);
     setSettingsError(false);
     try {
       await saveSettings(next);
     } catch {
       if (revision === settingsRevision.current) {
         setSettings(previous);
-        companion.configure(previous.privateLogging, previous.humor && !previous.quiet, serious);
+        companion.configure(previous.privateLogging, true, false);
         setSettingsError(true);
       }
     }
   }
   function navigate(next: Route) {
-    if (next === 'serious') setSerious(true);
-    if ((serious || !settings.humor || settings.quiet) && (next === 'tarot' || next === 'bingo'))
-      return;
-    if (next === 'shield')
-      companion.loose('shield', { situationId: undefined, purpose: 'grounding' });
-    if (next === 'reply')
-      companion.loose('reply:vague_accusation', { situationId: 'vague_accusation' });
     setLogoId((current) => randomLogo(current));
     if (next === 'situations')
-      setHeadlineId((current) =>
-        chooseHeading(
-          settings.humor && !settings.quiet && !serious,
-          settings.strongLanguage,
-          current,
-        ),
-      );
+      setHeadlineId((current) => chooseHeading(true, settings.strongLanguage, current));
     setRoute(next);
   }
   if (!ready)
@@ -203,7 +179,6 @@ export function App() {
         <Button onClick={() => navigate('home')}>{t.resume}</Button>
       </main>
     );
-  const common = { navigate, settings };
   return (
     <CompanionContext.Provider value={companion}>
       <div className="app-shell">
@@ -213,7 +188,6 @@ export function App() {
         <header className="topbar">
           <Button className="wordmark" onClick={() => navigate('home')} aria-label={t.home}>
             <BrandLogo index={logoId} />
-            {settings.quiet ? t.neutralTitle : t.brand}
           </Button>
           <div className="header-actions">
             <Button
@@ -222,6 +196,14 @@ export function App() {
               onClick={() => navigate('calendar')}
             >
               <Icon name="calendar" />
+            </Button>
+            <Button
+              className="icon-button"
+              aria-label={t.settings}
+              aria-current={route === 'settings' ? 'page' : undefined}
+              onClick={() => navigate('settings')}
+            >
+              <Icon name="settings" />
             </Button>
             <Button className="icon-button" aria-label={t.blank} title={t.blank} onClick={panic}>
               <Icon name="blank" />
@@ -235,50 +217,43 @@ export function App() {
             </p>
           )}
           {!settings.onboarded ? (
-            <Onboarding settings={settings} update={updateSettings} logoId={logoId} />
+            <Onboarding settings={settings} update={updateSettings} />
           ) : (
             <>
-              {(route === 'situations' ||
-                (route === 'home' && (!settings.humor || settings.quiet || serious))) && (
+              {route === 'situations' && (
                 <PainHome
                   navigate={navigate}
+                  strongLanguage={settings.strongLanguage}
                   title={headingText(
                     headlineId,
                     settings.bossPronouns,
-                    settings.humor && !settings.quiet && !serious,
+                    true,
                     settings.strongLanguage,
+                    settings.bossName,
                   )}
                 />
               )}
-              {route === 'home' && settings.humor && !settings.quiet && !serious && (
+              {route === 'home' && (
                 <Daily
                   navigate={navigate}
                   strongLanguage={settings.strongLanguage}
                   timeZone={settings.timeZone}
+                  bossName={settings.bossName}
                 />
               )}
-              {route === 'tools' && <Home {...common} serious={serious} />}
               {route === 'protection' && (
                 <ProtectionCard
                   navigate={navigate}
                   defaultTone={settings.tone}
-                  humorAllowed={settings.humor && !settings.quiet && !serious}
+                  vault={vault}
+                  settings={settings}
+                  update={updateSettings}
                 />
               )}
               {route === 'calendar' && (
                 <PrivateCalendar vault={vault} settings={settings} update={updateSettings} />
               )}
-              {route === 'shield' && <Shield {...common} serious={serious} />}
-              {route === 'reply' && <Reply {...common} serious={serious} />}
-              {route === 'closure' && <Closure navigate={navigate} />}
-              {route === 'explore' && <Explore {...common} serious={serious} />}
-              {route === 'bestiary' && <Bestiary navigate={navigate} />}
-              {route === 'tarot' && !serious && settings.humor && !settings.quiet && (
-                <Tarot navigate={navigate} />
-              )}
-              {route === 'bingo' && !serious && settings.humor && !settings.quiet && (
-                <Bingo navigate={navigate} />
-              )}
+              {route === 'tarot' && <Tarot />}
               {route === 'settings' && (
                 <Preferences
                   settings={settings}
@@ -293,51 +268,9 @@ export function App() {
                   }}
                 />
               )}
-              {route === 'serious' && (
-                <Serious
-                  leave={() => {
-                    setSerious(false);
-                    navigate('home');
-                  }}
-                />
-              )}
             </>
           )}
         </main>
-        {settings.onboarded && (
-          <>
-            <nav className="bottom-nav" aria-label={t.explore}>
-              <Button
-                aria-current={route === 'home' || route === 'situations' ? 'page' : undefined}
-                onClick={() => navigate('home')}
-              >
-                <Icon name="home" />
-                <span>{t.home}</span>
-              </Button>
-              <Button
-                aria-current={route === 'tools' ? 'page' : undefined}
-                onClick={() => navigate('tools')}
-              >
-                <Icon name="tools" />
-                <span>{t.redesign.tools}</span>
-              </Button>
-              <Button
-                aria-current={route === 'explore' ? 'page' : undefined}
-                onClick={() => navigate('explore')}
-              >
-                <Icon name="explore" />
-                <span>{t.explore}</span>
-              </Button>
-              <Button
-                aria-current={route === 'settings' ? 'page' : undefined}
-                onClick={() => navigate('settings')}
-              >
-                <Icon name="settings" />
-                <span>{t.settings}</span>
-              </Button>
-            </nav>
-          </>
-        )}
       </div>
     </CompanionContext.Provider>
   );

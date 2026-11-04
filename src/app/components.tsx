@@ -33,13 +33,17 @@ export function CopyButton({
   label = t.copy,
   review = false,
   disabled = false,
+  compact = false,
 }: {
   value: string;
   label?: string;
   review?: boolean;
   disabled?: boolean;
+  /** Icon-only; the label becomes the accessible name. */
+  compact?: boolean;
 }) {
   const [status, setStatus] = useState('');
+  const [copied, setCopied] = useState(false);
   const [pending, setPending] = useState(false);
   const [busy, setBusy] = useState(false);
   async function write(approved = false) {
@@ -52,6 +56,9 @@ export function CopyButton({
       await navigator.clipboard.writeText(value);
       setStatus(t.copied);
       setPending(false);
+      // Compact buttons confirm with a brief check mark instead of visible text.
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1600);
     } catch {
       setStatus(t.copyFailed);
     } finally {
@@ -60,9 +67,14 @@ export function CopyButton({
   }
   return (
     <div className="copy-control">
-      <Button className="primary" disabled={disabled || busy} onClick={() => void write()}>
-        {label}
-        <Icon name="copy" />
+      <Button
+        className={compact ? 'icon-button copy-icon' : 'primary'}
+        aria-label={compact ? label : undefined}
+        disabled={disabled || busy}
+        onClick={() => void write()}
+      >
+        {!compact && label}
+        <Icon name={compact && copied ? 'check' : 'copy'} />
       </Button>
       {pending && (
         <section className="notice">
@@ -72,7 +84,10 @@ export function CopyButton({
           <Button onClick={() => setPending(false)}>{t.cancel}</Button>
         </section>
       )}
-      <p className="feedback" role="status">
+      <p
+        className={compact && status === t.copied ? 'feedback visually-hidden' : 'feedback'}
+        role="status"
+      >
         {status}
       </p>
     </div>
@@ -86,6 +101,8 @@ export function Field({
   type = 'text',
   hint,
   required = false,
+  placeholder,
+  maxLength,
 }: {
   label: string;
   value: string;
@@ -94,6 +111,8 @@ export function Field({
   type?: string;
   hint?: string;
   required?: boolean;
+  placeholder?: string;
+  maxLength?: number;
 }) {
   const id = useId();
   const describedBy = hint ? `${id}-hint` : undefined;
@@ -105,7 +124,7 @@ export function Field({
           id={id}
           aria-describedby={describedBy}
           value={value}
-          maxLength={20000}
+          maxLength={maxLength ?? 20000}
           rows={3}
           onChange={(e) => onChange(e.target.value)}
           required={required}
@@ -116,7 +135,8 @@ export function Field({
           aria-describedby={describedBy}
           type={type}
           value={value}
-          maxLength={type === 'password' ? 1024 : 20000}
+          maxLength={maxLength ?? (type === 'password' ? 1024 : 20000)}
+          placeholder={placeholder}
           onChange={(e) => onChange(e.target.value)}
           required={required}
         />

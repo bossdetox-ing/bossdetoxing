@@ -2,7 +2,17 @@ import { cp, readdir, readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 const directory = 'pwa/dist';
-for (const folder of ['art', 'avatars', 'icons', 'fonts', 'wordart', 'moon', 'disguise'])
+for (const folder of [
+  'art',
+  'avatars',
+  'icons',
+  'fonts',
+  'wordart',
+  'moon',
+  'sky',
+  'rocks',
+  'disguise',
+])
   await cp(`public/${folder}`, `${directory}/${folder}`, { recursive: true });
 for (const file of ['pwa-192.png', 'pwa-512.png', 'pwa-maskable.png'])
   await cp(`pwa/public/${file}`, `${directory}/${file}`);

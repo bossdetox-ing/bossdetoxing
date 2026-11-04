@@ -9,6 +9,7 @@ import {
 } from '../domain/mantras';
 import { painForScenario } from '../domain/pains';
 import { type Vault, type VaultRecord } from '../vault/service';
+import { customThreatSchema, type CustomThreat } from '../domain/custom-threats';
 
 type MantraState = Extract<VaultRecord, { kind: 'mantra_state' }>;
 export type CompanionSnapshot = {
@@ -19,7 +20,10 @@ export type CompanionSnapshot = {
   error: boolean;
   busy: boolean;
   savedIds: string[];
-  looseCharms: Record<string, ReturnType<typeof snapshot>>;
+  /** Private notes per threat id: memory only, saved encrypted when history is on. */
+  notes: Record<string, string>;
+  /** The user's own threats, kept like notes: encrypted with history on. */
+  customThreats: CustomThreat[];
 };
 export class CompanionStore {
   private state: CompanionSnapshot = {
@@ -29,8 +33,12 @@ export class CompanionStore {
     error: false,
     busy: false,
     savedIds: [],
-    looseCharms: {},
+    notes: {},
+    customThreats: [],
   };
+  private customChanges = new Map<string, CustomThreat | null>();
+  private noteChanges = new Map<string, string>();
+  private noteTimer?: ReturnType<typeof setTimeout>;
   private listeners = new Set<() => void>();
   private generation = 0;
   private preferences?: MantraState;
@@ -64,6 +72,9 @@ export class CompanionStore {
     this.hydrated = false;
     this.loading = undefined;
     this.changes.clear();
+    this.noteChanges.clear();
+    this.customChanges.clear();
+    clearTimeout(this.noteTimer);
     this.dirty.clear();
     this.pending = Promise.resolve();
     this.patch({
@@ -74,28 +85,39 @@ export class CompanionStore {
       error: false,
       busy: false,
       savedIds: [],
-      looseCharms: {},
+      notes: {},
+      customThreats: [],
     });
   }
-  loose(slot: string, context: Partial<MantraContext> = {}, reroll = false) {
-    const current = this.state.looseCharms[slot];
-    if (current && !reroll) return current;
-    const chosen = selectMantra(
-      { ...this.context, ...context },
-      this.state.recentIds,
-      this.state.favorites,
-      current?.id,
-    );
-    const selected = snapshot(chosen);
+  saveCustomThreat(item: CustomThreat) {
+    const safe = customThreatSchema.parse(item);
+    this.customChanges.set(safe.id, safe);
+    const others = this.state.customThreats.filter((existing) => existing.id !== safe.id);
+    this.patch({ customThreats: [...others, safe] });
+    this.savePreferences();
+  }
+  removeCustomThreat(id: string) {
+    this.customChanges.set(id, null);
+    const notes = { ...this.state.notes };
+    delete notes[id];
     this.patch({
-      looseCharms: { ...this.state.looseCharms, [slot]: selected },
-      recentIds: rememberMantra(this.state.recentIds, chosen.id),
+      customThreats: this.state.customThreats.filter((item) => item.id !== id),
+      notes,
     });
     this.savePreferences();
-    return selected;
   }
-  isPlayful() {
-    return this.context.humor && !this.context.serious;
+  /** Whether notes and events are being written to the encrypted vault right now. */
+  get persisting() {
+    return this.consent && this.vault.unlocked;
+  }
+  setNote(threatId: string, text: string) {
+    const value = text.slice(0, 2000);
+    this.noteChanges.set(threatId, value);
+    const notes = { ...this.state.notes, [threatId]: value };
+    if (!value) delete notes[threatId];
+    this.patch({ notes });
+    clearTimeout(this.noteTimer);
+    this.noteTimer = setTimeout(() => this.savePreferences(), 600);
   }
   setPurpose(purpose: MantraContext['purpose']) {
     this.context = { ...this.context, purpose };
@@ -151,9 +173,21 @@ export class CompanionStore {
         if (enabled) favorites.add(id);
         else favorites.delete(id);
       }
+      const notes: Record<string, string> = { ...(preferences?.notes ?? {}) };
+      for (const [id, text] of this.noteChanges) {
+        if (text) notes[id] = text;
+        else delete notes[id];
+      }
+      const custom = new Map((preferences?.customThreats ?? []).map((item) => [item.id, item]));
+      for (const [id, item] of this.customChanges) {
+        if (item) custom.set(id, item);
+        else custom.delete(id);
+      }
       this.preferences = preferences;
       this.hydrated = true;
       this.patch({
+        notes,
+        customThreats: [...custom.values()],
         events: [...merged.values()],
         favorites: [...favorites],
         recentIds: [...new Set([...(preferences?.recentIds ?? []), ...this.state.recentIds])]
@@ -196,6 +230,8 @@ export class CompanionStore {
         updatedAtISO: timestamp,
         favorites: [...this.state.favorites],
         recentIds: [...this.state.recentIds],
+        notes: { ...this.state.notes },
+        customThreats: [...this.state.customThreats],
       };
       await this.vault.save(preferences);
       if (generation === this.generation) this.preferences = preferences;
@@ -246,18 +282,12 @@ export class CompanionStore {
     this.patch({ events: this.state.events.map((item) => (item.id === event.id ? next : item)) });
     this.saveEvent(next);
   }
-  reroll() {
+  /** Another relevant line for the active threat, for display only: nothing is saved. */
+  peek(currentId?: string) {
     const event = this.active();
-    if (!event) return;
+    if (!event) return undefined;
     const context = { ...this.context, situationId: event.situationId, phase: event.phase };
-    const selected = selectMantra(
-      context,
-      this.state.recentIds,
-      this.state.favorites,
-      event.mantra.id,
-    );
-    this.patch({ recentIds: rememberMantra(this.state.recentIds, selected.id) });
-    this.update({ ...event, mantra: snapshot(selected) });
+    return snapshot(selectMantra(context, this.state.recentIds, this.state.favorites, currentId));
   }
   toggleFavorite(id: string) {
     if (!mantraById.has(id)) return;

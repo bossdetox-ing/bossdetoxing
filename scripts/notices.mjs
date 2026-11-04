@@ -19,6 +19,9 @@ const notices = await Promise.all(
 );
 notices.push(
   `shadcn/ui (adapted components)\n\n${await readFile('src/components/ui/LICENSE', 'utf8')}`,
+  'EFF Short Wordlist 1 (passphrase suggestions, src/content/eff-short-words.json)\n\n' +
+    'Electronic Frontier Foundation, https://www.eff.org/dice — licensed under Creative Commons ' +
+    'Attribution 3.0 United States (https://creativecommons.org/licenses/by/3.0/us/). Unmodified word list.',
 );
 await writeFile('.output/chrome-mv3/THIRD_PARTY_NOTICES.txt', notices.join('\n\n---\n\n'));
 

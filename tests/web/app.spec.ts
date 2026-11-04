@@ -19,23 +19,20 @@ test('PWA is responsive across phones, landscape, tablet and desktop with fixed 
     [1440, 900],
   ] as const) {
     await page.setViewportSize({ width, height });
-    for (const route of ['Home', 'Tools', 'Explore', 'Settings']) {
-      await page.getByRole('navigation').getByRole('button', { name: route, exact: true }).click();
+    for (const route of ['Home', 'Settings']) {
+      await page.locator('.topbar').getByRole('button', { name: route, exact: true }).click();
       expect(
         await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),
         `${route} ${width}`,
       ).toBe(true);
       const header = await page.locator('.topbar').boundingBox();
-      const nav = await page.getByRole('navigation').boundingBox();
       await page.locator('#main').evaluate((node) => node.scrollTo(0, node.scrollHeight));
       expect((await page.locator('.topbar').boundingBox())!.y).toBe(header!.y);
-      expect((await page.getByRole('navigation').boundingBox())!.y).toBe(nav!.y);
-      expect(nav!.y + nav!.height).toBeLessThanOrEqual(height);
       expect(await page.evaluate(() => scrollY)).toBe(0);
     }
   }
   await page.setViewportSize({ width: 1440, height: 960 });
-  await page.getByRole('navigation').getByRole('button', { name: 'Home', exact: true }).click();
+  await page.locator('.topbar').getByRole('button', { name: 'Home', exact: true }).click();
   await expect(page.locator('.daily-card')).toBeVisible();
   await page.screenshot({ path: 'docs/evidence/pwa-desktop.png' });
   await page.setViewportSize({ width: 390, height: 844 });
@@ -62,18 +59,17 @@ test('offline PWA keeps daily card and settings and can browse all artwork witho
         }),
       );
   });
-  await page.getByRole('navigation').getByRole('button', { name: 'Settings', exact: true }).click();
+  await page.locator('.topbar').getByRole('button', { name: 'Settings', exact: true }).click();
   await page.getByRole('combobox', { name: 'Theme', exact: true }).click();
   await page.getByRole('option', { name: 'Light', exact: true }).click();
   await context.setOffline(true);
   await page.reload();
   await expect(page.locator('.daily-card')).toHaveAttribute('data-card-id', id!);
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
-  await page.getByRole('button', { name: 'Browse all 78 cards', exact: true }).click();
-  await page.getByRole('button', { name: 'See the full deck', exact: true }).click();
-  await expect(page.locator('.deck-library button')).toHaveCount(78);
+  await page.getByRole('button', { name: 'Browse the corporate tarot deck', exact: true }).click();
+  await expect(page.locator('.deck-grid button')).toHaveCount(78);
   expect(
-    await page.locator('.deck-library img').evaluateAll(async (nodes) => {
+    await page.locator('.deck-grid img').evaluateAll(async (nodes) => {
       const loaded = await Promise.all(
         nodes.map(async (node) => {
           const image = new Image();
@@ -86,12 +82,9 @@ test('offline PWA keeps daily card and settings and can browse all artwork witho
     }),
   ).toBe(true);
   await page.screenshot({ path: 'docs/evidence/pwa-stacked-deck.png' });
-  await page.getByRole('navigation').getByRole('button', { name: 'Tools', exact: true }).click();
-  await expect(page.locator('.action-list button')).toHaveCount(3);
-  await page
-    .locator('.action-list')
-    .getByRole('button', { name: /Help me answer/ })
-    .click();
+  await page.locator('.topbar').getByRole('button', { name: 'Home', exact: true }).click();
+  await page.getByRole('button', { name: 'Asshole boss fight', exact: true }).click();
+  await page.locator('.pain-tile').first().click();
   const initial = await page.locator('.suggested-response').textContent();
   await page.getByRole('radio', { name: 'Firm Rock', exact: true }).check();
   await expect(page.locator('.suggested-response')).not.toHaveText(initial!);
@@ -113,13 +106,15 @@ test('web calendar history encrypts locally, unlocks after reload and clears wit
   await page.getByLabel('I understand there is no recovery').check();
   await page.getByRole('button', { name: 'Create encrypted vault', exact: true }).click();
   await page.getByLabel('Allow automatic encrypted calendar entries for my own selections').check();
-  await page.getByRole('navigation').getByRole('button', { name: 'Home', exact: true }).click();
-  await page.getByRole('button', { name: 'Deal with my boss', exact: true }).click();
+  await page.locator('.topbar').getByRole('button', { name: 'Home', exact: true }).click();
+  await page.getByRole('button', { name: 'Asshole boss fight', exact: true }).click();
   await page
     .getByRole('button', { name: 'Changing requirements or priorities', exact: true })
     .click();
   const charm = await page.locator('.protective-card .charm-text').textContent();
-  await expect(page.locator('.save-status')).toContainText('Saved encrypted locally');
+  await page.getByRole('button', { name: 'Open private calendar', exact: true }).click();
+  await page.locator('.event-summary').first().click();
+  await expect(page.locator('.calendar-detail')).toContainText('Saved encrypted locally');
   const storage = await page.evaluate(() => JSON.stringify(localStorage));
   expect(storage).not.toContain(charm!);
   expect(storage).not.toContain('moving_goalposts');
@@ -149,7 +144,7 @@ test('web calendar history encrypts locally, unlocks after reload and clears wit
   await page.locator('.event-summary').click();
   await expect(page.locator('.calendar-detail .charm-text')).toHaveText(charm!);
   await expect(page.locator('.calendar-detail textarea')).toHaveCount(0);
-  await page.getByRole('navigation').getByRole('button', { name: 'Settings', exact: true }).click();
+  await page.locator('.topbar').getByRole('button', { name: 'Settings', exact: true }).click();
   await page.getByRole('button', { name: 'Delete all local data', exact: true }).click();
   await page.getByLabel('I understand this deletes all local saved records').check();
   await page.getByRole('button', { name: 'Delete vault and preferences', exact: true }).click();

@@ -1,0 +1,102 @@
+{
+  "vague_accusation": {
+    "yellow": "Thanks for telling me. Can you walk me through one example?",
+    "grey": "Can you give me one example?",
+    "firm": "I need a specific example before I can act on that."
+  },
+  "guilt_induction": {
+    "yellow": "I get that this matters. Let's figure out what's realistic.",
+    "grey": "What's the priority, and by when?",
+    "firm": "I'm happy to talk about the work. Let's keep it to the work."
+  },
+  "dismissal_warning": {
+    "yellow": "I'm taking this seriously. What exactly should change?",
+    "grey": "Which expectations aren't being met?",
+    "firm": "Is this formal feedback? If so, I'd like it in writing."
+  },
+  "public_criticism": {
+    "yellow": "I want to get this right. Can we go through it after the meeting?",
+    "grey": "Let's pick this up one-on-one.",
+    "firm": "I'd rather discuss this privately, with specifics."
+  },
+  "colleague_gossip": {
+    "yellow": "I hear you. Shall we get back to what we need to deliver?",
+    "grey": "Let's stick to the work.",
+    "firm": "I'd rather not talk about them when they're not here."
+  },
+  "unattributed_consensus": {
+    "yellow": "I'd like to understand that. Who else should I talk to about it?",
+    "grey": "Which issue, specifically?",
+    "firm": "I can only respond to a concrete concern. What is it?"
+  },
+  "circular_interrogation": {
+    "yellow": "I want to answer properly. Which point should we settle first?",
+    "grey": "What do we need to decide?",
+    "firm": "I've answered that. What decision do you need from me?"
+  },
+  "moving_goalposts": {
+    "yellow": "Sure, let's look at the change. What's the requirement now?",
+    "grey": "What's the requirement now?",
+    "firm": "Let's confirm the new scope and timing before I commit."
+  },
+  "withheld_information": {
+    "yellow": "I'm happy to start once I have the details. Who has them?",
+    "grey": "Who can give me that information?",
+    "firm": "I can't finish this without the missing information."
+  },
+  "meeting_loop": {
+    "yellow": "Before we wrap, what are we deciding today?",
+    "grey": "What's the decision?",
+    "firm": "Let's agree the decision and the owner before we book another meeting."
+  },
+  "responsibility_diffusion": {
+    "yellow": "So it doesn't get lost, who's taking this?",
+    "grey": "Who owns this?",
+    "firm": "Until someone owns it, nobody's doing it. Who's it going to be?"
+  },
+  "micromanagement": {
+    "yellow": "I'll keep you posted. Would a check-in at each milestone work?",
+    "grey": "When do you want updates?",
+    "firm": "Let's agree on check-ins so I can get the work done."
+  },
+  "competing_priorities": {
+    "yellow": "I want to plan this right. Which one comes first?",
+    "grey": "Which one is the priority?",
+    "firm": "I can't do both by then. Which one moves?"
+  },
+  "credit_dispute": {
+    "yellow": "Just so we're accurate, can we go over who did which part?",
+    "grey": "Let's check who worked on what.",
+    "firm": "That part was my work, and the record shows it."
+  },
+  "workload_overload": {
+    "yellow": "Happy to help. If this comes in, what should move out?",
+    "grey": "What should I drop for this?",
+    "firm": "I can take this if something else moves. Which one?"
+  },
+  "surveillance_concern": {
+    "yellow": "I'm happy to keep you in the loop. How often works for you?",
+    "grey": "How often do you want updates?",
+    "firm": "What's the reporting requirement, and what's it for?"
+  },
+  "no_response": {
+    "yellow": "Just checking in on this. Who can make the call?",
+    "grey": "Who's making the call on this?",
+    "firm": "I'm blocked until this is decided. When can I expect an answer?"
+  },
+  "suspected_retaliation": {
+    "yellow": "I'd like to understand this change. Can we talk it through?",
+    "grey": "What's the reason for the change?",
+    "firm": "I'd like the reason and the details of this change in writing."
+  },
+  "after_meeting_replay": {
+    "yellow": "That was rough. One next step, then I'm done with it.",
+    "grey": "One action. Then back to my day.",
+    "firm": "It's over. I'm not rehearsing it again tonight."
+  },
+  "ordinary_disagreement": {
+    "yellow": "I see where you're going. Can we compare the trade-offs?",
+    "grey": "What are we optimizing for?",
+    "firm": "Let's check both options against the goal before we commit."
+  }
+}
