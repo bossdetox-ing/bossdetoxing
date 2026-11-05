@@ -40,7 +40,7 @@ export const en = {
       'The moon is taking up less space. Your next reply can too.',
     ],
   },
-  // Real sky, fictional boss forecast. Each body stands for one boss trait (Sun ego, Moon mood,
+  // Real sky, boss forecast for fun. Each body stands for one boss trait (Sun ego, Moon mood,
   // Mercury messages, Venus favourites, Mars temper, Jupiter big promises, Saturn control) and
   // each sign colours the line with its office trope (Scorpio subtext, Virgo tracked changes…).
   sky: {
