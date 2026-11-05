@@ -27,12 +27,10 @@ test('one explicit tap creates one tagged event; configure and favorite changes 
 test('peek offers another line for the threat without changing the logged event', () => {
   const store = new CompanionStore(new Vault());
   const first = store.choose('moving_goalposts');
-  store.plan('firm', 'Please confirm the current requirement.');
   const next = store.peek(first.mantra.id)!;
   expect(next.id).not.toBe(first.mantra.id);
   const event = store.active()!;
   expect(event.mantra.id).toBe(first.mantra.id);
-  expect(event.plannedResponseText).toBe('Please confirm the current requirement.');
   expect(store.getSnapshot().events).toHaveLength(1);
 });
 test('calendar snapshots, favorites and no-repeat state persist only encrypted and survive unlock', async () => {
@@ -42,7 +40,6 @@ test('calendar snapshots, favorites and no-repeat state persist only encrypted a
   store.configure(true, true, false);
   const first = store.choose('dismissal_warning');
   store.toggleFavorite(first.mantra.id);
-  store.plan('yellow', 'Which specific expectations should I address?');
   await store.settled();
   const raw = JSON.stringify(await readArchive());
   expect(raw).not.toContain(first.mantra.text);

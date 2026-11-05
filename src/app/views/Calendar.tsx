@@ -2,7 +2,7 @@ import { Icon } from '../PixelIcon';
 import { Button } from '../../components/ui/button';
 import { useEffect, useState } from 'react';
 import { messages as t, formatDate } from '../../content';
-import { localDay, type CalendarEvent } from '../../domain/calendar';
+import { localDay } from '../../domain/calendar';
 import { painForScenario, scenarioFor } from '../../domain/pains';
 import { isCustomThreat } from '../../domain/custom-threats';
 import { useCompanion } from '../companion-store';
@@ -153,8 +153,7 @@ export function PrivateCalendar({
                 <small>
                   {new Intl.DateTimeFormat('en', { hour: '2-digit', minute: '2-digit' }).format(
                     new Date(item.createdAtISO),
-                  )}{' '}
-                  · {item.status === 'planned' ? t.redesign.planned : t.redesign.tagged}
+                  )}
                 </small>
               </span>
             </Button>
@@ -165,27 +164,6 @@ export function PrivateCalendar({
         <article className="calendar-detail">
           <p className="muted small-copy">{formatDate(event.createdAtISO)}</p>
           <p className="charm-text">{event.mantra.text}</p>
-          {event.plannedResponseText && (
-            <>
-              <p className="preserve">{event.plannedResponseText}</p>
-            </>
-          )}
-          <div className="chips" role="group" aria-label={t.redesign.outcome}>
-            {Object.entries(t.redesign.outcomes).map(([value, label]) => (
-              <Button
-                key={value}
-                aria-pressed={event.outcome === value}
-                onClick={() =>
-                  store.update({
-                    ...event,
-                    outcome: event.outcome === value ? null : (value as CalendarEvent['outcome']),
-                  })
-                }
-              >
-                {label}
-              </Button>
-            ))}
-          </div>
           {settings.privateLogging && state.savedIds.includes(event.id) && (
             <p className="save-status">{t.redesign.encrypted}</p>
           )}

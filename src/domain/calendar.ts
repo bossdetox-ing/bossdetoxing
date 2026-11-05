@@ -12,6 +12,8 @@ export const calendarEventSchema = z
     situationId: z.string().min(1),
     mantra: snapshotSchema,
     phase: z.enum(['before', 'during', 'after']),
+    // Legacy response fields: the app no longer records responses or outcomes, but saved
+    // encrypted records still carry them, so they stay in this strict schema.
     status: z.enum(['tagged', 'planned']),
     plannedResponseStyle: z.enum(['yellow', 'grey', 'firm']).nullable(),
     plannedResponseId: z.string().nullable(),

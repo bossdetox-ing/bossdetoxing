@@ -677,11 +677,8 @@ test('encrypted calendar consent, favorite and exact snapshot survive reload and
   await expect(page.locator('.event-summary')).toHaveCount(1);
   await page.locator('.event-summary').click();
   await expect(page.locator('.calendar-detail .charm-text')).toHaveText(selected!);
-  await page.getByRole('button', { name: 'Need clarity', exact: true }).click();
-  await expect(page.getByRole('button', { name: 'Need clarity', exact: true })).toHaveAttribute(
-    'aria-pressed',
-    'true',
-  );
+  // Responses and outcomes are no longer recorded on an event.
+  await expect(page.locator('.calendar-detail .chips')).toHaveCount(0);
   await page.getByRole('button', { name: 'Delete event', exact: true }).click();
   await page.getByRole('button', { name: 'Delete permanently', exact: true }).click();
   await expect(page.locator('.event-summary')).toHaveCount(0);
