@@ -243,6 +243,13 @@ test('accessibility, light theme, behavior library and keyboard blank', async ({
 }) => {
   await start(page);
   async function audit() {
+    // Colours fade for a moment after a theme change; measure the settled page.
+    await page.waitForFunction(
+      () =>
+        !document
+          .getAnimations()
+          .some((a) => a instanceof CSSTransition && a.playState === 'running'),
+    );
     const report = await new AxeBuilder({ page })
       .setLegacyMode(true)
       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])

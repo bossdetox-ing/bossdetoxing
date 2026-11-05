@@ -68,12 +68,14 @@ export function Tarot() {
       <section className="deck-grid" aria-label={t.deck.choose}>
         {visible.map(({ item, index }) => (
           <Button key={item.id} onClick={() => setOpen(index)} style={paintStyle(item.id)}>
-            <img
-              src={cardArt(item.id)}
-              data-sticker={isSticker(item.id) || undefined}
-              alt=""
-              loading="lazy"
-            />
+            <span className="deck-window">
+              <img
+                src={cardArt(item.id)}
+                data-sticker={isSticker(item.id) || undefined}
+                alt=""
+                loading="lazy"
+              />
+            </span>
             <span>{item.title}</span>
             {item.traditionalName !== item.title && <small>{item.traditionalName}</small>}
           </Button>

@@ -123,7 +123,7 @@
 /* Threat tiles as 35 mm slide mounts: plastic frame, sunken film window, a tab at the foot and
    the frosted edge of an archival sleeve across the lower part of the window. */
 :root[data-palette='clandrei'] .pain-grid {
-  gap: 10px;
+  gap: 8px;
 }
 :root[data-palette='clandrei'] button.pain-tile,
 :root[data-palette='clandrei'] button.pain-tile:hover {
@@ -162,7 +162,7 @@
   display: grid;
   align-content: center;
   /* A wide window keeps six threats on a 800 px side panel; tall WordArt still grows it. */
-  aspect-ratio: 5 / 2;
+  aspect-ratio: 3 / 1;
   padding: 6px 8px;
   background: radial-gradient(120% 90% at 50% 40%, var(--cl-window-hi), var(--cl-window));
   border-radius: 2px;
@@ -183,27 +183,102 @@
   padding-inline: 2px;
 }
 
-/* Deck gallery tiles: small tickets with square corners; each sticker sits in a window tinted
-   from its own painting (paintStyle in TicketCard.tsx). */
-:root[data-palette='clandrei'] .deck-grid button {
-  gap: 6px;
-  padding: 6px 6px 10px;
+/* Deck gallery tiles: 35 mm slide mounts, one family with the threat tiles. Three across; each
+   sticker sits in a sunken window tinted from its own painting (paintStyle in TicketCard.tsx),
+   under the frosted edge of the sleeve, with the card's name on the mount below. */
+:root[data-palette='clandrei'] .deck-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px 10px;
+}
+:root[data-palette='clandrei'] .deck-grid button,
+:root[data-palette='clandrei'] .deck-grid button:hover {
+  position: relative;
+  grid-template-rows: auto;
+  justify-items: stretch;
+  align-content: start;
+  gap: 5px;
+  height: auto;
+  min-height: 0;
+  padding: 6px 6px 16px;
   border: 0;
   outline: 0;
-  border-radius: 4px;
-  background: var(--color-surface);
+  border-radius: 5px;
+  background: linear-gradient(var(--cl-mount-top), var(--cl-mount-bottom));
   box-shadow:
-    inset 0 0 0 1px var(--color-hairline),
-    0 1px 3px rgb(var(--cl-shade) / 0.18);
+    inset 0 0 0 1px var(--cl-bevel),
+    0 0 0 1px rgb(var(--cl-shade) / 0.14),
+    0 1px 3px rgb(var(--cl-shade) / 0.24);
+  text-align: left;
 }
-:root[data-palette='clandrei'] .deck-grid button::before,
+:root[data-palette='clandrei'] .deck-grid button:hover {
+  box-shadow:
+    inset 0 0 0 1px var(--cl-bevel),
+    0 0 0 1px rgb(var(--cl-shade) / 0.32),
+    0 3px 8px rgb(var(--cl-shade) / 0.26);
+}
+:root[data-palette='clandrei'] .deck-grid button::before {
+  content: '';
+  position: absolute;
+  left: 32%;
+  right: 32%;
+  bottom: 0;
+  height: 6px;
+  border-radius: 3px 3px 0 0;
+  background: var(--cl-mount-top);
+  box-shadow: 0 0 0 1px rgb(var(--cl-shade) / 0.12);
+  top: auto;
+  transform: none;
+  padding: 0;
+}
 :root[data-palette='clandrei'] .deck-grid button::after {
   content: none;
 }
-:root[data-palette='clandrei'] .deck-grid img {
-  padding: 8%;
+:root[data-palette='clandrei'] .deck-window {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  overflow: hidden;
   border-radius: 2px;
-  background: radial-gradient(90% 85% at 50% 38%, var(--win-hi, #f4f6f1), var(--win-lo, #d4d9cf));
+  background: radial-gradient(
+    90% 85% at 50% 38%,
+    var(--win-hi, var(--cl-panel)),
+    var(--win-lo, var(--cl-ground))
+  );
+  box-shadow:
+    inset 0 1px 3px rgb(0 0 0 / 0.3),
+    inset 0 0 0 1px rgb(var(--cl-shade) / 0.18);
+}
+:root[data-palette='clandrei'] .deck-window img {
+  width: 86%;
+  height: 86%;
+}
+:root[data-palette='clandrei'] .deck-window::after {
+  content: '';
+  position: absolute;
+  inset: 90% -6px 0;
+  border-top: 1px solid var(--cl-sleeve-edge);
+  background: linear-gradient(var(--cl-sleeve-hi), var(--cl-sleeve-lo));
+  pointer-events: none;
+}
+:root[data-palette='clandrei'] .deck-grid button > span:not(.deck-window) {
+  margin-top: 3px;
+  padding-inline: 2px;
+  font: 600 0.9375rem/1.1 var(--font-display);
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+:root[data-palette='clandrei'] .deck-grid button small {
+  padding-inline: 2px;
+  font: 400 0.625rem/1.3 var(--font-ui);
+}
+@media (max-width: 420px) {
+  :root[data-palette='clandrei'] .deck-grid {
+    gap: 10px 8px;
+  }
+  :root[data-palette='clandrei'] .deck-grid button > span:not(.deck-window) {
+    font-size: 0.8125rem;
+  }
 }
 :root[data-palette='clandrei'] .dialog-content .ticket {
   justify-self: center;
