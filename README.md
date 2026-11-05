@@ -1,98 +1,117 @@
-# bossdetox.ing
+<p align="center">
+  <img src="docs/readme/logo.png" alt="bossdetox.ing logo" width="120" height="120" />
+</p>
 
-A free, local-first Chrome side-panel companion for calm, professional responses, private mantras, Tarot and Bingo. No accounts, AI, backend, tracking, recording, automatic website access or runtime network services.
+<h1 align="center">bossdetox.ing</h1>
 
-## Install the production extension
+<p align="center"><strong>Keep your soul. Keep your paycheck.</strong></p>
 
-1. Extract `release/bossdetox-ing-1.0.0-chrome.zip` into an ordinary folder.
-2. In Chrome 116 or later, enter `chrome://extensions` and enable Developer mode.
-3. Choose **Load unpacked** and select the extracted folder containing `manifest.json`. Source builds use `.output/chrome-mv3`.
-4. Pin the original Search-style toolbar icon. Click it to open the side panel.
-5. Read the privacy disclosure and select **Open my tools**. The daily Tarot card opens first. Choose **Deal with my boss**, then tap a situation for a private charm and professional sentence.
+<p align="center">
+  A free pocket ward for toxic-boss days: what to say, what to send, a daily tarot pull and your boss's horoscope.<br />
+  Works offline. Tells no one. No accounts, no AI, no ads, no tracking.
+</p>
 
-No browser is opened automatically by these instructions or the dev command. Chrome may prevent installation on managed profiles. The neutral icon is a discretion choice; the extension identity remains visible in Chrome.
+<p align="center">
+  <a href="https://ass.bossdetox.ing"><strong>Open the app</strong></a> ·
+  <a href="https://github.com/demetriusk/bossdetoxing/releases/latest"><strong>Download the extension</strong></a> ·
+  <a href="https://bossdetox.ing">Website</a>
+</p>
 
-## Develop and verify
+<p align="center">
+  <img src="docs/readme/demo.gif" alt="Demo: the sky forecast, the daily tarot card, the threat grid, a threat with lines to say and write, and the encrypted Grimoire." width="640" />
+</p>
 
-Use Node **22.23.4 or later** and npm. Dependency versions are locked in `package-lock.json`. Network access is needed to install tooling, never to use the built extension.
+## What's inside
+
+- **Name the threat.** Twenty classics, from the moving goalpost to the meeting about the meeting. Tap one and get a line to say out loud and a line to write in the email.
+- **Pick your rock.** Yellow Rock is warm. Grey Rock is boring on purpose. Firm Rock says no, politely.
+- **Pull a card.** One card a day from a 78-card corporate deck: famous paintings turned stickers, each with a mantra and one next step for the actual job.
+- **Your boss's horoscope.** The real moon, Mercury and planets, calculated on your device. The boss forecast is for fun. Get it in writing anyway.
+- **The Grimoire keeps receipts.** A private calendar of what happened and when, locked with your passphrase. One tap on the eye hides everything.
+
+## Install
+
+You have two options. Pick one, or use both.
+
+### Option 1: the app (phone or computer, nothing to install)
+
+1. Open **[ass.bossdetox.ing](https://ass.bossdetox.ing)** in your browser.
+2. That's it. After the first visit it works offline too.
+3. Optional, for an icon on your home screen:
+   - **iPhone (Safari):** tap the Share button, then **Add to Home Screen**.
+   - **Android (Chrome):** tap the ⋮ menu, then **Add to Home screen** or **Install app**.
+   - **Computer (Chrome or Edge):** click the install icon at the right end of the address bar.
+
+### Option 2: the browser extension (opens in a side panel next to your work)
+
+You need **Google Chrome**, version 116 or newer. It takes about 2 minutes.
+
+1. **Download the ZIP.** Go to the [latest release](https://github.com/demetriusk/bossdetoxing/releases/latest) and click **`bossdetox-ing-1.1.0-chrome.zip`** under **Assets**.
+2. **Unzip it.**
+   - **Mac:** double-click the ZIP in Downloads. A folder appears next to it.
+   - **Windows:** right-click the ZIP, choose **Extract All…**, then **Extract**.
+   - Move that folder somewhere you won't tidy away by accident, like Documents. Chrome loads the extension from this folder, so don't delete it later.
+3. **Open the extensions page.** In Chrome, type `chrome://extensions` in the address bar and press Enter.
+4. **Turn on Developer mode.** Flip the **Developer mode** switch in the top-right corner. Three new buttons appear.
+5. **Load it.** Click **Load unpacked** and choose the folder you unzipped. Pick the folder that has `manifest.json` directly inside it.
+6. **Pin it.** Click the puzzle-piece icon in Chrome's toolbar and click the pin next to **bossdetox.ing**. Its toolbar icon is a plain magnifying glass, on purpose.
+7. **Open it.** Click the magnifying glass, or press **Alt+Shift+O** (**Option+Shift+O** on a Mac). The side panel opens.
+
+**If something goes wrong:**
+
+| What you see                                 | What to do                                                                                                            |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| "Manifest file is missing or unreadable"     | You picked the wrong folder. Open the unzipped folder: if there's another folder inside it, choose that inner one.    |
+| No Developer mode switch, or it's greyed out | Your company manages this Chrome profile and blocks extensions. Use the app from Option 1 instead, on your own phone. |
+| A "Disable developer mode extensions" popup  | Chrome may show this for extensions installed this way. Close it; don't click **Disable**.                            |
+| The extension disappeared                    | The folder was moved or deleted. Put it back, or repeat steps 1 to 5.                                                 |
+
+**Updating:** download the new ZIP from the [latest release](https://github.com/demetriusk/bossdetoxing/releases/latest) and unzip it. Delete everything inside your old extension folder, copy the new files into that same folder, then click the ↻ reload arrow on the bossdetox.ing card at `chrome://extensions`. Keep the same folder: Chrome treats a different folder as a brand-new install, with empty history.
+
+## Privacy, in plain words
+
+- The extension makes zero network requests. The app only downloads itself and its updates. Nothing you tap or type is sent anywhere.
+- History is optional, encrypted with your passphrase and stored only in your browser. No account, no cloud, no recovery: lose the passphrase, lose the history.
+- **The limits are real.** A work laptop, monitoring software, screen sharing, screenshots or clipboard history can still show what's on your screen. The eye button hides everything in one tap, but nothing makes you invisible on a managed device.
+
+Details: [PRIVACY.md](docs/PRIVACY.md) · [SECURITY_THREAT_MODEL.md](docs/SECURITY_THREAT_MODEL.md)
+
+**This is a coping tool for a bad day at work, not therapy or legal advice.** If you're dealing with threats, harassment or danger, go to [Support without jokes](https://bossdetox.ing/support/).
+
+## For developers
+
+The extension (WXT, Chrome MV3), the PWA (`pwa/`, Vite) and the shared React app (`src/`) live in this repo, along with the Astro/EmDash marketing site (`website/`). Use Node **22.23.4 or later**.
 
 ```sh
 npm ci
-npm run dev
+npm run dev          # extension dev build (development only)
+npm test             # unit tests
+npm run test:e2e     # typecheck, production build, privacy audit, extension browser tests
+npm run package      # loadable ZIP in release/ with SHA-256 checksums
 ```
 
-The dev server is for development only and WXT may add reload permissions/connections. Use a **production build** for privacy audits and private use.
+Run `npx playwright install chromium` once before the browser tests. The PWA and the site:
 
 ```sh
-npm run validate:content
-npm run typecheck
-npm run lint
-npm test
-npm run build
-npm run audit:build
-```
-
-To run the extension browser tests, install Playwright's development browser once:
-
-```sh
-npx playwright install chromium
-npm run test:e2e
-```
-
-An existing compatible Chrome for Testing executable can instead be supplied with the `PLAYWRIGHT_CHROMIUM_EXECUTABLE` environment variable. Tests run headlessly against the real production extension, not a web mock. Clipboard assertions intercept write calls; tests never read the system clipboard. Source/help links are the only intentional external navigations.
-
-```sh
-npm run format
-npm run package
-```
-
-Packaging typechecks, rebuilds and audits the extension, then produces the loadable ZIP in `release/` with SHA-256 checksums. `npm ci` plus the lockfile reproduces dependencies; the ZIP script uses sorted file order and fixed archive timestamps. Browser tests always typecheck, rebuild and audit before loading the extension.
-
-## Product and code map
-
-The binding feature/privacy scope is [BOSSDETOX_V1_FULL_SPEC.md](BOSSDETOX_ING_V1_HANDOFF/BOSSDETOX_V1_FULL_SPEC.md). The supplied [v1.1 redesign brief](BOSSDETOX_REDESIGN_FILES/BOSSDETOX_VISUAL_UX_BRIEF.md) supersedes its visual hierarchy. The owner’s newer WordArt/ASCII/color references supersede that brief’s restrained visual palette; see [current interface captures](docs/UX_REVISION.md). [REDESIGN_PLAN.md](docs/REDESIGN_PLAN.md) records the component and state architecture. Older `The Ward` documents are reference material and never override the current name, privacy decisions or full v1 scope. DOCX copies are for reading; Markdown wins conflicts.
-
-| Area                                                            | Location                        |
-| --------------------------------------------------------------- | ------------------------------- |
-| Browser action, service worker, MV3 policy                      | `entrypoints/`, `wxt.config.ts` |
-| UI, Quick/Deep support and feature screens                      | `src/app/`                      |
-| Deterministic selection, content contracts, session logic       | `src/domain/`                   |
-| English dictionary, original practices, safety edits            | `src/content/`                  |
-| PBKDF2/AES-GCM, authenticated archives, atomic IndexedDB writes | `src/vault/`                    |
-| Non-sensitive preferences                                       | `src/browser/settings.ts`       |
-| Semantic color/spacing tokens and responsive CSS                | `src/styles/`                   |
-| Unit/security and extension tests                               | `tests/`                        |
-
-## Languages
-
-Multilingual support is a recorded product requirement. English is the initial pack. Interface strings are externalized, nested copy can fall back to English through `resolveLocale`, structured content uses stable IDs and runtime schemas, and dates use `Intl`. Read [LOCALIZATION.md](docs/LOCALIZATION.md) before adding a language. Additional translations are not shipped yet.
-
-## Private history
-
-Note-taking has been removed at the owner's request: no incident diary, task-notes/brief workflow, closure writing, calendar annotations or add-facts form. Response editing and custom Bingo squares remain. Focus was also explicitly removed. These decisions supersede the corresponding original v1 requirements.
-
-Pain taps create session-only calendar events with a selected mantra; Done records a planned response, never a sent message. Optional encrypted history saves these events, favorites and recent-mantra IDs only after consent and while the vault is unlocked. Enable it from the calendar. Mantras stay pinned until an explicit new selection or reroll.
-
-New exports use archive version 2 and still accept authenticated version 1 backups. Existing encrypted incident/task records and legacy calendar annotations are preserved for backup compatibility, but have no reading, creation or editing screen. Removing a feature does not erase existing user data. Export an encrypted backup or deliberately delete all local data in Settings. There is no account, passphrase recovery or cloud sync.
-
-**Hide & lock**, Escape, the registered blank shortcut, panel backgrounding and idle lock remove private session state and lock the vault. The panel starts locked after reload. Response edits and custom Bingo boards are volatile. The daily card ID/date and appearance preferences are non-sensitive local Chrome storage; private history uses encrypted IndexedDB.
-
-**Screen sharing, employer-managed devices/profiles, endpoint monitoring, screenshots and clipboard history can expose activity or copied text. No claim of invisibility is made.** See [PRIVACY.md](docs/PRIVACY.md), [SECURITY_THREAT_MODEL.md](docs/SECURITY_THREAT_MODEL.md) and [SCREEN_SHARE_QA.md](docs/SCREEN_SHARE_QA.md).
-
-## Release status
-
-See [RELEASE_CHECKLIST.md](docs/RELEASE_CHECKLIST.md) for measured checks and remaining manual gates. A loadable candidate ZIP is not a claim that receiver-view sharing, volunteer usability, screen-reader conformance or independent security review has happened. No Web Store publication is authorized or performed. Original project code is MIT licensed; third-party licenses and artwork provenance are listed in [LICENSES.md](docs/LICENSES.md).
-
-## Website and PWA
-
-The shared PWA lives in `pwa/`; the separate Astro/EmDash site lives in `website/`. Build the extension first so its dependency notices and download ZIP are current, then build the web outputs:
-
-```sh
-npm run package
-npm run build:web
-node scripts/site-assets.mjs
+npm run build:web                 # PWA into pwa/dist
+node scripts/site-assets.mjs      # shared art, fonts and notices into website/public
 npm ci --prefix website
 npm run --prefix website build
+npm run test:web                  # PWA and site browser tests, including axe
 ```
 
-The app has no authentication or private-data server. The CMS has administrator authentication for public publishing only. See [WEB_DEPLOYMENT.md](docs/WEB_DEPLOYMENT.md) for free-tier deployment and first-admin setup.
+| Area                                                      | Location                        |
+| --------------------------------------------------------- | ------------------------------- |
+| Browser action, service worker, MV3 policy                | `entrypoints/`, `wxt.config.ts` |
+| Screens and components                                    | `src/app/`, `src/components/`   |
+| Deterministic selection, content contracts, session logic | `src/domain/`                   |
+| Copy, mantras, tarot and threats                          | `src/content/`                  |
+| PBKDF2/AES-GCM vault, encrypted archives                  | `src/vault/`                    |
+| Tokens and styles                                         | `src/styles/`                   |
+| Tests                                                     | `tests/`                        |
+
+Live state: [CURRENT.md](docs/CURRENT.md). Deployment: [WEB_DEPLOYMENT.md](docs/WEB_DEPLOYMENT.md). Release gates: [RELEASE_CHECKLIST.md](docs/RELEASE_CHECKLIST.md). Localization: [LOCALIZATION.md](docs/LOCALIZATION.md).
+
+## License
+
+Code is [MIT](LICENSE). Tarot art comes from public-domain paintings via Wikimedia Commons; fonts and other third-party pieces keep their own licences, listed in [LICENSES.md](docs/LICENSES.md).
