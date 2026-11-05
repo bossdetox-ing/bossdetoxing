@@ -429,7 +429,7 @@
   top: 6px;
   right: 6px;
   border-radius: 3px;
-  background: rgb(255 255 255 / 0.4);
+  background: transparent;
   color: #26251c;
 }
 :root[data-palette='clandrei'] .ticket-window .card-letter {
@@ -724,4 +724,8 @@
   :root[data-palette='clandrei'][data-theme='system'] button.wordmark:hover .brand-avatar::before {
     background: #557000;
   }
+}
+:root[data-palette='clandrei'] .ticket-window button.art-credit:hover {
+  background: transparent;
+  color: #000;
 }

@@ -82,22 +82,22 @@
   color: var(--color-text);
   text-shadow: var(--key-text-shadow);
   box-shadow:
-    0 1px 0 var(--key-glow),
-    0 -1px 0 rgb(var(--key-shade) / 0.16),
-    0 2px 3px rgb(var(--key-shade) / 0.24),
+    0 -1px 0 rgb(var(--key-shade) / 0.14),
+    0 1px 1px rgb(var(--key-shade) / 0.22),
+    0 4px 10px rgb(var(--key-shade) / 0.16),
     inset 0 1px 0 var(--key-hi),
-    inset 0 -1px 0 rgb(var(--key-shade) / 0.12);
+    inset 0 -2px 3px rgb(var(--key-shade) / 0.1);
   transition:
     box-shadow 160ms ease-out,
     transform 100ms ease-out;
   &:hover:not(:disabled) {
     background: linear-gradient(to top, var(--key-a) 0%, var(--key-b) 80%, var(--key-c) 100%);
     box-shadow:
-      0 1px 0 var(--key-glow),
-      0 -1px 0 rgb(var(--key-shade) / 0.16),
-      0 3px 5px rgb(var(--key-shade) / 0.26),
+      0 -1px 0 rgb(var(--key-shade) / 0.14),
+      0 1px 1px rgb(var(--key-shade) / 0.22),
+      0 6px 14px rgb(var(--key-shade) / 0.2),
       inset 0 1px 0 var(--key-hi),
-      inset 0 -1px 0 rgb(var(--key-shade) / 0.12);
+      inset 0 -2px 3px rgb(var(--key-shade) / 0.1);
   }
   /* Pressed, and anything switched on, sits pushed into the bezel. */
   &:active:not(:disabled),
@@ -106,9 +106,9 @@
   &[data-state='open'],
   &[aria-expanded='true'] {
     box-shadow:
+      0 -1px 0 rgb(var(--key-shade) / 0.14),
       0 1px 0 var(--key-glow),
-      0 -1px 0 rgb(var(--key-shade) / 0.16),
-      inset 0 2px 3px var(--key-press),
+      inset 0 2px 4px var(--key-press),
       inset 0 0 0 1px rgb(var(--key-shade) / 0.08);
   }
   &:active:not(:disabled) {
@@ -161,6 +161,6 @@
 
 /* The card dialog scrolls, which would clip the keys' outer shadows: give them room inside. */
 :root[data-buttons='skeuo'] .dialog-content {
-  width: min(392px, calc(100vw - 20px));
-  padding: 6px;
+  width: min(404px, calc(100vw - 8px));
+  padding: 12px;
 }
