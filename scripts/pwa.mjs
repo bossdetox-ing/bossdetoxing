@@ -38,7 +38,7 @@ const urls = paths.map((path) => '/' + path.slice(directory.length + 1));
 urls.push('/');
 const worker = `const CACHE = 'bossdetox-static-${version}';
 const ASSETS = ${JSON.stringify(urls)};
-self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS))));
+self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting())));
 self.addEventListener('activate', event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith('bossdetox-static-') && key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())));
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
