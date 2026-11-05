@@ -46,7 +46,7 @@ You have two options. Pick one, or use both.
 
 You need **Google Chrome**, version 116 or newer. It takes about 2 minutes.
 
-1. **Download the ZIP.** Go to the [latest release](https://github.com/demetriusk/bossdetoxing/releases/latest) and click **`bossdetox-ing-1.1.0-chrome.zip`** under **Assets**.
+1. **Download the ZIP.** Go to the [latest release](https://github.com/demetriusk/bossdetoxing/releases/latest) and click **`bossdetox-ing-1.2.0-chrome.zip`** under **Assets**.
 2. **Unzip it.**
    - **Mac:** double-click the ZIP in Downloads. A folder appears next to it.
    - **Windows:** right-click the ZIP, choose **Extract All…**, then **Extract**.
