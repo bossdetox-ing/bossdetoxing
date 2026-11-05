@@ -1,5 +1,6 @@
 // Usage: node scripts/favicon.mjs [01-30] [extra/favicon.svg …]
-// Writes the PWA favicon (and any extra paths) from one monkey avatar on the brand-yellow tile.
+// Writes the PWA favicon (and any extra paths) from one monkey avatar: no tile, olive on light
+// tabs and lime on dark ones, switched inside the SVG by prefers-color-scheme.
 import { readFile, writeFile } from 'node:fs/promises';
 import process from 'node:process';
 
@@ -10,7 +11,8 @@ const viewBox = source.match(/viewBox="([^"]+)"/)?.[1];
 const body = source.replace(/^<svg[^>]*>/, '').replace(/<\/svg>\s*$/, '');
 if (!viewBox || !body) throw new Error(`public/avatars/${avatar}.svg is not a monkey avatar`);
 
-const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><!-- avatar ${avatar} --><rect width="256" height="256" rx="56" fill="#fbef32"/><svg x="20" y="20" width="216" height="216" viewBox="${viewBox}" shape-rendering="crispEdges">${body}</svg></svg>\n`;
+const height = (175 * 256) / 197;
+const favicon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><!-- avatar ${avatar}, no tile --><style>path{fill:#555242}@media (prefers-color-scheme:dark){path{fill:#bef000}}</style><svg y="${((256 - height) / 2).toFixed(1)}" width="256" height="${height.toFixed(1)}" viewBox="${viewBox}" shape-rendering="crispEdges">${body.replace(/ fill="[^"]*"/g, '')}</svg></svg>\n`;
 
 for (const path of ['pwa/public/favicon.svg', ...extra]) await writeFile(path, favicon);
 console.log(`Favicon: monkey ${avatar}`);

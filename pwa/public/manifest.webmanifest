@@ -3,14 +3,60 @@
   "name": "bossdetox.ing",
   "short_name": "bossdetox",
   "description": "Your private pocket ward for difficult workdays.",
+  "lang": "en",
+  "dir": "ltr",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
   "background_color": "#22221b",
   "theme_color": "#555242",
+  "categories": ["productivity", "lifestyle", "health"],
+  "launch_handler": { "client_mode": "focus-existing" },
+  "edge_side_panel": { "preferred_width": 400 },
+  "prefer_related_applications": false,
+  "related_applications": [],
   "icons": [
     { "src": "/pwa-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "/pwa-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
     { "src": "/pwa-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/today.webp",
+      "sizes": "780x1688",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Today's card and the cosmic weather"
+    },
+    {
+      "src": "/screenshots/threats.webp",
+      "sizes": "780x1688",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "Pick what your boss is doing"
+    },
+    {
+      "src": "/screenshots/reply.webp",
+      "sizes": "780x1688",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "A line for you and a reply for work"
+    },
+    {
+      "src": "/screenshots/deck.webp",
+      "sizes": "780x1688",
+      "type": "image/webp",
+      "form_factor": "narrow",
+      "label": "The Corporate Tarot deck"
+    },
+    {
+      "src": "/screenshots/desktop.webp",
+      "sizes": "2560x1600",
+      "type": "image/webp",
+      "form_factor": "wide",
+      "label": "bossdetox.ing on a desktop"
+    }
   ]
 }
