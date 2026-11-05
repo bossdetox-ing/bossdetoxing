@@ -378,11 +378,14 @@
   border-radius: 4px;
   /* Blur and backdrop layers escape a rounded overflow clip in Chrome; clip-path holds them. */
   clip-path: inset(0 round 4px);
-  background: var(--paint, var(--suit));
+  /* The painted base and its blur only frame the art window; under the glass the foot is plain
+     surface, so no painted hairline shows at the clipped bottom edge. */
+  background:
+    linear-gradient(to top, var(--color-surface) 0 30%, transparent 30%), var(--paint, var(--suit));
 }
 :root[data-palette='clandrei'] .ticket-wash {
   position: absolute;
-  inset: 0;
+  inset: 0 0 32%;
   z-index: -1;
   overflow: hidden;
 }
@@ -440,7 +443,10 @@
   display: grid;
   gap: 8px;
   margin-top: -58px;
-  padding: 14px 16px 20px 18px;
+  /* Runs 6 px past the card's foot: a backdrop blur bleeds at its own edge, and the card's
+     clip hides that edge instead of showing it as a light line. */
+  margin-bottom: -6px;
+  padding: 14px 16px 26px 18px;
   border-top: 1px solid var(--glass-sheen);
   border-radius: 3px 3px 0 0;
   background: linear-gradient(
