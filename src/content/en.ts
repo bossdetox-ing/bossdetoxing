@@ -218,6 +218,8 @@ export const en = {
     next: 'Next card',
     close: 'Close card',
     position: '{n} of {total}',
+    search: 'Search the deck, a painter or a sign',
+    noResults: 'No matching cards.',
   },
   redesign: {
     homeTitle: 'What is your boss doing now?',

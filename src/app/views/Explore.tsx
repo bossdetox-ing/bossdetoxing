@@ -1,7 +1,8 @@
 import { cosmicWeather } from '../../domain/cosmos';
 import { TicketCard, paintStyle } from '../TicketCard';
 import { ShareCard } from '../ShareCard';
-import { cardArt, isSticker } from '../../domain/card-art';
+import { artCredit, cardArt, isSticker } from '../../domain/card-art';
+import { correspondenceLabel, lordTitle } from '../ArtCredit';
 import { Icon } from '../PixelIcon';
 import { Dialog, DialogClose, DialogContent, DialogTitle } from '../../components/ui/dialog';
 import { Button } from '../../components/ui/button';
@@ -11,6 +12,23 @@ import { content } from '../../domain/content';
 import { shuffled } from '../../domain/session';
 import { PageTitle } from '../components';
 
+// Everything a reader might search for: names, titles, sky, lines on the card and the painting.
+const searchText = (card: (typeof content.tarot)[number]) => {
+  const credit = artCredit(card.id);
+  return [
+    card.title,
+    card.traditionalName,
+    lordTitle(card),
+    correspondenceLabel(card),
+    card.fictionalSymbolism,
+    card.groundedMantra,
+    card.nextAction,
+    credit?.artist,
+    credit?.work,
+  ]
+    .join(' ')
+    .toLowerCase();
+};
 export function Tarot() {
   const cards = content.tarot;
   // Drawing walks a shuffled copy, so repeated draws show every card before any repeats.
@@ -20,6 +38,11 @@ export function Tarot() {
   // Today's real sky, for the cards it echoes; the zone only matters for displayed times.
   const [sky] = useState(() => cosmicWeather(new Date()));
   const [pointer, setPointer] = useState<{ x: number; y: number }>();
+  const [query, setQuery] = useState('');
+  const words = query.toLowerCase().split(/\s+/).filter(Boolean);
+  const visible = cards
+    .map((item, index) => ({ item, index }))
+    .filter(({ item }) => words.every((word) => searchText(item).includes(word)));
   const card = open === undefined ? undefined : cards[open];
   const step = (by: number) =>
     setOpen((index) => (index === undefined ? index : (index + by + cards.length) % cards.length));
@@ -34,8 +57,16 @@ export function Tarot() {
       <Button className="primary" onClick={draw}>
         {t.draw}
       </Button>
+      <input
+        className="search-field"
+        type="search"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder={t.deck.search}
+        aria-label={t.deck.search}
+      />
       <section className="deck-grid" aria-label={t.deck.choose}>
-        {cards.map((item, index) => (
+        {visible.map(({ item, index }) => (
           <Button key={item.id} onClick={() => setOpen(index)} style={paintStyle(item.id)}>
             <img
               src={cardArt(item.id)}
@@ -48,6 +79,7 @@ export function Tarot() {
           </Button>
         ))}
       </section>
+      {visible.length === 0 && <p className="muted">{t.deck.noResults}</p>}
       <Dialog open={card !== undefined} onOpenChange={(next) => !next && setOpen(undefined)}>
         {card && open !== undefined && (
           <DialogContent
