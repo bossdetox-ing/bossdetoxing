@@ -404,7 +404,7 @@ export const en = {
   bestiary: 'Bestiary',
   bestiarySupport: 'Past friction? Get serious support',
   newTab: '(opens in a new tab)',
-  bestiarySub: 'Observable patterns. Brutal verdicts, kept private.',
+  bestiarySub: 'Observable patterns. Brutal verdicts.',
   tarot: 'Corporate Tarot',
   generic: 'Could we clarify the specific deliverable and expected result?',
   observed: 'What you might observe',
