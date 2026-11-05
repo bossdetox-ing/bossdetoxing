@@ -624,17 +624,13 @@ button.pain-tile {
   min-height: 80px;
   padding: 8px 14px 10px;
   border-radius: var(--radius-panel);
-  background: var(--color-tile);
-  color: var(--color-tile-text);
+  background: var(--color-surface);
   text-align: left;
   align-content: start;
 }
 button.pain-tile:hover {
-  background: var(--color-tile);
+  background: var(--color-surface);
   box-shadow: inset 0 0 0 1px var(--color-border);
-}
-.pain-tile .pain-desc {
-  color: var(--color-tile-muted);
 }
 .pain-tile .pain-wordart {
   display: block;
@@ -1520,8 +1516,10 @@ address {
   font-style: normal;
 }
 
-/* Line art is drawn in ink; flip it on dark themes. */
+/* Line art is drawn in ink; flip it on dark themes. The grid's WordArt flips with the
+   threat screen's so a threat looks the same in both places. */
 .protective-card img,
+.pain-tile .pain-wordart img,
 .tarot-art,
 .deck-grid img,
 .icon-grid img {
