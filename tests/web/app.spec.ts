@@ -150,3 +150,22 @@ test('web calendar history encrypts locally, unlocks after reload and clears wit
   await page.getByRole('button', { name: 'Delete vault and preferences', exact: true }).click();
   await expect(page.getByRole('button', { name: 'Open my tools', exact: true })).toBeVisible();
 });
+test('D switches light and dark, survives a reload and stays out of typing', async ({ page }) => {
+  await page.emulateMedia({ colorScheme: 'light' });
+  await enter(page);
+  const theme = () => page.evaluate(() => document.documentElement.dataset.theme);
+  await page.keyboard.press('d');
+  await expect.poll(theme).toBe('dark');
+  await page.keyboard.press('d');
+  await expect.poll(theme).toBe('light');
+  await page.keyboard.press('Meta+d');
+  await expect.poll(theme).toBe('light');
+  await page.locator('.daily-help').click();
+  await page.locator('.search-field').pressSequentially('d');
+  await expect.poll(theme).toBe('light');
+  await page.locator('.topbar').getByRole('button', { name: 'Home', exact: true }).click();
+  await page.keyboard.press('d');
+  await expect.poll(theme).toBe('dark');
+  await page.reload();
+  await expect.poll(theme).toBe('dark');
+});

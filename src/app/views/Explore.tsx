@@ -1,10 +1,8 @@
-import { ArtCredit, CardCorner, CardLetter, lordTitle } from '../ArtCredit';
 import { cosmicWeather } from '../../domain/cosmos';
-import { CardGlass } from '../CardGlass';
+import { TicketCard, paintStyle } from '../TicketCard';
 import { ShareCard } from '../ShareCard';
 import { cardArt, isSticker } from '../../domain/card-art';
 import { Icon } from '../PixelIcon';
-import { Card } from '../../components/ui/card';
 import { Dialog, DialogClose, DialogContent, DialogTitle } from '../../components/ui/dialog';
 import { Button } from '../../components/ui/button';
 import { useState } from 'react';
@@ -38,8 +36,7 @@ export function Tarot() {
       </Button>
       <section className="deck-grid" aria-label={t.deck.choose}>
         {cards.map((item, index) => (
-          <Button key={item.id} onClick={() => setOpen(index)}>
-            <CardGlass src={cardArt(item.id)} />
+          <Button key={item.id} onClick={() => setOpen(index)} style={paintStyle(item.id)}>
             <img
               src={cardArt(item.id)}
               data-sticker={isSticker(item.id) || undefined}
@@ -74,44 +71,28 @@ export function Tarot() {
                 </Button>
               </DialogClose>
             </div>
-            <Card
-              role="article"
-              className="tarot-card"
-              data-arcana={card.id}
-              data-suit={card.suit ?? 'major'}
-              onPointerDown={(event) => setPointer({ x: event.clientX, y: event.clientY })}
-              onPointerUp={(event) => {
-                const dx = pointer ? event.clientX - pointer.x : 0;
-                if (
-                  pointer &&
-                  Math.abs(dx) > 60 &&
-                  Math.abs(dx) > Math.abs(event.clientY - pointer.y) * 1.5
-                )
-                  step(dx < 0 ? 1 : -1);
-                setPointer(undefined);
+            <TicketCard
+              card={card}
+              sky={sky}
+              title={
+                <DialogTitle asChild>
+                  <h2>{card.title}</h2>
+                </DialogTitle>
+              }
+              cardProps={{
+                onPointerDown: (event) => setPointer({ x: event.clientX, y: event.clientY }),
+                onPointerUp: (event) => {
+                  const dx = pointer ? event.clientX - pointer.x : 0;
+                  if (
+                    pointer &&
+                    Math.abs(dx) > 60 &&
+                    Math.abs(dx) > Math.abs(event.clientY - pointer.y) * 1.5
+                  )
+                    step(dx < 0 ? 1 : -1);
+                  setPointer(undefined);
+                },
               }}
-            >
-              <CardGlass src={cardArt(card.id)} />
-              <img
-                className="tarot-art"
-                data-sticker={isSticker(card.id) || undefined}
-                src={cardArt(card.id)}
-                alt={card.fictionalSymbolism}
-              />
-              <CardCorner card={card} sky={sky} />
-              <ArtCredit card={card} sky={sky} />
-              <DialogTitle asChild>
-                <h2>{card.title}</h2>
-              </DialogTitle>
-              {card.traditionalName !== card.title && (
-                <p className="arcana-name">{card.traditionalName}</p>
-              )}
-              {lordTitle(card) && <p className="arcana-lord">{lordTitle(card)}</p>}
-              <CardLetter card={card} />
-              <p className="symbolism">{card.fictionalSymbolism}</p>
-              <p className="mantra">{card.groundedMantra}</p>
-              <p>{card.nextAction}</p>
-            </Card>
+            />
             <div className="dialog-nav">
               <Button aria-label={t.deck.previous} onClick={() => step(-1)}>
                 <Icon name="back" />

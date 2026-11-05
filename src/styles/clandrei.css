@@ -183,19 +183,30 @@
   padding-inline: 2px;
 }
 
-/* Tarot: a flat panel instead of the frosted art wash, frames in the rule grey, and backs in
-   the olive header band with lime dots. */
-:root[data-palette='clandrei'] .card-glass {
-  display: none;
-}
-:root[data-palette='clandrei'] .tarot-card,
+/* Deck gallery tiles: small tickets with square corners; each sticker sits in a window tinted
+   from its own painting (paintStyle in TicketCard.tsx). */
 :root[data-palette='clandrei'] .deck-grid button {
+  gap: 6px;
+  padding: 6px 6px 10px;
+  border: 0;
+  outline: 0;
+  border-radius: 4px;
   background: var(--color-surface);
-  border-color: var(--cl-frame);
-  outline-color: var(--cl-frame);
   box-shadow:
-    0 1px 3px rgb(var(--cl-shade) / 0.2),
-    0 10px 28px rgb(var(--cl-shade) / 0.12);
+    inset 0 0 0 1px var(--color-hairline),
+    0 1px 3px rgb(var(--cl-shade) / 0.18);
+}
+:root[data-palette='clandrei'] .deck-grid button::before,
+:root[data-palette='clandrei'] .deck-grid button::after {
+  content: none;
+}
+:root[data-palette='clandrei'] .deck-grid img {
+  padding: 8%;
+  border-radius: 2px;
+  background: radial-gradient(90% 85% at 50% 38%, var(--win-hi, #f4f6f1), var(--win-lo, #d4d9cf));
+}
+:root[data-palette='clandrei'] .dialog-content .ticket {
+  justify-self: center;
 }
 /* Card backs: a wallpaper of the logo monkeys (scripts/card-backs.py) on the olive band. */
 :root[data-palette='clandrei'] .tarot-back,

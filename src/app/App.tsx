@@ -139,6 +139,27 @@ export function App() {
       if (isExtension()) chrome.runtime.onMessage.removeListener(message);
     };
   }, [blank, panic, vault, settings.lockMinutes]);
+  // "D" flips light and dark from whatever is showing now; typing and shortcuts are left alone.
+  const toggleTheme = useRef(() => {});
+  toggleTheme.current = () => {
+    const dark =
+      settings.theme === 'system'
+        ? matchMedia('(prefers-color-scheme: dark)').matches
+        : settings.theme === 'dark';
+    void updateSettings({ ...settings, theme: dark ? 'light' : 'dark' });
+  };
+  useEffect(() => {
+    const key = (event: KeyboardEvent) => {
+      if (event.key.toLowerCase() !== 'd' || event.repeat) return;
+      if (event.metaKey || event.ctrlKey || event.altKey) return;
+      const target = event.target as HTMLElement | null;
+      if (target?.closest('input, textarea, select, [contenteditable="true"], [role="dialog"]'))
+        return;
+      toggleTheme.current();
+    };
+    document.addEventListener('keydown', key);
+    return () => document.removeEventListener('keydown', key);
+  }, []);
   useEffect(() => {
     const target = mainRef.current?.querySelector<HTMLElement>('h1') ?? mainRef.current;
     target?.focus();

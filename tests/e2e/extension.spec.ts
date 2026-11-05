@@ -782,7 +782,7 @@ test('full deck browser opens cards in a dialog with previous, next and close', 
   await page.locator('.deck-grid button').filter({ hasText: 'King of Swords' }).click();
   const dialog = page.getByRole('dialog');
   await expect(dialog.locator('.tarot-card h2')).toHaveText('The Serpent of Blame');
-  await expect(dialog.locator('.arcana-name')).toHaveText('King of Swords');
+  await expect(dialog.locator('.ticket-pair span').first()).toHaveText('King of Swords');
   await dialog.getByRole('button', { name: 'Next card', exact: true }).click();
   await expect(dialog.locator('.tarot-card h2')).not.toHaveText('The Serpent of Blame');
   await dialog.getByRole('button', { name: 'Previous card', exact: true }).click();

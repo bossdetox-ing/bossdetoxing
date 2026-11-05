@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react';
+import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
 import { Card } from '../components/ui/card';
 import { ArtCredit, CardCorner, CardLetter, correspondenceLabel, lordTitle } from './ArtCredit';
 import { ShareCard } from './ShareCard';
@@ -14,13 +14,10 @@ const tint = tints as Record<
   { hi: string; lo: string; base: string; stub: string; stubDark: string }
 >;
 
-// With the clandrei palette (data-palette="clandrei"), today's card is a ticket. The art sits in a
-// window tinted from its own painting, a frosted sheet carries the title and mantra, and the
-// reply line tears off as a stub in the painting's colour, light or deep to suit the theme.
-export function TicketCard({ card, day, sky }: { card: Card; day: string; sky: Sky }) {
-  const art = cardArt(card.id);
-  const colours = tint[card.id];
-  const style = (
+// The painting's colours as custom properties (scripts/card-tints.py), for cards and deck tiles.
+export function paintStyle(id: string) {
+  const colours = tint[id];
+  return (
     colours
       ? {
           '--win-hi': colours.hi,
@@ -31,15 +28,36 @@ export function TicketCard({ card, day, sky }: { card: Card; day: string; sky: S
         }
       : {}
   ) as CSSProperties;
+}
+
+// A tarot card as a ticket: the art in a window tinted from its own painting, a frosted sheet
+// with the title and mantra, and the reply line torn off as a stub in the painting's colour.
+// Today's draw adds its label and share key; the deck dialog brings its own title and share.
+export function TicketCard({
+  card,
+  sky,
+  day,
+  title,
+  cardProps,
+}: {
+  card: Card;
+  sky: Sky;
+  day?: string;
+  title?: ReactNode;
+  cardProps?: HTMLAttributes<HTMLDivElement>;
+}) {
+  const art = cardArt(card.id);
+  const daily = day !== undefined;
   return (
-    <div className="ticket" data-suit={card.suit ?? 'major'} style={style}>
+    <div className="ticket" data-suit={card.suit ?? 'major'} style={paintStyle(card.id)}>
       <Card
         role="article"
-        className="tarot-card daily-card ticket-card"
+        className={daily ? 'tarot-card daily-card ticket-card' : 'tarot-card ticket-card'}
         data-arcana={card.id}
         data-suit={card.suit ?? 'major'}
         data-card-id={card.id}
         data-day={day}
+        {...cardProps}
       >
         <div className="ticket-inner">
           <span className="ticket-wash" aria-hidden="true">
@@ -57,18 +75,21 @@ export function TicketCard({ card, day, sky }: { card: Card; day: string; sky: S
             <CardLetter card={card} />
           </div>
           <div className="ticket-glass">
-            <h1 className="daily-label" tabIndex={-1}>
-              {t.daily.title}
-            </h1>
+            {daily && (
+              <h1 className="daily-label" tabIndex={-1}>
+                {t.daily.title}
+              </h1>
+            )}
             <div className="ticket-head">
-              <h2>{card.title}</h2>
-              <ShareCard card={card} className="ticket-share" />
+              {title ?? <h2>{card.title}</h2>}
+              {daily && <ShareCard card={card} className="ticket-share" />}
             </div>
             <p className="ticket-pair">
               <span>{card.traditionalName}</span>
               <i aria-hidden="true" />
               <span>{lordTitle(card) ?? correspondenceLabel(card)}</span>
             </p>
+            {!daily && <p className="symbolism">{card.fictionalSymbolism}</p>}
             <p className="mantra">{card.groundedMantra}</p>
           </div>
         </div>
