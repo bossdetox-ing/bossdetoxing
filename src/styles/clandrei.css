@@ -399,7 +399,7 @@
   font-size: 0.75rem;
   color: var(--color-muted);
 }
-/* Share stays quiet: a small glass key, icon only (the label remains its accessible name). */
+/* Share stays quiet: a bare icon button (the label remains its accessible name). */
 :root[data-palette='clandrei'] .ticket button.ticket-share {
   display: grid;
   place-items: center;
@@ -409,10 +409,14 @@
   padding: 0;
   gap: 0;
   border-radius: 3px;
-  background: color-mix(in srgb, var(--color-surface) 45%, transparent);
-  box-shadow: inset 0 0 0 1px var(--color-hairline);
+  background: transparent;
+  box-shadow: none;
   color: var(--color-muted);
   font-size: 0;
+}
+:root[data-palette='clandrei'] .ticket button.ticket-share:hover {
+  background: color-mix(in srgb, var(--color-text) 8%, transparent);
+  color: var(--color-text);
 }
 :root[data-palette='clandrei'] .ticket button.ticket-share svg {
   width: 16px;

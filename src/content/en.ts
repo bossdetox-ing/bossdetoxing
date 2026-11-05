@@ -577,6 +577,7 @@ export const en = {
   },
   settingsError: 'Could not save preferences locally. Retry this change.',
   shortcuts: 'Keyboard shortcuts',
+  shortcutTheme: 'Switch light and dark: D, anywhere outside a text field.',
   shortcutsText:
     'Open: Alt+Shift+O. Hide & lock: Alt+Shift+X. Chrome may reserve or conflict with these keys. Configure them at chrome://extensions/shortcuts. Escape also hides and locks while the panel has focus.',
   data: 'Vault & data',

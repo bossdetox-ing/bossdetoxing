@@ -260,6 +260,7 @@ export function Preferences({
       <h2>{t.language}</h2>
       <p>{t.english}</p>
       <h2>{t.shortcuts}</h2>
+      <p>{t.shortcutTheme}</p>
       <p>{t.shortcutsText}</p>
       <h2>{t.data}</h2>
       <Select
