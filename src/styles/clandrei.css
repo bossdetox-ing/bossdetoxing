@@ -691,3 +691,9 @@
     animation: none;
   }
 }
+
+/* Bingo marks ("Logged 1× · last Nov 5"): the palette's lime with olive type, not the old yellow. */
+:root[data-palette='clandrei'] .tile-marks {
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+}
