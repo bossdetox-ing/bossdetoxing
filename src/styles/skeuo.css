@@ -158,3 +158,9 @@
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
+
+/* The card dialog scrolls, which would clip the keys' outer shadows: give them room inside. */
+:root[data-buttons='skeuo'] .dialog-content {
+  width: min(392px, calc(100vw - 20px));
+  padding: 6px;
+}

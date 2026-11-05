@@ -421,6 +421,8 @@
   height: 18px;
 }
 :root[data-palette='clandrei'] .ticket-window button.art-credit {
+  /* Above the sticker, which comes later in the markup and would cover the left half. */
+  z-index: 2;
   top: 6px;
   right: 6px;
   border-radius: 3px;
@@ -696,4 +698,24 @@
 :root[data-palette='clandrei'] .tile-marks {
   background: var(--color-accent);
   color: var(--color-on-accent);
+}
+
+/* Logo hover: the mark changes colour; no background. Lime turns sage on dark, olive turns a
+   deep lime on light (3.9:1 on the sage ground). */
+:root[data-palette='clandrei'] button.wordmark:hover {
+  background: transparent;
+}
+:root[data-palette='clandrei'] .brand-avatar::before {
+  transition: background-color 120ms ease-out;
+}
+:root[data-palette='clandrei'] button.wordmark:hover .brand-avatar::before {
+  background: var(--color-text);
+}
+:root[data-palette='clandrei'][data-theme='light'] button.wordmark:hover .brand-avatar::before {
+  background: #557000;
+}
+@media (prefers-color-scheme: light) {
+  :root[data-palette='clandrei'][data-theme='system'] button.wordmark:hover .brand-avatar::before {
+    background: #557000;
+  }
 }
