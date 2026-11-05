@@ -267,6 +267,9 @@
   --on-suit: #26251c;
 }
 :root[data-palette='clandrei'] .ticket .ticket-card {
+  /* Above its stub, which tucks under the card's foot. */
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
   min-height: 0;
