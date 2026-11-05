@@ -10,17 +10,24 @@ export function StyleSwitch({ value, onChange }: { value: Tone; onChange: (tone:
       value={value}
       onValueChange={(value) => onChange(value as Tone)}
     >
-      {(['yellow', 'grey', 'firm'] as const).map((tone) => (
-        <RadioGroupItem
-          key={tone}
-          value={tone}
-          className="rock-option"
-          data-tone={tone}
-          aria-label={t.quickUi.styleLabels[tone]}
-        >
-          <span>{t.quickUi.styleLabels[tone]}</span>
-        </RadioGroupItem>
-      ))}
+      {(['yellow', 'grey', 'firm'] as const).map((tone) => {
+        // "Yellow Rock": the colour always shows, "Rock" only on the chosen style.
+        const [colour, ...rest] = t.quickUi.styleLabels[tone].split(' ');
+        return (
+          <RadioGroupItem
+            key={tone}
+            value={tone}
+            className="rock-option"
+            data-tone={tone}
+            aria-label={t.quickUi.styleLabels[tone]}
+          >
+            <span aria-hidden="true">
+              {colour}
+              {rest.length > 0 && <span className="rock-word"> {rest.join(' ')}</span>}
+            </span>
+          </RadioGroupItem>
+        );
+      })}
     </RadioGroup>
   );
 }

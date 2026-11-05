@@ -2081,6 +2081,9 @@ img[data-sticker] {
 }
 
 /* Rock styles are colour-coded: dot when idle, filled when selected. */
+.rock-option:not([data-state='checked']) .rock-word {
+  display: none;
+}
 .rock-option[data-tone='yellow'] {
   --tone: var(--c-yellow);
   --on-tone: var(--c-ink);
