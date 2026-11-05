@@ -11,6 +11,7 @@ import type { Vault } from '../../vault/service';
 import { PageTitle, Toggle } from '../components';
 import { VaultGate } from './VaultGate';
 import { MonthPicker } from '../MonthPicker';
+import { BestiaryPanel } from '../BestiaryPanel';
 
 export function PrivateCalendar({
   vault,
@@ -164,6 +165,8 @@ export function PrivateCalendar({
         <article className="calendar-detail">
           <p className="muted small-copy">{formatDate(event.createdAtISO)}</p>
           <p className="charm-text">{event.mantra.text}</p>
+          {/* The logged threat's Bestiary, the same sheet as on its threat screen. */}
+          <BestiaryPanel threatId={event.situationId} />
           {settings.privateLogging && state.savedIds.includes(event.id) && (
             <p className="save-status">{t.redesign.encrypted}</p>
           )}

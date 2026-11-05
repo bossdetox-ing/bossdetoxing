@@ -679,6 +679,13 @@ test('encrypted calendar consent, favorite and exact snapshot survive reload and
   await expect(page.locator('.calendar-detail .charm-text')).toHaveText(selected!);
   // Responses and outcomes are no longer recorded on an event.
   await expect(page.locator('.calendar-detail .chips')).toHaveCount(0);
+  // The logged threat's Bestiary opens from its calendar entry.
+  await page.locator('.calendar-detail .bestiary-row').click();
+  await expect(
+    page.getByRole('heading', { name: 'What to verify for your own record' }),
+  ).toBeVisible();
+  await page.keyboard.press('Escape');
+  await expect(page.getByRole('dialog')).toHaveCount(0);
   await page.getByRole('button', { name: 'Delete event', exact: true }).click();
   await page.getByRole('button', { name: 'Delete permanently', exact: true }).click();
   await expect(page.locator('.event-summary')).toHaveCount(0);
