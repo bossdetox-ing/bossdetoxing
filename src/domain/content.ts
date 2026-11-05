@@ -1,6 +1,6 @@
 import workerChecks from '../content/worker-first.en.json';
 import { z } from 'zod';
-import seed from '../../BOSSDETOX_ING_V1_HANDOFF/CONTENT_SEED.json';
+import seed from '../content/content-seed.json';
 import overrides from '../content/en-overrides.json';
 import practices from '../content/en-practices.json';
 import { en } from '../content/en';

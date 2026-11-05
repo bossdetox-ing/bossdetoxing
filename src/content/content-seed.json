@@ -1,0 +1,1183 @@
+{
+  "schemaVersion": "1.0",
+  "editorialNote": "Original v1 seed content. Literature in the accompanying research handbook must be independently reviewed before clinical efficacy claims.",
+  "scenarios": [
+    {
+      "id": "vague_accusation",
+      "label": "Vague criticism",
+      "observedExample": "I am hearing general dissatisfaction without a concrete example.",
+      "techniqueIds": ["stop", "biff"],
+      "responses": {
+        "grey": "Which deliverable needs improvement?",
+        "yellow": "Thanks for flagging the concern. Could we look at one specific deliverable and the outcome you want?",
+        "firm": "I need a specific example and agreed standard before I can act on this feedback."
+      },
+      "privateMantras": ["A vague criticism is not a complete assessment of my work."],
+      "recommendedTone": "yellow",
+      "nextAction": "Request a concrete example and expected standard.",
+      "sourceIds": []
+    },
+    {
+      "id": "guilt_induction",
+      "label": "Guilt or loyalty pressure",
+      "observedExample": "A request is framed as a test of loyalty rather than a work priority.",
+      "techniqueIds": ["fast", "fogging"],
+      "responses": {
+        "grey": "What is the priority and deadline?",
+        "yellow": "I understand this matters to the team. Can we agree on the priority and expected completion time?",
+        "firm": "I can discuss the work required, but I cannot commit to unspecified additional availability."
+      },
+      "privateMantras": ["I can care about the team without promising everything."],
+      "recommendedTone": "yellow",
+      "nextAction": "Separate the legitimate request from moral pressure.",
+      "sourceIds": []
+    },
+    {
+      "id": "dismissal_warning",
+      "label": "Dismissal warning",
+      "observedExample": "My manager raises possible job loss without specific measurable expectations.",
+      "techniqueIds": ["stop", "documentation"],
+      "responses": {
+        "grey": "Is there a specific performance concern I should address?",
+        "yellow": "I take that seriously. Could you identify the concrete expectations and what would demonstrate improvement?",
+        "firm": "Please clarify whether this is formal performance feedback and provide the specific concerns in writing."
+      },
+      "privateMantras": ["A warning deserves clarity, not catastrophic certainty."],
+      "recommendedTone": "yellow",
+      "nextAction": "Record the exact statement; seek appropriate formal clarification.",
+      "sourceIds": []
+    },
+    {
+      "id": "public_criticism",
+      "label": "Public criticism",
+      "observedExample": "Critical feedback is delivered in front of others.",
+      "techniqueIds": ["stop", "controlled_pause"],
+      "responses": {
+        "grey": "What specific issue should I correct?",
+        "yellow": "I want to address it properly. Could we identify the specific issue, and I can follow up with details afterward?",
+        "firm": "I would prefer to handle the detailed feedback in a focused discussion with specific examples."
+      },
+      "privateMantras": [
+        "I can remain composed without accepting humiliation as a definition of me."
+      ],
+      "recommendedTone": "yellow",
+      "nextAction": "Record factual points and request a separate clarification if needed.",
+      "sourceIds": []
+    },
+    {
+      "id": "colleague_gossip",
+      "label": "Gossip about teammates",
+      "observedExample": "A manager criticizes an absent colleague and asks me to agree.",
+      "techniqueIds": ["yellow_rock", "coworker_support"],
+      "responses": {
+        "grey": "What work needs attention?",
+        "yellow": "I appreciate you sharing the context. I'd rather focus on what we need to deliver together.",
+        "firm": "I'd prefer not to assess a colleague who isn't here. Let's focus on the project issue."
+      },
+      "privateMantras": ["My colleagues are not characters in someone else's story."],
+      "recommendedTone": "yellow",
+      "nextAction": "Keep discussions task-focused; avoid repeating the gossip.",
+      "sourceIds": []
+    },
+    {
+      "id": "unattributed_consensus",
+      "label": "The mysterious 'we'",
+      "observedExample": "Feedback is attributed to unnamed people.",
+      "techniqueIds": ["biff", "documentation"],
+      "responses": {
+        "grey": "Which particular issue is being raised?",
+        "yellow": "I'd like to understand that feedback. Could we review a concrete example I can address?",
+        "firm": "Please identify the specific concern and its source where appropriate; otherwise I can only respond to the stated work issue."
+      },
+      "privateMantras": ["A vague collective opinion is not a verified fact."],
+      "recommendedTone": "yellow",
+      "nextAction": "Request one observable example and decision owner.",
+      "sourceIds": []
+    },
+    {
+      "id": "circular_interrogation",
+      "label": "Circular interrogation",
+      "observedExample": "Questions repeat while the original issue remains unclear.",
+      "techniqueIds": ["broken_record", "controlled_pause"],
+      "responses": {
+        "grey": "Which question or event should I address first?",
+        "yellow": "I want to answer accurately. Could we settle on the specific issue we need to resolve?",
+        "firm": "I've answered the available factual question. I'll follow up in writing if more information is needed."
+      },
+      "privateMantras": ["I do not need to defend a moving target indefinitely."],
+      "recommendedTone": "yellow",
+      "nextAction": "Capture the question and send factual follow-up.",
+      "sourceIds": []
+    },
+    {
+      "id": "moving_goalposts",
+      "label": "Changing criteria",
+      "observedExample": "A requirement changes after work starts or is completed.",
+      "techniqueIds": ["documentation", "dear_man"],
+      "responses": {
+        "grey": "What is the new requirement?",
+        "yellow": "Happy to adjust. My notes show the earlier scope; can we confirm the new acceptance criteria and impact?",
+        "firm": "The current documented scope differs from this request. Please confirm the change and revised priority."
+      },
+      "privateMantras": ["An unrecorded change is not evidence that I failed."],
+      "recommendedTone": "yellow",
+      "nextAction": "Compare old and new requirements in Task Shield.",
+      "sourceIds": []
+    },
+    {
+      "id": "withheld_information",
+      "label": "Missing information",
+      "observedExample": "Required input remains unavailable after a request.",
+      "techniqueIds": ["documentation", "biff"],
+      "responses": {
+        "grey": "Which information can be provided?",
+        "yellow": "I'd be glad to proceed once I have the missing details. Could you share them or name the owner?",
+        "firm": "I cannot complete this dependency accurately without the required information. Please confirm the source and timing."
+      },
+      "privateMantras": ["Missing information is a dependency, not a character flaw."],
+      "recommendedTone": "yellow",
+      "nextAction": "Log the missing dependency and request it in writing.",
+      "sourceIds": []
+    },
+    {
+      "id": "meeting_loop",
+      "label": "Meetings without decisions",
+      "observedExample": "Repeated meetings conclude without action owners or decisions.",
+      "techniqueIds": ["biff", "documentation"],
+      "responses": {
+        "grey": "What decision are we making today?",
+        "yellow": "Happy to make this efficient. Could we agree on the decision, owner and next step before closing?",
+        "firm": "Before adding another meeting, I'd like to establish its decision objective and required participants."
+      },
+      "privateMantras": ["A meeting is not the same thing as progress."],
+      "recommendedTone": "yellow",
+      "nextAction": "Send a decision / owner / deadline / unresolved summary.",
+      "sourceIds": []
+    },
+    {
+      "id": "responsibility_diffusion",
+      "label": "Unclear ownership",
+      "observedExample": "The team is asked to act but no one is assigned accountability.",
+      "techniqueIds": ["documentation", "assertiveness"],
+      "responses": {
+        "grey": "Who owns the next action?",
+        "yellow": "To make sure this moves forward, could we name an owner and confirm the deadline?",
+        "firm": "We need a named owner and due date to treat this as an assigned task."
+      },
+      "privateMantras": ["Vague ownership is a coordination problem I can clarify."],
+      "recommendedTone": "yellow",
+      "nextAction": "Record the owner or mark it as not specified.",
+      "sourceIds": []
+    },
+    {
+      "id": "micromanagement",
+      "label": "Micromanagement",
+      "observedExample": "Many approval checkpoints interrupt delegated work.",
+      "techniqueIds": ["dear_man", "assertiveness"],
+      "responses": {
+        "grey": "Which checkpoint matters most?",
+        "yellow": "I can keep you updated. Would one agreed checkpoint per milestone meet the need?",
+        "firm": "Could we define the review points so I can complete the work without repeated interruptions?"
+      },
+      "privateMantras": ["Oversight can be negotiated into a clearer process."],
+      "recommendedTone": "yellow",
+      "nextAction": "Agree on update cadence and decision rights.",
+      "sourceIds": []
+    },
+    {
+      "id": "competing_priorities",
+      "label": "Conflicting urgent priorities",
+      "observedExample": "Multiple tasks are all described as the highest priority.",
+      "techniqueIds": ["broken_record", "assertiveness"],
+      "responses": {
+        "grey": "Which task should take precedence?",
+        "yellow": "I can make progress on both, but not simultaneously. Would you prefer A first or B first?",
+        "firm": "Given current capacity, A today means B moves to tomorrow. Please confirm the priority."
+      },
+      "privateMantras": ["Capacity is finite even when someone calls everything urgent."],
+      "recommendedTone": "yellow",
+      "nextAction": "Get a written A/B prioritization decision.",
+      "sourceIds": []
+    },
+    {
+      "id": "credit_dispute",
+      "label": "Credit for work",
+      "observedExample": "A contribution is attributed incorrectly or omitted.",
+      "techniqueIds": ["fast", "documentation"],
+      "responses": {
+        "grey": "I completed the initial draft of that part.",
+        "yellow": "Glad that work is moving ahead. For accuracy, I prepared the first draft and the team completed the review.",
+        "firm": "For the record, I authored the listed deliverable on the stated date; please update the attribution."
+      },
+      "privateMantras": ["My contribution exists even when someone overlooks it."],
+      "recommendedTone": "yellow",
+      "nextAction": "Keep a factual contribution record without attacking anyone.",
+      "sourceIds": []
+    },
+    {
+      "id": "workload_overload",
+      "label": "Excessive workload",
+      "observedExample": "New work is assigned without resolving existing commitments.",
+      "techniqueIds": ["assertiveness", "broken_record"],
+      "responses": {
+        "grey": "Which existing task should move?",
+        "yellow": "Happy to help prioritize. With the new item, which existing commitment should shift?",
+        "firm": "I can add this only with a corresponding priority or deadline change. Please confirm which one."
+      },
+      "privateMantras": ["I cannot create extra hours by apologizing."],
+      "recommendedTone": "yellow",
+      "nextAction": "Document capacity tradeoffs and requested priority.",
+      "sourceIds": []
+    },
+    {
+      "id": "surveillance_concern",
+      "label": "Excessive checking",
+      "observedExample": "Detailed monitoring requirements appear disproportionate to the work.",
+      "techniqueIds": ["dear_man", "documentation"],
+      "responses": {
+        "grey": "What reporting cadence is expected?",
+        "yellow": "I can provide regular visibility. What frequency and level of detail would be most useful?",
+        "firm": "Please confirm the reporting requirement and its operational purpose so I can apply it consistently."
+      },
+      "privateMantras": ["Monitoring does not automatically establish poor performance."],
+      "recommendedTone": "yellow",
+      "nextAction": "Clarify reporting purpose and frequency.",
+      "sourceIds": []
+    },
+    {
+      "id": "no_response",
+      "label": "No answer to a dependency",
+      "observedExample": "An essential operational question remains unanswered.",
+      "techniqueIds": ["biff", "documentation"],
+      "responses": {
+        "grey": "Who can decide this?",
+        "yellow": "Following up on the open question. Could you confirm the decision or point me to the owner?",
+        "firm": "This task remains blocked until the listed decision is made. Please confirm by the agreed check-in."
+      },
+      "privateMantras": ["Silence can be an unresolved dependency rather than a personal verdict."],
+      "recommendedTone": "yellow",
+      "nextAction": "Record the open question and next check-in.",
+      "sourceIds": []
+    },
+    {
+      "id": "suspected_retaliation",
+      "label": "Concerning change after complaint",
+      "observedExample": "An adverse workplace change follows a disagreement or complaint.",
+      "techniqueIds": ["stop", "documentation"],
+      "responses": {
+        "grey": "Can we clarify the reason for this change?",
+        "yellow": "I'd like to understand the change and its expected impact on my responsibilities. Can we review it?",
+        "firm": "Please confirm the basis, effective date and implications of the change in writing."
+      },
+      "privateMantras": ["A sequence of events needs facts before conclusions."],
+      "recommendedTone": "yellow",
+      "nextAction": "Record chronology; consider qualified workplace/legal advice if serious.",
+      "sourceIds": []
+    },
+    {
+      "id": "after_meeting_replay",
+      "label": "Post-meeting rumination",
+      "observedExample": "I keep replaying an upsetting interaction.",
+      "techniqueIds": ["self_distancing", "detachment"],
+      "responses": {
+        "grey": "I can write down the one relevant next action.",
+        "yellow": "That meeting was difficult. I'll capture what needs action and return to the rest of my day.",
+        "firm": "I need to stop working on an issue that has no further action today."
+      },
+      "privateMantras": ["Remembering an event doesn't require reliving it."],
+      "recommendedTone": "yellow",
+      "nextAction": "Use three facts, one action and Closure.",
+      "sourceIds": []
+    },
+    {
+      "id": "ordinary_disagreement",
+      "label": "Ordinary disagreement",
+      "observedExample": "Two people propose different approaches to a real problem.",
+      "techniqueIds": ["reappraisal", "assertiveness"],
+      "responses": {
+        "grey": "What outcome are we optimizing for?",
+        "yellow": "I see the benefit in your approach. Can we compare the tradeoffs against the goal?",
+        "firm": "We have two options with different costs. Let's choose based on the agreed criteria."
+      },
+      "privateMantras": ["A disagreement is not automatically a threat."],
+      "recommendedTone": "yellow",
+      "nextAction": "Record decision criteria rather than personalizing the disagreement.",
+      "sourceIds": []
+    }
+  ],
+  "behaviors": [
+    {
+      "id": "behavior_vague_accusation",
+      "title": "Criticism without specifics",
+      "observedIndicators": [
+        "A concern is expressed without a dated example or measurable expected result."
+      ],
+      "alternativeExplanations": [
+        "Manager may have incomplete information or imprecise communication."
+      ],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["stop", "biff"],
+      "factualFollowUp": "Request a concrete example and expected standard.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_guilt_induction",
+      "title": "Personal obligation in work request",
+      "observedIndicators": [
+        "The request invokes loyalty, indebtedness or disappointment beyond the task itself."
+      ],
+      "alternativeExplanations": ["Manager may be expressing genuine urgency awkwardly."],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["fast", "fogging"],
+      "factualFollowUp": "Separate the legitimate request from moral pressure.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_dismissal_warning",
+      "title": "Employment consequence raised",
+      "observedIndicators": ["A meeting includes a possible dismissal or career consequence."],
+      "alternativeExplanations": ["It may be formal performance feedback; verify its status."],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["stop", "documentation"],
+      "factualFollowUp": "Record the exact statement; seek appropriate formal clarification.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_public_criticism",
+      "title": "Criticism in front of coworkers",
+      "observedIndicators": [
+        "Criticism is delivered before people not necessary to resolve the issue."
+      ],
+      "alternativeExplanations": [
+        "A group debrief may sometimes be appropriate for shared problems."
+      ],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["stop", "controlled_pause"],
+      "factualFollowUp": "Record factual points and request a separate clarification if needed.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_colleague_gossip",
+      "title": "Absent colleague criticized",
+      "observedIndicators": [
+        "You are asked to agree with an unsupported negative assessment of an absent teammate."
+      ],
+      "alternativeExplanations": ["Some project feedback may be clumsy but legitimate."],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["yellow_rock", "coworker_support"],
+      "factualFollowUp": "Keep discussions task-focused; avoid repeating the gossip.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_unattributed_consensus",
+      "title": "Unattributed collective feedback",
+      "observedIndicators": ["Unspecified people are said to agree with criticism or a decision."],
+      "alternativeExplanations": ["The speaker may be summarizing real but unrecorded feedback."],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["biff", "documentation"],
+      "factualFollowUp": "Request one observable example and decision owner.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_circular_interrogation",
+      "title": "Question changes during discussion",
+      "observedIndicators": [
+        "Repeated questions change subject before a factual issue is resolved."
+      ],
+      "alternativeExplanations": [
+        "The manager may be confused or investigating multiple genuine concerns."
+      ],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["broken_record", "controlled_pause"],
+      "factualFollowUp": "Capture the question and send factual follow-up.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_moving_goalposts",
+      "title": "Changing acceptance criteria",
+      "observedIndicators": ["Scope or definition of done changes after work starts."],
+      "alternativeExplanations": ["Project requirements may legitimately evolve."],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["documentation", "dear_man"],
+      "factualFollowUp": "Compare old and new requirements in Task Shield.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_withheld_information",
+      "title": "Missing task information",
+      "observedIndicators": [
+        "A necessary dependency remains unavailable despite an explicit request."
+      ],
+      "alternativeExplanations": ["Another team may be delayed or the owner may be unclear."],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["documentation", "biff"],
+      "factualFollowUp": "Log the missing dependency and request it in writing.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_meeting_loop",
+      "title": "Repeated meeting without decision",
+      "observedIndicators": ["Meetings recur with no named decision, owner or deadline."],
+      "alternativeExplanations": ["Facilitation or decision authority may be weak."],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["biff", "documentation"],
+      "factualFollowUp": "Send a decision / owner / deadline / unresolved summary.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_responsibility_diffusion",
+      "title": "Unclear action ownership",
+      "observedIndicators": [
+        "Collective language is used instead of assigning needed individual responsibility."
+      ],
+      "alternativeExplanations": ["Collective ownership can be appropriate for some tasks."],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["documentation", "assertiveness"],
+      "factualFollowUp": "Record the owner or mark it as not specified.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_micromanagement",
+      "title": "Frequent approvals and checks",
+      "observedIndicators": ["Low-level approvals interfere with delegated work."],
+      "alternativeExplanations": ["High-risk tasks can legitimately require extra oversight."],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["dear_man", "assertiveness"],
+      "factualFollowUp": "Agree on update cadence and decision rights.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_competing_priorities",
+      "title": "Conflicting urgent work",
+      "observedIndicators": ["Simultaneous assignments lack explicit priority tradeoffs."],
+      "alternativeExplanations": ["There may be genuine competing external deadlines."],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["broken_record", "assertiveness"],
+      "factualFollowUp": "Get a written A/B prioritization decision.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_credit_dispute",
+      "title": "Disputed contribution attribution",
+      "observedIndicators": [
+        "Work ownership or contribution is omitted or attributed inconsistently."
+      ],
+      "alternativeExplanations": ["Someone may lack full information about contributors."],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["fast", "documentation"],
+      "factualFollowUp": "Keep a factual contribution record without attacking anyone.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_workload_overload",
+      "title": "New tasks without reprioritization",
+      "observedIndicators": ["Work is added without considering prior commitments."],
+      "alternativeExplanations": ["Capacity planning may be poor rather than hostile."],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["assertiveness", "broken_record"],
+      "factualFollowUp": "Document capacity tradeoffs and requested priority.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_surveillance_concern",
+      "title": "Disproportionate monitoring",
+      "observedIndicators": ["Status reporting appears more granular or frequent than needed."],
+      "alternativeExplanations": ["Compliance, risk or client needs can explain some monitoring."],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["dear_man", "documentation"],
+      "factualFollowUp": "Clarify reporting purpose and frequency.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_no_response",
+      "title": "Unanswered operational request",
+      "observedIndicators": ["A decision required for work remains unanswered."],
+      "alternativeExplanations": ["The relevant decision maker may be unavailable."],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["biff", "documentation"],
+      "factualFollowUp": "Record the open question and next check-in.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_suspected_retaliation",
+      "title": "Adverse change after concern",
+      "observedIndicators": ["A negative change occurs after disagreement or complaint."],
+      "alternativeExplanations": ["Timing alone does not establish causality."],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["stop", "documentation"],
+      "factualFollowUp": "Record chronology; consider qualified workplace/legal advice if serious.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_after_meeting_replay",
+      "title": "Repeated mental replay",
+      "observedIndicators": [
+        "An interaction keeps intruding after any useful next action is captured."
+      ],
+      "alternativeExplanations": [
+        "The reaction may reflect temporary stress or unresolved uncertainty."
+      ],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["self_distancing", "detachment"],
+      "factualFollowUp": "Use three facts, one action and Closure.",
+      "sourceIds": []
+    },
+    {
+      "id": "behavior_ordinary_disagreement",
+      "title": "Professional disagreement",
+      "observedIndicators": ["Two people disagree on methods, priorities or quality criteria."],
+      "alternativeExplanations": ["Different perspectives do not establish mistreatment."],
+      "doNotInfer": [
+        "Intent, diagnosis or legal wrongdoing is not established by this event alone."
+      ],
+      "techniqueIds": ["reappraisal", "assertiveness"],
+      "factualFollowUp": "Record decision criteria rather than personalizing the disagreement.",
+      "sourceIds": []
+    }
+  ],
+  "techniques": [
+    {
+      "id": "grey_rock",
+      "title": "Grey Rock",
+      "evidenceType": "practitioner_heuristic",
+      "sourceIds": [],
+      "mechanism": "Brief emotionally neutral, task-oriented communication.",
+      "whenUseful": [],
+      "caution": ["May look cold or evasive when warmth or collaboration is required."],
+      "microExercise": []
+    },
+    {
+      "id": "yellow_rock",
+      "title": "Yellow Rock",
+      "evidenceType": "practitioner_heuristic",
+      "sourceIds": [],
+      "mechanism": "Warm, brief and bounded communication without unnecessary personal disclosure.",
+      "whenUseful": [],
+      "caution": ["Can become appeasement if the user agrees to false premises."],
+      "microExercise": []
+    },
+    {
+      "id": "biff",
+      "title": "BIFF",
+      "evidenceType": "practitioner_heuristic",
+      "sourceIds": ["src_hci_biff"],
+      "mechanism": "Brief, informative, friendly and firm responses.",
+      "whenUseful": [],
+      "caution": ["Not a psychotherapy or guarantee against escalation."],
+      "microExercise": []
+    },
+    {
+      "id": "broken_record",
+      "title": "Broken Record",
+      "evidenceType": "practitioner_heuristic",
+      "sourceIds": [],
+      "mechanism": "Repeat one reasonable request rather than endlessly justifying it.",
+      "whenUseful": [],
+      "caution": ["Do not ignore material new facts or keep repeating under threat."],
+      "microExercise": []
+    },
+    {
+      "id": "fogging",
+      "title": "Fogging",
+      "evidenceType": "practitioner_heuristic",
+      "sourceIds": [],
+      "mechanism": "Acknowledge a limited legitimate point without accepting an exaggerated claim.",
+      "whenUseful": [],
+      "caution": ["Do not concede facts you know are false."],
+      "microExercise": []
+    },
+    {
+      "id": "dear_man",
+      "title": "DEAR MAN",
+      "evidenceType": "clinical_skill_adaptation",
+      "sourceIds": [],
+      "mechanism": "Describe facts, express impact and assert a concrete request using a DBT-derived structure.",
+      "whenUseful": [],
+      "caution": ["Real workplace power asymmetries may constrain assertiveness."],
+      "microExercise": []
+    },
+    {
+      "id": "fast",
+      "title": "FAST",
+      "evidenceType": "clinical_skill_adaptation",
+      "sourceIds": [],
+      "mechanism": "Fairness, avoiding unnecessary apologies, values and truthfulness.",
+      "whenUseful": [],
+      "caution": ["Apologize when accountability is genuinely warranted."],
+      "microExercise": []
+    },
+    {
+      "id": "stop",
+      "title": "STOP",
+      "evidenceType": "clinical_skill_adaptation",
+      "sourceIds": [],
+      "mechanism": "Pause, step back, observe and proceed deliberately.",
+      "whenUseful": [],
+      "caution": ["Not a substitute for immediate safety action."],
+      "microExercise": []
+    },
+    {
+      "id": "defusion",
+      "title": "Cognitive defusion",
+      "evidenceType": "research_supported_process",
+      "sourceIds": [],
+      "mechanism": "Recognize a frightening thought as a thought rather than a proven outcome.",
+      "whenUseful": [],
+      "caution": ["Do not dismiss concrete danger or actual employment action."],
+      "microExercise": []
+    },
+    {
+      "id": "reappraisal",
+      "title": "Cognitive reappraisal",
+      "evidenceType": "research_supported_process",
+      "sourceIds": [],
+      "mechanism": "Consider a less catastrophic interpretation still consistent with known facts.",
+      "whenUseful": [],
+      "caution": ["Do not use to explain away credible mistreatment."],
+      "microExercise": []
+    },
+    {
+      "id": "self_distancing",
+      "title": "Observer self-distancing",
+      "evidenceType": "research_supported_process",
+      "sourceIds": [],
+      "mechanism": "Describe an event from an external observer perspective.",
+      "whenUseful": [],
+      "caution": ["Do not substitute detachment for necessary action."],
+      "microExercise": []
+    },
+    {
+      "id": "grounding",
+      "title": "Brief grounding",
+      "evidenceType": "research_supported_process",
+      "sourceIds": [],
+      "mechanism": "Orient attention to current surroundings and body contact.",
+      "whenUseful": [],
+      "caution": ["Breathing exercises can be uncomfortable for some; make optional."],
+      "microExercise": []
+    },
+    {
+      "id": "controlled_pause",
+      "title": "Controlled disengagement",
+      "evidenceType": "clinical_skill_adaptation",
+      "sourceIds": [],
+      "mechanism": "Request a brief pause and promise a defined factual follow-up.",
+      "whenUseful": [],
+      "caution": ["Abrupt silence can be perceived as refusing work."],
+      "microExercise": []
+    },
+    {
+      "id": "assertiveness",
+      "title": "Assertiveness and priority requests",
+      "evidenceType": "research_supported_process",
+      "sourceIds": [],
+      "mechanism": "Ask clearly for objective tradeoffs and workable conditions.",
+      "whenUseful": [],
+      "caution": ["A manager may still retaliate; communication alone cannot prevent that."],
+      "microExercise": []
+    },
+    {
+      "id": "documentation",
+      "title": "Documentation and clarification",
+      "evidenceType": "research_supported_process",
+      "sourceIds": ["src_acas_bullying", "src_role_clarity"],
+      "mechanism": "Preserve accurate task facts and confirm decisions in writing.",
+      "whenUseful": [],
+      "caution": ["No guarantee of protection, legal outcome or confidentiality."],
+      "microExercise": []
+    },
+    {
+      "id": "implementation_intentions",
+      "title": "If-then planning",
+      "evidenceType": "research_supported_process",
+      "sourceIds": [],
+      "mechanism": "Preselect a response to a recurring trigger before it happens.",
+      "whenUseful": [],
+      "caution": ["Plans should adapt when circumstances genuinely change."],
+      "microExercise": []
+    },
+    {
+      "id": "affect_labeling",
+      "title": "Affect labeling",
+      "evidenceType": "research_supported_process",
+      "sourceIds": [],
+      "mechanism": "Name a feeling in simple language to create a pause.",
+      "whenUseful": [],
+      "caution": ["Never infer feelings from user appearance or text."],
+      "microExercise": []
+    },
+    {
+      "id": "detachment",
+      "title": "Work detachment",
+      "evidenceType": "research_supported_process",
+      "sourceIds": [],
+      "mechanism": "Capture necessary action, then intentionally stop replaying work.",
+      "whenUseful": [],
+      "caution": ["Do not ignore urgent duties or danger."],
+      "microExercise": []
+    },
+    {
+      "id": "coworker_support",
+      "title": "Supportive colleague relationships",
+      "evidenceType": "research_supported_process",
+      "sourceIds": [],
+      "mechanism": "Seek factual clarification and social connection without counter-gossip.",
+      "whenUseful": [],
+      "caution": ["Do not pressure coworkers to take sides or reveal confidential details."],
+      "microExercise": []
+    },
+    {
+      "id": "ear",
+      "title": "EAR acknowledgment",
+      "evidenceType": "practitioner_heuristic",
+      "sourceIds": [],
+      "mechanism": "Show empathy, attention and respect while returning to facts.",
+      "whenUseful": [],
+      "caution": ["Acknowledgment does not mean agreeing with accusations."],
+      "microExercise": []
+    }
+  ],
+  "mantras": [
+    {
+      "id": "m_vague_accusation",
+      "text": "A vague criticism is not a complete assessment of my work.",
+      "situationIds": ["vague_accusation"]
+    },
+    {
+      "id": "m_guilt_induction",
+      "text": "I can care about the team without promising everything.",
+      "situationIds": ["guilt_induction"]
+    },
+    {
+      "id": "m_dismissal_warning",
+      "text": "A warning deserves clarity, not catastrophic certainty.",
+      "situationIds": ["dismissal_warning"]
+    },
+    {
+      "id": "m_public_criticism",
+      "text": "I can remain composed without accepting humiliation as a definition of me.",
+      "situationIds": ["public_criticism"]
+    },
+    {
+      "id": "m_colleague_gossip",
+      "text": "My colleagues are not characters in someone else's story.",
+      "situationIds": ["colleague_gossip"]
+    },
+    {
+      "id": "m_unattributed_consensus",
+      "text": "A vague collective opinion is not a verified fact.",
+      "situationIds": ["unattributed_consensus"]
+    },
+    {
+      "id": "m_circular_interrogation",
+      "text": "I do not need to defend a moving target indefinitely.",
+      "situationIds": ["circular_interrogation"]
+    },
+    {
+      "id": "m_moving_goalposts",
+      "text": "An unrecorded change is not evidence that I failed.",
+      "situationIds": ["moving_goalposts"]
+    },
+    {
+      "id": "m_withheld_information",
+      "text": "Missing information is a dependency, not a character flaw.",
+      "situationIds": ["withheld_information"]
+    },
+    {
+      "id": "m_meeting_loop",
+      "text": "A meeting is not the same thing as progress.",
+      "situationIds": ["meeting_loop"]
+    },
+    {
+      "id": "m_responsibility_diffusion",
+      "text": "Vague ownership is a coordination problem I can clarify.",
+      "situationIds": ["responsibility_diffusion"]
+    },
+    {
+      "id": "m_micromanagement",
+      "text": "Oversight can be negotiated into a clearer process.",
+      "situationIds": ["micromanagement"]
+    },
+    {
+      "id": "m_competing_priorities",
+      "text": "Capacity is finite even when someone calls everything urgent.",
+      "situationIds": ["competing_priorities"]
+    },
+    {
+      "id": "m_credit_dispute",
+      "text": "My contribution exists even when someone overlooks it.",
+      "situationIds": ["credit_dispute"]
+    },
+    {
+      "id": "m_workload_overload",
+      "text": "I cannot create extra hours by apologizing.",
+      "situationIds": ["workload_overload"]
+    },
+    {
+      "id": "m_surveillance_concern",
+      "text": "Monitoring does not automatically establish poor performance.",
+      "situationIds": ["surveillance_concern"]
+    },
+    {
+      "id": "m_no_response",
+      "text": "Silence can be an unresolved dependency rather than a personal verdict.",
+      "situationIds": ["no_response"]
+    },
+    {
+      "id": "m_suspected_retaliation",
+      "text": "A sequence of events needs facts before conclusions.",
+      "situationIds": ["suspected_retaliation"]
+    },
+    {
+      "id": "m_after_meeting_replay",
+      "text": "Remembering an event doesn't require reliving it.",
+      "situationIds": ["after_meeting_replay"]
+    },
+    {
+      "id": "m_ordinary_disagreement",
+      "text": "A disagreement is not automatically a threat.",
+      "situationIds": ["ordinary_disagreement"]
+    },
+    {
+      "id": "m_general_01",
+      "text": "I am allowed to ask for a specific example.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_02",
+      "text": "An uncomfortable meeting is one event, not my whole career.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_03",
+      "text": "I do not need to invent certainty from an ambiguous warning.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_04",
+      "text": "I can be warm without sharing my private feelings.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_05",
+      "text": "My next sentence can be short and accurate.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_06",
+      "text": "Unclear expectations are questions, not proof of incompetence.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_07",
+      "text": "I can acknowledge a real mistake without accepting every accusation.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_08",
+      "text": "I can stop rehearsing a conversation once I have written the next action.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_09",
+      "text": "I can protect my relationships with colleagues directly.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_10",
+      "text": "No decision is still an unresolved decision.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_11",
+      "text": "I do not need to solve someone else's emotional state.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_12",
+      "text": "My financial needs are real, and so are my boundaries.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_13",
+      "text": "I can choose a professional response even while feeling angry.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_14",
+      "text": "I am experiencing fear; that is not a prediction.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_15",
+      "text": "I can give myself time to verify a claim before answering.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_16",
+      "text": "Other people's urgency does not erase the task constraints.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_17",
+      "text": "I can be courteous without agreeing to an inaccurate story.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_18",
+      "text": "Today's feedback does not replace my whole work history.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_19",
+      "text": "People can disagree with me without defining me.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_20",
+      "text": "If nothing further is required tonight, I may stop working on it.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_21",
+      "text": "One next action is enough for now.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_22",
+      "text": "I can ask who owns the decision.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_23",
+      "text": "I do not have to decode every hidden meaning.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_24",
+      "text": "A manager's tone and the actual request are different things.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_25",
+      "text": "I can let the meeting end, even if my thoughts are still loud.",
+      "situationIds": []
+    },
+    {
+      "id": "m_general_26",
+      "text": "My professional worth is not settled in one conversation.",
+      "situationIds": []
+    }
+  ],
+  "tarot": [
+    {
+      "id": "card_01",
+      "title": "The Royal We",
+      "fictionalSymbolism": "The chorus speaks. Its membership remains unconfirmed.",
+      "groundedMantra": "I can ask for facts without attacking anyone.",
+      "nextAction": "Request one specific example and decision owner.",
+      "notPrediction": true,
+      "humorAllowed": true
+    },
+    {
+      "id": "card_02",
+      "title": "The Meeting Ouroboros",
+      "fictionalSymbolism": "A meeting eats its minutes and summons a younger meeting.",
+      "groundedMantra": "My time has value beyond the calendar.",
+      "nextAction": "Ask for a decision, owner and deadline.",
+      "notPrediction": true,
+      "humorAllowed": true
+    },
+    {
+      "id": "card_03",
+      "title": "The Shifting Altar",
+      "fictionalSymbolism": "The standard moves after the offering is delivered.",
+      "groundedMantra": "A changing rule is something to clarify.",
+      "nextAction": "Compare previous and new acceptance criteria.",
+      "notPrediction": true,
+      "humorAllowed": true
+    },
+    {
+      "id": "card_04",
+      "title": "The Golden Handcuffs",
+      "fictionalSymbolism": "Coin and fear sit together on the same velvet cushion.",
+      "groundedMantra": "Income is important and my judgment is still mine.",
+      "nextAction": "Identify one practical step that protects your options.",
+      "notPrediction": true,
+      "humorAllowed": true
+    },
+    {
+      "id": "card_05",
+      "title": "The Inquisition",
+      "fictionalSymbolism": "Every answer produces a new question and no stated allegation.",
+      "groundedMantra": "I can return to the specific issue.",
+      "nextAction": "Ask what single factual question needs resolution.",
+      "notPrediction": true,
+      "humorAllowed": true
+    },
+    {
+      "id": "card_06",
+      "title": "The Whispering Tower",
+      "fictionalSymbolism": "Absent coworkers are quoted by a mysterious messenger.",
+      "groundedMantra": "I can trust my direct experience of colleagues.",
+      "nextAction": "Avoid gossip and focus on observable work.",
+      "notPrediction": true,
+      "humorAllowed": true
+    },
+    {
+      "id": "card_07",
+      "title": "The Tiny Crown",
+      "fictionalSymbolism": "The title is large. The evidence is small.",
+      "groundedMantra": "Authority does not turn vagueness into facts.",
+      "nextAction": "Ask for measurable requirements.",
+      "notPrediction": true,
+      "humorAllowed": true
+    },
+    {
+      "id": "card_08",
+      "title": "The Closed Portal",
+      "fictionalSymbolism": "The meeting ends; the imaginary meeting need not continue.",
+      "groundedMantra": "I may close this thought after writing the next action.",
+      "nextAction": "Use Observer Mode and finish.",
+      "notPrediction": true,
+      "humorAllowed": true
+    },
+    {
+      "id": "card_09",
+      "title": "The Paper Moon",
+      "fictionalSymbolism": "A warning casts a shadow larger than the available evidence.",
+      "groundedMantra": "Fear is real; predictions need verification.",
+      "nextAction": "Differentiate the exact statement from your feared outcome.",
+      "notPrediction": true,
+      "humorAllowed": true
+    },
+    {
+      "id": "card_10",
+      "title": "The Overgrown Process",
+      "fictionalSymbolism": "A checklist has grown a kingdom of its own.",
+      "groundedMantra": "A process should help a decision, not replace it.",
+      "nextAction": "Ask which outcome the next step serves.",
+      "notPrediction": true,
+      "humorAllowed": true
+    },
+    {
+      "id": "card_11",
+      "title": "The Witness",
+      "fictionalSymbolism": "A quiet notebook separates memory from interpretation.",
+      "groundedMantra": "I can record what happened without diagnosing anyone.",
+      "nextAction": "Write an observable fact and one follow-up.",
+      "notPrediction": true,
+      "humorAllowed": true
+    },
+    {
+      "id": "card_12",
+      "title": "The Open Door",
+      "fictionalSymbolism": "There are more options than one frightened moment reveals.",
+      "groundedMantra": "I can preserve my choices one step at a time.",
+      "nextAction": "Identify one source of support or practical alternative.",
+      "notPrediction": true,
+      "humorAllowed": true
+    }
+  ],
+  "corporateWeather": [
+    "Mercury is in Scope Creep. Confirm the definition of done.",
+    "Saturn has entered the Approval Queue. Agree on a review checkpoint.",
+    "The Moon opposes the Royal We. Name the decision owner.",
+    "Jupiter has scheduled a meeting with itself. Ask what decision is needed.",
+    "Venus is in Yellow Rock. Be kind and brief.",
+    "Mars is behind on documentation. Write the agreed next step.",
+    "The stars request a single deadline. Two vague deadlines are not one plan.",
+    "The Office Nebula is expanding. Separate required work from optional work.",
+    "The Comet of Urgency passes again. Check what truly changed.",
+    "The Forecast of Feedback is cloudy. Ask for a specific example.",
+    "Pluto is in Deep Work. Close unnecessary tabs.",
+    "The Eclipse of Ownership is temporary. Assign a named action owner."
+  ],
+  "bingoSquares": [
+    "Another meeting proposed",
+    "No decision recorded",
+    "Unattributed \"we\"",
+    "Acceptance criteria changed",
+    "Owner not identified",
+    "Deadline left unclear",
+    "Priority described as \"urgent\"",
+    "Previous agreement disputed",
+    "Decision postponed",
+    "New approval checkpoint",
+    "Task expands mid-conversation",
+    "Feedback without example",
+    "Someone talks over a deliverable",
+    "New process proposed",
+    "Action item without owner"
+  ],
+  "sources": [
+    {
+      "id": "src_chrome_sidepanel",
+      "title": "Chrome Side Panel API",
+      "url": "https://developer.chrome.com/docs/extensions/reference/api/sidePanel",
+      "sourceType": "institutional"
+    },
+    {
+      "id": "src_chrome_storage",
+      "title": "Chrome Storage API",
+      "url": "https://developer.chrome.com/docs/extensions/reference/api/storage/",
+      "sourceType": "institutional"
+    },
+    {
+      "id": "src_hci_biff",
+      "title": "BIFF Method, High Conflict Institute",
+      "url": "https://www.highconflictinstitute.com/biff/",
+      "sourceType": "practitioner_primary"
+    },
+    {
+      "id": "src_acas_bullying",
+      "title": "Acas - Bullying at work",
+      "url": "https://www.acas.org.uk/bullying-at-work/if-you-think-youre-being-bullied",
+      "sourceType": "institutional"
+    },
+    {
+      "id": "src_role_clarity",
+      "title": "Safe Work Australia - Lack of role clarity",
+      "url": "https://www.safeworkaustralia.gov.au/safety-topic/managing-health-and-safety/mental-health/psychosocial-hazards/lack-role-clarity",
+      "sourceType": "institutional"
+    }
+  ]
+}

@@ -5,16 +5,12 @@ export default ts.config(
   {
     ignores: [
       'node_modules/**',
-      'website/**',
       'pwa/dist/**',
       '.wxt/**',
       '.output/**',
       'test-results/**',
       'playwright-report/**',
-      'BOSSDETOX_ING_V1_HANDOFF/**',
-      'docs-v1-old/**',
       '.cache/**',
-      '.taste-skill/**',
     ],
   },
   js.configs.recommended,

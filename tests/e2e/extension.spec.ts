@@ -56,7 +56,7 @@ const test = base.extend<{
   },
 });
 async function responseIs(page: Page, id: string, tone: 'yellow' | 'grey' | 'firm') {
-  const seed = JSON.parse(readFileSync('BOSSDETOX_ING_V1_HANDOFF/CONTENT_SEED.json', 'utf8'));
+  const seed = JSON.parse(readFileSync('src/content/content-seed.json', 'utf8'));
   const overrides = JSON.parse(readFileSync('src/content/en-overrides.json', 'utf8'));
   const variants = JSON.parse(readFileSync('src/content/replies.en.json', 'utf8'));
   const scenario = (seed.scenarios as { id: string; responses: Record<string, string> }[]).find(
@@ -293,7 +293,7 @@ test('note-taking entry points and fields are absent throughout the app', async 
   await page.locator('.event-summary').first().click();
   await expect(page.locator('.calendar-detail textarea')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'Edit event', exact: true })).toHaveCount(0);
-  await page.screenshot({ path: 'docs/evidence/calendar-without-notes.png' });
+  await page.screenshot({ path: 'test-results/evidence/calendar-without-notes.png' });
   await expect(page.getByRole('button', { name: /Write this down|Grimoire/ })).toHaveCount(0);
 });
 
@@ -724,17 +724,17 @@ test('WordArt tarot system renders and remains accessible in both themes', async
     const last = await page.locator('.pain-tile').nth(5).boundingBox();
     expect(last!.y + last!.height).toBeLessThan(700);
     await audit();
-    await page.screenshot({ path: `docs/evidence/color-home-${theme}.png` });
+    await page.screenshot({ path: `test-results/evidence/color-home-${theme}.png` });
     await page
       .getByRole('button', { name: 'Job security or employment consequences raised', exact: true })
       .click();
     await audit();
-    await page.screenshot({ path: `docs/evidence/color-protection-${theme}.png` });
+    await page.screenshot({ path: `test-results/evidence/color-protection-${theme}.png` });
     await page.getByRole('radio', { name: 'Firm Rock', exact: true }).check();
     await expect(page.locator('.suggested-response')).toContainText('formal performance feedback');
     await page.getByRole('button', { name: 'Open private calendar', exact: true }).click();
     await audit();
-    await page.screenshot({ path: `docs/evidence/color-calendar-${theme}.png` });
+    await page.screenshot({ path: `test-results/evidence/color-calendar-${theme}.png` });
     await openDeck(page);
     await page.locator('.deck-grid button').first().click();
     // Audit the card once its fade-in has finished, not mid-animation.
@@ -751,7 +751,7 @@ test('WordArt tarot system renders and remains accessible in both themes', async
       )
       .toBe(true);
     await audit();
-    await page.screenshot({ path: `docs/evidence/color-tarot-${theme}.png` });
+    await page.screenshot({ path: `test-results/evidence/color-tarot-${theme}.png` });
     await page.keyboard.press('Escape');
     await expect(page.getByRole('dialog')).toHaveCount(0);
   }
@@ -803,7 +803,7 @@ test('opening card persists for the day and browsing never replaces it', async (
   await expect(card).toBeVisible();
   const id = await card.getAttribute('data-card-id');
   const day = await card.getAttribute('data-day');
-  await page.screenshot({ path: 'docs/evidence/mobile-daily.png' });
+  await page.screenshot({ path: 'test-results/evidence/mobile-daily.png' });
   const answers = await page.evaluate(
     async (day) =>
       Promise.all([
@@ -836,7 +836,7 @@ test('header and navigation stay anchored while only the middle scrolls', async 
   expect(await page.locator('#main').evaluate((node) => node.scrollTop)).toBeGreaterThan(0);
   expect((await page.locator('.topbar').boundingBox())!.y).toBe(header!.y);
   expect(await page.evaluate(() => scrollY)).toBe(0);
-  await page.screenshot({ path: 'docs/evidence/mobile-fixed-chrome.png' });
+  await page.screenshot({ path: 'test-results/evidence/mobile-fixed-chrome.png' });
 });
 test('boss pronouns, language choices and changing logos stay stable while reading', async ({
   extension: { page },

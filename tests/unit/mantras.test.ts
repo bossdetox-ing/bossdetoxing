@@ -1,5 +1,5 @@
 import { expect, test } from 'vitest';
-import seed from '../../BOSSDETOX_ING_V1_HANDOFF/CONTENT_SEED.json';
+import seed from '../../src/content/content-seed.json';
 import {
   eligibleMantras,
   mantras,

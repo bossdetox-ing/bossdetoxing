@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import seed from '../../BOSSDETOX_ING_V1_HANDOFF/CONTENT_SEED.json';
+import seed from '../../src/content/content-seed.json';
 import { tarot, tarotDeckSchema } from '../../src/domain/tarot';
 test('a complete 78-card deck preserves the original readings and all four suits', () => {
   expect(tarot).toHaveLength(78);

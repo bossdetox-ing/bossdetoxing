@@ -34,9 +34,9 @@ test('PWA is responsive across phones, landscape, tablet and desktop with fixed 
   await page.setViewportSize({ width: 1440, height: 960 });
   await page.locator('.topbar').getByRole('button', { name: 'Home', exact: true }).click();
   await expect(page.locator('.daily-card')).toBeVisible();
-  await page.screenshot({ path: 'docs/evidence/pwa-desktop.png' });
+  await page.screenshot({ path: 'test-results/evidence/pwa-desktop.png' });
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.screenshot({ path: 'docs/evidence/pwa-phone.png' });
+  await page.screenshot({ path: 'test-results/evidence/pwa-phone.png' });
 });
 test('offline PWA keeps daily card and settings and can browse all artwork without transmitting input', async ({
   page,
@@ -81,7 +81,7 @@ test('offline PWA keeps daily card and settings and can browse all artwork witho
       return loaded.every(Boolean);
     }),
   ).toBe(true);
-  await page.screenshot({ path: 'docs/evidence/pwa-stacked-deck.png' });
+  await page.screenshot({ path: 'test-results/evidence/pwa-stacked-deck.png' });
   await page.locator('.topbar').getByRole('button', { name: 'Home', exact: true }).click();
   await page.getByRole('button', { name: 'Asshole boss fight', exact: true }).click();
   await page.locator('.pain-tile').first().click();

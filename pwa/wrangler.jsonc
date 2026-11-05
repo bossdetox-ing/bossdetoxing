@@ -1,5 +1,4 @@
 {
-  "$schema": "../website/node_modules/wrangler/config-schema.json",
   "name": "bossdetox-app",
   "account_id": "0476f53d3d87537673b61ccdebc2532c",
   "compatibility_date": "2026-11-04",
