@@ -1,0 +1,160 @@
+/* Trial: skeuomorphic keys for every control button, in the clandrei palette (after Jouan
+   Marcel's "Skeuomorphic Buttons" pen). Active while <html data-buttons="skeuo">; remove the two
+   lines in pwa/main.tsx and entrypoints/sidepanel/main.tsx to revert. Card-like tiles, links and
+   the buttons that live on artwork keep their own look. */
+:root[data-buttons='skeuo'][data-theme] {
+  /* Dark keys: deep olive, lit from above. */
+  --key-top: #47463c;
+  --key-mid: #3a392f;
+  --key-bottom: #2a2920;
+  --key-edge: #121210;
+  --key-shade: 0 0 0;
+  --key-glow: rgb(255 255 255 / 0.05);
+  --key-inner: rgb(255 255 255 / 0.09);
+  --key-hi: rgb(255 255 255 / 0.1);
+  --key-press: rgb(0 0 0 / 0.55);
+  --key-text-shadow: 0 -1px 0 rgb(0 0 0 / 0.6);
+  --key-lime-top: #d8ff4d;
+  --key-lime-mid: #bef000;
+  --key-lime-bottom: #93ba00;
+  --key-lime-edge: #4f6300;
+}
+:root[data-buttons='skeuo'][data-theme='light'] {
+  --key-top: #fbfcf9;
+  --key-mid: #f3f5ef;
+  --key-bottom: #d2d7cc;
+  --key-edge: #8f9188;
+  --key-shade: 85 82 66;
+  --key-glow: rgb(255 255 255 / 0.9);
+  --key-inner: rgb(85 82 66 / 0.18);
+  --key-hi: #ffffff;
+  --key-press: rgb(85 82 66 / 0.35);
+  --key-text-shadow: 0 1px 0 rgb(255 255 255 / 0.9);
+  --key-lime-edge: #7f9a00;
+}
+@media (prefers-color-scheme: light) {
+  :root[data-buttons='skeuo'][data-theme='system'] {
+    --key-top: #fbfcf9;
+    --key-mid: #f3f5ef;
+    --key-bottom: #d2d7cc;
+    --key-edge: #8f9188;
+    --key-shade: 85 82 66;
+    --key-glow: rgb(255 255 255 / 0.9);
+    --key-inner: rgb(85 82 66 / 0.18);
+    --key-hi: #ffffff;
+    --key-press: rgb(85 82 66 / 0.35);
+    --key-text-shadow: 0 1px 0 rgb(255 255 255 / 0.9);
+    --key-lime-edge: #7f9a00;
+  }
+}
+
+/* Which buttons become keys: every control, minus tiles, links and buttons on artwork. */
+:root[data-buttons='skeuo']
+  button:not(
+    .pain-tile,
+    .tarot-back,
+    .text-button,
+    .back,
+    .danger,
+    .wordmark,
+    .event-summary,
+    .accordion-trigger,
+    .bestiary-row,
+    .art-credit,
+    .ticket-share,
+    .wa-option,
+    .month-trigger,
+    .deck-grid *,
+    .calendar-grid *,
+    .month-picker-grid *,
+    .icon-grid *,
+    .tarot-card *,
+    .protective-card *,
+    .moon-heading *,
+    .pass-input *
+  ) {
+  --key-a: var(--key-bottom);
+  --key-b: var(--key-mid);
+  --key-c: var(--key-top);
+  --key-rim: var(--key-edge);
+  border: 1px solid var(--key-rim);
+  background: linear-gradient(to top, var(--key-a) 0%, var(--key-b) 80%, var(--key-c) 100%);
+  color: var(--color-text);
+  text-shadow: var(--key-text-shadow);
+  box-shadow:
+    0 1px 0 var(--key-glow),
+    0 -1px 0 rgb(var(--key-shade) / 0.16),
+    0 2px 3px rgb(var(--key-shade) / 0.24),
+    inset 0 1px 0 var(--key-hi),
+    inset 0 -1px 0 rgb(var(--key-shade) / 0.12);
+  transition:
+    box-shadow 160ms ease-out,
+    transform 100ms ease-out;
+  &:hover:not(:disabled) {
+    background: linear-gradient(to top, var(--key-a) 0%, var(--key-b) 80%, var(--key-c) 100%);
+    box-shadow:
+      0 1px 0 var(--key-glow),
+      0 -1px 0 rgb(var(--key-shade) / 0.16),
+      0 3px 5px rgb(var(--key-shade) / 0.26),
+      inset 0 1px 0 var(--key-hi),
+      inset 0 -1px 0 rgb(var(--key-shade) / 0.12);
+  }
+  /* Pressed, and anything switched on, sits pushed into the bezel. */
+  &:active:not(:disabled),
+  &[aria-pressed='true'],
+  &[data-state='checked'],
+  &[data-state='open'],
+  &[aria-expanded='true'] {
+    box-shadow:
+      0 1px 0 var(--key-glow),
+      0 -1px 0 rgb(var(--key-shade) / 0.16),
+      inset 0 2px 3px var(--key-press),
+      inset 0 0 0 1px rgb(var(--key-shade) / 0.08);
+  }
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+  /* Icon keys are true circles; nothing may squeeze them. */
+  &.icon-button {
+    flex: none;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    min-height: 40px;
+    padding: 0;
+    border-radius: 50%;
+  }
+  /* A steady ring for the keyboard, outside the bezel. */
+  &:focus-visible {
+    outline: 2px solid var(--color-signal);
+    outline-offset: 5px;
+  }
+  /* Main actions are lime keys. */
+  &.primary,
+  &[aria-pressed='true'] {
+    --key-a: var(--key-lime-bottom);
+    --key-b: var(--key-lime-mid);
+    --key-c: var(--key-lime-top);
+    --key-rim: var(--key-lime-edge);
+    color: var(--color-on-accent);
+    text-shadow: 0 1px 0 rgb(255 255 255 / 0.35);
+  }
+  /* The Rock styles keep their colour; the chosen one is a pushed-in key of that colour. */
+  &.rock-option[data-state='checked'] {
+    --key-a: color-mix(in srgb, var(--tone) 78%, #000);
+    --key-b: var(--tone);
+    --key-c: color-mix(in srgb, var(--tone) 70%, #fff);
+    --key-rim: color-mix(in srgb, var(--tone) 50%, #000);
+    color: var(--on-tone);
+    text-shadow: none;
+  }
+}
+/* Header keys stand apart instead of sharing a glass pill. */
+:root[data-buttons='skeuo'] .header-actions {
+  gap: 8px;
+  padding: 2px;
+  background: none;
+  box-shadow: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
