@@ -7,6 +7,7 @@ import { Icon } from '../PixelIcon';
 import { ArtCredit, CardCorner, CardLetter, lordTitle } from '../ArtCredit';
 import { CardGlass } from '../CardGlass';
 import { ShareCard } from '../ShareCard';
+import { TicketCard } from '../TicketCard';
 import { tarot } from '../../domain/tarot';
 import { dailyCard } from '../../domain/daily';
 import { cardArt, isSticker } from '../../domain/card-art';
@@ -24,6 +25,8 @@ import { messages as t } from '../../content';
 import type { Navigate } from '../App';
 // The shuffle plays once per app launch, not on every return to this view.
 let shuffled = false;
+// The clandrei palette is set before the first render (pwa/main.tsx, entrypoints/sidepanel).
+const ticket = () => document.documentElement.dataset.palette === 'clandrei';
 export function Daily({
   navigate,
   strongLanguage,
@@ -156,41 +159,49 @@ export function Daily({
               onClick={() => navigate('tarot')}
             />
           ))}
-          <Card
-            role="article"
-            className="tarot-card daily-card"
-            data-arcana={card.id}
-            data-suit={card.suit ?? 'major'}
-            data-card-id={card.id}
-            data-day={day}
-          >
-            <CardGlass src={cardArt(card.id)} />
-            <h1 className="daily-label" tabIndex={-1}>
-              {t.daily.title}
-            </h1>
-            <img
-              className="tarot-art"
-              data-sticker={isSticker(card.id) || undefined}
-              src={cardArt(card.id)}
-              alt={card.fictionalSymbolism}
-            />
-            <CardCorner card={card} sky={weather} />
-            <ArtCredit card={card} sky={weather} />
-            <h2>{card.title}</h2>
-            {card.traditionalName !== card.title && (
-              <p className="arcana-name">{card.traditionalName}</p>
-            )}
-            {lordTitle(card) && <p className="arcana-lord">{lordTitle(card)}</p>}
-            <CardLetter card={card} />
-            <p className="mantra">{card.groundedMantra}</p>
-            <p>{card.nextAction}</p>
-          </Card>
+          {ticket() ? (
+            <>
+              <TicketCard card={card} day={day} sky={weather} />
+              {/* Face-down top card for the shuffle; it flips away to reveal today's card. */}
+              {shuffle && <span className="tarot-flip" aria-hidden="true" />}
+            </>
+          ) : (
+            <Card
+              role="article"
+              className="tarot-card daily-card"
+              data-arcana={card.id}
+              data-suit={card.suit ?? 'major'}
+              data-card-id={card.id}
+              data-day={day}
+            >
+              <CardGlass src={cardArt(card.id)} />
+              <h1 className="daily-label" tabIndex={-1}>
+                {t.daily.title}
+              </h1>
+              <img
+                className="tarot-art"
+                data-sticker={isSticker(card.id) || undefined}
+                src={cardArt(card.id)}
+                alt={card.fictionalSymbolism}
+              />
+              <CardCorner card={card} sky={weather} />
+              <ArtCredit card={card} sky={weather} />
+              <h2>{card.title}</h2>
+              {card.traditionalName !== card.title && (
+                <p className="arcana-name">{card.traditionalName}</p>
+              )}
+              {lordTitle(card) && <p className="arcana-lord">{lordTitle(card)}</p>}
+              <CardLetter card={card} />
+              <p className="mantra">{card.groundedMantra}</p>
+              <p>{card.nextAction}</p>
+            </Card>
+          )}
         </div>
       ) : (
         <p role="status">{t.busy}</p>
       )}
       {error && <p role="alert">{t.daily.failed}</p>}
-      {card && <ShareCard card={card} className="daily-share" />}
+      {card && !ticket() && <ShareCard card={card} className="daily-share" />}
       <Button className="daily-browse" onClick={() => navigate('tarot')}>
         {t.daily.deck}
       </Button>

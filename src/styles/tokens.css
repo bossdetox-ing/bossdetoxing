@@ -26,6 +26,7 @@
   --color-ink: var(--c-ink);
   --color-scrim: rgb(22 25 28 / 0.82);
   --art-invert: invert(1);
+  --color-logo: #eaece6;
   --segment-on: var(--color-raised);
   --glass-tint: 0.5;
   --glass-sheen: rgb(255 255 255 / 0.1);
@@ -53,6 +54,7 @@
   --color-danger: #b3261e;
   --color-scrim: rgb(242 241 236 / 0.82);
   --art-invert: none;
+  --color-logo: #151319;
   --segment-on: var(--color-surface);
   --glass-tint: 0.65;
   --glass-sheen: rgb(255 255 255 / 0.8);
@@ -74,6 +76,7 @@
     --color-danger: #b3261e;
     --color-scrim: rgb(242 241 236 / 0.82);
     --art-invert: none;
+    --color-logo: #151319;
     --segment-on: var(--color-surface);
     --glass-tint: 0.65;
     --glass-sheen: rgb(255 255 255 / 0.8);

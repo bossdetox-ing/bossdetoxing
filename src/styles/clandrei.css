@@ -1,0 +1,600 @@
+/* The app palette after clandrei.de (2006): sage ground, olive type, one lime, slide-mount tiles.
+   Scoped to <html data-palette="clandrei">, which the PWA and extension entries always set.
+   Dark is the default, as in tokens.css; light follows the theme setting. */
+:root[data-palette='clandrei'][data-theme] {
+  color-scheme: dark;
+  --cl-ground: #d4d9cf;
+  --cl-panel: #edf1e8;
+  --cl-olive: #555242;
+  --cl-rule: #a1a096;
+  --cl-lime: #bef000;
+
+  --color-bg: #22221b;
+  --color-surface: #2e2d25;
+  --color-sunken: #3a392f;
+  --color-raised: var(--cl-olive);
+  --color-text: var(--cl-panel);
+  --color-muted: #b4b3a8;
+  --color-hairline: rgb(237 241 232 / 0.12);
+  --color-border: rgb(237 241 232 / 0.22);
+  --color-accent: var(--cl-lime);
+  --color-on-accent: #22221b;
+  --color-signal: var(--cl-lime);
+  --color-danger: #ff8a7a;
+  --color-scrim: rgb(34 34 27 / 0.82);
+  --color-logo: var(--cl-lime);
+  --art-invert: invert(1);
+  --segment-on: var(--color-raised);
+  --glass-tint: 0.5;
+  --glass-sheen: rgb(255 255 255 / 0.1);
+  --glass-wash: 74%;
+
+  --cl-frame: #6b6a5c;
+  --cl-groove: rgb(0 0 0 / 0.5);
+  --cl-groove-light: rgb(255 255 255 / 0.08);
+
+  /* Black plastic mounts */
+  --cl-mount-top: #3d3c33;
+  --cl-mount-bottom: #35342c;
+  --cl-bevel: rgb(255 255 255 / 0.08);
+  --cl-shade: 0 0 0;
+  --cl-window-hi: #29281f;
+  --cl-window: #1b1b15;
+  --cl-sleeve-edge: rgb(255 255 255 / 0.28);
+  --cl-sleeve-hi: rgb(255 255 255 / 0.1);
+  --cl-sleeve-lo: rgb(255 255 255 / 0.04);
+}
+:root[data-palette='clandrei'][data-theme='light'] {
+  color-scheme: light;
+  --color-bg: var(--cl-ground);
+  --color-surface: var(--cl-panel);
+  --color-sunken: #e1e6da;
+  --color-raised: #c8cec1;
+  --color-text: #4a4839;
+  --color-muted: #5f5d50;
+  --color-hairline: rgb(85 82 66 / 0.14);
+  --color-border: var(--cl-rule);
+  /* Lime is a fill only: on the sage ground it has no contrast as a line or text. */
+  --color-accent: var(--cl-lime);
+  --color-on-accent: var(--cl-olive);
+  --color-signal: var(--cl-olive);
+  --color-danger: #a8231b;
+  --color-scrim: rgb(212 217 207 / 0.82);
+  --color-logo: var(--cl-olive);
+  --art-invert: none;
+  --segment-on: var(--color-surface);
+  --glass-tint: 0.65;
+  --glass-sheen: rgb(255 255 255 / 0.8);
+  --glass-wash: 58%;
+
+  --cl-frame: var(--cl-rule);
+  --cl-groove: var(--cl-rule);
+  --cl-groove-light: rgb(255 255 255 / 0.8);
+
+  /* White plastic mounts */
+  --cl-mount-top: #f7f8f5;
+  --cl-mount-bottom: #eef0eb;
+  --cl-bevel: rgb(255 255 255 / 0.9);
+  --cl-shade: 85 82 66;
+  --cl-window-hi: #fbfcf8;
+  --cl-window: var(--cl-panel);
+  --cl-sleeve-edge: rgb(255 255 255 / 0.95);
+  --cl-sleeve-hi: rgb(255 255 255 / 0.5);
+  --cl-sleeve-lo: rgb(255 255 255 / 0.25);
+}
+@media (prefers-color-scheme: light) {
+  :root[data-palette='clandrei'][data-theme='system'] {
+    color-scheme: light;
+    --color-bg: var(--cl-ground);
+    --color-surface: var(--cl-panel);
+    --color-sunken: #e1e6da;
+    --color-raised: #c8cec1;
+    --color-text: #4a4839;
+    --color-muted: #5f5d50;
+    --color-hairline: rgb(85 82 66 / 0.14);
+    --color-border: var(--cl-rule);
+    --color-accent: var(--cl-lime);
+    --color-on-accent: var(--cl-olive);
+    --color-signal: var(--cl-olive);
+    --color-danger: #a8231b;
+    --color-scrim: rgb(212 217 207 / 0.82);
+    --color-logo: var(--cl-olive);
+    --art-invert: none;
+    --segment-on: var(--color-surface);
+    --glass-tint: 0.65;
+    --glass-sheen: rgb(255 255 255 / 0.8);
+    --glass-wash: 58%;
+
+    --cl-frame: var(--cl-rule);
+    --cl-groove: var(--cl-rule);
+    --cl-groove-light: rgb(255 255 255 / 0.8);
+    --cl-mount-top: #f7f8f5;
+    --cl-mount-bottom: #eef0eb;
+    --cl-bevel: rgb(255 255 255 / 0.9);
+    --cl-shade: 85 82 66;
+    --cl-window-hi: #fbfcf8;
+    --cl-window: var(--cl-panel);
+    --cl-sleeve-edge: rgb(255 255 255 / 0.95);
+    --cl-sleeve-hi: rgb(255 255 255 / 0.5);
+    --cl-sleeve-lo: rgb(255 255 255 / 0.25);
+  }
+}
+
+/* Threat tiles as 35 mm slide mounts: plastic frame, sunken film window, a tab at the foot and
+   the frosted edge of an archival sleeve across the lower part of the window. */
+:root[data-palette='clandrei'] .pain-grid {
+  gap: 10px;
+}
+:root[data-palette='clandrei'] button.pain-tile,
+:root[data-palette='clandrei'] button.pain-tile:hover {
+  position: relative;
+  overflow: hidden;
+  gap: 6px;
+  padding: 8px 8px 16px;
+  border-radius: 6px;
+  background: linear-gradient(var(--cl-mount-top), var(--cl-mount-bottom));
+  box-shadow:
+    inset 0 0 0 1px var(--cl-bevel),
+    0 0 0 1px rgb(var(--cl-shade) / 0.14),
+    0 1px 3px rgb(var(--cl-shade) / 0.24);
+}
+:root[data-palette='clandrei'] button.pain-tile:hover {
+  box-shadow:
+    inset 0 0 0 1px var(--cl-bevel),
+    0 0 0 1px rgb(var(--cl-shade) / 0.32),
+    0 3px 8px rgb(var(--cl-shade) / 0.26);
+}
+:root[data-palette='clandrei'] .pain-tile::before {
+  content: '';
+  position: absolute;
+  left: 32%;
+  right: 32%;
+  bottom: 0;
+  height: 7px;
+  border-radius: 3px 3px 0 0;
+  background: var(--cl-mount-top);
+  box-shadow:
+    0 0 0 1px rgb(var(--cl-shade) / 0.12),
+    0 -1px 2px rgb(var(--cl-shade) / 0.1);
+}
+:root[data-palette='clandrei'] .pain-tile .pain-wordart {
+  position: relative;
+  display: grid;
+  align-content: center;
+  /* A wide window keeps six threats on a 800 px side panel; tall WordArt still grows it. */
+  aspect-ratio: 5 / 2;
+  padding: 6px 8px;
+  background: radial-gradient(120% 90% at 50% 40%, var(--cl-window-hi), var(--cl-window));
+  border-radius: 2px;
+  box-shadow:
+    inset 0 1px 3px rgb(0 0 0 / 0.3),
+    inset 0 0 0 1px rgb(var(--cl-shade) / 0.18);
+}
+:root[data-palette='clandrei'] .pain-tile .pain-wordart::after {
+  content: '';
+  position: absolute;
+  inset: 88% -10px 0;
+  border-top: 1px solid var(--cl-sleeve-edge);
+  background: linear-gradient(var(--cl-sleeve-hi), var(--cl-sleeve-lo));
+  backdrop-filter: blur(0.6px) saturate(0.85);
+  pointer-events: none;
+}
+:root[data-palette='clandrei'] .pain-tile .pain-desc {
+  padding-inline: 2px;
+}
+
+/* Tarot: a flat panel instead of the frosted art wash, frames in the rule grey, and backs in
+   the olive header band with lime dots. */
+:root[data-palette='clandrei'] .card-glass {
+  display: none;
+}
+:root[data-palette='clandrei'] .tarot-card,
+:root[data-palette='clandrei'] .deck-grid button {
+  background: var(--color-surface);
+  border-color: var(--cl-frame);
+  outline-color: var(--cl-frame);
+  box-shadow:
+    0 1px 3px rgb(var(--cl-shade) / 0.2),
+    0 10px 28px rgb(var(--cl-shade) / 0.12);
+}
+/* Card backs: a wallpaper of the logo monkeys (scripts/card-backs.py) on the olive band. */
+:root[data-palette='clandrei'] .tarot-back,
+:root[data-palette='clandrei'] .tarot-flip {
+  align-self: start;
+  height: calc(100% - 64px);
+  border: 7px solid var(--glass-sheen);
+  border-radius: 7px;
+  outline: 1px solid var(--cl-lime);
+  outline-offset: -12px;
+  background:
+    url('/art/backs/monkeys.svg') 0 0 / 140px 70px,
+    var(--cl-olive);
+  background-clip: padding-box;
+  box-shadow: 0 8px 20px rgb(var(--cl-shade) / 0.18);
+}
+
+:root[data-palette='clandrei'][data-theme='light'] .ticket {
+  --stub: var(--stub-light, var(--suit));
+  --stub-ink: #26251c;
+}
+@media (prefers-color-scheme: light) {
+  :root[data-palette='clandrei'][data-theme='system'] .ticket {
+    --stub: var(--stub-light, var(--suit));
+    --stub-ink: #26251c;
+  }
+}
+/* Today's card as a ticket (TicketCard.tsx): a bezel, the art in a window tinted from its own
+   painting (scripts/card-tints.py), a frosted sheet over the window's foot, and the reply line
+   as a stub in the suit colour. Corners stay nearly square, like clandrei's panels. */
+:root[data-palette='clandrei'] .ticket {
+  --suit: var(--cl-olive);
+  --on-suit: #edf1e8;
+  /* The stub takes the painting's colour (scripts/card-tints.py): a deep tone under light text
+     on dark, a mid tone under dark text on light. Both hold 5:1. The suit is the fallback. */
+  --stub: var(--stub-dark, var(--suit));
+  --stub-ink: #edf1e8;
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  width: min(100%, 340px);
+}
+:root[data-palette='clandrei'] .ticket[data-suit='swords'] {
+  --suit: var(--cl-lime);
+  --on-suit: #26251c;
+}
+:root[data-palette='clandrei'] .ticket[data-suit='wands'] {
+  --suit: #fc8430;
+  --on-suit: #26251c;
+}
+:root[data-palette='clandrei'] .ticket[data-suit='cups'] {
+  --suit: #aea2fc;
+  --on-suit: #26251c;
+}
+:root[data-palette='clandrei'] .ticket[data-suit='pentacles'] {
+  --suit: #c69006;
+  --on-suit: #26251c;
+}
+:root[data-palette='clandrei'] .ticket .ticket-card {
+  display: block;
+  width: 100%;
+  min-height: 0;
+  margin: 0;
+  padding: 9px;
+  border: 0;
+  outline: 0;
+  border-radius: 7px;
+  background: var(--glass-sheen);
+  box-shadow:
+    0 1px 2px rgb(var(--cl-shade) / 0.18),
+    0 14px 32px rgb(var(--cl-shade) / 0.18);
+  text-align: left;
+  overflow: visible;
+}
+:root[data-palette='clandrei'] .tarot-stack[data-shuffle] .ticket-card {
+  animation: none;
+}
+:root[data-palette='clandrei'] .tarot-stack[data-shuffle] .ticket {
+  animation: deck-face 2200ms both;
+}
+:root[data-palette='clandrei'] .ticket .ticket-card::before,
+:root[data-palette='clandrei'] .ticket .ticket-card::after {
+  content: none;
+}
+:root[data-palette='clandrei'] .ticket-inner {
+  position: relative;
+  display: grid;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 4px;
+  /* Blur and backdrop layers escape a rounded overflow clip in Chrome; clip-path holds them. */
+  clip-path: inset(0 round 4px);
+  background: var(--paint, var(--suit));
+}
+:root[data-palette='clandrei'] .ticket-wash {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+:root[data-palette='clandrei'] .ticket-wash img {
+  position: absolute;
+  inset: -30%;
+  width: 160%;
+  max-width: none;
+  height: 160%;
+  object-fit: cover;
+  filter: blur(30px) saturate(1.6);
+  opacity: 0.9;
+}
+:root[data-palette='clandrei'] .ticket-window {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 0.86;
+  margin: 8px;
+  border-radius: 2px;
+  background: radial-gradient(90% 85% at 50% 38%, var(--win-hi, #f4f6f1), var(--win-lo, #d4d9cf));
+  color: #26251c;
+}
+:root[data-palette='clandrei'] .ticket-window .tarot-art {
+  width: 86%;
+  height: 92%;
+  object-fit: contain;
+  transform: translateY(-5%);
+}
+:root[data-palette='clandrei'] .ticket-window .card-corner {
+  top: 10px;
+  left: 12px;
+}
+:root[data-palette='clandrei'] .ticket-window .card-corner img {
+  width: 18px;
+  height: 18px;
+}
+:root[data-palette='clandrei'] .ticket-window button.art-credit {
+  top: 6px;
+  right: 6px;
+  border-radius: 3px;
+  background: rgb(255 255 255 / 0.4);
+  color: #26251c;
+}
+:root[data-palette='clandrei'] .ticket-window .card-letter {
+  right: 12px;
+  bottom: 64px;
+  color: #26251c;
+  opacity: 0.75;
+}
+:root[data-palette='clandrei'] .ticket-glass {
+  position: relative;
+  display: grid;
+  gap: 8px;
+  margin-top: -58px;
+  padding: 14px 16px 20px 18px;
+  border-top: 1px solid var(--glass-sheen);
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-surface) 48%, transparent),
+    color-mix(in srgb, var(--color-surface) 92%, transparent) 46%
+  );
+  -webkit-backdrop-filter: blur(18px) saturate(1.35);
+  backdrop-filter: blur(18px) saturate(1.35);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  :root[data-palette='clandrei'] .ticket-glass {
+    background: var(--color-surface);
+  }
+}
+:root[data-palette='clandrei'] .ticket-glass .daily-label {
+  margin: 0;
+}
+:root[data-palette='clandrei'] .ticket-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 4px 10px;
+  align-items: start;
+}
+:root[data-palette='clandrei'] .ticket-head h2 {
+  margin: 0;
+  text-align: left;
+  text-wrap: balance;
+}
+:root[data-palette='clandrei'] .ticket-head .share-status {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+/* Share stays quiet: a small glass key, icon only (the label remains its accessible name). */
+:root[data-palette='clandrei'] .ticket button.ticket-share {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  min-height: 34px;
+  padding: 0;
+  gap: 0;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--color-surface) 45%, transparent);
+  box-shadow: inset 0 0 0 1px var(--color-hairline);
+  color: var(--color-muted);
+  font-size: 0;
+}
+:root[data-palette='clandrei'] .ticket button.ticket-share svg {
+  width: 16px;
+  height: 16px;
+}
+:root[data-palette='clandrei'] .ticket-pair {
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+  margin: 0;
+  font: 400 0.75rem/1.3 var(--font-ui);
+  color: var(--color-muted);
+}
+:root[data-palette='clandrei'] .ticket-pair span {
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+:root[data-palette='clandrei'] .ticket-pair i {
+  width: 28px;
+  border-top: 1px solid color-mix(in srgb, var(--color-text) 30%, transparent);
+  box-shadow: 0 1px 0 var(--glass-sheen);
+}
+:root[data-palette='clandrei'] .ticket-glass .mantra {
+  margin: 2px 0 0;
+  text-align: left;
+}
+:root[data-palette='clandrei'] .ticket-stub {
+  width: calc(100% - 30px);
+  margin-top: -18px;
+  padding: 28px 18px 16px;
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--stub) 70%, #000) 0, var(--stub) 36%);
+  color: var(--stub-ink);
+  text-align: center;
+  -webkit-mask:
+    radial-gradient(circle 6px at 0 62%, #0000 96%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle 6px at 100% 62%, #0000 96%, #000) right / 51% 100% no-repeat;
+  mask:
+    radial-gradient(circle 6px at 0 62%, #0000 96%, #000) left / 51% 100% no-repeat,
+    radial-gradient(circle 6px at 100% 62%, #0000 96%, #000) right / 51% 100% no-repeat;
+}
+:root[data-palette='clandrei'] .ticket-stub .stub-label {
+  display: block;
+  margin-bottom: 5px;
+  font: 600 0.6875rem/1 var(--font-ui);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+:root[data-palette='clandrei'] .ticket-stub p {
+  margin: 0;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+/* Separators are engraved, like clandrei's nav rules: a dark line over a light one. */
+:root[data-palette='clandrei'] .forecast,
+:root[data-palette='clandrei'] .forecast-rest,
+:root[data-palette='clandrei'] .reply-row + .reply-row {
+  border-top-color: var(--cl-groove);
+  box-shadow: inset 0 1px 0 var(--cl-groove-light);
+}
+:root[data-palette='clandrei'] button.event-summary + button.event-summary {
+  box-shadow:
+    inset 0 1px 0 var(--cl-groove),
+    inset 0 2px 0 var(--cl-groove-light);
+}
+:root[data-palette='clandrei'] .command-input {
+  border-bottom-color: var(--cl-groove) !important;
+  box-shadow: 0 1px 0 var(--cl-groove-light);
+}
+
+/* The shuffle, once per launch: the deck sits squared with today's card face down under a top
+   back, riffles twice (halves split, swap and bridge), squares up, then the top card lifts and
+   flips over to reveal today's card while the two backs glide out to their fan. 2.2 s, transform
+   and opacity only. Reduced motion skips it: the card is simply there. */
+:root[data-palette='clandrei'] .tarot-stack {
+  perspective: 1400px;
+}
+:root[data-palette='clandrei'] .tarot-back {
+  --dir: -1;
+}
+:root[data-palette='clandrei'] .tarot-back[data-side='right'] {
+  --dir: 1;
+}
+:root[data-palette='clandrei'] .tarot-flip {
+  position: relative;
+  z-index: 3;
+  width: min(100%, 340px);
+  pointer-events: none;
+  animation: deck-top 2200ms both;
+}
+:root[data-palette='clandrei'] .tarot-stack[data-shuffle] .tarot-back,
+:root[data-palette='clandrei'] .tarot-stack[data-shuffle] .tarot-back[data-side='right'] {
+  animation: deck-riffle 2200ms both;
+}
+:root[data-palette='clandrei'] .tarot-stack[data-shuffle] .ticket .daily-label {
+  animation-delay: 1500ms;
+}
+@keyframes deck-riffle {
+  0%,
+  6% {
+    z-index: 0;
+    transform: translateX(0) scale(0.94) rotate(0);
+    animation-timing-function: cubic-bezier(0.3, 0.7, 0.2, 1);
+  }
+  18% {
+    z-index: 0;
+    transform: translateX(calc(var(--dir) * 38%)) translateY(4px) scale(0.94)
+      rotate(calc(var(--dir) * 9deg));
+    animation-timing-function: cubic-bezier(0.5, 0, 0.3, 1);
+  }
+  30% {
+    z-index: calc(1 + var(--dir));
+    transform: translateX(calc(var(--dir) * 4%)) translateY(-4px) scale(0.94)
+      rotate(calc(var(--dir) * 1deg));
+    animation-timing-function: cubic-bezier(0.3, 0.7, 0.2, 1);
+  }
+  42% {
+    z-index: calc(1 + var(--dir));
+    transform: translateX(calc(var(--dir) * 34%)) translateY(4px) scale(0.94)
+      rotate(calc(var(--dir) * 8deg));
+    animation-timing-function: cubic-bezier(0.5, 0, 0.3, 1);
+  }
+  54%,
+  72% {
+    z-index: calc(1 - var(--dir));
+    transform: translateX(0) scale(0.94) rotate(0);
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  100% {
+    z-index: 0;
+    transform: translateX(var(--fan-x)) scale(0.86) rotate(var(--fan-r));
+  }
+}
+@keyframes deck-top {
+  0%,
+  6% {
+    opacity: 1;
+    transform: translateY(0) scale(0.94);
+    animation-timing-function: cubic-bezier(0.3, 0.7, 0.2, 1);
+  }
+  18% {
+    transform: translateY(-10px) scale(0.94) rotate(-2deg);
+  }
+  30% {
+    transform: translateY(0) scale(0.94);
+  }
+  42% {
+    transform: translateY(-8px) scale(0.94) rotate(2deg);
+  }
+  54% {
+    transform: translateY(0) scale(0.94);
+    animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  64% {
+    transform: translateY(-18px) scale(1) rotateY(0);
+    animation-timing-function: cubic-bezier(0.5, 0, 0.75, 0);
+  }
+  74% {
+    opacity: 1;
+    transform: translateY(-18px) scale(1) rotateY(90deg);
+  }
+  74.1%,
+  100% {
+    opacity: 0;
+    transform: translateY(-18px) scale(1) rotateY(90deg);
+  }
+}
+@keyframes deck-face {
+  0%,
+  74% {
+    opacity: 0;
+    transform: translateY(-18px) rotateY(-90deg);
+  }
+  74.1% {
+    opacity: 1;
+    transform: translateY(-18px) rotateY(-90deg);
+    animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+  87% {
+    transform: translateY(-18px) rotateY(0);
+    animation-timing-function: cubic-bezier(0.3, 0.7, 0.2, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root[data-palette='clandrei'] .tarot-flip {
+    display: none;
+  }
+  :root[data-palette='clandrei'] .tarot-stack[data-shuffle] .ticket .daily-label {
+    animation: none;
+  }
+}

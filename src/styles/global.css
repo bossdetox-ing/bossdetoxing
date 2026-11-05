@@ -545,11 +545,20 @@ button.wordmark:hover {
   background: var(--color-sunken);
 }
 .brand-avatar {
+  display: block;
   width: 40px;
   height: 40px;
-  /* Ink that flips with the theme, plus a halo in the page colour for legibility over content. */
-  filter: var(--art-invert) drop-shadow(0 0 3px var(--color-bg))
-    drop-shadow(0 0 6px var(--color-bg));
+  /* A halo in the page colour for legibility over content. */
+  filter: drop-shadow(0 0 3px var(--color-bg)) drop-shadow(0 0 6px var(--color-bg));
+}
+/* The mask sits on ::before so the halo above is not masked away. */
+.brand-avatar::before {
+  content: '';
+  display: block;
+  height: 100%;
+  background: var(--color-logo);
+  -webkit-mask: var(--logo) center / contain no-repeat;
+  mask: var(--logo) center / contain no-repeat;
 }
 .header-actions {
   display: flex;

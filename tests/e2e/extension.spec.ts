@@ -842,9 +842,9 @@ test('boss pronouns, language choices and changing logos stay stable while readi
   extension: { page },
 }) => {
   await start(page);
-  let previous = await page.locator('.wordmark img').getAttribute('src');
+  let previous = await page.locator('.wordmark .brand-avatar').getAttribute('style');
   await page.locator('.topbar').getByRole('button', { name: 'Settings', exact: true }).click();
-  expect(await page.locator('.wordmark img').getAttribute('src')).not.toBe(previous);
+  expect(await page.locator('.wordmark .brand-avatar').getAttribute('style')).not.toBe(previous);
   await expect(
     page.getByLabel('Strong language in private headings', { exact: true }),
   ).toBeChecked();
@@ -858,9 +858,9 @@ test('boss pronouns, language choices and changing logos stay stable while readi
     );
     // One navigation at a time: two in a row may land back on the same logo.
     await goHome(page);
-    previous = await page.locator('.wordmark img').getAttribute('src');
+    previous = await page.locator('.wordmark .brand-avatar').getAttribute('style');
     await page.getByRole('button', { name: /^(Asshole boss fight|Boss fight|Fight .+)$/ }).click();
-    expect(await page.locator('.wordmark img').getAttribute('src')).not.toBe(previous);
+    expect(await page.locator('.wordmark .brand-avatar').getAttribute('style')).not.toBe(previous);
     const title = page.locator('.pain-home h1');
     const text = await title.textContent();
     expect(text).toMatch(

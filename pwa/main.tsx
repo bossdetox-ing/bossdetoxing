@@ -4,8 +4,11 @@ import { messages as t } from '../src/content';
 import { App } from '../src/app/App';
 import '../src/styles/global.css';
 import './web.css';
+import '../src/styles/clandrei.css';
 
 document.documentElement.dataset.platform = 'web';
+// The clandrei palette (src/styles/clandrei.css) is the app's look.
+document.documentElement.dataset.palette = 'clandrei';
 createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <App />
