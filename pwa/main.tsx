@@ -2,12 +2,24 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { messages as t } from '../src/content';
 import { App } from '../src/app/App';
+import { disguiseTitle } from '../src/domain/disguise';
 import '../src/styles/global.css';
 import './web.css';
 import '../src/styles/clandrei.css';
 import '../src/styles/skeuo.css';
 
 document.documentElement.dataset.platform = 'web';
+// The tab wears the last chosen disguise before the first render, so the real name never shows.
+try {
+  const icon = localStorage.getItem('bossdetox-disguise');
+  if (icon && /^[a-z0-9-]+$/.test(icon)) {
+    document.title = disguiseTitle(icon);
+    const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
+    if (link) link.href = `/disguise/${icon}.svg`;
+  }
+} catch {
+  // Storage blocked: the shell's default disguise stays until settings load.
+}
 // The clandrei palette (src/styles/clandrei.css) is the app's look.
 document.documentElement.dataset.palette = 'clandrei';
 // Trial: skeuomorphic keys (src/styles/skeuo.css). Delete this line and the import to revert.

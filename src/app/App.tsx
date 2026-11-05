@@ -78,6 +78,12 @@ export function App() {
     if (!isExtension()) {
       const link = document.querySelector<HTMLLinkElement>('link[rel="icon"]');
       if (link) link.href = `/disguise/${settings.icon}.svg`;
+      // Remembered so the next launch shows this disguise from its first frame (pwa/main.tsx).
+      try {
+        localStorage.setItem('bossdetox-disguise', settings.icon);
+      } catch {
+        // Storage blocked: the default disguise shows until settings load.
+      }
       return;
     }
     // The toolbar icon follows the browser's light/dark chrome; remember it for startup.
