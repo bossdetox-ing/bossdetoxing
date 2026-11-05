@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/readme/logo.png" alt="bossdetox.ing logo" width="120" height="120" />
+  <img src=".github/readme/logo.png" alt="bossdetox.ing logo" width="120" height="120" />
 </p>
 
 <h1 align="center">bossdetox.ing</h1>
@@ -18,7 +18,7 @@
 </p>
 
 <p align="center">
-  <img src="docs/readme/demo.gif" alt="Demo: the sky forecast, the daily tarot card, the threat grid, a threat with lines to say and write, and the encrypted Grimoire." width="640" />
+  <img src=".github/readme/demo.gif" alt="Demo: the sky forecast, the daily tarot card, the threat grid, a threat with lines to say and write, and the encrypted Grimoire." width="640" />
 </p>
 
 ## What's inside
@@ -74,13 +74,11 @@ You need **Google Chrome**, version 116 or newer. It takes about 2 minutes.
 - History is optional, encrypted with your passphrase and stored only in your browser. No account, no cloud, no recovery: lose the passphrase, lose the history.
 - **The limits are real.** A work laptop, monitoring software, screen sharing, screenshots or clipboard history can still show what's on your screen. The eye button hides everything in one tap, but nothing makes you invisible on a managed device.
 
-Details: [PRIVACY.md](docs/PRIVACY.md) · [SECURITY_THREAT_MODEL.md](docs/SECURITY_THREAT_MODEL.md)
-
 **This is a coping tool for a bad day at work, not therapy or legal advice.** If you're dealing with threats, harassment or danger, go to [Support without jokes](https://bossdetox.ing/support/).
 
 ## For developers
 
-The extension (WXT, Chrome MV3), the PWA (`pwa/`, Vite) and the shared React app (`src/`) live in this repo, along with the Astro/EmDash marketing site (`website/`). Use Node **22.23.4 or later**.
+The extension (WXT, Chrome MV3), the PWA (`pwa/`, Vite) and the shared React app (`src/`) live in this repo. Use Node **22.23.4 or later**.
 
 ```sh
 npm ci
@@ -90,14 +88,10 @@ npm run test:e2e     # typecheck, production build, privacy audit, extension bro
 npm run package      # loadable ZIP in release/ with SHA-256 checksums
 ```
 
-Run `npx playwright install chromium` once before the browser tests. The PWA and the site:
+Run `npx playwright install chromium` once before the browser tests. Build the PWA into `pwa/dist` with:
 
 ```sh
-npm run build:web                 # PWA into pwa/dist
-node scripts/site-assets.mjs      # shared art, fonts and notices into website/public
-npm ci --prefix website
-npm run --prefix website build
-npm run test:web                  # PWA and site browser tests, including axe
+npm run build:web
 ```
 
 | Area                                                      | Location                        |
@@ -110,8 +104,6 @@ npm run test:web                  # PWA and site browser tests, including axe
 | Tokens and styles                                         | `src/styles/`                   |
 | Tests                                                     | `tests/`                        |
 
-Live state: [CURRENT.md](docs/CURRENT.md). Deployment: [WEB_DEPLOYMENT.md](docs/WEB_DEPLOYMENT.md). Release gates: [RELEASE_CHECKLIST.md](docs/RELEASE_CHECKLIST.md). Localization: [LOCALIZATION.md](docs/LOCALIZATION.md).
-
 ## License
 
-Code is [MIT](LICENSE). Tarot art comes from public-domain paintings via Wikimedia Commons; fonts and other third-party pieces keep their own licences, listed in [LICENSES.md](docs/LICENSES.md).
+Code is [MIT](LICENSE). Tarot art comes from public-domain paintings via Wikimedia Commons; fonts and other third-party pieces keep their own licences, listed in `THIRD_PARTY_NOTICES.txt` inside every build.
