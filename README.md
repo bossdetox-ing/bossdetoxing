@@ -13,7 +13,7 @@
 
 <p align="center">
   <a href="https://ass.bossdetox.ing"><strong>Open the app</strong></a> ·
-  <a href="https://github.com/demetriusk/bossdetoxing/releases/latest"><strong>Download the extension</strong></a> ·
+  <a href="https://github.com/bossdetox-ing/bossdetoxing/releases/latest"><strong>Download the extension</strong></a> ·
   <a href="https://youtu.be/F17ikeZEf1A">Watch the film</a> ·
   <a href="https://bossdetox.ing">Website</a>
 </p>
@@ -50,7 +50,7 @@ You have two options. Pick one, or use both.
 
 You need **Google Chrome**, version 116 or newer. It takes about 2 minutes.
 
-1. **Download the ZIP.** Go to the [latest release](https://github.com/demetriusk/bossdetoxing/releases/latest) and click **`bossdetox-ing-1.2.0-chrome.zip`** under **Assets**.
+1. **Download the ZIP.** Go to the [latest release](https://github.com/bossdetox-ing/bossdetoxing/releases/latest) and click **`bossdetox-ing-1.2.0-chrome.zip`** under **Assets**.
 2. **Unzip it.**
    - **Mac:** double-click the ZIP in Downloads. A folder appears next to it.
    - **Windows:** right-click the ZIP, choose **Extract All…**, then **Extract**.
@@ -70,7 +70,7 @@ You need **Google Chrome**, version 116 or newer. It takes about 2 minutes.
 | A "Disable developer mode extensions" popup  | Chrome may show this for extensions installed this way. Close it; don't click **Disable**.                            |
 | The extension disappeared                    | The folder was moved or deleted. Put it back, or repeat steps 1 to 5.                                                 |
 
-**Updating:** download the new ZIP from the [latest release](https://github.com/demetriusk/bossdetoxing/releases/latest) and unzip it. Delete everything inside your old extension folder, copy the new files into that same folder, then click the ↻ reload arrow on the bossdetox.ing card at `chrome://extensions`. Keep the same folder: Chrome treats a different folder as a brand-new install, with empty history.
+**Updating:** download the new ZIP from the [latest release](https://github.com/bossdetox-ing/bossdetoxing/releases/latest) and unzip it. Delete everything inside your old extension folder, copy the new files into that same folder, then click the ↻ reload arrow on the bossdetox.ing card at `chrome://extensions`. Keep the same folder: Chrome treats a different folder as a brand-new install, with empty history.
 
 ## Privacy, in plain words
 
