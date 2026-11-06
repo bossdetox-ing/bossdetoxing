@@ -1,33 +1,37 @@
 <p align="center">
-  <img src=".github/readme/logo.png" alt="bossdetox.ing logo" width="120" height="120" />
+  <img src=".github/readme/logo.png" alt="bossdetox.ing logo: a monkey in a hat and sunglasses" width="120" height="120" />
 </p>
 
 <h1 align="center">bossdetox.ing</h1>
 
-<p align="center"><strong>Keep your soul. Keep your paycheck.</strong></p>
+<p align="center"><strong>Toxic boss? Keep your soul. Keep your paycheck.</strong></p>
 
 <p align="center">
-  A free pocket ward for toxic-boss days: what to say, what to send, a daily tarot pull and your boss's horoscope.<br />
+  A free pocket ward for toxic-boss days. Name what your boss is doing, get a calm line to say and a reply to send in writing, keep receipts, and pull a tarot card while you're at it.<br />
   Works offline. Tells no one. No accounts, no AI, no ads, no tracking.
 </p>
 
 <p align="center">
   <a href="https://ass.bossdetox.ing"><strong>Open the app</strong></a> ·
   <a href="https://github.com/demetriusk/bossdetoxing/releases/latest"><strong>Download the extension</strong></a> ·
+  <a href="https://youtu.be/F17ikeZEf1A">Watch the film</a> ·
   <a href="https://bossdetox.ing">Website</a>
 </p>
 
 <p align="center">
-  <img src=".github/readme/demo.gif" alt="Demo: the sky forecast, the daily tarot card, the threat grid, a threat with lines to say and write, and the encrypted Grimoire." width="640" />
+  <a href="https://youtu.be/F17ikeZEf1A"><img src=".github/readme/demo.gif" alt="Moments from the 54-second film: a 9:30 pm mandatory quick sync, the stat that 6 in 10 workers have a toxic boss, a boss texting on your day off, a Grey Rock reply landing on a pile of stones, and the line: you matter more than their mood." width="640" /></a><br />
+  <sub>Moments from <em>Per my last exorcism</em>, our 54-second film. <a href="https://youtu.be/F17ikeZEf1A">Watch it with sound</a>.</sub>
 </p>
 
 ## What's inside
 
 - **Name the threat.** Twenty classics, from the moving goalpost to the meeting about the meeting. Tap one and get a line to say out loud and a line to write in the email.
 - **Pick your rock.** Yellow Rock is warm. Grey Rock is boring on purpose. Firm Rock says no, politely.
+- **Your boss's signature move.** Every boss has a move only they pull. Name it in the Bestiary, write your comeback, and it joins the grid.
 - **Pull a card.** One card a day from a 78-card corporate deck: famous paintings turned stickers, each with a mantra and one next step for the actual job.
 - **Your boss's horoscope.** The real moon, Mercury and planets, calculated on your device. The boss forecast is for fun. Get it in writing anyway.
 - **The Grimoire keeps receipts.** A private calendar of what happened and when, locked with your passphrase. One tap on the eye hides everything.
+- **Hide in plain sight.** Give the tab or toolbar icon a boring disguise: mail, a calendar, a chart, a plain search box.
 
 ## Install
 
