@@ -1,0 +1,56 @@
+# Publishes extension releases as github-actions[bot], so no personal account shows as the author.
+# Run it from the Actions tab (or `gh workflow run release.yml -f tag=v1.2.1`) after pushing the tag.
+#   republish: true  -> re-posts an existing release unchanged (same files, title and notes).
+#   republish: false -> builds the ZIP from the tag and publishes it, with notes from
+#                       .github/release-notes/<tag>.md when that file exists.
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag to release, for example v1.2.1
+        required: true
+      republish:
+        description: Re-post an existing release as the bot, keeping its files and notes
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TAG: ${{ inputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag }}
+
+      - name: Re-post the existing release
+        if: ${{ inputs.republish }}
+        run: |
+          mkdir -p out/assets
+          gh release view "$TAG" --json name --jq .name > out/title
+          gh release view "$TAG" --json body --jq .body > out/notes.md
+          gh release download "$TAG" --dir out/assets
+          gh release delete "$TAG" --yes
+          gh release create "$TAG" out/assets/* --verify-tag --title "$(cat out/title)" --notes-file out/notes.md
+
+      - uses: actions/setup-node@v4
+        if: ${{ !inputs.republish }}
+        with:
+          node-version: 22.23.4
+          cache: npm
+
+      - name: Build and publish
+        if: ${{ !inputs.republish }}
+        run: |
+          npm ci
+          npm run package
+          notes=".github/release-notes/$TAG.md"
+          if [ -f "$notes" ]; then set -- --notes-file "$notes"; else set -- --generate-notes; fi
+          gh release create "$TAG" release/*.zip release/SHA256SUMS --verify-tag --title "bossdetox.ing ${TAG#v}" "$@"
