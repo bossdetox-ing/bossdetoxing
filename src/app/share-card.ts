@@ -68,6 +68,23 @@ export async function cardImage(card: Card) {
   canvas.width = W;
   canvas.height = H;
   const ctx = canvas.getContext('2d')!;
+  // Long titles or mantras lift the text block and shrink the art window, so the text never
+  // reaches the footer.
+  const TITLE = '600 76px Minipax, Georgia, serif';
+  const MANTRA = '600 38px "IBM Plex Mono", monospace';
+  const lord = lordTitle(card);
+  ctx.font = TITLE;
+  const titleLines = lines(ctx, card.title, 840);
+  ctx.font = MANTRA;
+  const mantraLines = lines(ctx, card.groundedMantra, 820);
+  const textEnd =
+    880 +
+    80 * titleLines.length +
+    (card.traditionalName !== card.title ? 40 : 0) +
+    (lord ? 36 : 0) +
+    30 +
+    52 * (mantraLines.length - 1);
+  const lift = Math.max(0, textEnd - 1140);
 
   // Paper, then the artwork scaled up from a tiny copy: a soft blur that works in every browser.
   ctx.fillStyle = '#efeee8';
@@ -114,18 +131,19 @@ export async function cardImage(card: Card) {
   }
 
   // The sticker, fitted into the art window.
-  const scale = Math.min(700 / art!.naturalWidth, 560 / art!.naturalHeight);
+  const box = 560 - lift;
+  const scale = Math.min(700 / art!.naturalWidth, box / art!.naturalHeight);
   const aw = art!.naturalWidth * scale;
   const ah = art!.naturalHeight * scale;
-  ctx.drawImage(art!, (W - aw) / 2, 220 + (560 - ah) / 2, aw, ah);
+  ctx.drawImage(art!, (W - aw) / 2, 220 + (box - ah) / 2, aw, ah);
 
   // Title, traditional name, mantra.
   ctx.textAlign = 'center';
   ctx.textBaseline = 'alphabetic';
   ctx.fillStyle = INK;
-  ctx.font = '600 76px Minipax, Georgia, serif';
-  let y = 880;
-  for (const line of lines(ctx, card.title, 840)) {
+  ctx.font = TITLE;
+  let y = 880 - lift;
+  for (const line of titleLines) {
     ctx.fillText(line, W / 2, y);
     y += 80;
   }
@@ -135,16 +153,15 @@ export async function cardImage(card: Card) {
     ctx.fillText(card.traditionalName, W / 2, y - 18);
     y += 40;
   }
-  const lord = lordTitle(card);
   if (lord) {
     ctx.font = '400 26px "IBM Plex Mono", monospace';
     ctx.fillStyle = MUTED;
     ctx.fillText(lord, W / 2, y - 18);
     y += 36;
   }
-  ctx.font = '600 38px "IBM Plex Mono", monospace';
+  ctx.font = MANTRA;
   ctx.fillStyle = INK;
-  for (const line of lines(ctx, card.groundedMantra, 820)) {
+  for (const line of mantraLines) {
     ctx.fillText(line, W / 2, y + 30);
     y += 52;
   }
