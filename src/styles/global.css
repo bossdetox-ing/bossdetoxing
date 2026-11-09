@@ -1761,8 +1761,9 @@ button.read-more {
   text-decoration: underline;
   text-underline-offset: 3px;
 }
-/* Left-aligned card: drop the inline padding so the link lines up with the text. */
-.calendar-detail button.read-more {
+/* Left-aligned cards: drop the inline padding so the link lines up with the text. */
+.calendar-detail button.read-more,
+.ticket-glass button.read-more {
   justify-self: start;
   padding-inline: 0;
 }

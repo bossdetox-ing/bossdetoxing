@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import authored from '../content/tarot.en.json';
+import authoredReflections from '../content/tarot-reflections.en.json';
 export const tarotCardSchema = z
   .object({
     id: z.string().min(1),
@@ -40,3 +41,18 @@ export const tarotDeckSchema = z
     }
   });
 export const tarot = tarotDeckSchema.parse(authored);
+
+/** The card's "Read more": a short reflection and an optional prompt, opened under its mantra. */
+export const tarotReflections = z
+  .array(
+    z
+      .object({
+        cardId: z.string().min(1),
+        text: z.string().trim().min(1),
+        prompt: z.string().trim().min(1),
+      })
+      .strict(),
+  )
+  .parse(authoredReflections);
+const reflectionByCard = new Map(tarotReflections.map((r) => [r.cardId, r]));
+export const tarotReflection = (cardId: string) => reflectionByCard.get(cardId);

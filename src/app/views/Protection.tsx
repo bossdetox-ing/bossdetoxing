@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 import { messages as t } from '../../content';
 import { content, type Tone } from '../../domain/content';
 import { pains, painForScenario, scenarioFor } from '../../domain/pains';
-import type { MantraSnapshot } from '../../domain/mantras';
+import { reflectionFor, type MantraSnapshot } from '../../domain/mantras';
 import { useCompanion } from '../companion-store';
 import { CopyButton, Field, PageTitle, ReadMore, Select } from '../components';
 import { professionalResponse } from '../../domain/scripts';
@@ -263,7 +263,7 @@ export function ProtectionCard({
           </>
         )}
         <p className="charm-text">{mantra!.text}</p>
-        <ReadMore mantraId={mantra!.id} />
+        <ReadMore id={mantra!.id} reflection={reflectionFor(mantra!.id)} />
         <Button
           className="favorite-button"
           aria-label={

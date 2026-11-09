@@ -4,7 +4,8 @@ import { ArtCredit, CardCorner, CardLetter, correspondenceLabel, lordTitle } fro
 import { ShareCard } from './ShareCard';
 import { cardArt, isSticker } from '../domain/card-art';
 import type { Sky } from '../domain/cosmos';
-import type { tarot } from '../domain/tarot';
+import { tarotReflection, type tarot } from '../domain/tarot';
+import { ReadMore } from './components';
 import tints from '../content/card-tints.json';
 import { messages as t } from '../content';
 
@@ -91,6 +92,7 @@ export function TicketCard({
             </p>
             {!daily && <p className="symbolism">{card.fictionalSymbolism}</p>}
             <p className="mantra">{card.groundedMantra}</p>
+            <ReadMore id={card.id} reflection={tarotReflection(card.id)} />
           </div>
         </div>
       </Card>

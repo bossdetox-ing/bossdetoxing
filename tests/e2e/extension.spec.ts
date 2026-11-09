@@ -604,7 +604,7 @@ test('mantra changes only on request, read more opens inline, and the calendar k
   for (let i = 0; i < 20 && !(await more.isVisible()); i++)
     await page.getByRole('button', { name: 'Another', exact: true }).click();
   await more.click();
-  await expect(page.locator('#mantra-reflection')).toBeVisible();
+  await expect(page.locator('.protective-card .mantra-reflection')).toBeVisible();
   await expect(response).toContainText('formal performance feedback');
   const report = await new AxeBuilder({ page })
     .setLegacyMode(true)

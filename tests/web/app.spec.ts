@@ -186,7 +186,7 @@ test('read more opens the line’s reflection inline and another line closes it'
   await expect(more).toHaveAttribute('aria-expanded', 'false');
   await more.click();
   await expect(more).toHaveAttribute('aria-expanded', 'true');
-  await expect(page.locator('#mantra-reflection .mantra-prompt')).not.toBeEmpty();
+  await expect(page.locator('.protective-card .mantra-prompt')).not.toBeEmpty();
   await page.getByRole('button', { name: 'Another', exact: true }).click();
-  await expect(page.locator('#mantra-reflection')).toHaveCount(0);
+  await expect(page.locator('.protective-card .mantra-reflection')).toHaveCount(0);
 });

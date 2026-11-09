@@ -3,6 +3,7 @@ import { content, contentSchema } from '../../src/domain/content';
 import { copyRisks } from '../../src/domain/copy-review';
 import { shuffled } from '../../src/domain/session';
 import { resolveLocale } from '../../src/content';
+import { tarot, tarotReflection, tarotReflections } from '../../src/domain/tarot';
 import { professionalResponse } from '../../src/domain/scripts';
 import {
   customThreatSchema,
@@ -92,4 +93,13 @@ test('suggested passphrases are six distinct-looking EFF short-list words', asyn
   for (const word of words) expect(list.has(word === 'yoyo' ? 'yo-yo' : word)).toBe(true);
   expect(first.length).toBeGreaterThanOrEqual(12);
   expect(suggestPassphrase()).not.toBe(first);
+});
+
+test('every tarot card has one read-more reflection', () => {
+  expect(tarotReflections).toHaveLength(78);
+  for (const card of tarot) {
+    const reflection = tarotReflection(card.id);
+    expect(reflection, card.id).toBeDefined();
+    expect(reflection!.text.split(/\s+/).length).toBeLessThanOrEqual(120);
+  }
 });

@@ -1,5 +1,4 @@
 import { Button } from '../components/ui/button';
-import { reflectionFor } from '../domain/mantras';
 import { Input } from '../components/ui/input';
 import { Textarea } from '../components/ui/textarea';
 import {
@@ -243,24 +242,30 @@ export function Toggle({
   );
 }
 
-/** "Read more" under a line: opens its reflection inline, and stays open only for that line. */
-export function ReadMore({ mantraId }: { mantraId: string }) {
+/** "Read more" under a line or card: opens its reflection inline, and stays open only for that id. */
+export function ReadMore({
+  id,
+  reflection,
+}: {
+  id: string;
+  reflection?: { text: string; prompt: string };
+}) {
   const [openId, setOpenId] = useState<string>();
-  const reflection = reflectionFor(mantraId);
+  const panel = useId();
   if (!reflection) return null;
-  const open = openId === mantraId;
+  const open = openId === id;
   return (
     <>
       <Button
         className="text-button read-more"
         aria-expanded={open}
-        aria-controls="mantra-reflection"
-        onClick={() => setOpenId(open ? undefined : mantraId)}
+        aria-controls={panel}
+        onClick={() => setOpenId(open ? undefined : id)}
       >
         {open ? t.redesign.readLess : t.redesign.readMore}
       </Button>
       {open && (
-        <div id="mantra-reflection" className="mantra-reflection">
+        <div id={panel} className="mantra-reflection">
           <p>{reflection.text}</p>
           <p className="mantra-prompt">{reflection.prompt}</p>
         </div>
