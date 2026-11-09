@@ -3,14 +3,14 @@
     "id": "r_after_meeting_replay_r1",
     "situationId": "after_meeting_replay",
     "phases": ["after"],
-    "text": "Hours later, the conversation is still playing. Douglas Stone, Bruce Patton and Sheila Heen describe three conversations running inside every difficult one: what happened, what each person felt, and what it says about who you are. When the other person has power over your work, the first conversation has real stakes: what happened may have consequences, and keeping track of them is sensible. Often, though, the loop is the third, less interested in the facts than in whether you are competent, likeable, good at this. That question is real too. Seeing which of the three is running does not switch it off. It shows you what the replay is actually asking.",
-    "prompt": "Which of the three is still running: what happened, how it felt, or what it says about you?"
+    "text": "Hours later, the conversation is still playing: your sentence, their pause, the reply you wish you had given. Three questions tend to be tangled in a replay like this. What happened. How it felt. What it says about you. When the other person has power over your work, the first has real stakes, and keeping track of it makes sense. Often, though, the loop runs on the third, which cares less about the facts than about whether you are competent, likeable, good at this. That question is real too, and going over the facts again will not answer it. Knowing which one is playing does not switch it off. It shows what the replay is actually asking.",
+    "prompt": "None of the three has to be settled today."
   },
   {
     "id": "r_after_meeting_replay_r2",
     "situationId": "after_meeting_replay",
     "phases": ["after"],
-    "text": "Ethan Kross found that people often think more clearly about their own trouble when they address themselves as “you”, the way they would talk to a friend. It is not a trick for making feelings disappear, and it does not work instantly. It puts a little distance between you and the scene. If the replay is running, it can help to tell it back to yourself in the second person: you said this, they said that, you were tired. The facts stay the same. The distance is what changes.",
+    "text": "Ethan Kross found that people often think more clearly about their own trouble when they address themselves as “you”, the way they would talk to a friend. It is not a trick for making difficult feelings disappear. It puts a little distance between you and the scene. If the replay is running, it can help to tell it back to yourself in the second person: you said this, they said that, you were tired. The facts stay the same. The distance is what changes.",
     "prompt": "Try telling one minute of it back to yourself as “you”."
   },
   {
@@ -32,21 +32,20 @@
     "situationId": "circular_interrogation",
     "phases": ["after"],
     "text": "When questioning goes round, a larger accusation can form without ever being stated: that you are hiding something, or that you are someone who gets things wrong. Nobody said it, so there is nothing to answer, yet it can settle in anyway. The questions are about events. The implied picture is about a person, and it was never put to you in words you could check. Questions about events can be checked against what happened. A description that was only ever implied has nothing to check it against, so it tends to grow in the gaps between rounds.",
-    "prompt": "Notice one thing the repetition seems to imply about you that nobody has actually said."
+    "prompt": "What nobody actually said is not yours to answer."
   },
   {
     "id": "r_circular_interrogation_r3",
     "situationId": "circular_interrogation",
     "phases": ["after"],
-    "text": "Karl Jaspers called real communication a loving struggle: two people questioning each other hard, but both open, both willing to be changed by what they hear. Questions asked that way move somewhere. Questioning that circles is a different thing. One side asks, the other answers, and only one of them is expected to change. When power runs in one direction, the struggle Jaspers described is rarely available, and its absence does not show a failure on your part to communicate. Understanding needs both sides open, and only one of them is you.",
-    "prompt": "Notice whether any question in this has moved since the first time it was asked."
+    "text": "Karl Jaspers called real communication a loving struggle: two people questioning each other hard, but both open, both willing to be changed by what they hear. Questions asked that way move somewhere. Questioning that circles is a different thing. One side asks, the other answers, and only one of them is expected to change. When power runs in one direction, the struggle Jaspers described is rarely available, and its absence does not show a failure on your part to communicate. Understanding needs both sides open, and only one of them is you."
   },
   {
     "id": "r_circular_interrogation_r4",
     "situationId": "circular_interrogation",
     "phases": ["after"],
-    "text": "Being questioned has an inner side that nobody else controls. Rollo May wrote that when we argue our case before someone's court, we concede their right to judge us. May was writing about the people whose expectations we have lived under, and for him, arguing your case was itself the trap. Work changes that. Refusing to answer is rarely possible, and nobody is suggesting you try. What can still be withheld is the inner part: the sense that their verdict settles who you are. You can answer carefully, as many times as required, and keep that part for yourself.",
-    "prompt": "Name, to yourself, whose judgment on this you would actually trust."
+    "text": "The same questions again, in another meeting or another message, and you are expected to answer. Each round takes a little more out of you, and after a while being asked can start to feel like being tried. Refusing to answer is rarely safe or realistic, and nothing here asks you to. Having to answer still does not mean owing answers without end. There is also an inner side to this. Arguing your case before someone can quietly turn them into a court, as if their ruling settled what kind of person you are. At work you may have to keep explaining yourself. Their judgment can affect your job. It does not get to define you.",
+    "prompt": "Whose judgment on this would you actually trust?"
   },
   {
     "id": "r_colleague_gossip_r1",
@@ -66,8 +65,7 @@
     "id": "r_colleague_gossip_r3",
     "situationId": "colleague_gossip",
     "phases": ["after"],
-    "text": "Afterwards, it can feel as if hearing something made you part of it. Being present when something is said and saying it yourself are different positions. Everyone in the conversation was in the first one simply by being there. What you add belongs to the second, and you are the only one in a position to weigh it. That weighing is private. A quiet way of not adding counts, even if nobody notices it, and nobody is owed a public stand that would cost you your footing.",
-    "prompt": "Was there anything you added that you would rather not have? If not, that counts too."
+    "text": "Afterwards, it can feel as if hearing something made you part of it. Being present when something is said and saying it yourself are different positions. Everyone in the conversation was in the first one simply by being there. What you add belongs to the second, and you are the only one in a position to weigh it. That weighing is private. A quiet way of not adding counts, even if nobody notices it, and nobody is owed a public stand that would cost you your footing."
   },
   {
     "id": "r_competing_priorities_r1",
@@ -80,22 +78,20 @@
     "id": "r_competing_priorities_r2",
     "situationId": "competing_priorities",
     "phases": ["after"],
-    "text": "When everything is urgent, the question of what matters gets replaced by the question of who will be angriest. Under pressure that is a reasonable thing to weigh, and sometimes it decides the order. Steven Hayes separates goals set by fear of disappointing others from values, which are directions you care about and never finish. Values will not tell you which task goes first. They answer a different question: what you want to be true of how you chose, whichever order the day forced, and whether or not anyone else ever hears about it.",
-    "prompt": "Is there one part of how you handled today's choice that you would stand by? It counts, whoever saw it."
+    "text": "When everything is urgent, the question of what matters gets replaced by the question of who will be angriest. Under pressure that is a reasonable thing to weigh, and sometimes it decides the order. Steven Hayes separates goals set by fear of disappointing others from values, which are directions you care about and never finish. Values will not tell you which task goes first. They answer a different question: what you want to be true of how you chose, whichever order the day forced, and whether or not anyone else ever hears about it."
   },
   {
     "id": "r_competing_priorities_r3",
     "situationId": "competing_priorities",
     "phases": ["after"],
     "text": "Epictetus divided the world into what is up to us and what is not: our judgments and choices on one side, other people's opinions and our reputation on the other. With several demands and not enough time, that line is useful. The order you choose is yours; how each person reacts to it is not. But reputation at work is not a mere external to someone who needs the job, and the Stoics can make this sound easier than it is. The line shows where your part ends. It does not promise that blame will stay on the other side of it.",
-    "prompt": "Which part of today's choice was yours, and which part belonged to whoever set the demands?"
+    "prompt": "The part that belonged to someone else can stay with them tonight."
   },
   {
     "id": "r_credit_dispute_r1",
     "situationId": "credit_dispute",
     "phases": ["before", "after"],
-    "text": "It can seem petty to mind. Hannah Arendt separated labor, which keeps life going and is used up as soon as it is done, from work, which makes something that lasts. Much of a working week is the first kind. When some of your effort becomes the second kind, a thing that stays and that people refer to, it is one of the few places your work leaves a mark. Another name on it takes your part out of that mark, which is why it can hurt more than vanity would explain. It also has material weight: credit feeds reviews, pay and the next opportunity. Minding it is reasonable, whatever you decide to do about it.",
-    "prompt": "What would this credit have counted toward, if it had gone to you?"
+    "text": "It can seem petty to mind. Hannah Arendt separated labor, which keeps life going and is used up as soon as it is done, from work, which makes something that lasts. Much of a working week is the first kind. When some of your effort becomes the second kind, a thing that stays and that people refer to, it is one of the few places your work leaves a mark. Another name on it takes your part out of that mark, which is why it can hurt more than vanity would explain. It also has material weight: credit feeds reviews, pay and the next opportunity. Minding it is reasonable, whatever you decide to do about it."
   },
   {
     "id": "r_credit_dispute_r2",
@@ -108,8 +104,7 @@
     "id": "r_credit_dispute_r3",
     "situationId": "credit_dispute",
     "phases": ["after"],
-    "text": "In Farid ud-Din Attar's The Conference of the Birds, thousands of birds set out to find their king, the Simurgh. After a long and terrible journey, thirty arrive, and when they finally see the Simurgh they see themselves; in Persian, si murgh means thirty birds. What they were seeking was already among them. The allegory is no reason to stop wanting fair credit at work, which affects pay and what comes next. It is a reminder that the knowledge of what you did does not live only with whoever announces it. It also lives with you, and often with the people who worked beside you.",
-    "prompt": "Who, besides you, knows what you actually did? If the answer is nobody, that is useful to know before deciding anything."
+    "text": "The work went out under someone else's name, or under no name at all, and it can feel as if it now belongs to whoever announced it. An announcement settles who gets thanked in that moment. It does not change what happened. You still know what you did, and often so do the drafts, the messages and the people who worked beside you. Whether to raise it, and how, is a separate decision, and it is yours to make."
   },
   {
     "id": "r_dismissal_warning_r1",
@@ -130,21 +125,19 @@
     "situationId": "dismissal_warning",
     "phases": ["after"],
     "text": "After the warning, the future arrives all at once: the lost salary, the explanations you might have to give, the job listings at midnight. Nobody needs to talk you out of this fear; it has measured correctly how much depends on the job. But fear also collapses time. It shows the worst ending as though it were settled and asks you to live there now. Two kinds of knowledge are tangled together: what matters, which fear knows well, and what will happen, which may not be known for weeks. Keeping them apart will not make you calm, but it can give back the days between now and whatever comes.",
-    "prompt": "When you are ready, separate what was actually said from the outcome you are bracing for. Sometimes they match; sometimes not yet."
+    "prompt": "When you are ready, separate what was actually said from the outcome you are bracing for. Sometimes they match, and sometimes they don't."
   },
   {
     "id": "r_dismissal_warning_r4",
     "situationId": "dismissal_warning",
     "phases": ["after"],
-    "text": "Some days after a warning, a quieter question can arrive while you are doing something ordinary: what is this job to me? It pays for the life you have. It may also hold your skills, the people you work beside and years of effort that would be hard to carry anywhere else. A threat to it touches all of that at once, which is why it can feel like more than money. The same job may be the place that frightened you, and the place that wore you down. Whatever happens next, and whoever decides it, you are the one entitled to describe what this job has been.",
-    "prompt": "When you have a quiet moment, name one thing this job gives you and one thing it has cost."
+    "text": "Some days after a warning, a quieter question can arrive while you are doing something ordinary: what is this job to me? It pays for the life you have. It may also hold your skills, the people you work beside and years of effort that would be hard to carry anywhere else. A threat to it touches all of that at once, which is why it can feel like more than money. The same job may be the place that frightened you, and the place that wore you down. Whatever happens next, and whoever decides it, you are the one entitled to describe what this job has been."
   },
   {
     "id": "r_dismissal_warning_r5",
     "situationId": "dismissal_warning",
     "phases": ["after"],
-    "text": "A warning leaves more than fear behind. There can be anger at the way it was delivered, or at having so little room to answer. There can be exhaustion that arrives a day later, as though you had been holding your breath. And there can be shame, a sense of being marked, even when nobody else knows. Each of these answers a real threat: a threat to your livelihood is also a threat to your standing, and people feel that in the body as well as in their plans. None of these has to be acted on today. Anger points at what felt unfair, exhaustion at how much you were carrying, shame at how exposed this left you.",
-    "prompt": "Notice which of these is loudest today, and what it is pointing at."
+    "text": "A warning leaves more than fear behind. There can be anger at the way it was delivered, or at having so little room to answer. There can be exhaustion that arrives a day later, as though you had been holding your breath. And there can be shame, a sense of being marked, even when nobody else knows. Each of these answers a real threat: a threat to your livelihood is also a threat to your standing, and people feel that in the body as well as in their plans. None of these has to be acted on today. Anger points at what felt unfair, exhaustion at how much you were carrying, shame at how exposed this left you."
   },
   {
     "id": "r_guilt_induction_r1",
@@ -158,7 +151,7 @@
     "situationId": "guilt_induction",
     "phases": ["after"],
     "text": "Guilt is useful when it points at something real: someone you treated unfairly, a promise you broke, harm you could repair. That kind of guilt has an address and suggests a next step. Guilt that is induced works differently. It attaches to having a limit at all, and it asks for a repair that never ends, because the debt was never itemized. One test is to ask what, specifically, you would apologize for, and to whom. If there is an answer, it deserves attention. If the answer keeps sliding toward loyalty, gratitude or team spirit, the guilt may be pointing at the pressure rather than at anything you did.",
-    "prompt": "Try finishing the sentence “I am sorry that I…” and see whether it ends anywhere."
+    "prompt": "If nothing specific comes to mind, that can be the end of it for today."
   },
   {
     "id": "r_guilt_induction_r3",
@@ -171,8 +164,7 @@
     "id": "r_guilt_induction_r4",
     "situationId": "guilt_induction",
     "phases": ["after"],
-    "text": "Many workplaces talk about themselves in the language of love: this is a calling, we look after our own, we go the extra mile for each other. Sarah Jaffe has written about how that language turns real care into unpaid hours. Roland Barthes called this kind of move a myth: an arrangement someone made, presented as simply how things are. Caring about the work, the people or the results is not the problem here, and nothing in this asks you to stop. What is worth questioning is the idea that care should show up as being always reachable.",
-    "prompt": "If you care about this work, name one way it shows that has nothing to do with being available."
+    "text": "Many workplaces talk about themselves in the language of love: this is a calling, we look after our own, we go the extra mile for each other. Sarah Jaffe has written about how that language turns real care into unpaid hours. Roland Barthes called this kind of move a myth: an arrangement someone made, presented as simply how things are. Caring about the work, the people or the results is not the problem here, and nothing in this asks you to stop. What is worth questioning is the idea that care should show up as being always reachable."
   },
   {
     "id": "r_meeting_loop_r1",
@@ -186,7 +178,7 @@
     "situationId": "meeting_loop",
     "phases": ["after"],
     "text": "David Graeber collected accounts from people whose jobs were full of work they privately believed was pointless, and found that the pointlessness itself did harm. Having to act as though something matters when you can see it does not is a strain of its own. A meeting that circles without deciding can carry a small dose of the same thing. Seeing that is not cynicism about your colleagues; most of them are stuck in the same hour. It is a judgment about a format someone else set, and one you may not be able to decline.",
-    "prompt": "Is there a part of these meetings that does matter to you, even if the format hides it?"
+    "prompt": "You do not have to find the point of it."
   },
   {
     "id": "r_meeting_loop_r3",
@@ -206,15 +198,13 @@
     "id": "r_micromanagement_r2",
     "situationId": "micromanagement",
     "phases": ["after"],
-    "text": "Under close supervision it is easy to start checking yourself the way you are checked: rehearsing the next update, going over each step for how it will be graded. Rollo May separated real self-awareness, the capacity to step back and choose how you work, from an anxious self-concern in which you become an object to be graded. The first is how competence feels from inside. The second is what constant checking can train into a person. The judgment is still there under the checklist. What changes is how often there is room to use it.",
-    "prompt": "Think of one decision in your work that went well recently, whether anyone checked it or not."
+    "text": "Under close supervision it is easy to start checking yourself the way you are checked: rehearsing the next update, going over each step for how it will be graded. Rollo May separated real self-awareness, the capacity to step back and choose how you work, from an anxious self-concern in which you become an object to be graded. The first is how competence feels from inside. The second is what constant checking can train into a person. The judgment is still there under the checklist. What changes is how often there is room to use it."
   },
   {
     "id": "r_micromanagement_r3",
     "situationId": "micromanagement",
     "phases": ["after"],
-    "text": "When every step needs approval, the work still gets done, and something goes out of it anyway. Simone de Beauvoir held that freedom is exercised through projects: you aim at something, and your action carries that aim forward. Under step-by-step approval the hours stay and the aiming moves elsewhere. You still do the task, but the decisions that made it yours are made by someone else. That loss is hard to name, which is why it can come out as irritation, or as a flat sense of being made smaller. The checking may be policy, and resisting it can look like having something to hide. The loss is real either way.",
-    "prompt": "Is there any part of this work where the decisions are still yours, however small?"
+    "text": "When every step needs approval, the work still gets done, and something goes out of it anyway. Simone de Beauvoir held that freedom is exercised through projects: you aim at something, and your action carries that aim forward. Under step-by-step approval the hours stay and the aiming moves elsewhere. You still do the task, but the decisions that made it yours are made by someone else. That loss is hard to name, which is why it can come out as irritation, or as a flat sense of being made smaller. The checking may be policy, and resisting it can look like having something to hide. The loss is real either way."
   },
   {
     "id": "r_moving_goalposts_r1",
@@ -227,15 +217,14 @@
     "id": "r_moving_goalposts_r2",
     "situationId": "moving_goalposts",
     "phases": ["after"],
-    "text": "Work done to a standard that no longer counts can feel as if it disappeared. Simone de Beauvoir wrote that forcing people into effort that leads nowhere is a particular kind of harm: it takes away the sense that what you do opens onto anything. It is part of why going back over finished work can drain more than starting fresh. The effort was real, and it was spent on what you were given at the time. What moved afterwards was the target, and the target was not yours to move.",
-    "prompt": "If you can place it, recall roughly when the standard changed."
+    "text": "Work done to a standard that no longer counts can feel as if it disappeared. Simone de Beauvoir wrote that forcing people into effort that leads nowhere is a particular kind of harm: it takes away the sense that what you do opens onto anything. It is part of why going back over finished work can drain more than starting fresh. The effort was real, and it was spent on what you were given at the time. What moved afterwards was the target, and the target was not yours to move."
   },
   {
     "id": "r_moving_goalposts_r3",
     "situationId": "moving_goalposts",
     "phases": ["after"],
     "text": "When the target keeps moving, long effort gets hard to sustain. Richard Sennett described working lives organized around “no long term”: projects reshuffled, priorities reset, commitments that last until the next reorganization. In that kind of setting, the steady virtues people are raised on, like loyalty and working toward something over years, get little to hold on to. Frustration there does not mean you failed to keep up; little was holding still long enough to be kept up with. Adapting yet again, when it is necessary, is a cost the setup passes on to you.",
-    "prompt": "Notice one part of your work that has stayed steady, whatever else has moved."
+    "prompt": "You are allowed to find this tiring without calling it a failure."
   },
   {
     "id": "r_moving_goalposts_r4",
@@ -290,15 +279,13 @@
     "id": "r_public_criticism_r1",
     "situationId": "public_criticism",
     "phases": ["before", "during", "after"],
-    "text": "When criticism happens in front of others, two things are at stake at once: the point being made, and where you stand with everyone who saw it. The second is why it can feel so much bigger than the words. A steady face or a neutral reply in that moment is neither dishonest nor a virtue; it is a way of getting through the next few minutes at the lowest cost. So is a short answer, or none. Whatever you show, the strength of the reaction under it has a reason: being judged with others watching touches your standing, not only your work.",
-    "prompt": "Afterwards, notice which hurt more: the point that was made, or who heard it."
+    "text": "When criticism happens in front of others, two things are at stake at once: the point being made, and where you stand with everyone who saw it. The second is why it can feel so much bigger than the words. A steady face or a neutral reply in that moment is neither dishonest nor a virtue; it is a way of getting through the next few minutes at the lowest cost. So is a short answer, or none. Whatever you show, the strength of the reaction under it has a reason: being judged with others watching touches your standing, not only your work."
   },
   {
     "id": "r_public_criticism_r2",
     "situationId": "public_criticism",
     "phases": ["after"],
-    "text": "If nobody said anything, their silence can hurt as much as the criticism. People who watch someone else being criticized often freeze: each waits for another to speak, each assumes the others agree, and the moment passes. Gary and Ruth Namie, writing about bullying at work, call this witness paralysis. Whether or not this was bullying, the freeze they describe is familiar. It explains the silence without making it right. It also means the silence tells you less than it seems to. Some of the people who said nothing may have disagreed, some may have been relieved it was not them, and some may not have noticed much at all.",
-    "prompt": "Pick one person who was there and separate what you know about what they thought from what you are guessing."
+    "text": "If nobody said anything, their silence can hurt as much as the criticism. People who watch someone else being criticized often freeze: each waits for another to speak, each assumes the others agree, and the moment passes. Gary and Ruth Namie, writing about bullying at work, call this witness paralysis. Whether or not this was bullying, the freeze they describe is familiar. It explains the silence without making it right. It also means the silence tells you less than it seems to. Some of the people who said nothing may have disagreed, some may have been relieved it was not them, and some may not have noticed much at all."
   },
   {
     "id": "r_public_criticism_r3",
@@ -325,15 +312,13 @@
     "id": "r_responsibility_diffusion_r3",
     "situationId": "responsibility_diffusion",
     "phases": ["after"],
-    "text": "Being the person who notices things is useful to everyone around you. In a team where nobody owns anything, it can also become a job nobody pays you for. Over time, loose ends start arriving your way: nothing in the setup catches them, and you have been reliably there. That is how unassigned work moves when nobody with the power to assign it does. Seeing the pattern does not oblige you to break it today, and breaking it may cost something. It does give you a clearer view of what you are actually carrying.",
-    "prompt": "If you could hand one of these back without it costing you, which would it be?"
+    "text": "Being the person who notices things is useful to everyone around you. In a team where nobody owns anything, it can also become a job nobody pays you for. Over time, loose ends start arriving your way: nothing in the setup catches them, and you have been reliably there. That is how unassigned work moves when nobody with the power to assign it does. Seeing the pattern does not oblige you to break it today, and breaking it may cost something. It does give you a clearer view of what you are actually carrying."
   },
   {
     "id": "r_surveillance_concern_r1",
     "situationId": "surveillance_concern",
     "phases": ["before", "during"],
-    "text": "Being checked often changes how a whole day feels. A status light, a message asking where something is, a person who comes by more than the work needs. Whether or not anyone is looking at a given moment, the possibility sits at the edge of every task. That alertness is a proportionate response to a real feature of your situation: you do not know exactly what is seen. It becomes costly when it starts making every decision, when each pause has to be justified to an audience that may or may not be there. Taking the concern seriously and giving it the whole day are two different things.",
-    "prompt": "If there is a stretch of work today where you forget the audience for a while, notice it afterwards."
+    "text": "Being checked often changes how a whole day feels. A status light, a message asking where something is, a person who comes by more than the work needs. Whether or not anyone is looking at a given moment, the possibility sits at the edge of every task. That alertness is a proportionate response to a real feature of your situation: you do not know exactly what is seen. It becomes costly when it starts making every decision, when each pause has to be justified to an audience that may or may not be there. Taking the concern seriously and giving it the whole day are two different things."
   },
   {
     "id": "r_surveillance_concern_r2",
@@ -346,8 +331,7 @@
     "id": "r_surveillance_concern_r3",
     "situationId": "surveillance_concern",
     "phases": ["after"],
-    "text": "How closely a workplace checks says something about the workplace, not only about the person being checked. In places where people expect to be punished for mistakes, mistakes tend to be hidden rather than reported, and checking that feels like a hunt for faults can produce the very concealment it is meant to catch. Kafka gave the guards in The Trial a belief that the law is drawn to guilt, so that being looked at already feels like being accused. You may know a version of that feeling, when an ordinary pause starts to look like evidence. Scrutiny always says something about the people and the place doing it, not only about the person under it.",
-    "prompt": "Next time a pause starts to feel like evidence, notice what you were actually doing in it."
+    "text": "How closely a workplace checks says something about the workplace, not only about the person being checked. In places where people expect to be punished for mistakes, mistakes tend to be hidden rather than reported, and checking that feels like a hunt for faults can produce the very concealment it is meant to catch. Kafka gave the guards in The Trial a belief that the law is drawn to guilt, so that being looked at already feels like being accused. You may know a version of that feeling, when an ordinary pause starts to look like evidence. Scrutiny always says something about the people and the place doing it, not only about the person under it."
   },
   {
     "id": "r_surveillance_concern_r4",
@@ -361,28 +345,28 @@
     "situationId": "suspected_retaliation",
     "phases": ["before", "during"],
     "text": "After you raise a concern, every change starts to look like an answer to it: a meeting you are no longer part of, a shorter reply, a task handed to someone else. Then a second voice arrives and says you might be imagining it. Both can run at once. The alertness is doing its job; it registered that speaking up carries a risk, and it is watching for the cost. What it cannot do, from inside a single day, is tell a pattern from a coincidence. That takes time and a clear memory of what happened, not a ruling you have to make now. You can take the change seriously and leave its meaning open.",
-    "prompt": "Name to yourself one change you have actually seen, and roughly when it began. The question of why can stay open."
+    "prompt": "If it helps, note one change you've actually seen and roughly when it began. Why it happened can stay an open question."
   },
   {
     "id": "r_suspected_retaliation_r2",
     "situationId": "suspected_retaliation",
     "phases": ["after"],
     "text": "People who raise a concern at work are sometimes treated worse afterwards. Workplace advocates have documented this for years, and it tends to travel through ordinary channels: a review, a schedule, who gets asked to what. Knowing this does not tell you whether it is happening to you. It does mean that watching for it is a reasonable thing to do, and keeping your head down for a while is a reading of that risk, not a surrender to it. There is also a difference between something happening to you and that thing becoming who you are. The first can happen to anyone who speaks up. The second is not something you owe anyone, whatever this turns out to be.",
-    "prompt": "Notice whether any part of your working day feels like your own, and what makes it so."
+    "prompt": "You don't have to settle what this means today. If something urgent can't wait, it's fine to get help with that part first."
   },
   {
     "id": "r_suspected_retaliation_r3",
     "situationId": "suspected_retaliation",
     "phases": ["after"],
     "text": "Some situations never quite close. A concern was raised, and whatever came of it formally, things are not as they were. In Kafka's The Trial, a painter explains to Josef K. that a real acquittal is a legend. What people actually get is a case that stays open in some registry, or one held at its first stage, which needs constant tending to keep it there. An unresolved concern at work can feel like that: no outcome, only upkeep. The tiredness it brings is real. It comes from carrying an open question for a long time.",
-    "prompt": "If this stays unresolved for a while, what would make it lighter to carry?"
+    "prompt": "Not every day has to be spent carrying this. If there's a real deadline, that part deserves help sooner."
   },
   {
     "id": "r_suspected_retaliation_r4",
     "situationId": "suspected_retaliation",
     "phases": ["after"],
     "text": "Raising a concern is a way of saying: there is a line here. Camus wrote that revolt begins when someone refuses an intrusion and, in the same act, affirms a limit that should hold for anyone. The line you named still counts, whether or not anyone acknowledged it and whatever happened afterwards. How things go from here depends on many people, and it is a separate question from whether the limit mattered. The anger that remains points at that limit. It is worth listening to, even while there is nothing to do with it yet. Wishing you had said nothing can sit beside it; that is about the cost, not about whether there was a line.",
-    "prompt": "In a few words, for yourself only, name the limit your concern was about."
+    "prompt": "If you want, put the limit you spoke up for into a few words, just for yourself."
   },
   {
     "id": "r_unattributed_consensus_r1",
@@ -402,8 +386,7 @@
     "id": "r_unattributed_consensus_r3",
     "situationId": "unattributed_consensus",
     "phases": ["after"],
-    "text": "A concern about you, attributed to everyone, arrives as something already settled: a conversation you were not part of, a group that has made up its mind. Some of that may be true. Some of it may be how one concern sounds after it has been passed along. When a judgment comes from a group rather than a named person, nobody in particular answers for it, and the person on the receiving end tends to carry it alone. An unnamed voice is not a final ruling, however many people it speaks for. Where the claim has substance, it can be met on its substance, at whatever pace and in whatever way is safe for you.",
-    "prompt": "If someone did say this, what would they actually have seen? Keep that question for yourself."
+    "text": "A concern about you, attributed to everyone, arrives as something already settled: a conversation you were not part of, a group that has made up its mind. Some of that may be true. Some of it may be how one concern sounds after it has been passed along. When a judgment comes from a group rather than a named person, nobody in particular answers for it, and the person on the receiving end tends to carry it alone. An unnamed voice is not a final ruling, however many people it speaks for. Where the claim has substance, it can be met on its substance, at whatever pace and in whatever way is safe for you."
   },
   {
     "id": "r_vague_accusation_r1",
@@ -417,7 +400,7 @@
     "situationId": "vague_accusation",
     "phases": ["after"],
     "text": "Vague criticism tends to land as shame rather than guilt. Guilt has an object: I missed that deadline, and I can put it right. Shame takes the whole self as its object, so it spreads: maybe I am just not good at this. A criticism with no example gives guilt nothing to hold, and shame moves into the empty space. That is why something so unspecific can hurt more than a precise complaint. If part of it turns out to be fair, it will have a size and a shape, and a shape is something a person can respond to.",
-    "prompt": "If you suspect what it might be about, name that one thing to yourself. One thing is easier to look at than everything."
+    "prompt": "Until someone names it, you do not have to name it for them."
   },
   {
     "id": "r_vague_accusation_r3",
@@ -430,15 +413,14 @@
     "id": "r_vague_accusation_r4",
     "situationId": "vague_accusation",
     "phases": ["after"],
-    "text": "In Kafka's The Trial, Josef K. is arrested one morning and never told the charge. With no charge to answer, everything starts to feel answerable: his history, his intentions, his character. Vague criticism can push anyone toward the same move. You start answering points nobody made, and each explanation makes the unstated problem seem larger. A defense of everything is exhausting and rarely persuades. What was actually said remains the only thing that can be answered.",
-    "prompt": "If you have been answering more than was asked, notice which answers were for points nobody raised."
+    "text": "In Kafka's The Trial, Josef K. is arrested one morning and never told the charge. With no charge to answer, everything starts to feel answerable: his history, his intentions, his character. Vague criticism can push anyone toward the same move. You start answering points nobody made, and each explanation makes the unstated problem seem larger. A defense of everything is exhausting and rarely persuades. What was actually said remains the only thing that can be answered."
   },
   {
     "id": "r_withheld_information_r1",
     "situationId": "withheld_information",
     "phases": ["before", "during"],
     "text": "Working without information that others hold produces a particular unease. Kierkegaard separated fear, which has a definite object, from anxiety, which has none. He was writing about the dizziness of one's own freedom, but a gap in what you have been told produces something close to it: the gap has no edges, so anything could be in it. Three things get tangled here: the facts you have, the facts you know you lack, and the pictures that grow in between. Only the middle one is something a person, somewhere, could answer. The pictures grow on not knowing, whether or not any of them turns out true.",
-    "prompt": "Name the one piece of information that would change the most if you had it."
+    "prompt": "Which missing piece of information would make the most difference?"
   },
   {
     "id": "r_withheld_information_r2",
@@ -451,8 +433,7 @@
     "id": "r_withheld_information_r3",
     "situationId": "withheld_information",
     "phases": ["after"],
-    "text": "K. spends The Castle trying to reach the officials who could confirm why he is there. Every route leads to an intermediary, a secretary, an interview that is postponed. The novel is not a theory of workplaces, but it captures something about needing information from people who are hard to reach: each step seems reasonable, and the whole adds up to never quite arriving. Waiting in that position is not a virtue, and impatience with it is not a flaw. Access runs through places you cannot see, and the route was there before you started on it.",
-    "prompt": "If you know where the information sits, that is one fact you have. If you do not, that is another."
+    "text": "K. spends The Castle trying to reach the officials who could confirm why he is there. Every route leads to an intermediary, a secretary, an interview that is postponed. The novel is not a theory of workplaces, but it captures something about needing information from people who are hard to reach: each step seems reasonable, and the whole adds up to never quite arriving. Waiting in that position is not a virtue, and impatience with it is not a flaw. Access runs through places you cannot see, and the route was there before you started on it."
   },
   {
     "id": "r_workload_overload_r1",
@@ -486,8 +467,7 @@
     "id": "r_general_r2",
     "situationId": "general",
     "phases": ["before", "during", "after"],
-    "text": "Fear at work usually arrives sounding like a prediction: this is going badly, this will cost you. Anger arrives sounding like a verdict. Both are worth hearing. Fear has noticed that something matters; anger has noticed something that felt unfair. Steven Hayes and his colleagues describe how easily a thought gets taken as a plain report of reality rather than as something the mind is doing. Seeing the prediction as a thought does not make it false, and it does not make it leave. It gives you a little room to choose your next words while it is still there.",
-    "prompt": "Finish the sentence “This feeling is telling me that…” and notice whether the rest is a fact or a forecast."
+    "text": "Fear at work usually arrives sounding like a prediction: this is going badly, this will cost you. Anger arrives sounding like a verdict. Both are worth hearing. Fear has noticed that something matters; anger has noticed something that felt unfair. Steven Hayes and his colleagues describe how easily a thought gets taken as a plain report of reality rather than as something the mind is doing. Seeing the prediction as a thought does not make it false, and it does not make it leave. It gives you a little room to choose your next words while it is still there."
   },
   {
     "id": "r_general_r3",
@@ -500,8 +480,7 @@
     "id": "r_general_r4",
     "situationId": "general",
     "phases": ["before", "during", "after"],
-    "text": "When work is tense, attention runs ahead: into the next message, the next meeting, the version of tomorrow where it goes wrong. Simone Weil wrote that real attention is not muscular effort, and that straining at a problem mostly tires the person straining. She meant something closer to waiting, with the mind loose enough to take in what is actually there. At work that can be as small as noticing the chair, the screen, the next sentence. It solves nothing by itself. It stops spending attention on a tomorrow that has not arrived.",
-    "prompt": "Notice three ordinary things around you right now, without doing anything about them."
+    "text": "When work is tense, attention runs ahead: into the next message, the next meeting, the version of tomorrow where it goes wrong. Simone Weil wrote that real attention is not muscular effort, and that straining at a problem mostly tires the person straining. She meant something closer to waiting, with the mind loose enough to take in what is actually there. At work that can be as small as noticing the chair, the screen, the next sentence. It solves nothing by itself. It stops spending attention on a tomorrow that has not arrived."
   },
   {
     "id": "r_general_r5",
@@ -515,6 +494,6 @@
     "situationId": "general",
     "phases": ["before", "during", "after"],
     "text": "Most people set limits at work from a weak position: the income matters, the options are few, and the other side knows it. That changes what a limit can look like. Often it is quiet: a realistic estimate, a constraint stated plainly, a no to one thing rather than to everything. Nedra Glover Tawwab writes that guilt and pushback are normal after setting a limit, not proof that it was wrong. Sometimes a limit has to bend because the cost is too high, and that is a decision too, made knowing what it costs. Needing the job and having limits are both true at once.",
-    "prompt": "Name one limit that still holds, even with the options you have."
+    "prompt": "Bending this week is not the same as having no limits."
   }
 ]
