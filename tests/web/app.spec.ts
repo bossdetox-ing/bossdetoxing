@@ -143,6 +143,8 @@ test('web calendar history encrypts locally, unlocks after reload and clears wit
   await page.getByRole('button', { name: 'Unlock vault', exact: true }).click();
   await page.locator('.event-summary').click();
   await expect(page.locator('.calendar-detail .charm-text')).toHaveText(charm!);
+  await page.locator('.calendar-detail button.read-more').click();
+  await expect(page.locator('.calendar-detail .mantra-prompt')).not.toBeEmpty();
   await expect(page.locator('.calendar-detail textarea')).toHaveCount(0);
   await page.locator('.topbar').getByRole('button', { name: 'Settings', exact: true }).click();
   await page.getByRole('button', { name: 'Delete all local data', exact: true }).click();

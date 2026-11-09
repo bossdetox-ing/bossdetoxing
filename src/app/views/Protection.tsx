@@ -4,9 +4,9 @@ import { useMemo, useState } from 'react';
 import { messages as t } from '../../content';
 import { content, type Tone } from '../../domain/content';
 import { pains, painForScenario, scenarioFor } from '../../domain/pains';
-import { reflectionFor, type MantraSnapshot } from '../../domain/mantras';
+import type { MantraSnapshot } from '../../domain/mantras';
 import { useCompanion } from '../companion-store';
-import { CopyButton, Field, PageTitle, Select } from '../components';
+import { CopyButton, Field, PageTitle, ReadMore, Select } from '../components';
 import { professionalResponse } from '../../domain/scripts';
 import { FilledStar, Icon } from '../PixelIcon';
 import { StyleSwitch } from '../StyleSwitch';
@@ -201,10 +201,6 @@ export function ProtectionCard({
   // Another line shows on request only; the logged event keeps the line it was drawn with.
   const [shown, setShown] = useState<{ eventId: string; mantra: MantraSnapshot }>();
   const mantra = shown?.eventId === event?.id ? shown!.mantra : event?.mantra;
-  // "Read more" stays open for the line it was opened on.
-  const [openId, setOpenId] = useState<string>();
-  const reflection = mantra && reflectionFor(mantra.id);
-  const open = !!reflection && openId === mantra!.id;
   const advance = () => {
     const next = event && store.peek(mantra?.id);
     if (event && next) setShown({ eventId: event.id, mantra: next });
@@ -267,22 +263,7 @@ export function ProtectionCard({
           </>
         )}
         <p className="charm-text">{mantra!.text}</p>
-        {reflection && (
-          <Button
-            className="text-button read-more"
-            aria-expanded={open}
-            aria-controls="mantra-reflection"
-            onClick={() => setOpenId(open ? undefined : mantra!.id)}
-          >
-            {open ? t.redesign.readLess : t.redesign.readMore}
-          </Button>
-        )}
-        {open && (
-          <div id="mantra-reflection" className="mantra-reflection">
-            <p>{reflection.text}</p>
-            <p className="mantra-prompt">{reflection.prompt}</p>
-          </div>
-        )}
+        <ReadMore mantraId={mantra!.id} />
         <Button
           className="favorite-button"
           aria-label={

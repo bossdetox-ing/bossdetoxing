@@ -8,7 +8,7 @@ import { isCustomThreat } from '../../domain/custom-threats';
 import { useCompanion } from '../companion-store';
 import type { Settings } from '../../browser/settings';
 import type { Vault } from '../../vault/service';
-import { PageTitle, Toggle } from '../components';
+import { PageTitle, ReadMore, Toggle } from '../components';
 import { VaultGate } from './VaultGate';
 import { MonthPicker } from '../MonthPicker';
 import { BestiaryPanel } from '../BestiaryPanel';
@@ -165,6 +165,7 @@ export function PrivateCalendar({
         <article className="calendar-detail">
           <p className="muted small-copy">{formatDate(event.createdAtISO)}</p>
           <p className="charm-text">{event.mantra.text}</p>
+          <ReadMore mantraId={event.mantra.id} />
           {/* The logged threat's Bestiary, the same sheet as on its threat screen. */}
           <BestiaryPanel threatId={event.situationId} />
           {settings.privateLogging && state.savedIds.includes(event.id) && (

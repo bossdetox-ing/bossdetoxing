@@ -1752,7 +1752,7 @@ button.wa-option[aria-checked='true'] {
    italics. Left-aligned for reading, unlike the centred line above it. */
 /* Every line has one, so the row stays compact: a 24px target tucked under the line keeps the
    reply visible in a 320px side panel. */
-.protective-card button.read-more {
+button.read-more {
   min-height: 24px;
   height: 24px;
   padding-block: 0;
@@ -1760,6 +1760,11 @@ button.wa-option[aria-checked='true'] {
   font-size: 0.8125rem;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+/* Left-aligned card: drop the inline padding so the link lines up with the text. */
+.calendar-detail button.read-more {
+  justify-self: start;
+  padding-inline: 0;
 }
 .mantra-reflection {
   display: grid;
