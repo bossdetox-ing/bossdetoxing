@@ -8,7 +8,7 @@ export default defineConfig({
     name: 'bossdetox.ing',
     description:
       'A private workplace companion for calm, clarity and professional responses. Free. Local. No AI.',
-    version: '1.2.0',
+    version: '1.3.0',
     minimum_chrome_version: '116',
     permissions: ['sidePanel', 'storage'],
     host_permissions: [],
