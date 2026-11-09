@@ -35,11 +35,11 @@
     "stubDark": "#81374e"
   },
   "card_06": {
-    "hi": "#e7e4f1",
-    "lo": "#bdb6d8",
-    "base": "#6a59a6",
-    "stub": "#a89bd4",
-    "stubDark": "#473781"
+    "hi": "#eef1e4",
+    "lo": "#d1d8b6",
+    "base": "#97a659",
+    "stub": "#c9d49b",
+    "stubDark": "#5f6b2e"
   },
   "card_07": {
     "hi": "#f1ebe4",
@@ -63,11 +63,11 @@
     "stubDark": "#79632f"
   },
   "card_10": {
-    "hi": "#f2e7e3",
-    "lo": "#dcbcb2",
-    "base": "#af6750",
-    "stub": "#daa695",
-    "stubDark": "#88452f"
+    "hi": "#e6e4f1",
+    "lo": "#bbb6d8",
+    "base": "#6559a6",
+    "stub": "#a49bd4",
+    "stubDark": "#433781"
   },
   "card_11": {
     "hi": "#f1ece4",
@@ -77,11 +77,11 @@
     "stubDark": "#7d6136"
   },
   "card_12": {
-    "hi": "#f1e4e4",
-    "lo": "#d8b6b6",
-    "base": "#a65959",
-    "stub": "#d49b9b",
-    "stubDark": "#813737"
+    "hi": "#f3e9e2",
+    "lo": "#ddc1b1",
+    "base": "#b2734d",
+    "stub": "#ddae93",
+    "stubDark": "#8b502c"
   },
   "card_13": {
     "hi": "#f7e5de",
@@ -119,18 +119,18 @@
     "stubDark": "#813737"
   },
   "card_18": {
-    "hi": "#f1eae4",
-    "lo": "#d8c5b6",
-    "base": "#a67b59",
-    "stub": "#d4b59b",
-    "stubDark": "#815837"
+    "hi": "#eff1e4",
+    "lo": "#d3d8b6",
+    "base": "#9ba659",
+    "stub": "#ccd49b",
+    "stubDark": "#626b2e"
   },
   "card_19": {
-    "hi": "#dfe9f6",
-    "lo": "#a7c1e7",
-    "base": "#3673c9",
-    "stub": "#89b0e6",
-    "stubDark": "#205297"
+    "hi": "#f2e8e3",
+    "lo": "#dbc0b3",
+    "base": "#ac6f53",
+    "stub": "#d8ac97",
+    "stubDark": "#864d32"
   },
   "card_20": {
     "hi": "#f1ebe4",
@@ -140,11 +140,11 @@
     "stubDark": "#816037"
   },
   "card_21": {
-    "hi": "#f7dee1",
-    "lo": "#e9a5ad",
-    "base": "#cc3345",
-    "stub": "#e68994",
-    "stubDark": "#97202e"
+    "hi": "#f1e4e4",
+    "lo": "#d8b6b6",
+    "base": "#a65959",
+    "stub": "#d49b9b",
+    "stubDark": "#813737"
   },
   "card_22": {
     "hi": "#eef1e4",
@@ -154,11 +154,11 @@
     "stubDark": "#5e6b2e"
   },
   "card_cups_01": {
-    "hi": "#e4ecf1",
-    "lo": "#b6cad8",
-    "base": "#5986a6",
-    "stub": "#9bbdd4",
-    "stubDark": "#376281"
+    "hi": "#f4eee1",
+    "lo": "#e2d0ac",
+    "base": "#bd9442",
+    "stub": "#e4c78b",
+    "stubDark": "#81601d"
   },
   "card_cups_02": {
     "hi": "#eff4e1",
@@ -168,25 +168,25 @@
     "stubDark": "#536a1a"
   },
   "card_cups_03": {
-    "hi": "#f7efde",
-    "lo": "#e9d3a5",
-    "base": "#cc9c33",
-    "stub": "#e6c989",
-    "stubDark": "#7e5f1b"
+    "hi": "#f1e4e4",
+    "lo": "#d8b6b6",
+    "base": "#a65959",
+    "stub": "#d49b9b",
+    "stubDark": "#813737"
   },
   "card_cups_04": {
-    "hi": "#f1ece4",
-    "lo": "#d8cab6",
-    "base": "#a68659",
+    "hi": "#f1ebe4",
+    "lo": "#d8c9b6",
+    "base": "#a68559",
     "stub": "#d4bc9b",
-    "stubDark": "#7d5f36"
+    "stubDark": "#7d5e36"
   },
   "card_cups_05": {
-    "hi": "#ece4f1",
-    "lo": "#cab6d8",
-    "base": "#8759a6",
-    "stub": "#bd9bd4",
-    "stubDark": "#633781"
+    "hi": "#f0f1e4",
+    "lo": "#d5d8b6",
+    "base": "#a0a659",
+    "stub": "#d0d49b",
+    "stubDark": "#63682c"
   },
   "card_cups_06": {
     "hi": "#f1e9e4",
@@ -224,11 +224,11 @@
     "stubDark": "#616b2e"
   },
   "card_cups_11": {
-    "hi": "#e7e4f1",
-    "lo": "#bcb6d8",
-    "base": "#6759a6",
-    "stub": "#a59bd4",
-    "stubDark": "#443781"
+    "hi": "#f1ede4",
+    "lo": "#d8ccb6",
+    "base": "#a68c59",
+    "stub": "#d4c19b",
+    "stubDark": "#796234"
   },
   "card_cups_12": {
     "hi": "#eff1e4",
@@ -238,11 +238,11 @@
     "stubDark": "#61682c"
   },
   "card_cups_13": {
-    "hi": "#e7e4f1",
-    "lo": "#beb6d8",
-    "base": "#6b59a6",
-    "stub": "#a89bd4",
-    "stubDark": "#483781"
+    "hi": "#e4ecf1",
+    "lo": "#b6cad8",
+    "base": "#5986a6",
+    "stub": "#9bbdd4",
+    "stubDark": "#376281"
   },
   "card_cups_14": {
     "hi": "#eff1e4",
@@ -252,11 +252,11 @@
     "stubDark": "#60682c"
   },
   "card_pentacles_01": {
-    "hi": "#f1ede4",
-    "lo": "#d8cdb6",
-    "base": "#a68e59",
-    "stub": "#d4c29b",
-    "stubDark": "#766132"
+    "hi": "#f7ecde",
+    "lo": "#e9caa5",
+    "base": "#cc8633",
+    "stub": "#e6bc89",
+    "stubDark": "#8b591d"
   },
   "card_pentacles_02": {
     "hi": "#f1ece4",
@@ -273,11 +273,11 @@
     "stubDark": "#796334"
   },
   "card_pentacles_04": {
-    "hi": "#f1ede4",
-    "lo": "#d8cdb6",
-    "base": "#a68e59",
-    "stub": "#d4c29b",
-    "stubDark": "#766132"
+    "hi": "#f1eae4",
+    "lo": "#d8c4b6",
+    "base": "#a67959",
+    "stub": "#d4b29b",
+    "stubDark": "#815537"
   },
   "card_pentacles_05": {
     "hi": "#e3e8f2",
@@ -287,32 +287,32 @@
     "stubDark": "#304c88"
   },
   "card_pentacles_06": {
+    "hi": "#e4eef1",
+    "lo": "#b6d0d8",
+    "base": "#5994a6",
+    "stub": "#9bc7d4",
+    "stubDark": "#366c7d"
+  },
+  "card_pentacles_07": {
+    "hi": "#f1e4e6",
+    "lo": "#d8b6bb",
+    "base": "#a65964",
+    "stub": "#d49ba3",
+    "stubDark": "#813741"
+  },
+  "card_pentacles_08": {
+    "hi": "#f1ece4",
+    "lo": "#d8cbb6",
+    "base": "#a68859",
+    "stub": "#d4be9b",
+    "stubDark": "#795f34"
+  },
+  "card_pentacles_09": {
     "hi": "#f1e4e7",
     "lo": "#d8b6bd",
     "base": "#a65969",
     "stub": "#d49ba7",
     "stubDark": "#813746"
-  },
-  "card_pentacles_07": {
-    "hi": "#f1ece4",
-    "lo": "#d8cbb6",
-    "base": "#a68859",
-    "stub": "#d4be9b",
-    "stubDark": "#7d6136"
-  },
-  "card_pentacles_08": {
-    "hi": "#e4edf1",
-    "lo": "#b6cdd8",
-    "base": "#598ca6",
-    "stub": "#9bc1d4",
-    "stubDark": "#376881"
-  },
-  "card_pentacles_09": {
-    "hi": "#e4e7f1",
-    "lo": "#b6bdd8",
-    "base": "#5969a6",
-    "stub": "#9ba7d4",
-    "stubDark": "#374681"
   },
   "card_pentacles_10": {
     "hi": "#f1ece4",
@@ -322,11 +322,11 @@
     "stubDark": "#795f34"
   },
   "card_pentacles_11": {
-    "hi": "#f1ece4",
-    "lo": "#d8cab6",
-    "base": "#a68759",
-    "stub": "#d4bd9b",
-    "stubDark": "#7d6036"
+    "hi": "#f1ede4",
+    "lo": "#d8ceb6",
+    "base": "#a69159",
+    "stub": "#d4c49b",
+    "stubDark": "#766332"
   },
   "card_pentacles_12": {
     "hi": "#f1e9e4",
@@ -343,18 +343,18 @@
     "stubDark": "#263b92"
   },
   "card_pentacles_14": {
-    "hi": "#f1ede4",
-    "lo": "#d8cdb6",
-    "base": "#a68d59",
-    "stub": "#d4c29b",
-    "stubDark": "#796334"
+    "hi": "#eee4f1",
+    "lo": "#d1b4d9",
+    "base": "#9755aa",
+    "stub": "#c999d6",
+    "stubDark": "#723483"
   },
   "card_swords_01": {
-    "hi": "#f1e4e4",
-    "lo": "#d8b6b6",
-    "base": "#a65959",
-    "stub": "#d49b9b",
-    "stubDark": "#813737"
+    "hi": "#f3e5e2",
+    "lo": "#dfb8ae",
+    "base": "#b75e48",
+    "stub": "#e09f8f",
+    "stubDark": "#903d28"
   },
   "card_swords_02": {
     "hi": "#f1e4e4",
@@ -364,11 +364,11 @@
     "stubDark": "#813737"
   },
   "card_swords_03": {
-    "hi": "#f1eae4",
-    "lo": "#d8c5b6",
-    "base": "#a67b59",
-    "stub": "#d4b49b",
-    "stubDark": "#815737"
+    "hi": "#f1e4e4",
+    "lo": "#d8b6b6",
+    "base": "#a65959",
+    "stub": "#d49b9b",
+    "stubDark": "#813737"
   },
   "card_swords_04": {
     "hi": "#eef1e4",
@@ -385,18 +385,18 @@
     "stubDark": "#596b2e"
   },
   "card_swords_06": {
-    "hi": "#f1e8e4",
-    "lo": "#d8c1b6",
-    "base": "#a67259",
-    "stub": "#d4ad9b",
-    "stubDark": "#814f37"
+    "hi": "#f5e7e1",
+    "lo": "#e2beab",
+    "base": "#be6a41",
+    "stub": "#e5a88a",
+    "stubDark": "#964821"
   },
   "card_swords_07": {
     "hi": "#f1ece4",
-    "lo": "#d8cbb6",
-    "base": "#a68959",
-    "stub": "#d4be9b",
-    "stubDark": "#795f34"
+    "lo": "#d8cab6",
+    "base": "#a68659",
+    "stub": "#d4bd9b",
+    "stubDark": "#7d6036"
   },
   "card_swords_08": {
     "hi": "#f1ece4",
@@ -413,11 +413,11 @@
     "stubDark": "#7d5f36"
   },
   "card_swords_10": {
-    "hi": "#e4ecf1",
-    "lo": "#b6cad8",
-    "base": "#5987a6",
-    "stub": "#9bbdd4",
-    "stubDark": "#376381"
+    "hi": "#f2e3e5",
+    "lo": "#dcb2b7",
+    "base": "#af505b",
+    "stub": "#da959d",
+    "stubDark": "#892f3a"
   },
   "card_swords_11": {
     "hi": "#f2ece3",
@@ -427,11 +427,11 @@
     "stubDark": "#805f2e"
   },
   "card_swords_12": {
-    "hi": "#f1e9e4",
-    "lo": "#d8c1b6",
-    "base": "#a77258",
-    "stub": "#d4ae9b",
-    "stubDark": "#815037"
+    "hi": "#f1ede4",
+    "lo": "#d8cfb6",
+    "base": "#a69159",
+    "stub": "#d4c59b",
+    "stubDark": "#766432"
   },
   "card_swords_13": {
     "hi": "#f3efe2",
@@ -441,11 +441,11 @@
     "stubDark": "#766223"
   },
   "card_swords_14": {
-    "hi": "#f1e4e6",
-    "lo": "#d9b5ba",
-    "base": "#a85763",
-    "stub": "#d59aa3",
-    "stubDark": "#813641"
+    "hi": "#f1e4e4",
+    "lo": "#d8b6b6",
+    "base": "#a65959",
+    "stub": "#d49b9b",
+    "stubDark": "#813737"
   },
   "card_wands_01": {
     "hi": "#f1ece4",
@@ -469,18 +469,18 @@
     "stubDark": "#62682c"
   },
   "card_wands_04": {
-    "hi": "#f1e8e4",
-    "lo": "#d8c0b6",
-    "base": "#a66f59",
-    "stub": "#d4ab9b",
-    "stubDark": "#814c37"
+    "hi": "#f5e7e0",
+    "lo": "#e3bcab",
+    "base": "#c0673f",
+    "stub": "#e6a689",
+    "stubDark": "#974520"
   },
   "card_wands_05": {
-    "hi": "#f5e8e1",
-    "lo": "#e2bfab",
-    "base": "#be6e41",
-    "stub": "#e5ab8a",
-    "stubDark": "#964b21"
+    "hi": "#eef1e4",
+    "lo": "#d2d8b6",
+    "base": "#98a659",
+    "stub": "#cad49b",
+    "stubDark": "#606b2e"
   },
   "card_wands_06": {
     "hi": "#e6e4f1",
@@ -497,11 +497,11 @@
     "stubDark": "#845134"
   },
   "card_wands_08": {
-    "hi": "#f1eee4",
-    "lo": "#d8cfb6",
-    "base": "#a69259",
-    "stub": "#d4c69b",
-    "stubDark": "#726231"
+    "hi": "#f1e9e4",
+    "lo": "#d8c3b6",
+    "base": "#a67659",
+    "stub": "#d4b09b",
+    "stubDark": "#815237"
   },
   "card_wands_09": {
     "hi": "#e3f2ef",
@@ -518,11 +518,11 @@
     "stubDark": "#7d5f36"
   },
   "card_wands_11": {
-    "hi": "#e4eff1",
-    "lo": "#b6d3d8",
-    "base": "#599ca6",
-    "stub": "#9bcdd4",
-    "stubDark": "#326d76"
+    "hi": "#f5efe0",
+    "lo": "#e4d3a9",
+    "base": "#c39b3c",
+    "stub": "#e6cb89",
+    "stubDark": "#7e611b"
   },
   "card_wands_12": {
     "hi": "#f1e4e4",
@@ -533,16 +533,16 @@
   },
   "card_wands_13": {
     "hi": "#f1ece4",
-    "lo": "#d8cbb6",
-    "base": "#a68a59",
-    "stub": "#d4bf9b",
-    "stubDark": "#796034"
+    "lo": "#d9ccb5",
+    "base": "#a88b57",
+    "stub": "#d5c09a",
+    "stubDark": "#7a6133"
   },
   "card_wands_14": {
-    "hi": "#e4ecf1",
-    "lo": "#b6ccd8",
-    "base": "#598aa6",
-    "stub": "#9bbfd4",
-    "stubDark": "#376681"
+    "hi": "#f1ede4",
+    "lo": "#d8ccb6",
+    "base": "#a68c59",
+    "stub": "#d4c19b",
+    "stubDark": "#796234"
   }
 }
