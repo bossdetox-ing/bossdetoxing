@@ -1748,43 +1748,32 @@ button.wa-option[aria-checked='true'] {
 .pain-tile .live-wordart {
   --wa-base: 1.6rem;
 }
-/* Mantra reading-time bar: fills, then the next line shows. Pauses while hovered, pressed or
-   keyboard-focused (a tap on star/reroll does not freeze it); reduced motion turns it off. */
-.mantra-progress {
-  justify-self: center;
-  width: 48px;
-  height: 2px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: var(--color-hairline);
+/* "Read more" under the line opens its reflection inline; the optional prompt is set apart in
+   italics. Left-aligned for reading, unlike the centred line above it. */
+/* Every line has one, so the row stays compact: a 24px target tucked under the line keeps the
+   reply visible in a 320px side panel. */
+.protective-card button.read-more {
+  min-height: 24px;
+  height: 24px;
+  padding-block: 0;
+  margin-top: -8px;
+  font-size: 0.8125rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
-.mantra-progress > span {
-  display: block;
-  height: 100%;
-  background: var(--color-muted);
-  transform-origin: left;
-  animation: mantra-read 6s linear both;
+.mantra-reflection {
+  display: grid;
+  gap: 10px;
+  max-width: 60ch;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-hairline);
+  text-align: left;
+  font-size: 0.9375rem;
+  line-height: 1.55;
 }
-.mantra-progress > span[data-pace='s'] {
-  animation-duration: 4s;
-}
-.mantra-progress > span[data-pace='l'] {
-  animation-duration: 8s;
-}
-.protective-card:hover .mantra-progress > span,
-.protective-card:has(:focus-visible) .mantra-progress > span,
-.protective-card:active .mantra-progress > span {
-  animation-play-state: paused;
-}
-@keyframes mantra-read {
-  from {
-    transform: scaleX(0);
-  }
-}
-@media (prefers-reduced-motion: reduce) {
-  .mantra-progress {
-    display: none;
-  }
+.mantra-reflection .mantra-prompt {
+  font-style: italic;
+  color: var(--color-muted);
 }
 /* Starts below the reroll and favorite buttons in the card's top corner. */
 .protective-card .live-wordart {

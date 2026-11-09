@@ -264,6 +264,8 @@ export const en = {
     internal: 'Private charm',
     external: 'Professional response',
     another: 'Another',
+    readMore: 'Read more',
+    readLess: 'Close',
     favorite: 'Favorite mantra',
     unfavorite: 'Remove favorite',
     encrypted: 'Saved encrypted locally',

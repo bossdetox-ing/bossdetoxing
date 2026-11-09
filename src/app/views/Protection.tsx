@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 import { messages as t } from '../../content';
 import { content, type Tone } from '../../domain/content';
 import { pains, painForScenario, scenarioFor } from '../../domain/pains';
-import type { MantraSnapshot } from '../../domain/mantras';
+import { reflectionFor, type MantraSnapshot } from '../../domain/mantras';
 import { useCompanion } from '../companion-store';
 import { CopyButton, Field, PageTitle, Select } from '../components';
 import { professionalResponse } from '../../domain/scripts';
@@ -198,9 +198,13 @@ export function ProtectionCard({
   const [writing, setWriting] = useState(false);
   const [history, setHistory] = useState(false);
   const [editing, setEditing] = useState(false);
-  // Mantras rotate on screen only; the logged event keeps the line it was drawn with.
+  // Another line shows on request only; the logged event keeps the line it was drawn with.
   const [shown, setShown] = useState<{ eventId: string; mantra: MantraSnapshot }>();
   const mantra = shown?.eventId === event?.id ? shown!.mantra : event?.mantra;
+  // "Read more" stays open for the line it was opened on.
+  const [openId, setOpenId] = useState<string>();
+  const reflection = mantra && reflectionFor(mantra.id);
+  const open = !!reflection && openId === mantra!.id;
   const advance = () => {
     const next = event && store.peek(mantra?.id);
     if (event && next) setShown({ eventId: event.id, mantra: next });
@@ -263,15 +267,22 @@ export function ProtectionCard({
           </>
         )}
         <p className="charm-text">{mantra!.text}</p>
-        {/* Reading time by length; the next line comes when the bar fills. Hover, focus or a
-            press pauses it (CSS), and reduced motion stops the rotation. */}
-        <span className="mantra-progress" aria-hidden="true">
-          <span
-            key={mantra!.id}
-            data-pace={mantra!.text.length < 50 ? 's' : mantra!.text.length < 90 ? 'm' : 'l'}
-            onAnimationEnd={advance}
-          />
-        </span>
+        {reflection && (
+          <Button
+            className="text-button read-more"
+            aria-expanded={open}
+            aria-controls="mantra-reflection"
+            onClick={() => setOpenId(open ? undefined : mantra!.id)}
+          >
+            {open ? t.redesign.readLess : t.redesign.readMore}
+          </Button>
+        )}
+        {open && (
+          <div id="mantra-reflection" className="mantra-reflection">
+            <p>{reflection.text}</p>
+            <p className="mantra-prompt">{reflection.prompt}</p>
+          </div>
+        )}
         <Button
           className="favorite-button"
           aria-label={

@@ -565,12 +565,10 @@ test('encrypted history export, intentional full wipe and authenticated restore'
   await expect(page.locator('.calendar-detail .charm-text')).toHaveText(snapshot!);
 });
 
-test('mantra rotates on screen, holds still with reduced motion, and the calendar keeps the drawn line', async ({
+test('mantra changes only on request, read more opens inline, and the calendar keeps the drawn line', async ({
   extension: { page },
 }) => {
   await page.setViewportSize({ width: 360, height: 800 });
-  // Reduced motion stops the rotation, so style and favorite changes can be checked in place.
-  await page.emulateMedia({ reducedMotion: 'reduce' });
   await start(page);
   const started = Date.now();
   await page
@@ -596,13 +594,17 @@ test('mantra rotates on screen, holds still with reduced motion, and the calenda
   expect(copy!.y + copy!.height).toBeLessThan(700);
   await page.getByRole('button', { name: 'Favorite mantra', exact: true }).click();
   await expect(charm).toHaveText(initial!);
-  // With motion allowed the line moves on by itself once its reading bar fills.
-  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  // No automatic rotation: the line stays until the reader asks for another.
   await page.mouse.move(0, 0);
-  await expect(charm).not.toHaveText(initial!, { timeout: 12_000 });
-  const rotated = await charm.textContent();
+  await page.waitForTimeout(9_000);
+  await expect(charm).toHaveText(initial!);
   await page.getByRole('button', { name: 'Another', exact: true }).click();
-  await expect(charm).not.toHaveText(rotated!);
+  await expect(charm).not.toHaveText(initial!);
+  const more = page.locator('.protective-card button.read-more');
+  for (let i = 0; i < 20 && !(await more.isVisible()); i++)
+    await page.getByRole('button', { name: 'Another', exact: true }).click();
+  await more.click();
+  await expect(page.locator('#mantra-reflection')).toBeVisible();
   await expect(response).toContainText('formal performance feedback');
   const report = await new AxeBuilder({ page })
     .setLegacyMode(true)

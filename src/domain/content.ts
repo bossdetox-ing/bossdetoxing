@@ -61,7 +61,7 @@ export const contentSchema = z
         }),
       )
       .min(20),
-    mantras: z.array(mantraSchema).length(250),
+    mantras: z.array(mantraSchema).min(250),
     tarot: tarotDeckSchema,
     corporateWeather: strings.min(12),
     sources: z.array(

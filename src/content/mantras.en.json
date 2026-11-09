@@ -8,7 +8,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "embarrassed", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_guilt_induction",
@@ -19,7 +20,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["guilty", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_guilt_induction_r4"
   },
   {
     "id": "m_dismissal_warning",
@@ -30,18 +32,20 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_public_criticism",
-    "text": "My dignity stays mine in this room.",
+    "text": "My dignity stays mine, whoever happens to be watching.",
     "situationIds": ["public_criticism"],
     "behaviorIds": ["behavior_public_criticism"],
     "purpose": "self_respect",
     "phases": ["before", "during", "after"],
     "emotions": ["embarrassed", "angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_public_criticism_r1"
   },
   {
     "id": "m_colleague_gossip",
@@ -52,18 +56,20 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_colleague_gossip_r1"
   },
   {
     "id": "m_unattributed_consensus",
-    "text": "I need specifics, even from an invisible crowd.",
+    "text": "Specifics help, however many people a claim speaks for.",
     "situationIds": ["unattributed_consensus"],
     "behaviorIds": ["behavior_unattributed_consensus"],
     "purpose": "distancing",
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_unattributed_consensus_r1"
   },
   {
     "id": "m_circular_interrogation",
@@ -74,7 +80,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_moving_goalposts",
@@ -85,7 +92,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_withheld_information",
@@ -96,7 +104,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_meeting_loop",
@@ -107,7 +116,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_meeting_loop_r3"
   },
   {
     "id": "m_responsibility_diffusion",
@@ -118,7 +128,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_responsibility_diffusion_r1"
   },
   {
     "id": "m_micromanagement",
@@ -129,7 +140,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_competing_priorities",
@@ -140,7 +152,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_competing_priorities_r1"
   },
   {
     "id": "m_credit_dispute",
@@ -151,7 +164,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["angry", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_workload_overload",
@@ -162,7 +176,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "guilty"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_workload_overload_r1"
   },
   {
     "id": "m_surveillance_concern",
@@ -173,7 +188,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_surveillance_concern_r3"
   },
   {
     "id": "m_no_response",
@@ -184,7 +200,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_no_response_r1"
   },
   {
     "id": "m_suspected_retaliation",
@@ -195,7 +212,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_after_meeting_replay",
@@ -206,7 +224,8 @@
     "phases": ["after"],
     "emotions": ["afraid", "embarrassed", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_after_meeting_replay_r2"
   },
   {
     "id": "m_ordinary_disagreement",
@@ -217,7 +236,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_ordinary_disagreement_r2"
   },
   {
     "id": "m_general_01",
@@ -228,7 +248,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r1"
   },
   {
     "id": "m_general_02",
@@ -239,7 +260,8 @@
     "phases": ["after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r3"
   },
   {
     "id": "m_general_03",
@@ -250,7 +272,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r3"
   },
   {
     "id": "m_general_04",
@@ -261,7 +284,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r5"
   },
   {
     "id": "m_general_05",
@@ -272,7 +296,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r2"
   },
   {
     "id": "m_general_06",
@@ -283,7 +308,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r1"
   },
   {
     "id": "m_general_07",
@@ -294,7 +320,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r5"
   },
   {
     "id": "m_general_08",
@@ -305,7 +332,8 @@
     "phases": ["after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r2"
   },
   {
     "id": "m_general_09",
@@ -316,7 +344,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r3"
   },
   {
     "id": "m_general_10",
@@ -327,7 +356,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r1"
   },
   {
     "id": "m_general_11",
@@ -338,7 +368,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r5"
   },
   {
     "id": "m_general_12",
@@ -349,7 +380,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r6"
   },
   {
     "id": "m_general_13",
@@ -360,7 +392,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r2"
   },
   {
     "id": "m_general_14",
@@ -371,7 +404,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r2"
   },
   {
     "id": "m_general_15",
@@ -382,7 +416,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r2"
   },
   {
     "id": "m_general_16",
@@ -393,7 +428,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r6"
   },
   {
     "id": "m_general_17",
@@ -404,7 +440,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r5"
   },
   {
     "id": "m_general_18",
@@ -415,7 +452,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r3"
   },
   {
     "id": "m_general_19",
@@ -426,7 +464,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r3"
   },
   {
     "id": "m_general_20",
@@ -437,7 +476,8 @@
     "phases": ["after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r6"
   },
   {
     "id": "m_general_21",
@@ -448,7 +488,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r4"
   },
   {
     "id": "m_general_22",
@@ -459,7 +500,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r6"
   },
   {
     "id": "m_general_23",
@@ -470,7 +512,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r1"
   },
   {
     "id": "m_general_24",
@@ -481,7 +524,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r1"
   },
   {
     "id": "m_general_25",
@@ -492,7 +536,8 @@
     "phases": ["after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r4"
   },
   {
     "id": "m_general_26",
@@ -503,7 +548,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r3"
   },
   {
     "id": "m_vague_accusation_01",
@@ -514,7 +560,8 @@
     "phases": ["before", "during"],
     "emotions": ["afraid", "embarrassed", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_vague_accusation_02",
@@ -525,18 +572,20 @@
     "phases": ["before", "during"],
     "emotions": ["afraid", "embarrassed", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_vague_accusation_03",
-    "text": "I measure my work against an actual standard.",
+    "text": "My work can be measured against an actual standard, once someone names it.",
     "situationIds": ["vague_accusation"],
     "behaviorIds": ["behavior_vague_accusation"],
     "purpose": "self_respect",
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "embarrassed", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_vague_accusation_r1"
   },
   {
     "id": "m_vague_accusation_04",
@@ -547,18 +596,20 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "embarrassed", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_vague_accusation_r1"
   },
   {
     "id": "m_vague_accusation_05",
-    "text": "I take responsibility for specifics, not a blanket verdict.",
+    "text": "Responsibility needs something specific to hold. A blanket judgment gives it nothing.",
     "situationIds": ["vague_accusation"],
     "behaviorIds": ["behavior_vague_accusation"],
     "purpose": "self_respect",
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "embarrassed", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_vague_accusation_r2"
   },
   {
     "id": "m_vague_accusation_06",
@@ -569,7 +620,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "embarrassed", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_vague_accusation_07",
@@ -580,7 +632,8 @@
     "phases": ["during", "after"],
     "emotions": ["afraid", "embarrassed", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_vague_accusation_08",
@@ -591,7 +644,8 @@
     "phases": ["after"],
     "emotions": ["afraid", "embarrassed", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_vague_accusation_09",
@@ -602,7 +656,8 @@
     "phases": ["during", "after"],
     "emotions": ["afraid", "embarrassed", "confused"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_vague_accusation_r4"
   },
   {
     "id": "m_vague_accusation_10",
@@ -613,7 +668,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "embarrassed", "confused"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_vague_accusation_r1"
   },
   {
     "id": "m_guilt_induction_01",
@@ -624,7 +680,8 @@
     "phases": ["before", "during"],
     "emotions": ["guilty", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_guilt_induction_02",
@@ -635,7 +692,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["guilty", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_guilt_induction_03",
@@ -646,18 +704,20 @@
     "phases": ["before", "during", "after"],
     "emotions": ["guilty", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_guilt_induction_04",
-    "text": "My gratitude leaves my right to question intact.",
+    "text": "My gratitude for this job does not cancel my questions about it.",
     "situationIds": ["guilt_induction"],
     "behaviorIds": ["behavior_guilt_induction"],
     "purpose": "self_respect",
     "phases": ["before", "during", "after"],
     "emotions": ["guilty", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_guilt_induction_r2"
   },
   {
     "id": "m_guilt_induction_05",
@@ -668,7 +728,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["guilty", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_guilt_induction_06",
@@ -679,7 +740,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["guilty", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_guilt_induction_07",
@@ -690,7 +752,8 @@
     "phases": ["during", "after"],
     "emotions": ["guilty", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_guilt_induction_08",
@@ -701,7 +764,8 @@
     "phases": ["after"],
     "emotions": ["guilty", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_guilt_induction_09",
@@ -712,7 +776,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["guilty", "afraid"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_guilt_induction_r2"
   },
   {
     "id": "m_guilt_induction_10",
@@ -723,7 +788,8 @@
     "phases": ["during", "after"],
     "emotions": ["guilty", "afraid"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_guilt_induction_r4"
   },
   {
     "id": "m_dismissal_warning_01",
@@ -734,7 +800,8 @@
     "phases": ["before", "during"],
     "emotions": ["afraid", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_dismissal_warning_02",
@@ -745,7 +812,8 @@
     "phases": ["before", "during"],
     "emotions": ["afraid", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_dismissal_warning_03",
@@ -756,7 +824,8 @@
     "phases": ["before", "during"],
     "emotions": ["afraid", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_dismissal_warning_04",
@@ -767,18 +836,20 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r2"
   },
   {
     "id": "m_dismissal_warning_05",
-    "text": "I ask what is expected before committing.",
+    "text": "Knowing what is expected before committing is a fair thing to want.",
     "situationIds": ["dismissal_warning"],
     "behaviorIds": ["behavior_dismissal_warning"],
     "purpose": "self_respect",
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r1"
   },
   {
     "id": "m_dismissal_warning_06",
@@ -789,18 +860,20 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_dismissal_warning_07",
-    "text": "I ask for the process behind this warning.",
+    "text": "Something this serious should have a clear process behind it.",
     "situationIds": ["dismissal_warning"],
     "behaviorIds": ["behavior_dismissal_warning"],
     "purpose": "distancing",
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r2"
   },
   {
     "id": "m_dismissal_warning_08",
@@ -811,7 +884,8 @@
     "phases": ["during", "after"],
     "emotions": ["afraid", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_dismissal_warning_09",
@@ -822,7 +896,8 @@
     "phases": ["after"],
     "emotions": ["afraid", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_dismissal_warning_10",
@@ -833,7 +908,8 @@
     "phases": ["after"],
     "emotions": ["afraid", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r4"
   },
   {
     "id": "m_public_criticism_01",
@@ -844,7 +920,8 @@
     "phases": ["during"],
     "emotions": ["embarrassed", "angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_public_criticism_02",
@@ -855,7 +932,8 @@
     "phases": ["during"],
     "emotions": ["embarrassed", "angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_public_criticism_03",
@@ -866,7 +944,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["embarrassed", "angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_public_criticism_04",
@@ -877,7 +956,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["embarrassed", "angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_public_criticism_05",
@@ -888,18 +968,20 @@
     "phases": ["before", "during", "after"],
     "emotions": ["embarrassed", "angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_public_criticism_06",
-    "text": "I separate the work issue from the delivery.",
+    "text": "The point and the way it was delivered are two separate things.",
     "situationIds": ["public_criticism"],
     "behaviorIds": ["behavior_public_criticism"],
     "purpose": "distancing",
     "phases": ["during", "after"],
     "emotions": ["embarrassed", "angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_public_criticism_r1"
   },
   {
     "id": "m_public_criticism_07",
@@ -910,7 +992,8 @@
     "phases": ["after"],
     "emotions": ["embarrassed", "angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_public_criticism_08",
@@ -921,7 +1004,8 @@
     "phases": ["after"],
     "emotions": ["embarrassed", "angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_public_criticism_09",
@@ -932,7 +1016,8 @@
     "phases": ["after"],
     "emotions": ["embarrassed", "angry", "afraid"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_public_criticism_r1"
   },
   {
     "id": "m_public_criticism_10",
@@ -943,7 +1028,8 @@
     "phases": ["after"],
     "emotions": ["embarrassed", "angry", "afraid"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_public_criticism_r1"
   },
   {
     "id": "m_colleague_gossip_01",
@@ -954,7 +1040,8 @@
     "phases": ["before", "during"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_colleague_gossip_02",
@@ -965,7 +1052,8 @@
     "phases": ["during"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_colleague_gossip_03",
@@ -976,7 +1064,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_colleague_gossip_04",
@@ -987,7 +1076,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_colleague_gossip_r3"
   },
   {
     "id": "m_colleague_gossip_05",
@@ -998,18 +1088,20 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_colleague_gossip_06",
-    "text": "I distinguish what I hear from what I observe.",
+    "text": "What I have seen myself and what I heard about someone carry different weight.",
     "situationIds": ["colleague_gossip"],
     "behaviorIds": ["behavior_colleague_gossip"],
     "purpose": "distancing",
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_colleague_gossip_r1"
   },
   {
     "id": "m_colleague_gossip_07",
@@ -1020,7 +1112,8 @@
     "phases": ["during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_colleague_gossip_08",
@@ -1031,7 +1124,8 @@
     "phases": ["after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_colleague_gossip_09",
@@ -1042,7 +1136,8 @@
     "phases": ["during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_colleague_gossip_r3"
   },
   {
     "id": "m_colleague_gossip_10",
@@ -1053,7 +1148,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_colleague_gossip_r3"
   },
   {
     "id": "m_unattributed_consensus_01",
@@ -1064,7 +1160,8 @@
     "phases": ["before", "during"],
     "emotions": ["afraid", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_unattributed_consensus_02",
@@ -1075,7 +1172,8 @@
     "phases": ["during"],
     "emotions": ["afraid", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_unattributed_consensus_03",
@@ -1086,7 +1184,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_unattributed_consensus_r2"
   },
   {
     "id": "m_unattributed_consensus_04",
@@ -1097,7 +1196,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_unattributed_consensus_05",
@@ -1108,7 +1208,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_unattributed_consensus_06",
@@ -1119,7 +1220,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_unattributed_consensus_07",
@@ -1130,7 +1232,8 @@
     "phases": ["during", "after"],
     "emotions": ["afraid", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_unattributed_consensus_08",
@@ -1141,7 +1244,8 @@
     "phases": ["after"],
     "emotions": ["afraid", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_unattributed_consensus_09",
@@ -1152,7 +1256,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "embarrassed"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_unattributed_consensus_r1"
   },
   {
     "id": "m_unattributed_consensus_10",
@@ -1163,18 +1268,20 @@
     "phases": ["during", "after"],
     "emotions": ["afraid", "embarrassed"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_unattributed_consensus_r3"
   },
   {
     "id": "m_circular_interrogation_01",
-    "text": "I pause and find the question underneath.",
+    "text": "Under the repeated wording there may be one actual question, and it is worth finding.",
     "situationIds": ["circular_interrogation"],
     "behaviorIds": ["behavior_circular_interrogation"],
     "purpose": "grounding",
     "phases": ["during"],
     "emotions": ["confused", "overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_circular_interrogation_r1"
   },
   {
     "id": "m_circular_interrogation_02",
@@ -1185,7 +1292,8 @@
     "phases": ["before", "during"],
     "emotions": ["confused", "overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_circular_interrogation_03",
@@ -1196,7 +1304,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_circular_interrogation_04",
@@ -1207,7 +1316,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_circular_interrogation_05",
@@ -1218,7 +1328,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_circular_interrogation_06",
@@ -1229,7 +1340,8 @@
     "phases": ["during", "after"],
     "emotions": ["confused", "overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_circular_interrogation_07",
@@ -1240,7 +1352,8 @@
     "phases": ["during", "after"],
     "emotions": ["confused", "overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_circular_interrogation_08",
@@ -1251,7 +1364,8 @@
     "phases": ["after"],
     "emotions": ["confused", "overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_circular_interrogation_09",
@@ -1262,7 +1376,8 @@
     "phases": ["during", "after"],
     "emotions": ["confused", "overloaded", "angry"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_circular_interrogation_r3"
   },
   {
     "id": "m_circular_interrogation_10",
@@ -1273,7 +1388,8 @@
     "phases": ["after"],
     "emotions": ["confused", "overloaded", "angry"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_circular_interrogation_r1"
   },
   {
     "id": "m_moving_goalposts_01",
@@ -1284,7 +1400,8 @@
     "phases": ["before", "during"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_moving_goalposts_02",
@@ -1295,7 +1412,8 @@
     "phases": ["during"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_moving_goalposts_03",
@@ -1306,7 +1424,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_moving_goalposts_04",
@@ -1317,18 +1436,20 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_moving_goalposts_r2"
   },
   {
     "id": "m_moving_goalposts_05",
-    "text": "I make room for an estimate that changes too.",
+    "text": "When the requirement moves, the time it needs moves with it. That is arithmetic, not an excuse.",
     "situationIds": ["moving_goalposts"],
     "behaviorIds": ["behavior_moving_goalposts"],
     "purpose": "self_respect",
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_moving_goalposts_r1"
   },
   {
     "id": "m_moving_goalposts_06",
@@ -1339,7 +1460,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_moving_goalposts_07",
@@ -1350,18 +1472,20 @@
     "phases": ["during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_moving_goalposts_08",
-    "text": "I recognize the extra work this change creates.",
+    "text": "A change in the brief is also a change in the amount of work.",
     "situationIds": ["moving_goalposts"],
     "behaviorIds": ["behavior_moving_goalposts"],
     "purpose": "distancing",
     "phases": ["after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_moving_goalposts_r2"
   },
   {
     "id": "m_moving_goalposts_09",
@@ -1372,7 +1496,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_moving_goalposts_r1"
   },
   {
     "id": "m_moving_goalposts_10",
@@ -1383,7 +1508,8 @@
     "phases": ["during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_moving_goalposts_r4"
   },
   {
     "id": "m_withheld_information_01",
@@ -1394,7 +1520,8 @@
     "phases": ["before", "during"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_withheld_information_02",
@@ -1405,7 +1532,8 @@
     "phases": ["during"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_withheld_information_03",
@@ -1416,18 +1544,20 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_withheld_information_r2"
   },
   {
     "id": "m_withheld_information_04",
-    "text": "I am not accountable for knowing an undisclosed detail.",
+    "text": "Nobody can be fairly held to a detail that was never shared.",
     "situationIds": ["withheld_information"],
     "behaviorIds": ["behavior_withheld_information"],
     "purpose": "self_respect",
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_withheld_information_r2"
   },
   {
     "id": "m_withheld_information_05",
@@ -1438,7 +1568,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_withheld_information_06",
@@ -1449,7 +1580,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_withheld_information_07",
@@ -1460,7 +1592,8 @@
     "phases": ["during", "after"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_withheld_information_08",
@@ -1471,7 +1604,8 @@
     "phases": ["after"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_withheld_information_09",
@@ -1482,7 +1616,8 @@
     "phases": ["during", "after"],
     "emotions": ["confused", "overloaded"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_withheld_information_r1"
   },
   {
     "id": "m_withheld_information_10",
@@ -1493,7 +1628,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "overloaded"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_withheld_information_r2"
   },
   {
     "id": "m_meeting_loop_01",
@@ -1504,7 +1640,8 @@
     "phases": ["before", "during"],
     "emotions": ["overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_meeting_loop_02",
@@ -1515,7 +1652,8 @@
     "phases": ["during"],
     "emotions": ["overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_meeting_loop_03",
@@ -1526,7 +1664,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_meeting_loop_r2"
   },
   {
     "id": "m_meeting_loop_04",
@@ -1537,7 +1676,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_meeting_loop_05",
@@ -1548,18 +1688,20 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_meeting_loop_06",
-    "text": "I separate discussion, decision and responsibility.",
+    "text": "A meeting can produce discussion without producing a decision or an owner.",
     "situationIds": ["meeting_loop"],
     "behaviorIds": ["behavior_meeting_loop"],
     "purpose": "distancing",
     "phases": ["during", "after"],
     "emotions": ["overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_meeting_loop_r1"
   },
   {
     "id": "m_meeting_loop_07",
@@ -1570,7 +1712,8 @@
     "phases": ["after"],
     "emotions": ["overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_meeting_loop_08",
@@ -1581,7 +1724,8 @@
     "phases": ["after"],
     "emotions": ["overloaded", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_meeting_loop_09",
@@ -1592,7 +1736,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "angry"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_meeting_loop_r1"
   },
   {
     "id": "m_meeting_loop_10",
@@ -1603,7 +1748,8 @@
     "phases": ["after"],
     "emotions": ["overloaded", "angry"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_meeting_loop_r3"
   },
   {
     "id": "m_responsibility_diffusion_01",
@@ -1614,18 +1760,20 @@
     "phases": ["before", "during"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_responsibility_diffusion_02",
-    "text": "I look for a name beside this task.",
+    "text": "A task without a name beside it is not yet anyone's.",
     "situationIds": ["responsibility_diffusion"],
     "behaviorIds": ["behavior_responsibility_diffusion"],
     "purpose": "grounding",
     "phases": ["during"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_responsibility_diffusion_r1"
   },
   {
     "id": "m_responsibility_diffusion_03",
@@ -1636,7 +1784,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_responsibility_diffusion_04",
@@ -1647,7 +1796,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_responsibility_diffusion_05",
@@ -1658,29 +1808,32 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_responsibility_diffusion_06",
-    "text": "I keep the word we separate from my name.",
+    "text": "“We should” and “I will” are different promises.",
     "situationIds": ["responsibility_diffusion"],
     "behaviorIds": ["behavior_responsibility_diffusion"],
     "purpose": "distancing",
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_responsibility_diffusion_r1"
   },
   {
     "id": "m_responsibility_diffusion_07",
-    "text": "I distinguish helping from owning the whole task.",
+    "text": "Helping with a task does not sign me up to own all of it.",
     "situationIds": ["responsibility_diffusion"],
     "behaviorIds": ["behavior_responsibility_diffusion"],
     "purpose": "distancing",
     "phases": ["during", "after"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_responsibility_diffusion_r1"
   },
   {
     "id": "m_responsibility_diffusion_08",
@@ -1691,7 +1844,8 @@
     "phases": ["after"],
     "emotions": ["confused", "overloaded"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_responsibility_diffusion_09",
@@ -1702,7 +1856,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "overloaded"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_responsibility_diffusion_r3"
   },
   {
     "id": "m_responsibility_diffusion_10",
@@ -1713,7 +1868,8 @@
     "phases": ["during", "after"],
     "emotions": ["confused", "overloaded"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_responsibility_diffusion_r2"
   },
   {
     "id": "m_micromanagement_01",
@@ -1724,7 +1880,8 @@
     "phases": ["before", "during"],
     "emotions": ["angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_micromanagement_02",
@@ -1735,7 +1892,8 @@
     "phases": ["during"],
     "emotions": ["angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_micromanagement_03",
@@ -1746,18 +1904,20 @@
     "phases": ["before", "during", "after"],
     "emotions": ["angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_micromanagement_r2"
   },
   {
     "id": "m_micromanagement_04",
-    "text": "My attention is part of this task's resources.",
+    "text": "Updates take attention too, and the task gets what is left.",
     "situationIds": ["micromanagement"],
     "behaviorIds": ["behavior_micromanagement"],
     "purpose": "self_respect",
     "phases": ["before", "during", "after"],
     "emotions": ["angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_micromanagement_r1"
   },
   {
     "id": "m_micromanagement_05",
@@ -1768,18 +1928,20 @@
     "phases": ["before", "during", "after"],
     "emotions": ["angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_micromanagement_06",
-    "text": "I separate frequent checking from evidence about my work.",
+    "text": "Frequent checking is a way of working. It is not evidence about my work.",
     "situationIds": ["micromanagement"],
     "behaviorIds": ["behavior_micromanagement"],
     "purpose": "distancing",
     "phases": ["before", "during", "after"],
     "emotions": ["angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_micromanagement_r2"
   },
   {
     "id": "m_micromanagement_07",
@@ -1790,7 +1952,8 @@
     "phases": ["during", "after"],
     "emotions": ["angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_micromanagement_08",
@@ -1801,7 +1964,8 @@
     "phases": ["after"],
     "emotions": ["angry", "afraid"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_micromanagement_09",
@@ -1812,7 +1976,8 @@
     "phases": ["during", "after"],
     "emotions": ["angry", "afraid"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_micromanagement_r1"
   },
   {
     "id": "m_micromanagement_10",
@@ -1823,7 +1988,8 @@
     "phases": ["after"],
     "emotions": ["angry", "afraid"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_micromanagement_r3"
   },
   {
     "id": "m_competing_priorities_01",
@@ -1834,7 +2000,8 @@
     "phases": ["before", "during"],
     "emotions": ["overloaded", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_competing_priorities_02",
@@ -1845,7 +2012,8 @@
     "phases": ["during"],
     "emotions": ["overloaded", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_competing_priorities_03",
@@ -1856,7 +2024,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_competing_priorities_04",
@@ -1867,7 +2036,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_competing_priorities_r1"
   },
   {
     "id": "m_competing_priorities_05",
@@ -1878,7 +2048,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_competing_priorities_06",
@@ -1889,7 +2060,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_competing_priorities_07",
@@ -1900,7 +2072,8 @@
     "phases": ["during", "after"],
     "emotions": ["overloaded", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_competing_priorities_08",
@@ -1911,7 +2084,8 @@
     "phases": ["after"],
     "emotions": ["overloaded", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_competing_priorities_09",
@@ -1922,7 +2096,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "confused"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_competing_priorities_r1"
   },
   {
     "id": "m_competing_priorities_10",
@@ -1933,7 +2108,8 @@
     "phases": ["during", "after"],
     "emotions": ["overloaded", "confused"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_competing_priorities_r1"
   },
   {
     "id": "m_credit_dispute_01",
@@ -1944,7 +2120,8 @@
     "phases": ["before", "during"],
     "emotions": ["angry", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_credit_dispute_02",
@@ -1955,7 +2132,8 @@
     "phases": ["during"],
     "emotions": ["angry", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_credit_dispute_03",
@@ -1966,18 +2144,20 @@
     "phases": ["before", "during", "after"],
     "emotions": ["angry", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_credit_dispute_r1"
   },
   {
     "id": "m_credit_dispute_04",
-    "text": "I claim my contribution without erasing another person's.",
+    "text": "Naming my part need not erase anyone else's.",
     "situationIds": ["credit_dispute"],
     "behaviorIds": ["behavior_credit_dispute"],
     "purpose": "self_respect",
     "phases": ["before", "during", "after"],
     "emotions": ["angry", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_credit_dispute_r1"
   },
   {
     "id": "m_credit_dispute_05",
@@ -1988,7 +2168,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["angry", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_credit_dispute_06",
@@ -1999,7 +2180,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["angry", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_credit_dispute_07",
@@ -2010,7 +2192,8 @@
     "phases": ["during", "after"],
     "emotions": ["angry", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_credit_dispute_08",
@@ -2021,7 +2204,8 @@
     "phases": ["after"],
     "emotions": ["angry", "embarrassed"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_credit_dispute_09",
@@ -2032,7 +2216,8 @@
     "phases": ["after"],
     "emotions": ["angry", "embarrassed"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_credit_dispute_r3"
   },
   {
     "id": "m_credit_dispute_10",
@@ -2043,7 +2228,8 @@
     "phases": ["during", "after"],
     "emotions": ["angry", "embarrassed"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_credit_dispute_r2"
   },
   {
     "id": "m_workload_overload_01",
@@ -2054,7 +2240,8 @@
     "phases": ["before", "during"],
     "emotions": ["overloaded", "guilty"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_workload_overload_02",
@@ -2065,7 +2252,8 @@
     "phases": ["during"],
     "emotions": ["overloaded", "guilty"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_workload_overload_03",
@@ -2076,7 +2264,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "guilty"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_workload_overload_04",
@@ -2087,7 +2276,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "guilty"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_workload_overload_r2"
   },
   {
     "id": "m_workload_overload_05",
@@ -2098,7 +2288,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "guilty"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_workload_overload_06",
@@ -2109,7 +2300,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "guilty"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_workload_overload_07",
@@ -2120,7 +2312,8 @@
     "phases": ["during", "after"],
     "emotions": ["overloaded", "guilty"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_workload_overload_08",
@@ -2131,7 +2324,8 @@
     "phases": ["after"],
     "emotions": ["overloaded", "guilty"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_workload_overload_09",
@@ -2142,7 +2336,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["overloaded", "guilty"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_workload_overload_r1"
   },
   {
     "id": "m_workload_overload_10",
@@ -2153,7 +2348,8 @@
     "phases": ["during", "after"],
     "emotions": ["overloaded", "guilty"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_workload_overload_r2"
   },
   {
     "id": "m_surveillance_concern_01",
@@ -2164,7 +2360,8 @@
     "phases": ["before", "during"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_surveillance_concern_02",
@@ -2175,7 +2372,8 @@
     "phases": ["during"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_surveillance_concern_03",
@@ -2186,7 +2384,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_surveillance_concern_04",
@@ -2197,7 +2396,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_surveillance_concern_05",
@@ -2208,29 +2408,32 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_surveillance_concern_06",
-    "text": "I separate a signal from assumptions about its reach.",
+    "text": "One sign of checking does not show how far the checking reaches.",
     "situationIds": ["surveillance_concern"],
     "behaviorIds": ["behavior_surveillance_concern"],
     "purpose": "distancing",
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_surveillance_concern_r4"
   },
   {
     "id": "m_surveillance_concern_07",
-    "text": "I distinguish my observation from my suspicion.",
+    "text": "What I observed and what I suspect are different things, and neither has to be thrown out.",
     "situationIds": ["surveillance_concern"],
     "behaviorIds": ["behavior_surveillance_concern"],
     "purpose": "distancing",
     "phases": ["during", "after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_surveillance_concern_r4"
   },
   {
     "id": "m_surveillance_concern_08",
@@ -2241,18 +2444,20 @@
     "phases": ["after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_surveillance_concern_09",
-    "text": "I seek qualified support for my own choices.",
+    "text": "Confidential advice is worth having. A work device or account may not be private enough to look for it.",
     "situationIds": ["surveillance_concern"],
     "behaviorIds": ["behavior_surveillance_concern"],
     "purpose": "self_respect",
     "phases": ["after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_surveillance_concern_r4"
   },
   {
     "id": "m_surveillance_concern_10",
@@ -2263,7 +2468,8 @@
     "phases": ["after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_no_response_01",
@@ -2274,7 +2480,8 @@
     "phases": ["before", "during"],
     "emotions": ["afraid", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_no_response_02",
@@ -2285,40 +2492,44 @@
     "phases": ["during"],
     "emotions": ["afraid", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_no_response_03",
-    "text": "My question remains reasonable while it awaits an answer.",
+    "text": "An unanswered question has not become a worse question.",
     "situationIds": ["no_response"],
     "behaviorIds": ["behavior_no_response"],
     "purpose": "self_respect",
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_no_response_r1"
   },
   {
     "id": "m_no_response_04",
-    "text": "I acknowledge the work impact of this wait.",
+    "text": "A wait like this has a real effect on the work, whether anyone records it or not.",
     "situationIds": ["no_response"],
     "behaviorIds": ["behavior_no_response"],
     "purpose": "self_respect",
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_no_response_r3"
   },
   {
     "id": "m_no_response_05",
-    "text": "I leave an unanswered request clearly unapproved.",
+    "text": "Silence is not a yes. Until there is an answer, the request is still open.",
     "situationIds": ["no_response"],
     "behaviorIds": ["behavior_no_response"],
     "purpose": "self_respect",
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_no_response_r1"
   },
   {
     "id": "m_no_response_06",
@@ -2329,7 +2540,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_no_response_07",
@@ -2340,7 +2552,8 @@
     "phases": ["during", "after"],
     "emotions": ["afraid", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_no_response_08",
@@ -2351,7 +2564,8 @@
     "phases": ["after"],
     "emotions": ["afraid", "confused"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_no_response_09",
@@ -2362,7 +2576,8 @@
     "phases": ["during", "after"],
     "emotions": ["afraid", "confused"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_no_response_r2"
   },
   {
     "id": "m_no_response_10",
@@ -2373,7 +2588,8 @@
     "phases": ["after"],
     "emotions": ["afraid", "confused"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_no_response_r1"
   },
   {
     "id": "m_suspected_retaliation_01",
@@ -2384,7 +2600,8 @@
     "phases": ["before", "during"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_suspected_retaliation_02",
@@ -2395,7 +2612,8 @@
     "phases": ["during"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_suspected_retaliation_03",
@@ -2406,7 +2624,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_suspected_retaliation_r2"
   },
   {
     "id": "m_suspected_retaliation_04",
@@ -2417,7 +2636,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_suspected_retaliation_05",
@@ -2428,18 +2648,20 @@
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_suspected_retaliation_06",
-    "text": "I distinguish a sequence from a proven cause.",
+    "text": "A sequence is not yet a cause, and it is not yet nothing either.",
     "situationIds": ["suspected_retaliation"],
     "behaviorIds": ["behavior_suspected_retaliation"],
     "purpose": "distancing",
     "phases": ["before", "during", "after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_suspected_retaliation_r1"
   },
   {
     "id": "m_suspected_retaliation_07",
@@ -2450,7 +2672,8 @@
     "phases": ["during", "after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_suspected_retaliation_08",
@@ -2461,18 +2684,20 @@
     "phases": ["after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_suspected_retaliation_09",
-    "text": "I check confidentiality before choosing my support.",
+    "text": "Asking what stays confidential is a fair first question before sharing this.",
     "situationIds": ["suspected_retaliation"],
     "behaviorIds": ["behavior_suspected_retaliation"],
     "purpose": "self_respect",
     "phases": ["after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_suspected_retaliation_r2"
   },
   {
     "id": "m_suspected_retaliation_10",
@@ -2483,7 +2708,8 @@
     "phases": ["after"],
     "emotions": ["afraid", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_after_meeting_replay_01",
@@ -2494,7 +2720,8 @@
     "phases": ["after"],
     "emotions": ["afraid", "embarrassed", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_after_meeting_replay_02",
@@ -2505,18 +2732,20 @@
     "phases": ["after"],
     "emotions": ["afraid", "embarrassed", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_after_meeting_replay_03",
-    "text": "I rest without solving the whole conversation.",
+    "text": "Not every conversation has to be solved before I stop.",
     "situationIds": ["after_meeting_replay"],
     "behaviorIds": ["behavior_after_meeting_replay"],
     "purpose": "self_respect",
     "phases": ["after"],
     "emotions": ["afraid", "embarrassed", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_after_meeting_replay_r1"
   },
   {
     "id": "m_after_meeting_replay_04",
@@ -2527,7 +2756,8 @@
     "phases": ["after"],
     "emotions": ["afraid", "embarrassed", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_after_meeting_replay_05",
@@ -2538,18 +2768,20 @@
     "phases": ["after"],
     "emotions": ["afraid", "embarrassed", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_after_meeting_replay_06",
-    "text": "I notice a repeated thought without calling it new information.",
+    "text": "A thought that comes back is not new information.",
     "situationIds": ["after_meeting_replay"],
     "behaviorIds": ["behavior_after_meeting_replay"],
     "purpose": "distancing",
     "phases": ["after"],
     "emotions": ["afraid", "embarrassed", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_after_meeting_replay_r1"
   },
   {
     "id": "m_after_meeting_replay_07",
@@ -2560,7 +2792,8 @@
     "phases": ["after"],
     "emotions": ["afraid", "embarrassed", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_after_meeting_replay_08",
@@ -2571,7 +2804,8 @@
     "phases": ["after"],
     "emotions": ["afraid", "embarrassed", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_after_meeting_replay_09",
@@ -2582,7 +2816,8 @@
     "phases": ["after"],
     "emotions": ["afraid", "embarrassed", "angry"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_after_meeting_replay_r2"
   },
   {
     "id": "m_after_meeting_replay_10",
@@ -2593,7 +2828,8 @@
     "phases": ["after"],
     "emotions": ["afraid", "embarrassed", "angry"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_after_meeting_replay_r1"
   },
   {
     "id": "m_ordinary_disagreement_01",
@@ -2604,18 +2840,20 @@
     "phases": ["before", "during"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_ordinary_disagreement_02",
-    "text": "I leave space for another way to proceed.",
+    "text": "Another way to proceed may turn out better. Mine may too.",
     "situationIds": ["ordinary_disagreement"],
     "behaviorIds": ["behavior_ordinary_disagreement"],
     "purpose": "grounding",
     "phases": ["during"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_ordinary_disagreement_r1"
   },
   {
     "id": "m_ordinary_disagreement_03",
@@ -2626,18 +2864,20 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_ordinary_disagreement_r2"
   },
   {
     "id": "m_ordinary_disagreement_04",
-    "text": "I change my view when the evidence fits.",
+    "text": "My view can move if the evidence does.",
     "situationIds": ["ordinary_disagreement"],
     "behaviorIds": ["behavior_ordinary_disagreement"],
     "purpose": "self_respect",
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_ordinary_disagreement_r3"
   },
   {
     "id": "m_ordinary_disagreement_05",
@@ -2648,7 +2888,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_ordinary_disagreement_06",
@@ -2659,7 +2900,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_ordinary_disagreement_07",
@@ -2670,7 +2912,8 @@
     "phases": ["during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_ordinary_disagreement_08",
@@ -2681,7 +2924,8 @@
     "phases": ["after"],
     "emotions": ["confused", "angry"],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "retired": true
   },
   {
     "id": "m_ordinary_disagreement_09",
@@ -2692,7 +2936,8 @@
     "phases": ["before", "during", "after"],
     "emotions": ["confused", "angry"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_ordinary_disagreement_r3"
   },
   {
     "id": "m_ordinary_disagreement_10",
@@ -2703,7 +2948,8 @@
     "phases": ["after"],
     "emotions": ["confused", "angry"],
     "variant": "dark_humor",
-    "seriousSafe": false
+    "seriousSafe": false,
+    "reflectionId": "r_ordinary_disagreement_r2"
   },
   {
     "id": "m_general_added_01",
@@ -2714,7 +2960,8 @@
     "phases": ["before", "during"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r4"
   },
   {
     "id": "m_general_added_02",
@@ -2725,7 +2972,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r6"
   },
   {
     "id": "m_general_added_03",
@@ -2736,7 +2984,8 @@
     "phases": ["before", "during", "after"],
     "emotions": [],
     "variant": "plain",
-    "seriousSafe": true
+    "seriousSafe": true,
+    "reflectionId": "r_general_r2"
   },
   {
     "id": "m_general_added_04",
@@ -2747,6 +2996,2790 @@
     "phases": ["after"],
     "emotions": [],
     "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_general_r4"
+  },
+  {
+    "id": "m_after_meeting_replay_a01",
+    "text": "The replay is trying to finish a conversation that has already ended.",
+    "situationIds": ["after_meeting_replay"],
+    "behaviorIds": ["behavior_after_meeting_replay"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_after_meeting_replay_r1"
+  },
+  {
+    "id": "m_after_meeting_replay_a02",
+    "text": "Going over it again is not a failure. Something in it is still unsettled.",
+    "situationIds": ["after_meeting_replay"],
+    "behaviorIds": ["behavior_after_meeting_replay"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_after_meeting_replay_r1"
+  },
+  {
+    "id": "m_after_meeting_replay_a05",
+    "text": "Often the replay is less about what happened than about what it says about me.",
+    "situationIds": ["after_meeting_replay"],
+    "behaviorIds": ["behavior_after_meeting_replay"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_after_meeting_replay_r1"
+  },
+  {
+    "id": "m_after_meeting_replay_a09",
+    "text": "Nothing has to force the replay to stop. Its question can be looked at while it runs.",
+    "situationIds": ["after_meeting_replay"],
+    "behaviorIds": ["behavior_after_meeting_replay"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_after_meeting_replay_r1"
+  },
+  {
+    "id": "m_after_meeting_replay_a10",
+    "text": "Still thinking about it hours later is common after a hard conversation.",
+    "situationIds": ["after_meeting_replay"],
+    "behaviorIds": ["behavior_after_meeting_replay"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_after_meeting_replay_r1"
+  },
+  {
+    "id": "m_after_meeting_replay_a03",
+    "text": "You said what you said, and they heard what they heard. The replay changes neither.",
+    "situationIds": ["after_meeting_replay"],
+    "behaviorIds": ["behavior_after_meeting_replay"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_after_meeting_replay_r2"
+  },
+  {
+    "id": "m_after_meeting_replay_a04",
+    "text": "Told as if it happened to a friend, the same story often reads differently.",
+    "situationIds": ["after_meeting_replay"],
+    "behaviorIds": ["behavior_after_meeting_replay"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_after_meeting_replay_r2"
+  },
+  {
+    "id": "m_after_meeting_replay_a11",
+    "text": "You can care how it went and still put it down for a while, unfinished.",
+    "situationIds": ["after_meeting_replay"],
+    "behaviorIds": ["behavior_after_meeting_replay"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_after_meeting_replay_r2"
+  },
+  {
+    "id": "m_after_meeting_replay_a08",
+    "text": "Replaying uses up attention. If everything else feels harder right now, that is one reason.",
+    "situationIds": ["after_meeting_replay"],
+    "behaviorIds": ["behavior_after_meeting_replay"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_after_meeting_replay_r1"
+  },
+  {
+    "id": "m_after_meeting_replay_a06",
+    "text": "Being hard on yourself is one way of caring. It is not the only way.",
+    "situationIds": ["after_meeting_replay"],
+    "behaviorIds": ["behavior_after_meeting_replay"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_after_meeting_replay_r3"
+  },
+  {
+    "id": "m_after_meeting_replay_a07",
+    "text": "A real mistake, if there was one, can be looked at plainly, without passing sentence on myself.",
+    "situationIds": ["after_meeting_replay"],
+    "behaviorIds": ["behavior_after_meeting_replay"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_after_meeting_replay_r3"
+  },
+  {
+    "id": "m_circular_interrogation_a11",
+    "text": "Before the next round, one sentence is enough to keep: what I have already answered.",
+    "situationIds": ["circular_interrogation"],
+    "behaviorIds": ["behavior_circular_interrogation"],
+    "purpose": "grounding",
+    "phases": ["before"],
+    "emotions": ["afraid", "overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_circular_interrogation_r1"
+  },
+  {
+    "id": "m_circular_interrogation_a12",
+    "text": "No perfect answer is hiding somewhere. Looking for it is part of what wears you down.",
+    "situationIds": ["circular_interrogation"],
+    "behaviorIds": ["behavior_circular_interrogation"],
+    "purpose": "distancing",
+    "phases": ["before", "during"],
+    "emotions": ["overloaded", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_circular_interrogation_r1"
+  },
+  {
+    "id": "m_circular_interrogation_a01",
+    "text": "A question asked again is the same question. It has not gathered evidence on the way.",
+    "situationIds": ["circular_interrogation"],
+    "behaviorIds": ["behavior_circular_interrogation"],
+    "purpose": "distancing",
+    "phases": ["during"],
+    "emotions": ["confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_circular_interrogation_r1"
+  },
+  {
+    "id": "m_circular_interrogation_a02",
+    "text": "If no answer ends this, that alone does not prove the answers so far were wrong.",
+    "situationIds": ["circular_interrogation"],
+    "behaviorIds": ["behavior_circular_interrogation"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["overloaded", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_circular_interrogation_r1"
+  },
+  {
+    "id": "m_circular_interrogation_a03",
+    "text": "Sometimes there is nothing new to say. That can be the honest answer, even the third time.",
+    "situationIds": ["circular_interrogation"],
+    "behaviorIds": ["behavior_circular_interrogation"],
+    "purpose": "self_respect",
+    "phases": ["during"],
+    "emotions": ["afraid", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_circular_interrogation_r1"
+  },
+  {
+    "id": "m_circular_interrogation_a04",
+    "text": "Pressure can make a good-faith answer sound doubtful, even to the person giving it.",
+    "situationIds": ["circular_interrogation"],
+    "behaviorIds": ["behavior_circular_interrogation"],
+    "purpose": "distancing",
+    "phases": ["during", "after"],
+    "emotions": ["confused", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_circular_interrogation_r1"
+  },
+  {
+    "id": "m_circular_interrogation_a05",
+    "text": "The questions are about events. Whatever they seem to say about me was never put into words.",
+    "situationIds": ["circular_interrogation"],
+    "behaviorIds": ["behavior_circular_interrogation"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["embarrassed", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_circular_interrogation_r2"
+  },
+  {
+    "id": "m_circular_interrogation_a06",
+    "text": "Nobody has named a charge. That makes it harder to answer, not easier to ignore.",
+    "situationIds": ["circular_interrogation"],
+    "behaviorIds": ["behavior_circular_interrogation"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["guilty", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_circular_interrogation_r2"
+  },
+  {
+    "id": "m_circular_interrogation_a07",
+    "text": "Repetition wears people down in a way one hard question rarely does.",
+    "situationIds": ["circular_interrogation"],
+    "behaviorIds": ["behavior_circular_interrogation"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_circular_interrogation_r1"
+  },
+  {
+    "id": "m_circular_interrogation_a08",
+    "text": "Being understood takes a listener too. I can only supply my half.",
+    "situationIds": ["circular_interrogation"],
+    "behaviorIds": ["behavior_circular_interrogation"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["confused", "angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_circular_interrogation_r3"
+  },
+  {
+    "id": "m_circular_interrogation_a09",
+    "text": "If the questions never move, the problem is not only in your answers.",
+    "situationIds": ["circular_interrogation"],
+    "behaviorIds": ["behavior_circular_interrogation"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_circular_interrogation_r3"
+  },
+  {
+    "id": "m_circular_interrogation_a10",
+    "text": "Answering is something I may have to do. Granting the final word on me is not.",
+    "situationIds": ["circular_interrogation"],
+    "behaviorIds": ["behavior_circular_interrogation"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["afraid", "angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_circular_interrogation_r4"
+  },
+  {
+    "id": "m_colleague_gossip_a10",
+    "text": "If the talk turns to someone who is absent, a neutral answer is a real option.",
+    "situationIds": ["colleague_gossip"],
+    "behaviorIds": ["behavior_colleague_gossip"],
+    "purpose": "self_respect",
+    "phases": ["before"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_colleague_gossip_r1"
+  },
+  {
+    "id": "m_colleague_gossip_a05",
+    "text": "Keeping out of the talk can cost information and allies. Joining in has its own price.",
+    "situationIds": ["colleague_gossip"],
+    "behaviorIds": ["behavior_colleague_gossip"],
+    "purpose": "self_respect",
+    "phases": ["before", "during"],
+    "emotions": ["embarrassed", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_colleague_gossip_r1"
+  },
+  {
+    "id": "m_colleague_gossip_a01",
+    "text": "Being let in on something feels good. Wanting to belong is ordinary.",
+    "situationIds": ["colleague_gossip"],
+    "behaviorIds": ["behavior_colleague_gossip"],
+    "purpose": "grounding",
+    "phases": ["during"],
+    "emotions": ["embarrassed", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_colleague_gossip_r1"
+  },
+  {
+    "id": "m_colleague_gossip_a02",
+    "text": "Whoever is being discussed is not here to tell it their way.",
+    "situationIds": ["colleague_gossip"],
+    "behaviorIds": ["behavior_colleague_gossip"],
+    "purpose": "distancing",
+    "phases": ["during"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_colleague_gossip_r1"
+  },
+  {
+    "id": "m_colleague_gossip_a06",
+    "text": "Comparing notes on a hard workplace can be how people find out they are not alone.",
+    "situationIds": ["colleague_gossip"],
+    "behaviorIds": ["behavior_colleague_gossip"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["confused", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_colleague_gossip_r2"
+  },
+  {
+    "id": "m_colleague_gossip_a07",
+    "text": "Some talk about work leaves me knowing more. Some just leaves me more wound up.",
+    "situationIds": ["colleague_gossip"],
+    "behaviorIds": ["behavior_colleague_gossip"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_colleague_gossip_r2"
+  },
+  {
+    "id": "m_colleague_gossip_a03",
+    "text": "I can stay in the conversation without adding to it.",
+    "situationIds": ["colleague_gossip"],
+    "behaviorIds": ["behavior_colleague_gossip"],
+    "purpose": "self_respect",
+    "phases": ["during"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_colleague_gossip_r3"
+  },
+  {
+    "id": "m_colleague_gossip_a04",
+    "text": "Being there when it was said did not make it my view.",
+    "situationIds": ["colleague_gossip"],
+    "behaviorIds": ["behavior_colleague_gossip"],
+    "purpose": "distancing",
+    "phases": ["during", "after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_colleague_gossip_r3"
+  },
+  {
+    "id": "m_colleague_gossip_a08",
+    "text": "If I am relieved it is not me being talked about, that is not a betrayal of anyone.",
+    "situationIds": ["colleague_gossip"],
+    "behaviorIds": ["behavior_colleague_gossip"],
+    "purpose": "grounding",
+    "phases": ["during", "after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_colleague_gossip_r3"
+  },
+  {
+    "id": "m_colleague_gossip_a09",
+    "text": "Whatever I add is mine. What others say is theirs.",
+    "situationIds": ["colleague_gossip"],
+    "behaviorIds": ["behavior_colleague_gossip"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_colleague_gossip_r3"
+  },
+  {
+    "id": "m_colleague_gossip_a11",
+    "text": "I do not owe anyone a defense of a colleague at my own expense.",
+    "situationIds": ["colleague_gossip"],
+    "behaviorIds": ["behavior_colleague_gossip"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_colleague_gossip_r3"
+  },
+  {
+    "id": "m_competing_priorities_a05",
+    "text": "One decision at a time is all anyone can make, even with six waiting.",
+    "situationIds": ["competing_priorities"],
+    "behaviorIds": ["behavior_competing_priorities"],
+    "purpose": "grounding",
+    "phases": ["before", "during"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_competing_priorities_r2"
+  },
+  {
+    "id": "m_competing_priorities_a01",
+    "text": "When everything is urgent, the clash is in the demands, not in me.",
+    "situationIds": ["competing_priorities"],
+    "behaviorIds": ["behavior_competing_priorities"],
+    "purpose": "self_respect",
+    "phases": ["during"],
+    "emotions": ["overloaded", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_competing_priorities_r1"
+  },
+  {
+    "id": "m_competing_priorities_a02",
+    "text": "These need ranking. If nobody else ranks them, any order I pick is a forced choice.",
+    "situationIds": ["competing_priorities"],
+    "behaviorIds": ["behavior_competing_priorities"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["afraid", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_competing_priorities_r1"
+  },
+  {
+    "id": "m_competing_priorities_a03",
+    "text": "Two things cannot both go first, whatever both labels say.",
+    "situationIds": ["competing_priorities"],
+    "behaviorIds": ["behavior_competing_priorities"],
+    "purpose": "distancing",
+    "phases": ["during"],
+    "emotions": ["confused", "overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_competing_priorities_r1"
+  },
+  {
+    "id": "m_competing_priorities_a10",
+    "text": "Several people each expecting to be first is a planning problem that reached me last.",
+    "situationIds": ["competing_priorities"],
+    "behaviorIds": ["behavior_competing_priorities"],
+    "purpose": "distancing",
+    "phases": ["during", "after"],
+    "emotions": ["angry", "overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_competing_priorities_r1"
+  },
+  {
+    "id": "m_competing_priorities_a04",
+    "text": "Choosing an order can bring blame from whoever comes second. The choice was still necessary.",
+    "situationIds": ["competing_priorities"],
+    "behaviorIds": ["behavior_competing_priorities"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["afraid", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_competing_priorities_r3"
+  },
+  {
+    "id": "m_competing_priorities_a06",
+    "text": "Under pressure, “who will be angriest” often sets the order. That is self-protection, not a lack of values.",
+    "situationIds": ["competing_priorities"],
+    "behaviorIds": ["behavior_competing_priorities"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_competing_priorities_r2"
+  },
+  {
+    "id": "m_competing_priorities_a07",
+    "text": "Choosing what waits is not the same as deciding it does not matter.",
+    "situationIds": ["competing_priorities"],
+    "behaviorIds": ["behavior_competing_priorities"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_competing_priorities_r2"
+  },
+  {
+    "id": "m_competing_priorities_a08",
+    "text": "The order I chose is mine. How it lands is not up to me, though it still matters.",
+    "situationIds": ["competing_priorities"],
+    "behaviorIds": ["behavior_competing_priorities"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_competing_priorities_r3"
+  },
+  {
+    "id": "m_competing_priorities_a09",
+    "text": "Blame can land on a fair choice. Where it lands does not decide whether the choice was fair.",
+    "situationIds": ["competing_priorities"],
+    "behaviorIds": ["behavior_competing_priorities"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["afraid", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_competing_priorities_r3"
+  },
+  {
+    "id": "m_competing_priorities_a11",
+    "text": "Every request is bidding for the same hour. The hour can only go once.",
+    "situationIds": ["competing_priorities"],
+    "behaviorIds": ["behavior_competing_priorities"],
+    "purpose": "distancing",
+    "phases": ["during"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_competing_priorities_r1"
+  },
+  {
+    "id": "m_competing_priorities_a12",
+    "text": "When one person calls everything urgent, the word has stopped doing its job.",
+    "situationIds": ["competing_priorities"],
+    "behaviorIds": ["behavior_competing_priorities"],
+    "purpose": "distancing",
+    "phases": ["during", "after"],
+    "emotions": ["confused", "angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_competing_priorities_r1"
+  },
+  {
+    "id": "m_competing_priorities_a13",
+    "text": "Whatever I put first, I put it there with what I knew at the time.",
+    "situationIds": ["competing_priorities"],
+    "behaviorIds": ["behavior_competing_priorities"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_competing_priorities_r3"
+  },
+  {
+    "id": "m_credit_dispute_a10",
+    "text": "If credit is about to be handed out, my part is worth having clear in my own mind.",
+    "situationIds": ["credit_dispute"],
+    "behaviorIds": ["behavior_credit_dispute"],
+    "purpose": "grounding",
+    "phases": ["before"],
+    "emotions": ["afraid", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_credit_dispute_r1"
+  },
+  {
+    "id": "m_credit_dispute_a01",
+    "text": "Minding who gets credit is not vanity. Credit feeds reviews, pay and what comes next.",
+    "situationIds": ["credit_dispute"],
+    "behaviorIds": ["behavior_credit_dispute"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["angry", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_credit_dispute_r1"
+  },
+  {
+    "id": "m_credit_dispute_a02",
+    "text": "The work still exists. What went missing is my name on it.",
+    "situationIds": ["credit_dispute"],
+    "behaviorIds": ["behavior_credit_dispute"],
+    "purpose": "grounding",
+    "phases": ["during", "after"],
+    "emotions": ["angry", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_credit_dispute_r1"
+  },
+  {
+    "id": "m_credit_dispute_a04",
+    "text": "Why it happened is a guess. Whose work it was is not.",
+    "situationIds": ["credit_dispute"],
+    "behaviorIds": ["behavior_credit_dispute"],
+    "purpose": "distancing",
+    "phases": ["during", "after"],
+    "emotions": ["angry", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_credit_dispute_r1"
+  },
+  {
+    "id": "m_credit_dispute_a03",
+    "text": "Whether to raise this is a real decision, with a cost either way.",
+    "situationIds": ["credit_dispute"],
+    "behaviorIds": ["behavior_credit_dispute"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["confused", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_credit_dispute_r1"
+  },
+  {
+    "id": "m_credit_dispute_a05",
+    "text": "My part happened, whether or not anyone said so out loud.",
+    "situationIds": ["credit_dispute"],
+    "behaviorIds": ["behavior_credit_dispute"],
+    "purpose": "grounding",
+    "phases": ["during"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_credit_dispute_r2"
+  },
+  {
+    "id": "m_credit_dispute_a07",
+    "text": "Ranking myself against them has no finish line. A list of what I did is just a record.",
+    "situationIds": ["credit_dispute"],
+    "behaviorIds": ["behavior_credit_dispute"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_credit_dispute_r2"
+  },
+  {
+    "id": "m_credit_dispute_a06",
+    "text": "Raising it now, raising it later and leaving it are all choices people make for good reasons.",
+    "situationIds": ["credit_dispute"],
+    "behaviorIds": ["behavior_credit_dispute"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_credit_dispute_r3"
+  },
+  {
+    "id": "m_credit_dispute_a08",
+    "text": "If I raise it, I only need to be accurate about my part, not to prove anything about theirs.",
+    "situationIds": ["credit_dispute"],
+    "behaviorIds": ["behavior_credit_dispute"],
+    "purpose": "self_respect",
+    "phases": ["before", "after"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_credit_dispute_r1"
+  },
+  {
+    "id": "m_credit_dispute_a09",
+    "text": "People who worked beside me may know exactly what I did.",
+    "situationIds": ["credit_dispute"],
+    "behaviorIds": ["behavior_credit_dispute"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_credit_dispute_r3"
+  },
+  {
+    "id": "m_credit_dispute_a11",
+    "text": "Wanting my name on my own work can feel awkward to admit. It is a fair thing to want.",
+    "situationIds": ["credit_dispute"],
+    "behaviorIds": ["behavior_credit_dispute"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_credit_dispute_r1"
+  },
+  {
+    "id": "m_dismissal_warning_a02",
+    "text": "Keep the facts you know close. The ending has not happened yet.",
+    "situationIds": ["dismissal_warning"],
+    "behaviorIds": ["behavior_dismissal_warning"],
+    "purpose": "self_respect",
+    "phases": ["before", "during"],
+    "emotions": ["confused", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r1"
+  },
+  {
+    "id": "m_dismissal_warning_a15",
+    "text": "Fear is allowed to come along. It does not get to make every decision.",
+    "situationIds": ["dismissal_warning"],
+    "behaviorIds": ["behavior_dismissal_warning"],
+    "purpose": "self_respect",
+    "phases": ["before", "during"],
+    "emotions": ["afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r1"
+  },
+  {
+    "id": "m_dismissal_warning_a04",
+    "text": "Careful words are one way of looking after everything your income pays for.",
+    "situationIds": ["dismissal_warning"],
+    "behaviorIds": ["behavior_dismissal_warning"],
+    "purpose": "self_respect",
+    "phases": ["during"],
+    "emotions": ["afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r2"
+  },
+  {
+    "id": "m_dismissal_warning_a06",
+    "text": "I can take this in now and decide later what I make of it.",
+    "situationIds": ["dismissal_warning"],
+    "behaviorIds": ["behavior_dismissal_warning"],
+    "purpose": "distancing",
+    "phases": ["during"],
+    "emotions": ["confused", "overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r2"
+  },
+  {
+    "id": "m_dismissal_warning_a07",
+    "text": "What is being said and what it will mean are separate questions.",
+    "situationIds": ["dismissal_warning"],
+    "behaviorIds": ["behavior_dismissal_warning"],
+    "purpose": "distancing",
+    "phases": ["during", "after"],
+    "emotions": ["confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r2"
+  },
+  {
+    "id": "m_dismissal_warning_a05",
+    "text": "I am scared, and I can still keep to what was actually stated.",
+    "situationIds": ["dismissal_warning"],
+    "behaviorIds": ["behavior_dismissal_warning"],
+    "purpose": "grounding",
+    "phases": ["during", "after"],
+    "emotions": ["afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r3"
+  },
+  {
+    "id": "m_dismissal_warning_a08",
+    "text": "Fear knows what is at stake. It does not know what happens next.",
+    "situationIds": ["dismissal_warning"],
+    "behaviorIds": ["behavior_dismissal_warning"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r3"
+  },
+  {
+    "id": "m_dismissal_warning_a09",
+    "text": "Receiving the warning was quick. Living with it is slower.",
+    "situationIds": ["dismissal_warning"],
+    "behaviorIds": ["behavior_dismissal_warning"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["overloaded", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r5"
+  },
+  {
+    "id": "m_dismissal_warning_a10",
+    "text": "Anger marks what felt unfair. Waiting to show it does not erase it.",
+    "situationIds": ["dismissal_warning"],
+    "behaviorIds": ["behavior_dismissal_warning"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r5"
+  },
+  {
+    "id": "m_dismissal_warning_a12",
+    "text": "Needing this income is a reason, not a confession.",
+    "situationIds": ["dismissal_warning"],
+    "behaviorIds": ["behavior_dismissal_warning"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r5"
+  },
+  {
+    "id": "m_dismissal_warning_a11",
+    "text": "A job can be the thing that frightened you and the thing you need.",
+    "situationIds": ["dismissal_warning"],
+    "behaviorIds": ["behavior_dismissal_warning"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["afraid", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r4"
+  },
+  {
+    "id": "m_dismissal_warning_a13",
+    "text": "Some of what was said may be fair. Owning that part does not mean accepting all of it.",
+    "situationIds": ["dismissal_warning"],
+    "behaviorIds": ["behavior_dismissal_warning"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["guilty", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r2"
+  },
+  {
+    "id": "m_dismissal_warning_a14",
+    "text": "Outside advice can help, and some of it is free. Ask first what will stay confidential.",
+    "situationIds": ["dismissal_warning"],
+    "behaviorIds": ["behavior_dismissal_warning"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["afraid", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_dismissal_warning_r1"
+  },
+  {
+    "id": "m_guilt_induction_a11",
+    "text": "Urgency is part of how this kind of pressure works. Not every answer has to be immediate.",
+    "situationIds": ["guilt_induction"],
+    "behaviorIds": ["behavior_guilt_induction"],
+    "purpose": "self_respect",
+    "phases": ["before", "during"],
+    "emotions": ["guilty", "overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_guilt_induction_r1"
+  },
+  {
+    "id": "m_guilt_induction_a01",
+    "text": "If saying no would bring blame, the request is closer to a demand, whatever words it uses.",
+    "situationIds": ["guilt_induction"],
+    "behaviorIds": ["behavior_guilt_induction"],
+    "purpose": "distancing",
+    "phases": ["during"],
+    "emotions": ["guilty", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_guilt_induction_r1"
+  },
+  {
+    "id": "m_guilt_induction_a09",
+    "text": "Being counted on is a compliment and a request at once. Only the request needs an answer.",
+    "situationIds": ["guilt_induction"],
+    "behaviorIds": ["behavior_guilt_induction"],
+    "purpose": "distancing",
+    "phases": ["during"],
+    "emotions": ["guilty", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_guilt_induction_r1"
+  },
+  {
+    "id": "m_guilt_induction_a02",
+    "text": "A yes given under pressure is still a real decision, made with less room than a free one.",
+    "situationIds": ["guilt_induction"],
+    "behaviorIds": ["behavior_guilt_induction"],
+    "purpose": "distancing",
+    "phases": ["during", "after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_guilt_induction_r1"
+  },
+  {
+    "id": "m_guilt_induction_a08",
+    "text": "Caring about the work does not settle how much of my time it gets.",
+    "situationIds": ["guilt_induction"],
+    "behaviorIds": ["behavior_guilt_induction"],
+    "purpose": "self_respect",
+    "phases": ["before", "during"],
+    "emotions": ["guilty", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_guilt_induction_r4"
+  },
+  {
+    "id": "m_guilt_induction_a06",
+    "text": "Guilt that can name what it is for deserves attention. Guilt that cannot is worth questioning.",
+    "situationIds": ["guilt_induction"],
+    "behaviorIds": ["behavior_guilt_induction"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_guilt_induction_r2"
+  },
+  {
+    "id": "m_guilt_induction_a13",
+    "text": "My loyalty is to the people here. It was never a promise to say yes to every request.",
+    "situationIds": ["guilt_induction"],
+    "behaviorIds": ["behavior_guilt_induction"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_guilt_induction_r2"
+  },
+  {
+    "id": "m_guilt_induction_a04",
+    "text": "Disappointing someone and wronging them are different things.",
+    "situationIds": ["guilt_induction"],
+    "behaviorIds": ["behavior_guilt_induction"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_guilt_induction_r3"
+  },
+  {
+    "id": "m_guilt_induction_a05",
+    "text": "Guilt after saying no often arrives even when the no was reasonable.",
+    "situationIds": ["guilt_induction"],
+    "behaviorIds": ["behavior_guilt_induction"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_guilt_induction_r3"
+  },
+  {
+    "id": "m_guilt_induction_a07",
+    "text": "If a colleague ends up covering, it can feel like your debt. The team's size was not your call.",
+    "situationIds": ["guilt_induction"],
+    "behaviorIds": ["behavior_guilt_induction"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_guilt_induction_r3"
+  },
+  {
+    "id": "m_guilt_induction_a12",
+    "text": "Anger and guilt can arrive together when a request leans on how much you care.",
+    "situationIds": ["guilt_induction"],
+    "behaviorIds": ["behavior_guilt_induction"],
+    "purpose": "grounding",
+    "phases": ["during", "after"],
+    "emotions": ["angry", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_guilt_induction_r4"
+  },
+  {
+    "id": "m_guilt_induction_a03",
+    "text": "Care measured only in availability leaves out most of what care is.",
+    "situationIds": ["guilt_induction"],
+    "behaviorIds": ["behavior_guilt_induction"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["guilty", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_guilt_induction_r4"
+  },
+  {
+    "id": "m_guilt_induction_a10",
+    "text": "“That is just how it works here” was decided by someone, at some point.",
+    "situationIds": ["guilt_induction"],
+    "behaviorIds": ["behavior_guilt_induction"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["angry", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_guilt_induction_r4"
+  },
+  {
+    "id": "m_meeting_loop_a10",
+    "text": "Starting this meeting already tired of it is a fair response to how the last ones went.",
+    "situationIds": ["meeting_loop"],
+    "behaviorIds": ["behavior_meeting_loop"],
+    "purpose": "distancing",
+    "phases": ["before"],
+    "emotions": ["overloaded", "angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_meeting_loop_r3"
+  },
+  {
+    "id": "m_meeting_loop_a01",
+    "text": "In a meeting that decides nothing, plenty is said and nothing begins.",
+    "situationIds": ["meeting_loop"],
+    "behaviorIds": ["behavior_meeting_loop"],
+    "purpose": "distancing",
+    "phases": ["during", "after"],
+    "emotions": ["overloaded", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_meeting_loop_r1"
+  },
+  {
+    "id": "m_meeting_loop_a02",
+    "text": "Looking engaged for an hour is work, even when nothing comes of it.",
+    "situationIds": ["meeting_loop"],
+    "behaviorIds": ["behavior_meeting_loop"],
+    "purpose": "self_respect",
+    "phases": ["during"],
+    "emotions": ["overloaded", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_meeting_loop_r1"
+  },
+  {
+    "id": "m_meeting_loop_a07",
+    "text": "Going numb in a long meeting is one way of getting through it.",
+    "situationIds": ["meeting_loop"],
+    "behaviorIds": ["behavior_meeting_loop"],
+    "purpose": "grounding",
+    "phases": ["during"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_meeting_loop_r1"
+  },
+  {
+    "id": "m_meeting_loop_a11",
+    "text": "Going unheard in a meeting that decides nothing is not proof I had nothing to say.",
+    "situationIds": ["meeting_loop"],
+    "behaviorIds": ["behavior_meeting_loop"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_meeting_loop_r2"
+  },
+  {
+    "id": "m_meeting_loop_a03",
+    "text": "If no decision was made, the missing piece was the decision, not my attention.",
+    "situationIds": ["meeting_loop"],
+    "behaviorIds": ["behavior_meeting_loop"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["confused", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_meeting_loop_r2"
+  },
+  {
+    "id": "m_meeting_loop_a05",
+    "text": "Most people in that meeting were stuck in the same hour.",
+    "situationIds": ["meeting_loop"],
+    "behaviorIds": ["behavior_meeting_loop"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_meeting_loop_r2"
+  },
+  {
+    "id": "m_meeting_loop_a06",
+    "text": "Finding a format pointless is a judgment about the format, not about the people in it.",
+    "situationIds": ["meeting_loop"],
+    "behaviorIds": ["behavior_meeting_loop"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["angry", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_meeting_loop_r2"
+  },
+  {
+    "id": "m_meeting_loop_a04",
+    "text": "An action mentioned in passing is not assigned to everyone who heard it.",
+    "situationIds": ["meeting_loop"],
+    "behaviorIds": ["behavior_meeting_loop"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty", "overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_meeting_loop_r1"
+  },
+  {
+    "id": "m_meeting_loop_a08",
+    "text": "When tiredness asks what all this is for, the question deserves a hearing.",
+    "situationIds": ["meeting_loop"],
+    "behaviorIds": ["behavior_meeting_loop"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["overloaded", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_meeting_loop_r3"
+  },
+  {
+    "id": "m_meeting_loop_a09",
+    "text": "The meetings take hours. They do not get to decide what the rest of my hours are for.",
+    "situationIds": ["meeting_loop"],
+    "behaviorIds": ["behavior_meeting_loop"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_meeting_loop_r3"
+  },
+  {
+    "id": "m_micromanagement_a10",
+    "text": "Another check-in is coming. My work between check-ins is still my work.",
+    "situationIds": ["micromanagement"],
+    "behaviorIds": ["behavior_micromanagement"],
+    "purpose": "grounding",
+    "phases": ["before", "during"],
+    "emotions": ["overloaded", "angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_micromanagement_r1"
+  },
+  {
+    "id": "m_micromanagement_a01",
+    "text": "Reporting on the work takes time from doing it. Both count as work.",
+    "situationIds": ["micromanagement"],
+    "behaviorIds": ["behavior_micromanagement"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_micromanagement_r1"
+  },
+  {
+    "id": "m_micromanagement_a02",
+    "text": "If the work goes slower under step-by-step checking, part of that is the checking.",
+    "situationIds": ["micromanagement"],
+    "behaviorIds": ["behavior_micromanagement"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["embarrassed", "overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_micromanagement_r1"
+  },
+  {
+    "id": "m_micromanagement_a03",
+    "text": "Interrupted work is harder work, even when the task is simple.",
+    "situationIds": ["micromanagement"],
+    "behaviorIds": ["behavior_micromanagement"],
+    "purpose": "grounding",
+    "phases": ["during"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_micromanagement_r1"
+  },
+  {
+    "id": "m_micromanagement_a05",
+    "text": "Rehearsing for the next check makes sense. I am still the one doing the work, not just its grade.",
+    "situationIds": ["micromanagement"],
+    "behaviorIds": ["behavior_micromanagement"],
+    "purpose": "distancing",
+    "phases": ["during", "after"],
+    "emotions": ["afraid", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_micromanagement_r2"
+  },
+  {
+    "id": "m_micromanagement_a04",
+    "text": "My judgment did not go anywhere. It just gets used less often here.",
+    "situationIds": ["micromanagement"],
+    "behaviorIds": ["behavior_micromanagement"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_micromanagement_r2"
+  },
+  {
+    "id": "m_micromanagement_a06",
+    "text": "The work I got right today is still right, however many times it was checked.",
+    "situationIds": ["micromanagement"],
+    "behaviorIds": ["behavior_micromanagement"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_micromanagement_r2"
+  },
+  {
+    "id": "m_micromanagement_a07",
+    "text": "Losing decisions is a real loss, even when the checking has a good reason.",
+    "situationIds": ["micromanagement"],
+    "behaviorIds": ["behavior_micromanagement"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_micromanagement_r3"
+  },
+  {
+    "id": "m_micromanagement_a08",
+    "text": "The checking may be policy. Going along with it does not mean agreeing it is good.",
+    "situationIds": ["micromanagement"],
+    "behaviorIds": ["behavior_micromanagement"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_micromanagement_r3"
+  },
+  {
+    "id": "m_micromanagement_a09",
+    "text": "I do not need to know why they check this much to know what it costs me.",
+    "situationIds": ["micromanagement"],
+    "behaviorIds": ["behavior_micromanagement"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["angry", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_micromanagement_r1"
+  },
+  {
+    "id": "m_micromanagement_a11",
+    "text": "Some decisions in this work are still mine, even if fewer than I would like.",
+    "situationIds": ["micromanagement"],
+    "behaviorIds": ["behavior_micromanagement"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_micromanagement_r3"
+  },
+  {
+    "id": "m_moving_goalposts_a11",
+    "text": "The fair test of this work is the brief I have today, not one that arrives later.",
+    "situationIds": ["moving_goalposts"],
+    "behaviorIds": ["behavior_moving_goalposts"],
+    "purpose": "grounding",
+    "phases": ["before"],
+    "emotions": ["confused", "overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_moving_goalposts_r1"
+  },
+  {
+    "id": "m_moving_goalposts_a01",
+    "text": "A standard that changed after the work was done says little about how well it was done.",
+    "situationIds": ["moving_goalposts"],
+    "behaviorIds": ["behavior_moving_goalposts"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["guilty", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_moving_goalposts_r1"
+  },
+  {
+    "id": "m_moving_goalposts_a02",
+    "text": "First there was a brief. Then the brief changed. That order matters.",
+    "situationIds": ["moving_goalposts"],
+    "behaviorIds": ["behavior_moving_goalposts"],
+    "purpose": "distancing",
+    "phases": ["during", "after"],
+    "emotions": ["confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_moving_goalposts_r4"
+  },
+  {
+    "id": "m_moving_goalposts_a03",
+    "text": "“Because that is what we need now” is a decision, not an explanation.",
+    "situationIds": ["moving_goalposts"],
+    "behaviorIds": ["behavior_moving_goalposts"],
+    "purpose": "distancing",
+    "phases": ["during"],
+    "emotions": ["confused", "angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_moving_goalposts_r1"
+  },
+  {
+    "id": "m_moving_goalposts_a04",
+    "text": "Needs can change honestly. The work done before the change still counts as work.",
+    "situationIds": ["moving_goalposts"],
+    "behaviorIds": ["behavior_moving_goalposts"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["angry", "overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_moving_goalposts_r2"
+  },
+  {
+    "id": "m_moving_goalposts_a05",
+    "text": "Redoing work can be more tiring than doing it the first time.",
+    "situationIds": ["moving_goalposts"],
+    "behaviorIds": ["behavior_moving_goalposts"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_moving_goalposts_r2"
+  },
+  {
+    "id": "m_moving_goalposts_a06",
+    "text": "If the effort now looks wasted, the waste came from the change.",
+    "situationIds": ["moving_goalposts"],
+    "behaviorIds": ["behavior_moving_goalposts"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["angry", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_moving_goalposts_r2"
+  },
+  {
+    "id": "m_moving_goalposts_a07",
+    "text": "Keeping up assumes something still enough to keep up with.",
+    "situationIds": ["moving_goalposts"],
+    "behaviorIds": ["behavior_moving_goalposts"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["overloaded", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_moving_goalposts_r3"
+  },
+  {
+    "id": "m_moving_goalposts_a08",
+    "text": "Work that keeps getting reset starts to feel pointless. That feeling comes from the resets, not from the work.",
+    "situationIds": ["moving_goalposts"],
+    "behaviorIds": ["behavior_moving_goalposts"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_moving_goalposts_r3"
+  },
+  {
+    "id": "m_moving_goalposts_a12",
+    "text": "Adapting again may be necessary. Calling it a strength does not make it free.",
+    "situationIds": ["moving_goalposts"],
+    "behaviorIds": ["behavior_moving_goalposts"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["overloaded", "angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_moving_goalposts_r3"
+  },
+  {
+    "id": "m_moving_goalposts_a09",
+    "text": "A review may remember only the latest brief. I can remember both.",
+    "situationIds": ["moving_goalposts"],
+    "behaviorIds": ["behavior_moving_goalposts"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["afraid", "angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_moving_goalposts_r4"
+  },
+  {
+    "id": "m_moving_goalposts_a10",
+    "text": "The change may have no clear author. It still landed on my work.",
+    "situationIds": ["moving_goalposts"],
+    "behaviorIds": ["behavior_moving_goalposts"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["angry", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_moving_goalposts_r4"
+  },
+  {
+    "id": "m_no_response_a10",
+    "text": "The answer I am waiting for is part of someone's work, not a favor.",
+    "situationIds": ["no_response"],
+    "behaviorIds": ["behavior_no_response"],
+    "purpose": "self_respect",
+    "phases": ["before", "during"],
+    "emotions": ["embarrassed", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_no_response_r3"
+  },
+  {
+    "id": "m_no_response_a01",
+    "text": "Silence has not said what I am afraid it means.",
+    "situationIds": ["no_response"],
+    "behaviorIds": ["behavior_no_response"],
+    "purpose": "distancing",
+    "phases": ["during"],
+    "emotions": ["afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_no_response_r1"
+  },
+  {
+    "id": "m_no_response_a02",
+    "text": "Most silences at work have dull causes, and some do not. Which kind this is, I cannot tell yet.",
+    "situationIds": ["no_response"],
+    "behaviorIds": ["behavior_no_response"],
+    "purpose": "distancing",
+    "phases": ["during"],
+    "emotions": ["afraid", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_no_response_r1"
+  },
+  {
+    "id": "m_no_response_a03",
+    "text": "Some parts of the work may not be waiting on that answer.",
+    "situationIds": ["no_response"],
+    "behaviorIds": ["behavior_no_response"],
+    "purpose": "grounding",
+    "phases": ["during"],
+    "emotions": ["confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_no_response_r2"
+  },
+  {
+    "id": "m_no_response_a05",
+    "text": "Their reply comes on their timing, not on how often I look.",
+    "situationIds": ["no_response"],
+    "behaviorIds": ["behavior_no_response"],
+    "purpose": "distancing",
+    "phases": ["during"],
+    "emotions": ["afraid", "overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_no_response_r2"
+  },
+  {
+    "id": "m_no_response_a09",
+    "text": "Being stuck on someone else's answer is being stuck, not being slow.",
+    "situationIds": ["no_response"],
+    "behaviorIds": ["behavior_no_response"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_no_response_r2"
+  },
+  {
+    "id": "m_no_response_a06",
+    "text": "Stuck work is tiring in its own way, even with less to do.",
+    "situationIds": ["no_response"],
+    "behaviorIds": ["behavior_no_response"],
+    "purpose": "grounding",
+    "phases": ["during", "after"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_no_response_r2"
+  },
+  {
+    "id": "m_no_response_a07",
+    "text": "The same silence weighs more on the side that needs the answer.",
+    "situationIds": ["no_response"],
+    "behaviorIds": ["behavior_no_response"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_no_response_r3"
+  },
+  {
+    "id": "m_no_response_a08",
+    "text": "Needing an answer from someone with more say than me is how the work is set up.",
+    "situationIds": ["no_response"],
+    "behaviorIds": ["behavior_no_response"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_no_response_r3"
+  },
+  {
+    "id": "m_ordinary_disagreement_a09",
+    "text": "A disagreement about the work can stay about the work.",
+    "situationIds": ["ordinary_disagreement"],
+    "behaviorIds": ["behavior_ordinary_disagreement"],
+    "purpose": "distancing",
+    "phases": ["before"],
+    "emotions": ["confused", "angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_ordinary_disagreement_r1"
+  },
+  {
+    "id": "m_ordinary_disagreement_a05",
+    "text": "Disagreeing with a manager carries more weight than disagreeing with a peer. That is the setup, not oversensitivity.",
+    "situationIds": ["ordinary_disagreement"],
+    "behaviorIds": ["behavior_ordinary_disagreement"],
+    "purpose": "self_respect",
+    "phases": ["before", "during"],
+    "emotions": ["afraid", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_ordinary_disagreement_r2"
+  },
+  {
+    "id": "m_ordinary_disagreement_a01",
+    "text": "A different view is not an attack, even when it lands hard.",
+    "situationIds": ["ordinary_disagreement"],
+    "behaviorIds": ["behavior_ordinary_disagreement"],
+    "purpose": "distancing",
+    "phases": ["during"],
+    "emotions": ["angry", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_ordinary_disagreement_r1"
+  },
+  {
+    "id": "m_ordinary_disagreement_a02",
+    "text": "That it stung is real. Why they said it is mostly out of view.",
+    "situationIds": ["ordinary_disagreement"],
+    "behaviorIds": ["behavior_ordinary_disagreement"],
+    "purpose": "distancing",
+    "phases": ["during", "after"],
+    "emotions": ["angry", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_ordinary_disagreement_r1"
+  },
+  {
+    "id": "m_ordinary_disagreement_a10",
+    "text": "Feeling heated in a disagreement does not mean anything has gone wrong.",
+    "situationIds": ["ordinary_disagreement"],
+    "behaviorIds": ["behavior_ordinary_disagreement"],
+    "purpose": "grounding",
+    "phases": ["during"],
+    "emotions": ["angry", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_ordinary_disagreement_r3"
+  },
+  {
+    "id": "m_ordinary_disagreement_a03",
+    "text": "Keeping my view does not require winning the argument.",
+    "situationIds": ["ordinary_disagreement"],
+    "behaviorIds": ["behavior_ordinary_disagreement"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_ordinary_disagreement_r2"
+  },
+  {
+    "id": "m_ordinary_disagreement_a04",
+    "text": "Being overruled does not prove I was wrong. It means a decision was made.",
+    "situationIds": ["ordinary_disagreement"],
+    "behaviorIds": ["behavior_ordinary_disagreement"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_ordinary_disagreement_r2"
+  },
+  {
+    "id": "m_ordinary_disagreement_a08",
+    "text": "If my approach is the one chosen, they may be quietly keeping their view, too.",
+    "situationIds": ["ordinary_disagreement"],
+    "behaviorIds": ["behavior_ordinary_disagreement"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["confused", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_ordinary_disagreement_r1"
+  },
+  {
+    "id": "m_ordinary_disagreement_a06",
+    "text": "Two people preferred different approaches. That can be the whole story.",
+    "situationIds": ["ordinary_disagreement"],
+    "behaviorIds": ["behavior_ordinary_disagreement"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_ordinary_disagreement_r3"
+  },
+  {
+    "id": "m_ordinary_disagreement_a07",
+    "text": "The replay adds winners and losers that may not have been there at the time.",
+    "situationIds": ["ordinary_disagreement"],
+    "behaviorIds": ["behavior_ordinary_disagreement"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_ordinary_disagreement_r3"
+  },
+  {
+    "id": "m_public_criticism_a12",
+    "text": "If criticism in front of others is coming, getting through it is enough. You do not have to win.",
+    "situationIds": ["public_criticism"],
+    "behaviorIds": ["behavior_public_criticism"],
+    "purpose": "self_respect",
+    "phases": ["before"],
+    "emotions": ["afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_public_criticism_r1"
+  },
+  {
+    "id": "m_public_criticism_a01",
+    "text": "Being criticized in front of others hurts twice: once for the point, once for the audience.",
+    "situationIds": ["public_criticism"],
+    "behaviorIds": ["behavior_public_criticism"],
+    "purpose": "grounding",
+    "phases": ["during", "after"],
+    "emotions": ["embarrassed", "angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_public_criticism_r1"
+  },
+  {
+    "id": "m_public_criticism_a02",
+    "text": "Saying little right now is a way through, not a statement of agreement.",
+    "situationIds": ["public_criticism"],
+    "behaviorIds": ["behavior_public_criticism"],
+    "purpose": "self_respect",
+    "phases": ["during"],
+    "emotions": ["embarrassed", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_public_criticism_r1"
+  },
+  {
+    "id": "m_public_criticism_a10",
+    "text": "The urge to correct it in front of everyone is strong. A correction can also come later.",
+    "situationIds": ["public_criticism"],
+    "behaviorIds": ["behavior_public_criticism"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_public_criticism_r1"
+  },
+  {
+    "id": "m_public_criticism_a04",
+    "text": "How strongly this lands says little about whether the criticism was right.",
+    "situationIds": ["public_criticism"],
+    "behaviorIds": ["behavior_public_criticism"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_public_criticism_r1"
+  },
+  {
+    "id": "m_public_criticism_a11",
+    "text": "Embarrassment changes how this feels, not what I know about my work.",
+    "situationIds": ["public_criticism"],
+    "behaviorIds": ["behavior_public_criticism"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_public_criticism_r1"
+  },
+  {
+    "id": "m_public_criticism_a06",
+    "text": "If nobody spoke up, that silence is hard to read. It is not a vote.",
+    "situationIds": ["public_criticism"],
+    "behaviorIds": ["behavior_public_criticism"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_public_criticism_r2"
+  },
+  {
+    "id": "m_public_criticism_a07",
+    "text": "Nobody there knows the whole of my work. They saw one moment of it.",
+    "situationIds": ["public_criticism"],
+    "behaviorIds": ["behavior_public_criticism"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_public_criticism_r3"
+  },
+  {
+    "id": "m_public_criticism_a08",
+    "text": "Being singled out in front of others is common. It never feels common while it is happening.",
+    "situationIds": ["public_criticism"],
+    "behaviorIds": ["behavior_public_criticism"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_public_criticism_r3"
+  },
+  {
+    "id": "m_public_criticism_a09",
+    "text": "The replay can run many times. The moment itself happened once.",
+    "situationIds": ["public_criticism"],
+    "behaviorIds": ["behavior_public_criticism"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_public_criticism_r3"
+  },
+  {
+    "id": "m_public_criticism_a13",
+    "text": "Answering and staying quiet can both be misread. Neither one settles what is true.",
+    "situationIds": ["public_criticism"],
+    "behaviorIds": ["behavior_public_criticism"],
+    "purpose": "self_respect",
+    "phases": ["during"],
+    "emotions": ["afraid", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_public_criticism_r1"
+  },
+  {
+    "id": "m_public_criticism_a14",
+    "text": "Facing the same people afterwards is its own hard part, separate from whatever was said.",
+    "situationIds": ["public_criticism"],
+    "behaviorIds": ["behavior_public_criticism"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_public_criticism_r3"
+  },
+  {
+    "id": "m_public_criticism_a15",
+    "text": "Being angry about how it was done does not settle whether the point was fair.",
+    "situationIds": ["public_criticism"],
+    "behaviorIds": ["behavior_public_criticism"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_public_criticism_r1"
+  },
+  {
+    "id": "m_responsibility_diffusion_a10",
+    "text": "Before taking on another loose end, it is fair to know whose it was.",
+    "situationIds": ["responsibility_diffusion"],
+    "behaviorIds": ["behavior_responsibility_diffusion"],
+    "purpose": "self_respect",
+    "phases": ["before"],
+    "emotions": ["confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_responsibility_diffusion_r1"
+  },
+  {
+    "id": "m_responsibility_diffusion_a01",
+    "text": "Picking this one up may be the safer call here. That does not make the next one mine.",
+    "situationIds": ["responsibility_diffusion"],
+    "behaviorIds": ["behavior_responsibility_diffusion"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["guilty", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_responsibility_diffusion_r3"
+  },
+  {
+    "id": "m_responsibility_diffusion_a09",
+    "text": "If nobody ever said whose this is, I have not missed anything.",
+    "situationIds": ["responsibility_diffusion"],
+    "behaviorIds": ["behavior_responsibility_diffusion"],
+    "purpose": "distancing",
+    "phases": ["during", "after"],
+    "emotions": ["confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_responsibility_diffusion_r1"
+  },
+  {
+    "id": "m_responsibility_diffusion_a04",
+    "text": "When a task had no owner, the missing owner is part of why it failed.",
+    "situationIds": ["responsibility_diffusion"],
+    "behaviorIds": ["behavior_responsibility_diffusion"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["guilty", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_responsibility_diffusion_r2"
+  },
+  {
+    "id": "m_responsibility_diffusion_a05",
+    "text": "Blame drifting my way does not make the work retroactively mine.",
+    "situationIds": ["responsibility_diffusion"],
+    "behaviorIds": ["behavior_responsibility_diffusion"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_responsibility_diffusion_r2"
+  },
+  {
+    "id": "m_responsibility_diffusion_a06",
+    "text": "If I made a mistake here, it is mine. The missing owner is not.",
+    "situationIds": ["responsibility_diffusion"],
+    "behaviorIds": ["behavior_responsibility_diffusion"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_responsibility_diffusion_r2"
+  },
+  {
+    "id": "m_responsibility_diffusion_a02",
+    "text": "Loose ends drift toward whoever notices first. That is a pattern, not a job description.",
+    "situationIds": ["responsibility_diffusion"],
+    "behaviorIds": ["behavior_responsibility_diffusion"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["overloaded", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_responsibility_diffusion_r3"
+  },
+  {
+    "id": "m_responsibility_diffusion_a03",
+    "text": "Being a good colleague does not require owning everything nobody else picked up.",
+    "situationIds": ["responsibility_diffusion"],
+    "behaviorIds": ["behavior_responsibility_diffusion"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_responsibility_diffusion_r3"
+  },
+  {
+    "id": "m_responsibility_diffusion_a07",
+    "text": "I became the default owner without anyone asking me. That is not a contract.",
+    "situationIds": ["responsibility_diffusion"],
+    "behaviorIds": ["behavior_responsibility_diffusion"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["overloaded", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_responsibility_diffusion_r3"
+  },
+  {
+    "id": "m_responsibility_diffusion_a08",
+    "text": "Some of what I carry was handed to me. Some of it just arrived.",
+    "situationIds": ["responsibility_diffusion"],
+    "behaviorIds": ["behavior_responsibility_diffusion"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_responsibility_diffusion_r3"
+  },
+  {
+    "id": "m_surveillance_concern_a01",
+    "text": "Being checked often is tiring, even on days when nothing goes wrong.",
+    "situationIds": ["surveillance_concern"],
+    "behaviorIds": ["behavior_surveillance_concern"],
+    "purpose": "grounding",
+    "phases": ["during", "after"],
+    "emotions": ["overloaded", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_surveillance_concern_r1"
+  },
+  {
+    "id": "m_surveillance_concern_a02",
+    "text": "This concern can have my attention without having my whole day.",
+    "situationIds": ["surveillance_concern"],
+    "behaviorIds": ["behavior_surveillance_concern"],
+    "purpose": "distancing",
+    "phases": ["before", "during"],
+    "emotions": ["afraid", "overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_surveillance_concern_r1"
+  },
+  {
+    "id": "m_surveillance_concern_a10",
+    "text": "You may feel exposed when the person checking can also judge your work.",
+    "situationIds": ["surveillance_concern"],
+    "behaviorIds": ["behavior_surveillance_concern"],
+    "purpose": "grounding",
+    "phases": ["during", "after"],
+    "emotions": ["embarrassed", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_surveillance_concern_r2"
+  },
+  {
+    "id": "m_surveillance_concern_a12",
+    "text": "Some of today's work can be for the work, not for whoever might be looking.",
+    "situationIds": ["surveillance_concern"],
+    "behaviorIds": ["behavior_surveillance_concern"],
+    "purpose": "grounding",
+    "phases": ["before", "during"],
+    "emotions": ["afraid", "overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_surveillance_concern_r1"
+  },
+  {
+    "id": "m_surveillance_concern_a03",
+    "text": "Wanting part of the day unobserved is ordinary. It is not the same as hiding something.",
+    "situationIds": ["surveillance_concern"],
+    "behaviorIds": ["behavior_surveillance_concern"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["guilty", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_surveillance_concern_r3"
+  },
+  {
+    "id": "m_surveillance_concern_a04",
+    "text": "A careful working face is protection, and someone is still behind it.",
+    "situationIds": ["surveillance_concern"],
+    "behaviorIds": ["behavior_surveillance_concern"],
+    "purpose": "self_respect",
+    "phases": ["during"],
+    "emotions": ["afraid", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_surveillance_concern_r2"
+  },
+  {
+    "id": "m_surveillance_concern_a05",
+    "text": "Being visible all day is a different thing from being known.",
+    "situationIds": ["surveillance_concern"],
+    "behaviorIds": ["behavior_surveillance_concern"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_surveillance_concern_r2"
+  },
+  {
+    "id": "m_surveillance_concern_a08",
+    "text": "A pause in your work is a pause, whoever or whatever logs it.",
+    "situationIds": ["surveillance_concern"],
+    "behaviorIds": ["behavior_surveillance_concern"],
+    "purpose": "self_respect",
+    "phases": ["during"],
+    "emotions": ["afraid", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_surveillance_concern_r3"
+  },
+  {
+    "id": "m_surveillance_concern_a09",
+    "text": "How much a workplace checks says something about the workplace, not only about the work.",
+    "situationIds": ["surveillance_concern"],
+    "behaviorIds": ["behavior_surveillance_concern"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["angry", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_surveillance_concern_r3"
+  },
+  {
+    "id": "m_surveillance_concern_a06",
+    "text": "I do not know exactly what is recorded. “Everything” and “nothing” are both guesses.",
+    "situationIds": ["surveillance_concern"],
+    "behaviorIds": ["behavior_surveillance_concern"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["afraid", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_surveillance_concern_r4"
+  },
+  {
+    "id": "m_surveillance_concern_a07",
+    "text": "Being careful with work systems is practical. It accuses no one.",
+    "situationIds": ["surveillance_concern"],
+    "behaviorIds": ["behavior_surveillance_concern"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_surveillance_concern_r4"
+  },
+  {
+    "id": "m_surveillance_concern_a13",
+    "text": "Questions about what is monitored deserve clear answers, even when they are hard to ask.",
+    "situationIds": ["surveillance_concern"],
+    "behaviorIds": ["behavior_surveillance_concern"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["confused", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_surveillance_concern_r4"
+  },
+  {
+    "id": "m_suspected_retaliation_a01",
+    "text": "Reflection can wait. If something needs protecting today, that comes first.",
+    "situationIds": ["suspected_retaliation"],
+    "behaviorIds": ["behavior_suspected_retaliation"],
+    "purpose": "self_respect",
+    "phases": ["before", "during"],
+    "emotions": ["afraid", "overloaded"],
+    "variant": "plain",
     "seriousSafe": true
+  },
+  {
+    "id": "m_suspected_retaliation_a02",
+    "text": "The order of events is worth keeping, even while the cause is unknown.",
+    "situationIds": ["suspected_retaliation"],
+    "behaviorIds": ["behavior_suspected_retaliation"],
+    "purpose": "distancing",
+    "phases": ["during", "after"],
+    "emotions": ["confused", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_suspected_retaliation_r1"
+  },
+  {
+    "id": "m_suspected_retaliation_a03",
+    "text": "I trusted someone with this concern. A change afterwards can feel like betrayal.",
+    "situationIds": ["suspected_retaliation"],
+    "behaviorIds": ["behavior_suspected_retaliation"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["angry", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_suspected_retaliation_r2"
+  },
+  {
+    "id": "m_suspected_retaliation_a06",
+    "text": "Doubting what you saw comes with this. It does not cancel what you saw.",
+    "situationIds": ["suspected_retaliation"],
+    "behaviorIds": ["behavior_suspected_retaliation"],
+    "purpose": "grounding",
+    "phases": ["during", "after"],
+    "emotions": ["confused", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_suspected_retaliation_r1"
+  },
+  {
+    "id": "m_suspected_retaliation_a10",
+    "text": "I do not have to settle this today to take it seriously.",
+    "situationIds": ["suspected_retaliation"],
+    "behaviorIds": ["behavior_suspected_retaliation"],
+    "purpose": "distancing",
+    "phases": ["before", "during"],
+    "emotions": ["overloaded", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_suspected_retaliation_r1"
+  },
+  {
+    "id": "m_suspected_retaliation_a13",
+    "text": "Small changes are hard to prove, and they can still wear you down day after day.",
+    "situationIds": ["suspected_retaliation"],
+    "behaviorIds": ["behavior_suspected_retaliation"],
+    "purpose": "grounding",
+    "phases": ["during"],
+    "emotions": ["afraid", "angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_suspected_retaliation_r1"
+  },
+  {
+    "id": "m_suspected_retaliation_a04",
+    "text": "Being treated differently after speaking up is a documented risk. Watching for it is reasonable.",
+    "situationIds": ["suspected_retaliation"],
+    "behaviorIds": ["behavior_suspected_retaliation"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["afraid", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_suspected_retaliation_r2"
+  },
+  {
+    "id": "m_suspected_retaliation_a05",
+    "text": "Being on the receiving end is a position you are in, not a description of you.",
+    "situationIds": ["suspected_retaliation"],
+    "behaviorIds": ["behavior_suspected_retaliation"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_suspected_retaliation_r2"
+  },
+  {
+    "id": "m_suspected_retaliation_a11",
+    "text": "Keeping your head down for a while can be judgment rather than surrender.",
+    "situationIds": ["suspected_retaliation"],
+    "behaviorIds": ["behavior_suspected_retaliation"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["afraid", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_suspected_retaliation_r2"
+  },
+  {
+    "id": "m_suspected_retaliation_a09",
+    "text": "Some questions stay open for a long time. Carrying one is work, whether or not anyone sees it.",
+    "situationIds": ["suspected_retaliation"],
+    "behaviorIds": ["behavior_suspected_retaliation"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_suspected_retaliation_r3"
+  },
+  {
+    "id": "m_suspected_retaliation_a07",
+    "text": "Raising a concern drew a line, and that line still counts.",
+    "situationIds": ["suspected_retaliation"],
+    "behaviorIds": ["behavior_suspected_retaliation"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["angry", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_suspected_retaliation_r4"
+  },
+  {
+    "id": "m_suspected_retaliation_a08",
+    "text": "Anger after speaking up often guards the same line the concern drew. It will keep.",
+    "situationIds": ["suspected_retaliation"],
+    "behaviorIds": ["behavior_suspected_retaliation"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_suspected_retaliation_r4"
+  },
+  {
+    "id": "m_unattributed_consensus_a10",
+    "text": "If “we” comes up again, the question of who it includes can stay open.",
+    "situationIds": ["unattributed_consensus"],
+    "behaviorIds": ["behavior_unattributed_consensus"],
+    "purpose": "distancing",
+    "phases": ["before"],
+    "emotions": ["confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_unattributed_consensus_r1"
+  },
+  {
+    "id": "m_unattributed_consensus_a01",
+    "text": "“Everyone thinks” may be true. It may also be one view in the plural.",
+    "situationIds": ["unattributed_consensus"],
+    "behaviorIds": ["behavior_unattributed_consensus"],
+    "purpose": "distancing",
+    "phases": ["during"],
+    "emotions": ["confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_unattributed_consensus_r1"
+  },
+  {
+    "id": "m_unattributed_consensus_a02",
+    "text": "A view with no names attached is hard to answer, which makes it feel bigger.",
+    "situationIds": ["unattributed_consensus"],
+    "behaviorIds": ["behavior_unattributed_consensus"],
+    "purpose": "distancing",
+    "phases": ["during", "after"],
+    "emotions": ["afraid", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_unattributed_consensus_r1"
+  },
+  {
+    "id": "m_unattributed_consensus_a03",
+    "text": "I can answer what was said without arguing with a crowd I cannot see.",
+    "situationIds": ["unattributed_consensus"],
+    "behaviorIds": ["behavior_unattributed_consensus"],
+    "purpose": "self_respect",
+    "phases": ["during"],
+    "emotions": ["afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_unattributed_consensus_r1"
+  },
+  {
+    "id": "m_unattributed_consensus_a04",
+    "text": "Leaving “who exactly?” unasked can be the safer call. It concedes nothing about the claim.",
+    "situationIds": ["unattributed_consensus"],
+    "behaviorIds": ["behavior_unattributed_consensus"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["afraid", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_unattributed_consensus_r1"
+  },
+  {
+    "id": "m_unattributed_consensus_a06",
+    "text": "Who is behind the “we” sometimes becomes clear later, without anyone having to ask.",
+    "situationIds": ["unattributed_consensus"],
+    "behaviorIds": ["behavior_unattributed_consensus"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["confused", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_unattributed_consensus_r1"
+  },
+  {
+    "id": "m_unattributed_consensus_a05",
+    "text": "Where the claim has substance, it can be met on its substance. The headcount is a separate question.",
+    "situationIds": ["unattributed_consensus"],
+    "behaviorIds": ["behavior_unattributed_consensus"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_unattributed_consensus_r3"
+  },
+  {
+    "id": "m_unattributed_consensus_a07",
+    "text": "A concern does not get more people behind it by being passed along.",
+    "situationIds": ["unattributed_consensus"],
+    "behaviorIds": ["behavior_unattributed_consensus"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_unattributed_consensus_r3"
+  },
+  {
+    "id": "m_unattributed_consensus_a11",
+    "text": "Feeling outnumbered by people I cannot name is a strange kind of alone.",
+    "situationIds": ["unattributed_consensus"],
+    "behaviorIds": ["behavior_unattributed_consensus"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_unattributed_consensus_r3"
+  },
+  {
+    "id": "m_unattributed_consensus_a08",
+    "text": "Going along on the outside can be sensible. What I think stays mine.",
+    "situationIds": ["unattributed_consensus"],
+    "behaviorIds": ["behavior_unattributed_consensus"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["afraid", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_unattributed_consensus_r2"
+  },
+  {
+    "id": "m_unattributed_consensus_a09",
+    "text": "An opinion I cannot trace to anyone does not get to decide what I think.",
+    "situationIds": ["unattributed_consensus"],
+    "behaviorIds": ["behavior_unattributed_consensus"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_unattributed_consensus_r2"
+  },
+  {
+    "id": "m_vague_accusation_a12",
+    "text": "Whatever is said next, I can wait for an example before deciding what it means.",
+    "situationIds": ["vague_accusation"],
+    "behaviorIds": ["behavior_vague_accusation"],
+    "purpose": "distancing",
+    "phases": ["before"],
+    "emotions": ["afraid", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_vague_accusation_r1"
+  },
+  {
+    "id": "m_vague_accusation_a11",
+    "text": "It is hard to know what to fix when nobody has said what is broken.",
+    "situationIds": ["vague_accusation"],
+    "behaviorIds": ["behavior_vague_accusation"],
+    "purpose": "grounding",
+    "phases": ["during", "after"],
+    "emotions": ["confused", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_vague_accusation_r2"
+  },
+  {
+    "id": "m_vague_accusation_a01",
+    "text": "Doubt that arrives with vague criticism is usually just as vague. It knows no more than the criticism did.",
+    "situationIds": ["vague_accusation"],
+    "behaviorIds": ["behavior_vague_accusation"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["confused", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_vague_accusation_r2"
+  },
+  {
+    "id": "m_vague_accusation_a02",
+    "text": "What was said was vague. The worst reading of it is a guess, and so is the best.",
+    "situationIds": ["vague_accusation"],
+    "behaviorIds": ["behavior_vague_accusation"],
+    "purpose": "distancing",
+    "phases": ["during", "after"],
+    "emotions": ["afraid", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_vague_accusation_r1"
+  },
+  {
+    "id": "m_vague_accusation_a03",
+    "text": "The missing example is missing from what you were told. Your worst guess does not have to fill it.",
+    "situationIds": ["vague_accusation"],
+    "behaviorIds": ["behavior_vague_accusation"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["afraid", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_vague_accusation_r1"
+  },
+  {
+    "id": "m_vague_accusation_a10",
+    "text": "Asking for an example can read as pushback. Whether to ask is a judgment call, not a test of nerve.",
+    "situationIds": ["vague_accusation"],
+    "behaviorIds": ["behavior_vague_accusation"],
+    "purpose": "self_respect",
+    "phases": ["during"],
+    "emotions": ["afraid", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_vague_accusation_r1"
+  },
+  {
+    "id": "m_vague_accusation_a04",
+    "text": "If there is a real problem here, it has a size. “Everything” is not a size.",
+    "situationIds": ["vague_accusation"],
+    "behaviorIds": ["behavior_vague_accusation"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_vague_accusation_r2"
+  },
+  {
+    "id": "m_vague_accusation_a05",
+    "text": "Criticism with nothing specific in it is hard to set aside, because there is nothing to finish.",
+    "situationIds": ["vague_accusation"],
+    "behaviorIds": ["behavior_vague_accusation"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_vague_accusation_r2"
+  },
+  {
+    "id": "m_vague_accusation_a06",
+    "text": "Shame fills the space where a specific example should have been.",
+    "situationIds": ["vague_accusation"],
+    "behaviorIds": ["behavior_vague_accusation"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_vague_accusation_r2"
+  },
+  {
+    "id": "m_vague_accusation_a07",
+    "text": "A judgment of my work, fair or not, is simpler than the person who does the work.",
+    "situationIds": ["vague_accusation"],
+    "behaviorIds": ["behavior_vague_accusation"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_vague_accusation_r3"
+  },
+  {
+    "id": "m_vague_accusation_a08",
+    "text": "Heard often enough, a vague criticism starts to sound like who you are. It is still something someone said.",
+    "situationIds": ["vague_accusation"],
+    "behaviorIds": ["behavior_vague_accusation"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["confused", "embarrassed"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_vague_accusation_r3"
+  },
+  {
+    "id": "m_vague_accusation_a09",
+    "text": "Answering everything is exhausting. Only what was actually said can be answered.",
+    "situationIds": ["vague_accusation"],
+    "behaviorIds": ["behavior_vague_accusation"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["overloaded", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_vague_accusation_r4"
+  },
+  {
+    "id": "m_withheld_information_a10",
+    "text": "Before starting, the gaps are worth naming, even if nobody can fill them yet.",
+    "situationIds": ["withheld_information"],
+    "behaviorIds": ["behavior_withheld_information"],
+    "purpose": "grounding",
+    "phases": ["before"],
+    "emotions": ["confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_withheld_information_r1"
+  },
+  {
+    "id": "m_withheld_information_a01",
+    "text": "There is what I know, what I know is missing, and what I am imagining.",
+    "situationIds": ["withheld_information"],
+    "behaviorIds": ["behavior_withheld_information"],
+    "purpose": "distancing",
+    "phases": ["during"],
+    "emotions": ["confused", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_withheld_information_r1"
+  },
+  {
+    "id": "m_withheld_information_a02",
+    "text": "An unknown can hold anything. That is why the mind keeps trying to fill it.",
+    "situationIds": ["withheld_information"],
+    "behaviorIds": ["behavior_withheld_information"],
+    "purpose": "grounding",
+    "phases": ["during", "after"],
+    "emotions": ["afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_withheld_information_r1"
+  },
+  {
+    "id": "m_withheld_information_a11",
+    "text": "Careful work with partial information is still careful work.",
+    "situationIds": ["withheld_information"],
+    "behaviorIds": ["behavior_withheld_information"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["afraid", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_withheld_information_r1"
+  },
+  {
+    "id": "m_withheld_information_a03",
+    "text": "Where the information stopped is part of what happened, whoever ends up answering for it.",
+    "situationIds": ["withheld_information"],
+    "behaviorIds": ["behavior_withheld_information"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["guilty", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_withheld_information_r2"
+  },
+  {
+    "id": "m_withheld_information_a04",
+    "text": "Being closest to the result is different from being the cause of it.",
+    "situationIds": ["withheld_information"],
+    "behaviorIds": ["behavior_withheld_information"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_withheld_information_r2"
+  },
+  {
+    "id": "m_withheld_information_a05",
+    "text": "Naming a dependency describes the work. It is not an excuse.",
+    "situationIds": ["withheld_information"],
+    "behaviorIds": ["behavior_withheld_information"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_withheld_information_r2"
+  },
+  {
+    "id": "m_withheld_information_a09",
+    "text": "Missing information can come from disorder as easily as from design.",
+    "situationIds": ["withheld_information"],
+    "behaviorIds": ["behavior_withheld_information"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["angry", "confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_withheld_information_r2"
+  },
+  {
+    "id": "m_withheld_information_a06",
+    "text": "While the information is missing, the work is held up upstream. That is all the waiting means.",
+    "situationIds": ["withheld_information"],
+    "behaviorIds": ["behavior_withheld_information"],
+    "purpose": "distancing",
+    "phases": ["during", "after"],
+    "emotions": ["angry", "overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_withheld_information_r3"
+  },
+  {
+    "id": "m_withheld_information_a07",
+    "text": "Not being told can sting, even when the extra work turns out small.",
+    "situationIds": ["withheld_information"],
+    "behaviorIds": ["behavior_withheld_information"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["embarrassed", "angry"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_withheld_information_r3"
+  },
+  {
+    "id": "m_withheld_information_a08",
+    "text": "Not knowing who holds the information is information too.",
+    "situationIds": ["withheld_information"],
+    "behaviorIds": ["behavior_withheld_information"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["confused"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_withheld_information_r3"
+  },
+  {
+    "id": "m_withheld_information_a12",
+    "text": "Still needing information I already asked for does not make me difficult.",
+    "situationIds": ["withheld_information"],
+    "behaviorIds": ["behavior_withheld_information"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["embarrassed", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_withheld_information_r3"
+  },
+  {
+    "id": "m_workload_overload_a10",
+    "text": "Before the day starts, the list is already bigger than the hours. That was decided elsewhere.",
+    "situationIds": ["workload_overload"],
+    "behaviorIds": ["behavior_workload_overload"],
+    "purpose": "grounding",
+    "phases": ["before"],
+    "emotions": ["overloaded", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_workload_overload_r1"
+  },
+  {
+    "id": "m_workload_overload_a01",
+    "text": "There are only so many hours, and no amount of commitment adds more.",
+    "situationIds": ["workload_overload"],
+    "behaviorIds": ["behavior_workload_overload"],
+    "purpose": "self_respect",
+    "phases": ["before", "during"],
+    "emotions": ["overloaded", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_workload_overload_r1"
+  },
+  {
+    "id": "m_workload_overload_a02",
+    "text": "A list that cannot be finished is a problem with the list.",
+    "situationIds": ["workload_overload"],
+    "behaviorIds": ["behavior_workload_overload"],
+    "purpose": "distancing",
+    "phases": ["during"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_workload_overload_r1"
+  },
+  {
+    "id": "m_workload_overload_a04",
+    "text": "Some of today's work was never going to fit into today.",
+    "situationIds": ["workload_overload"],
+    "behaviorIds": ["behavior_workload_overload"],
+    "purpose": "grounding",
+    "phases": ["during", "after"],
+    "emotions": ["overloaded", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_workload_overload_r1"
+  },
+  {
+    "id": "m_workload_overload_a03",
+    "text": "More rest around the same load will not fix the load.",
+    "situationIds": ["workload_overload"],
+    "behaviorIds": ["behavior_workload_overload"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_workload_overload_r1"
+  },
+  {
+    "id": "m_workload_overload_a11",
+    "text": "When there is no slack, falling behind is what the plan produces.",
+    "situationIds": ["workload_overload"],
+    "behaviorIds": ["behavior_workload_overload"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["afraid", "guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_workload_overload_r1"
+  },
+  {
+    "id": "m_workload_overload_a07",
+    "text": "Being this tired is what this much work does to people.",
+    "situationIds": ["workload_overload"],
+    "behaviorIds": ["behavior_workload_overload"],
+    "purpose": "grounding",
+    "phases": ["after"],
+    "emotions": ["overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_workload_overload_r1"
+  },
+  {
+    "id": "m_workload_overload_a05",
+    "text": "Extra hours cannot prove my worth. At most they show how big the load was.",
+    "situationIds": ["workload_overload"],
+    "behaviorIds": ["behavior_workload_overload"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_workload_overload_r2"
+  },
+  {
+    "id": "m_workload_overload_a06",
+    "text": "Unfinished work can matter to someone and still not be mine to answer for alone.",
+    "situationIds": ["workload_overload"],
+    "behaviorIds": ["behavior_workload_overload"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_workload_overload_r2"
+  },
+  {
+    "id": "m_workload_overload_a08",
+    "text": "“I should be able to handle this” assumes someone measured the amount fairly.",
+    "situationIds": ["workload_overload"],
+    "behaviorIds": ["behavior_workload_overload"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["guilty"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_workload_overload_r3"
+  },
+  {
+    "id": "m_workload_overload_a09",
+    "text": "Too much work can start to sound like a verdict on me. It began as a decision about how much.",
+    "situationIds": ["workload_overload"],
+    "behaviorIds": ["behavior_workload_overload"],
+    "purpose": "distancing",
+    "phases": ["after"],
+    "emotions": ["guilty", "afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_workload_overload_r3"
+  },
+  {
+    "id": "m_workload_overload_a12",
+    "text": "Whatever else my time is for still counts, even when work takes most of it.",
+    "situationIds": ["workload_overload"],
+    "behaviorIds": ["behavior_workload_overload"],
+    "purpose": "self_respect",
+    "phases": ["after"],
+    "emotions": ["guilty", "overloaded"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_workload_overload_r2"
+  },
+  {
+    "id": "m_workload_overload_a13",
+    "text": "What falls behind may still land on me. That is a reason for the fear, not a flaw in me.",
+    "situationIds": ["workload_overload"],
+    "behaviorIds": ["behavior_workload_overload"],
+    "purpose": "self_respect",
+    "phases": ["during", "after"],
+    "emotions": ["afraid"],
+    "variant": "plain",
+    "seriousSafe": true,
+    "reflectionId": "r_workload_overload_r3"
   }
 ]

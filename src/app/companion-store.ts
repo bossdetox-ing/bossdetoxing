@@ -43,7 +43,7 @@ export class CompanionStore {
   private generation = 0;
   private preferences?: MantraState;
   private changes = new Map<string, boolean>();
-  private context: MantraContext = { phase: 'during', humor: true, serious: false };
+  private context: MantraContext = { humor: true, serious: false };
   private pending: Promise<void> = Promise.resolve();
   private consent = false;
   private dirty = new Set<string>();
@@ -239,11 +239,7 @@ export class CompanionStore {
   }
 
   choose(situationId: string) {
-    this.context = {
-      ...this.context,
-      situationId,
-      phase: situationId === 'after_meeting_replay' ? 'after' : 'during',
-    };
+    this.context = { ...this.context, situationId };
     const mantra = selectMantra(this.context, this.state.recentIds, this.state.favorites);
     const timestamp = new Date().toISOString();
     const event: CalendarEvent = {
@@ -256,7 +252,7 @@ export class CompanionStore {
       categoryId: painForScenario(situationId)?.id ?? situationId,
       situationId,
       mantra: snapshot(mantra),
-      phase: this.context.phase,
+      phase: situationId === 'after_meeting_replay' ? 'after' : 'during',
       status: 'tagged',
       plannedResponseStyle: null,
       plannedResponseId: null,
@@ -286,7 +282,7 @@ export class CompanionStore {
   peek(currentId?: string) {
     const event = this.active();
     if (!event) return undefined;
-    const context = { ...this.context, situationId: event.situationId, phase: event.phase };
+    const context = { ...this.context, situationId: event.situationId };
     return snapshot(selectMantra(context, this.state.recentIds, this.state.favorites, currentId));
   }
   toggleFavorite(id: string) {

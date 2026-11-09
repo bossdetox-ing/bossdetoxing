@@ -1,5 +1,6 @@
 import { z } from 'zod';
 import authored from '../content/mantras.en.json';
+import authoredReflections from '../content/reflections.en.json';
 
 export const mantraPurposes = ['grounding', 'self_respect', 'distancing', 'dark_humor'] as const;
 export const phases = ['before', 'during', 'after'] as const;
@@ -16,19 +17,51 @@ export const mantraSchema = z
     ),
     variant: z.enum(['plain', 'dark_humor']),
     seriousSafe: z.boolean(),
+    /** The reflection behind this line, opened from "read more". */
+    reflectionId: z.string().min(1).optional(),
+    /** Out of rotation, kept so saved favorites and history still resolve. */
+    retired: z.literal(true).optional(),
   })
   .strict();
 export type Mantra = z.infer<typeof mantraSchema>;
 export type MantraContext = {
   situationId?: string;
   emotion?: string;
-  phase: (typeof phases)[number];
+  /** Unset: lines for every phase rotate. */
+  phase?: (typeof phases)[number];
   purpose?: (typeof mantraPurposes)[number];
   humor: boolean;
   serious: boolean;
 };
-export const mantras = z.array(mantraSchema).length(250).parse(authored);
+export const reflectionSchema = z
+  .object({
+    id: z.string().min(1),
+    situationId: z.string().min(1),
+    phases: z.array(z.enum(phases)).min(1),
+    text: z.string().trim().min(1),
+    prompt: z.string().trim().min(1),
+  })
+  .strict();
+export type Reflection = z.infer<typeof reflectionSchema>;
+export const reflections = z.array(reflectionSchema).parse(authoredReflections);
+export const reflectionById = new Map(reflections.map((r) => [r.id, r]));
+export const mantras = z
+  .array(mantraSchema)
+  .min(250)
+  .superRefine((library, ctx) => {
+    for (const m of library)
+      if (
+        m.reflectionId &&
+        reflectionById.get(m.reflectionId)?.situationId !== (m.situationIds[0] ?? 'general')
+      )
+        ctx.addIssue({ code: 'custom', message: `Unknown reflection: ${m.id}` });
+  })
+  .parse(authored);
 export const mantraById = new Map(mantras.map((m) => [m.id, m]));
+export function reflectionFor(mantraId: string): Reflection | undefined {
+  const id = mantraById.get(mantraId)?.reflectionId;
+  return id ? reflectionById.get(id) : undefined;
+}
 export const snapshotSchema = z
   .object({
     id: z.string().min(1),
@@ -45,7 +78,8 @@ const highRiskSituations = ['dismissal_warning', 'suspected_retaliation', 'surve
 export function eligibleMantras(context: MantraContext, library: readonly Mantra[] = mantras) {
   return library.filter(
     (m) =>
-      m.phases.includes(context.phase) &&
+      !m.retired &&
+      (!context.phase || m.phases.includes(context.phase)) &&
       (!m.situationIds.length ||
         (!!context.situationId && m.situationIds.includes(context.situationId))) &&
       ((context.humor && !highRiskSituations.includes(context.situationId ?? '')) ||
@@ -97,6 +131,7 @@ export function reviewMantras(
   situationIds: readonly string[],
 ): string[] {
   const issues: string[] = [];
+  library = library.filter((m) => !m.retired);
   const seenIds = new Set<string>();
   const seenText = new Set<string>();
   for (const m of library) {

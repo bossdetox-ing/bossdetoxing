@@ -169,3 +169,22 @@ test('D switches light and dark, survives a reload and stays out of typing', asy
   await page.reload();
   await expect.poll(theme).toBe('dark');
 });
+
+test('read more opens the line’s reflection inline and another line closes it', async ({
+  page,
+}) => {
+  await enter(page);
+  await page.getByRole('button', { name: 'Asshole boss fight', exact: true }).click();
+  await page
+    .getByRole('button', { name: 'Job security or employment consequences raised', exact: true })
+    .click();
+  const more = page.locator('.protective-card button.read-more');
+  for (let i = 0; i < 20 && !(await more.isVisible()); i++)
+    await page.getByRole('button', { name: 'Another', exact: true }).click();
+  await expect(more).toHaveAttribute('aria-expanded', 'false');
+  await more.click();
+  await expect(more).toHaveAttribute('aria-expanded', 'true');
+  await expect(page.locator('#mantra-reflection .mantra-prompt')).not.toBeEmpty();
+  await page.getByRole('button', { name: 'Another', exact: true }).click();
+  await expect(page.locator('#mantra-reflection')).toHaveCount(0);
+});
