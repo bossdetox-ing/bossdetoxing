@@ -7,7 +7,8 @@
     "file": "https://commons.wikimedia.org/wiki/File:Alice_par_John_Tenniel_25.png",
     "download": "https://upload.wikimedia.org/wikipedia/commons/6/69/Alice_par_John_Tenniel_25.png",
     "license": "Public domain",
-    "crop": [300, 0, 862, 560]
+    "crop": [300, 0, 862, 560],
+    "alt": "The March Hare and the Hatter sit at a tea table crowded with cups and a teapot, the Dormouse asleep between them."
   },
   {
     "card": "card_03",
@@ -17,7 +18,8 @@
     "file": "https://commons.wikimedia.org/wiki/File:Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_(Vienna)_-_Google_Art_Project_-_edited.jpg",
     "download": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_%28Vienna%29_-_Google_Art_Project_-_edited.jpg/960px-Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_%28Vienna%29_-_Google_Art_Project_-_edited.jpg",
     "license": "Public domain",
-    "crop": [150, 0, 760, 560]
+    "crop": [150, 0, 760, 560],
+    "alt": "A huge unfinished tower rises in pale stone tiers around a rock outcrop, its upper levels raw red brick still under construction."
   },
   {
     "card": "card_01",
@@ -27,7 +29,8 @@
     "file": "https://commons.wikimedia.org/wiki/File:Fuseli_-_The_Three_Witches,_ca._1785,_2014.15.jpeg",
     "download": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Fuseli_-_The_Three_Witches%2C_ca._1785%2C_2014.15.jpeg",
     "license": "Public domain",
-    "crop": [110, 40, 470, 390]
+    "crop": [110, 40, 470, 390],
+    "alt": "Three hooded old women in profile, faces in a row under pale drapery, pointing together with overlapping outstretched arms."
   },
   {
     "card": "card_07",
@@ -37,7 +40,8 @@
     "file": "https://commons.wikimedia.org/wiki/File:Plate_39_from_%27Los_Caprichos%27-_And_so_was_his_grandfather._(Asta_su_Abuelo.)_MET_DP816977.jpg",
     "download": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Plate_39_from_%27Los_Caprichos%27-_And_so_was_his_grandfather._%28Asta_su_Abuelo.%29_MET_DP816977.jpg/960px-Plate_39_from_%27Los_Caprichos%27-_And_so_was_his_grandfather._%28Asta_su_Abuelo.%29_MET_DP816977.jpg",
     "license": "CC0 (The Met Open Access)",
-    "crop": [250, 240, 860, 880]
+    "crop": [250, 240, 860, 880],
+    "alt": "A seated donkey studies an open book whose pages show rows of donkeys."
   },
   {
     "card": "card_09",
@@ -47,7 +51,8 @@
     "file": "https://commons.wikimedia.org/wiki/File:Edvard_Munch_-_The_Scream_-_NG.M.00939_-_National_Museum_of_Art,_Architecture_and_Design.jpg",
     "download": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Edvard_Munch_-_The_Scream_-_NG.M.00939_-_National_Museum_of_Art%2C_Architecture_and_Design.jpg/960px-Edvard_Munch_-_The_Scream_-_NG.M.00939_-_National_Museum_of_Art%2C_Architecture_and_Design.jpg",
     "license": "Public domain",
-    "crop": [250, 560, 900, 1192]
+    "crop": [250, 560, 900, 1192],
+    "alt": "Munch's figure presses both hands to its head, eyes wide and mouth open in an oval."
   },
   {
     "card": "card_12",
@@ -58,7 +63,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Laughing_Fool.jpg/1280px-Laughing_Fool.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_12-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A jester in a yellow hood with ass's ears laughs, one hand spread over his face, the other holding a pair of spectacles."
   },
   {
     "card": "card_13",
@@ -69,7 +75,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/The_Conjurer%2C_ca._1502.jpg/1280px-The_Conjurer%2C_ca._1502.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_13.jpg",
-    "crop": [0.55, 0.05, 1, 1]
+    "crop": [0.55, 0.05, 1, 1],
+    "alt": "A conjurer in a tall black hat and red robe holds a small ball up between two fingers, an owl peering out of the basket at his belt."
   },
   {
     "card": "card_08",
@@ -81,7 +88,8 @@
     "license": "Public domain",
     "cached": "card_08.jpg",
     "crop": null,
-    "cutout": "magnific"
+    "cutout": "magnific",
+    "alt": "A small rowing boat with a standing white-draped figure approaches a rocky island whose center is closed off by tall dark cypresses."
   },
   {
     "card": "card_14",
@@ -92,7 +100,8 @@
     "download": "https://commons.wikimedia.org/wiki/Special:FilePath/Quentin_Matsys_-_A_Grotesque_old_woman.jpg?width=1200",
     "license": "Public domain",
     "cached": "card_14.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "An elderly woman in a horned headdress about twice as wide as her head, an old-fashioned low-cut bodice, one hand raised before her chest."
   },
   {
     "card": "card_15",
@@ -103,7 +112,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/2/24/Tweedledum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "Public domain",
     "cached": "card_15.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "One stout twin stamps and clutches his head while the other's feet stick out from under an open umbrella, with Alice standing beside them."
   },
   {
     "card": "card_10",
@@ -114,7 +124,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Vel%C3%A1zquez%2C_Diego_Rodr%C3%ADguez_de_Silva_y_-_The_Infante_Baltasar_Carlos_on_Horseback_-_Google_Art_Project.jpg/1280px-Vel%C3%A1zquez%2C_Diego_Rodr%C3%ADguez_de_Silva_y_-_The_Infante_Baltasar_Carlos_on_Horseback_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_10-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A small boy prince in a black hat and red sash holds up a baton and sits calmly on a dark horse rearing on its hind legs."
   },
   {
     "card": "card_16",
@@ -125,7 +136,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Whistlers_Mother_high_res.jpg/1280px-Whistlers_Mother_high_res.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_16.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A woman in a long black dress and white cap sits upright in profile, hands folded in her lap over a white handkerchief."
   },
   {
     "card": "card_11",
@@ -136,7 +148,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Saint_Jerome_in_His_Study_MET_DP815749.jpg/1280px-Saint_Jerome_in_His_Study_MET_DP815749.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "CC0",
     "cached": "card_11.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A bearded scholar writes at a desk, head bent, while a lion and a small dog lie asleep on the floor in front of him."
   },
   {
     "card": "card_05",
@@ -147,7 +160,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Honor%C3%A9_Daumier_-_Les_Gens_de_Justice-_M._L%27Avocat_a_rendu_pleine_Justice..._-_Google_Art_Project.jpg/1280px-Honor%C3%A9_Daumier_-_Les_Gens_de_Justice-_M._L%27Avocat_a_rendu_pleine_Justice..._-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_05.jpg",
-    "crop": [0.55, 0.08, 1, 0.55]
+    "crop": [0.55, 0.08, 1, 0.55],
+    "alt": "A robed advocate leans far over the bar mid-speech, mouth open, while a smaller robed figure in a cap sits behind him."
   },
   {
     "card": "card_17",
@@ -158,7 +172,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/2/23/Alice_par_John_Tenniel_16.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "Public domain",
     "cached": "card_17.png",
-    "crop": null
+    "crop": null,
+    "alt": "Old Father William stands on his head, feet in the air, while a young man holding a stick looks on with one palm open."
   },
   {
     "card": "card_18",
@@ -169,7 +184,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/William_Blake_Death%27s_Door_engraved_by_Luigi_Schiavonetti.jpg/500px-William_Blake_Death%27s_Door_engraved_by_Luigi_Schiavonetti.jpg",
     "license": "Public domain",
     "cached": "card_18-v2-500.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "An old man bent over a crutch walks into a dark stone doorway, while on the rock above it a young figure sits up and looks skyward."
   },
   {
     "card": "card_19",
@@ -180,7 +196,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1c/Vel%C3%A1zquez_-_Dios_Marte_%28Museo_del_Prado%2C_c._1638%29.jpg/1280px-Vel%C3%A1zquez_-_Dios_Marte_%28Museo_del_Prado%2C_c._1638%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_19-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Mars sits slumped in his helmet with his chin on his hand, a blue cloth across his lap, a staff held loosely in his other hand."
   },
   {
     "card": "card_04",
@@ -191,7 +208,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Massysm_Quentin_%E2%80%94_The_Moneylender_and_his_Wife_%E2%80%94_1514.jpg/1280px-Massysm_Quentin_%E2%80%94_The_Moneylender_and_his_Wife_%E2%80%94_1514.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_04.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A moneylender weighs coins on a small balance while his wife, turning a page of an illuminated prayer book, looks across at the coins."
   },
   {
     "card": "card_20",
@@ -202,7 +220,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Redon_-_The_Eye%2C_Like_a_Strange_Balloon_Moves_Towards_Infinity%2C_plate_one_from_To_Edgar_Poe%2C_1920.1570.jpg/1280px-Redon_-_The_Eye%2C_Like_a_Strange_Balloon_Moves_Towards_Infinity%2C_plate_one_from_To_Edgar_Poe%2C_1920.1570.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_20.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A huge eye rises like a hot-air balloon, its iris turned upward, with a small dark object hanging beneath it."
   },
   {
     "card": "card_21",
@@ -213,7 +232,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/Edward_Lear_The_Owl_and_the_Pussy_Cat_1.jpg/1280px-Edward_Lear_The_Owl_and_the_Pussy_Cat_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_21-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "An owl strums a guitar and a cat sits beside a jar labelled HONEY, the two of them together in a small boat."
   },
   {
     "card": "card_06",
@@ -224,7 +244,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Elephant_Folio_6v.jpg/1280px-Elephant_Folio_6v.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_06-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A pale blue elephant carries a tall red-and-white tower on its back, five heads in helmets, hoods and caps crowded along the top."
   },
   {
     "card": "card_22",
@@ -235,7 +256,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Hieronymus_Bosch_-_The_Garden_of_Earthly_Delights_-_The_exterior_%28shutters%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "Public domain",
     "cached": "card_22.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "The two closed outer wings show, in grey-green, a transparent sphere holding a flat disc of land under clouds, split by the seam between the panels."
   },
   {
     "card": "card_cups_01",
@@ -246,7 +268,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/1/16/Redon_crying-spider.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "Public domain",
     "cached": "card_cups_01-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A spider whose round, furry body is a sad human face with a tear on its cheek stands on long thin legs."
   },
   {
     "card": "card_cups_02",
@@ -257,7 +280,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Van_Eyck_-_Arnolfini_Portrait.jpg/1280px-Van_Eyck_-_Arnolfini_Portrait.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_cups_02.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A man in a fur-trimmed robe and wide black hat raises his right hand, holding the hand of a woman in a green dress; a small dog at their feet."
   },
   {
     "card": "card_cups_03",
@@ -268,7 +292,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/0/08/50_sm%C3%A5historier_-_Musikanterna%2C_som_skulle_till_Bremen.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "Public domain",
     "cached": "card_cups_03-v2.png",
-    "crop": null
+    "crop": null,
+    "alt": "A donkey rears up carrying a dog, a cat and a crowing rooster stacked one on top of another."
   },
   {
     "card": "card_cups_04",
@@ -279,7 +304,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Museo_del_Prado_-_Goya_-_Caprichos_-_No._49_-_Duendecitos.jpg/1280px-Museo_del_Prado_-_Goya_-_Caprichos_-_No._49_-_Duendecitos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_cups_04-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Two grinning hobgoblins in hooded monks' habits stand together, each holding a cup, the taller one raising his free hand."
   },
   {
     "card": "card_cups_05",
@@ -290,7 +316,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Haeckel_Arachnida_Araneus_diadematus.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "Public domain",
     "cached": "card_cups_05-v2.png",
-    "crop": null
+    "crop": null,
+    "alt": "A single spider drawn from above, striped legs spread, its large abdomen covered in a pale, intricate pattern."
   },
   {
     "card": "card_cups_06",
@@ -301,7 +328,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Soap_Bubbles_MET_DP356133.jpg/1280px-Soap_Bubbles_MET_DP356133.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "CC0",
     "cached": "card_cups_06.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A young man leans over a stone ledge blowing through a thin straw while a small child in a cap watches."
   },
   {
     "card": "card_cups_07",
@@ -312,7 +340,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Bosch%2C_Hieronymus_-_The_Garden_of_Earthly_Delights%2C_left_panel_-_Detail_Amphibia_and_fish.jpg/1280px-Bosch%2C_Hieronymus_-_The_Garden_of_Earthly_Delights%2C_left_panel_-_Detail_Amphibia_and_fish.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_cups_07.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A pale hybrid creature with a cracked, speckled pot-like body, frog-like legs and a dark pointed head emerging from an opening at one end."
   },
   {
     "card": "card_cups_08",
@@ -323,7 +352,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg/1280px-Caspar_David_Friedrich_-_Wanderer_above_the_sea_of_fog.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_cups_08.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A man seen from behind in a dark coat, a walking stick in his hand."
   },
   {
     "card": "card_cups_09",
@@ -334,7 +364,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Cavalier_soldier_Hals-1624x.jpg/1280px-Cavalier_soldier_Hals-1624x.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_cups_09.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A man in a wide black hat and lace ruff smiles faintly under an upturned moustache, one hand on his hip, his sleeve densely embroidered."
   },
   {
     "card": "card_cups_10",
@@ -345,7 +376,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Rembrandt_-_De_Staalmeesters-_het_college_van_staalmeesters_%28waardijns%29_van_het_Amsterdamse_lakenbereidersgilde_-_Google_Art_Project.jpg/1280px-Rembrandt_-_De_Staalmeesters-_het_college_van_staalmeesters_%28waardijns%29_van_het_Amsterdamse_lakenbereidersgilde_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_cups_10.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Six men in black, five in tall hats and one bareheaded behind them, look up from a table with an open book; one is half-risen from his chair."
   },
   {
     "card": "card_cups_11",
@@ -356,7 +388,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/8/80/Lechatbotte1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "Public domain",
     "cached": "card_cups_11-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Puss in Boots, in a plumed hat, cape, belt and boots, throws both paws up with his mouth wide open, crying out."
   },
   {
     "card": "card_cups_12",
@@ -367,7 +400,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Joean_Honor%C3%A9_Fragonard_-_The_Swing.jpg/1280px-Joean_Honor%C3%A9_Fragonard_-_The_Swing.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_cups_12.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A woman in a frothy pink dress and hat swings high, one leg kicked out, gripping the ropes."
   },
   {
     "card": "card_cups_13",
@@ -378,7 +412,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/1665_Girl_with_a_Pearl_Earring.jpg/1280px-1665_Girl_with_a_Pearl_Earring.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_cups_13-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A young woman in a blue and yellow turban looks back over her shoulder at the viewer, lips slightly parted, a large pearl at her ear."
   },
   {
     "card": "card_cups_14",
@@ -389,7 +424,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Baldassare_Castiglione%2C_by_Raffaello_Sanzio%2C_from_C2RMF_retouched.jpg/1280px-Baldassare_Castiglione%2C_by_Raffaello_Sanzio%2C_from_C2RMF_retouched.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_cups_14.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A bearded man in a black beret and grey fur-trimmed coat, hands clasped, looks steadily at the viewer with blue eyes."
   },
   {
     "card": "card_pentacles_01",
@@ -400,7 +436,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/11/Uomo_Vitruviano.jpg/1280px-Uomo_Vitruviano.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_pentacles_01-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A man drawn in brown ink in two overlapping positions, arms level and raised, feet together and apart."
   },
   {
     "card": "card_pentacles_02",
@@ -411,7 +448,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Johannes_Vermeer_-_Woman_Holding_a_Balance_-_Google_Art_Project.jpg/1280px-Johannes_Vermeer_-_Woman_Holding_a_Balance_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_pentacles_02.jpg",
-    "crop": [0.4, 0, 1, 1]
+    "crop": [0.4, 0, 1, 1],
+    "alt": "A woman in a white head covering and blue fur-trimmed jacket, eyes lowered, holding something small between thumb and finger."
   },
   {
     "card": "card_pentacles_03",
@@ -422,7 +460,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Gustave_Courbet_018.jpg/1280px-Gustave_Courbet_018.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_pentacles_03.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Two workers in torn, patched clothes: a young man carrying a basket of broken stone and an older man in a straw hat raising a hammer."
   },
   {
     "card": "card_pentacles_04",
@@ -433,7 +472,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Aquamanile_in_the_Form_of_a_Lion_MET_DT3579.jpg/1280px-Aquamanile_in_the_Form_of_a_Lion_MET_DT3579.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "CC0",
     "cached": "card_pentacles_04-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A seated bronze lion with a curly mane, wide eyes and a toothy grin, a round filling hole on top of its head and a handle curving along its back."
   },
   {
     "card": "card_pentacles_05",
@@ -444,7 +484,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d8/Honor%C3%A9_Daumier_%28French%2C_Marseilles_1808%E2%80%931879_Valmondois%29_-_The_Third-Class_Carriage_-_Google_Art_Project.jpg/1280px-Honor%C3%A9_Daumier_%28French%2C_Marseilles_1808%E2%80%931879_Valmondois%29_-_The_Third-Class_Carriage_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_pentacles_05.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Three passengers on a bench: a young woman nursing a baby, an older woman in a hood with her hands on a basket, and a boy slumped asleep beside her."
   },
   {
     "card": "card_pentacles_06",
@@ -455,7 +496,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/James_Gillray_-_Monstrous_Craws%2C_At_a_New_Coalition_Feast_-_B1981.25.966_-_Yale_Center_for_British_Art.jpg/1280px-James_Gillray_-_Monstrous_Craws%2C_At_a_New_Coalition_Feast_-_B1981.25.966_-_Yale_Center_for_British_Art.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "CC0",
     "cached": "card_pentacles_06-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Three diners seated around one bowl heaped with gold coins, each lifting a spoon of coins to the mouth, each with a huge pouch hanging from the throat."
   },
   {
     "card": "card_pentacles_07",
@@ -466,7 +508,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6e/Racknitz_-_The_Turk_3.jpg/1280px-Racknitz_-_The_Turk_3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_pentacles_07-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Cutaway of the chess automaton: a robed, turbaned figure above a cabinet, with a man hidden inside at a small chessboard."
   },
   {
     "card": "card_pentacles_08",
@@ -477,7 +520,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Jean_Sim%C3%A9on_Chardin_-_The_Monkey_Antiquarian.jpg/1280px-Jean_Sim%C3%A9on_Chardin_-_The_Monkey_Antiquarian.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_pentacles_08-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A monkey in a long ochre robe seated on a red stool, holding a magnifying glass up to a small object in its other hand, with books and loose papers stacked beside it."
   },
   {
     "card": "card_pentacles_09",
@@ -488,7 +532,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/9/99/Pieter_Bruegel_the_Elder_-_Two_Chained_Monkeys_-_WGA3524.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "Public domain",
     "cached": "card_pentacles_09-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Two dark monkeys chained to the same iron ring, one sitting up and facing out, the other curled over with its head bowed."
   },
   {
     "card": "card_pentacles_10",
@@ -499,7 +544,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/Las_Meninas%2C_by_Diego_Vel%C3%A1zquez%2C_from_Prado_in_Google_Earth.jpg/1280px-Las_Meninas%2C_by_Diego_Vel%C3%A1zquez%2C_from_Prado_in_Google_Earth.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_pentacles_10.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "The painter at his canvas, the young princess in a pale gown with her maids of honor, two court dwarfs and a large dog lying in front."
   },
   {
     "card": "card_pentacles_11",
@@ -510,7 +556,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Guiseppe_Arcimboldo%2C_copy%3F%2C_after%3F_-_The_Librarian_-_Google_Art_Project.jpg/1280px-Guiseppe_Arcimboldo%2C_copy%3F%2C_after%3F_-_The_Librarian_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_pentacles_11-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A half-length figure built mostly of books (an open book fanned out as hair, stacked volumes forming the chest and arms) with a bristling grey beard."
   },
   {
     "card": "card_pentacles_12",
@@ -521,7 +568,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/The_Rhinoceros_%28NGA_1964.8.697%29_enhanced.png/1280px-The_Rhinoceros_%28NGA_1964.8.697%29_enhanced.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_pentacles_12.png",
-    "crop": null
+    "crop": null,
+    "alt": "A rhinoceros in profile drawn as if in riveted armor plates, with scaled legs, a nose horn and a small twisted horn on its shoulder."
   },
   {
     "card": "card_pentacles_13",
@@ -532,7 +580,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/01/Hans_Holbein_der_J%C3%BCngere_-_Der_Kaufmann_Georg_Gisze_-_Google_Art_Project.jpg/1280px-Hans_Holbein_der_J%C3%BCngere_-_Der_Kaufmann_Georg_Gisze_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_pentacles_13.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A young man in a black cap and dark coat with red satin sleeves holding an opened letter, a glass vase of carnations at his side."
   },
   {
     "card": "card_pentacles_14",
@@ -543,7 +592,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/B%C3%B6cklin_-_Selbstbildnis_mit_fiedelndem_Tod%2C_1872%2C_A_I_633.jpg/1280px-B%C3%B6cklin_-_Selbstbildnis_mit_fiedelndem_Tod%2C_1872%2C_A_I_633.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_pentacles_14-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "The bearded painter in a dark jacket, brush in one hand and palette in the other, with a grinning skull and bony fingers just behind his ear."
   },
   {
     "card": "card_swords_01",
@@ -554,7 +604,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/John_William_Waterhouse_-_Thisbe%2C_1909.jpg/1280px-John_William_Waterhouse_-_Thisbe%2C_1909.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_swords_01-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Thisbe in a red patterned robe and sash, barefoot, leaning forward with one hand raised to her ear."
   },
   {
     "card": "card_swords_02",
@@ -565,7 +616,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Are_you_animal.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "Public domain",
     "cached": "card_swords_02.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Alice stands holding a large dish of cake between the Unicorn on the left and the Lion on the right, with a hare-eared figure behind."
   },
   {
     "card": "card_swords_03",
@@ -576,7 +628,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Alice_par_John_Tenniel_28.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "Public domain",
     "cached": "card_swords_03-v2.png",
-    "crop": null
+    "crop": null,
+    "alt": "Three playing-card gardeners marked with spades, holding brushes, one with a paint pot, two leaning face to face beside a rose tree; a second pot lies at their feet."
   },
   {
     "card": "card_swords_04",
@@ -587,7 +640,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/06/La_Boh%C3%A9mienne_endormie.jpg/1280px-La_Boh%C3%A9mienne_endormie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_swords_04.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A lion stands over a sleeping figure in a striped robe, with a mandolin and a water jug beside her."
   },
   {
     "card": "card_swords_05",
@@ -598,7 +652,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a8/The_Fight_Between_Carnival_and_Lent.jpg/1280px-The_Fight_Between_Carnival_and_Lent.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_swords_05.jpg",
-    "crop": [0.33, 0.65, 0.5, 0.92]
+    "crop": [0.33, 0.65, 0.5, 0.92],
+    "alt": "A stout man in a green cap rides a barrel mounted on a sled, holding a roasting spit like a lance, a pot hanging below; a man in a fool's cap follows with a jug."
   },
   {
     "card": "card_swords_06",
@@ -609,7 +664,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Hokusai_The_Ghost_Kohada_Koheiji.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "Public domain",
     "cached": "card_swords_06-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A skeletal ghost with thin hair grips the red edge of a mosquito net with bony fingers and peers over it."
   },
   {
     "card": "card_swords_07",
@@ -620,7 +676,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Museo_del_Prado_-_Goya_-_Caprichos_-_No._41_-_Ni_mas_ni_menos.jpg/1280px-Museo_del_Prado_-_Goya_-_Caprichos_-_No._41_-_Ni_mas_ni_menos.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_swords_07-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A donkey sits upright with its forelegs resting in front of it, head lifted, posing, while a dark monkey figure works at an easel behind it."
   },
   {
     "card": "card_swords_08",
@@ -631,7 +688,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Bruegel%2C_Pieter_%28I%29_-_Blind_leading_the_blind_Google_Art_Project.jpeg/1280px-Bruegel%2C_Pieter_%28I%29_-_Blind_leading_the_blind_Google_Art_Project.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_swords_08.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A line of blind men linked by staffs and hands on shoulders, several with faces turned upward, while the man at the front stumbles and falls forward."
   },
   {
     "card": "card_swords_09",
@@ -642,7 +700,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/c/c7/%27The_sleep_of_reason_produces_monsters.%27.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "CC0",
     "cached": "card_swords_09.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A man slumped forward with his head buried in his arms; behind him an owl and a large cat."
   },
   {
     "card": "card_swords_10",
@@ -653,7 +712,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Paolo_Uccello_050.jpg/1280px-Paolo_Uccello_050.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_swords_10-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A knight on a pale horse drives a lance into the open mouth of a green winged dragon."
   },
   {
     "card": "card_swords_11",
@@ -664,7 +724,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/4/42/The_White_Rabbit_%28Tenniel%29_-_The_Nursery_Alice_%281890%29_-_BL.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "CC0",
     "cached": "card_swords_11.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "The White Rabbit in a checked jacket and waistcoat, looking at a pocket watch, an umbrella tucked under his arm."
   },
   {
     "card": "card_swords_12",
@@ -675,7 +736,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Cheselden_t36_prayer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "Public domain",
     "cached": "card_swords_12-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A full human skeleton kneeling on a low slab, hands pressed together, skull tipped upward."
   },
   {
     "card": "card_swords_13",
@@ -686,7 +748,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/2/21/Alice_with_Queen_of_Hearts_and_King_of_Hearts.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "Public domain",
     "cached": "card_swords_13.png",
-    "crop": null
+    "crop": null,
+    "alt": "The Queen of Hearts points with her whole arm at Alice, with the King and card courtiers behind."
   },
   {
     "card": "card_swords_14",
@@ -697,7 +760,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Basilisk_%281640%29.png/1280px-Basilisk_%281640%29.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_swords_14-v2.png",
-    "crop": null
+    "crop": null,
+    "alt": "A crowned basilisk with a rooster's beaked head, a scaly body on a row of short legs, and a long tail curling into a hook."
   },
   {
     "card": "card_wands_01",
@@ -708,7 +772,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/The_Creation_of_Adam_perspective_fix.jpg/1280px-The_Creation_of_Adam_perspective_fix.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_wands_01.jpg",
-    "crop": [0.48, 0, 1, 1]
+    "crop": [0.48, 0, 1, 1],
+    "alt": "God the Father in a red cloak, borne by a crowd of figures, his arm stretched out to the left."
   },
   {
     "card": "card_wands_02",
@@ -719,7 +784,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Hans_Holbein_the_Younger_-_The_Ambassadors_-_Google_Art_Project.jpg/1280px-Hans_Holbein_the_Younger_-_The_Ambassadors_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_wands_02.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Two ambassadors standing full-length, far apart, with a shelf of instruments between them."
   },
   {
     "card": "card_wands_03",
@@ -730,7 +796,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/Friedrich_-_Two_Men_Contemplating_the_Moon.jpg/1280px-Friedrich_-_Two_Men_Contemplating_the_Moon.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_wands_03.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Two men in dark coats and caps seen from behind, one resting his hand on the other's shoulder."
   },
   {
     "card": "card_wands_04",
@@ -741,7 +808,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Salamandra_%28salamander%29_-_Der_naturen_bloeme_-_Jacob_van_Maerlant_-_KB_KA_16_-_126r_a2.jpg/1280px-Salamandra_%28salamander%29_-_Der_naturen_bloeme_-_Jacob_van_Maerlant_-_KB_KA_16_-_126r_a2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_wands_04-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A pale, spotted salamander lying stretched along a row of red flames, head raised and tail curled, beside a small green tree."
   },
   {
     "card": "card_wands_05",
@@ -752,7 +820,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Giuseppe_Arcimboldo_-_Rudolf_II_of_Habsburg_as_Vertumnus_-_Google_Art_Project.jpg/1280px-Giuseppe_Arcimboldo_-_Rudolf_II_of_Habsburg_as_Vertumnus_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_wands_05-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A head and chest built from produce: wheat ears and grapes in the hair, a pear nose, cherries at the mouth, a large gourd for a chest and flowers across the shoulders."
   },
   {
     "card": "card_wands_06",
@@ -763,7 +832,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Eug%C3%A8ne_Delacroix_-_La_libert%C3%A9_guidant_le_peuple.jpg/1280px-Eug%C3%A8ne_Delacroix_-_La_libert%C3%A9_guidant_le_peuple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_wands_06.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Liberty raising the tricolour high, a boy beside her with a pistol raised, and fallen bodies at her feet."
   },
   {
     "card": "card_wands_07",
@@ -774,7 +844,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Jacques-Louis_David_-_Leonidas_at_Thermopylae_-_WGA6095.jpg/1280px-Jacques-Louis_David_-_Leonidas_at_Thermopylae_-_WGA6095.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_wands_07.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Leonidas seated at the centre with a round shield behind him, surrounded by nearly nude warriors reaching, turning and climbing."
   },
   {
     "card": "card_wands_08",
@@ -785,7 +856,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/William_Blake_-_The_Ghost_of_a_Flea_-_Google_Art_Project.jpg/1280px-William_Blake_-_The_Ghost_of_a_Flea_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_wands_08-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A dark, heavily muscled figure with a small head strides forward in profile, holding a shallow bowl out in one hand."
   },
   {
     "card": "card_wands_09",
@@ -796,7 +868,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/Vincent_van_Gogh_-_Self-Portrait_with_Bandaged_Ear_1889_-_Google_Art_Project.jpg/1280px-Vincent_van_Gogh_-_Self-Portrait_with_Bandaged_Ear_1889_-_Google_Art_Project.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_wands_09.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Van Gogh head and shoulders in a fur cap and green coat, a white bandage across his cheek and ear, gaze turned slightly aside."
   },
   {
     "card": "card_wands_10",
@@ -807,7 +880,8 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Plate_42_from_%27Los_Caprichos%27-_Thou_who_canst_not_%28Tu_que_no_puedes.%29_MET_DP816982.jpg/1280px-Plate_42_from_%27Los_Caprichos%27-_Thou_who_canst_not_%28Tu_que_no_puedes.%29_MET_DP816982.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "CC0",
     "cached": "card_wands_10.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Two men walking bent under two donkeys riding on their backs, their faces turned down."
   },
   {
     "card": "card_wands_11",
@@ -818,7 +892,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Puck%2C_1789%2C_by_Joshua_Reynolds.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "Public domain",
     "cached": "card_wands_11-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "A small, pointy-eared, grinning child sits on a mossy mound, one arm flung up and a bunch of flowers in the other hand."
   },
   {
     "card": "card_wands_12",
@@ -829,7 +904,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/7/75/Don_Quixote_6.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "Public domain",
     "cached": "card_wands_12.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Don Quixote and his horse hoisted up on a windmill sail, the horse hanging head-down and the armoured knight dangling beside it."
   },
   {
     "card": "card_wands_13",
@@ -840,7 +916,8 @@
     "download": "https://upload.wikimedia.org/wikipedia/commons/0/03/Monographie_Pigeons_domestiques%2C_Boulant_anglais.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
     "license": "Public domain",
     "cached": "card_wands_13-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "An English Pouter pigeon standing tall on long feathered legs, its crop inflated into a ball larger than the rest of its body, tail angled down behind."
   },
   {
     "card": "card_wands_14",
@@ -851,6 +928,7 @@
     "download": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Ingres%2C_Napoleon_on_his_Imperial_throne.jpg/1280px-Ingres%2C_Napoleon_on_his_Imperial_throne.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
     "license": "Public domain",
     "cached": "card_wands_14-v2.jpg",
-    "crop": null
+    "crop": null,
+    "alt": "Napoleon enthroned in a laurel wreath, ermine and red velvet, holding a rod of office in each hand."
   }
 ]

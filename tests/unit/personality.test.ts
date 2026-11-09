@@ -8,7 +8,7 @@ import { horoscope } from '../../src/domain/horoscope';
 import { disguiseTitle } from '../../src/domain/disguise';
 import { withBossName, cleanBossName } from '../../src/domain/boss-name';
 import { headingText as heading } from '../../src/domain/headings';
-import { cardArt } from '../../src/domain/card-art';
+import { artCredit, cardArt } from '../../src/domain/card-art';
 import { tarot } from '../../src/domain/tarot';
 import { content } from '../../src/domain/content';
 import { replyVariants, responseSet, responseVersion } from '../../src/domain/replies';
@@ -108,7 +108,10 @@ test('tab title shows the real name only with a boss headshot', () => {
   expect(disguiseTitle('blank')).toBe('New tab');
 });
 test('every tarot card has a credited artwork sticker', () => {
-  for (const card of tarot) expect(cardArt(card.id)).toBe(`/art/famous/${card.id}.webp`);
+  for (const card of tarot) {
+    expect(cardArt(card.id)).toBe(`/art/famous/${card.id}.webp`);
+    expect(artCredit(card.id)?.alt).toMatch(/\w{3}/);
+  }
   expect(cardArt('pain-threats')).toBe('/art/pain-threats.svg');
 });
 test('a named boss replaces pronouns and "the boss" in headings and forecasts', () => {

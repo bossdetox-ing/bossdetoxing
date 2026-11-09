@@ -2,7 +2,7 @@ import type { CSSProperties, HTMLAttributes, ReactNode } from 'react';
 import { Card } from '../components/ui/card';
 import { ArtCredit, CardCorner, CardLetter, correspondenceLabel, lordTitle } from './ArtCredit';
 import { ShareCard } from './ShareCard';
-import { cardArt, isSticker } from '../domain/card-art';
+import { artCredit, cardArt, isSticker } from '../domain/card-art';
 import type { Sky } from '../domain/cosmos';
 import { tarotReflection, type tarot } from '../domain/tarot';
 import { ReadMore } from './components';
@@ -71,7 +71,7 @@ export function TicketCard({
               className="tarot-art"
               data-sticker={isSticker(card.id) || undefined}
               src={art}
-              alt={card.fictionalSymbolism}
+              alt={artCredit(card.id)?.alt ?? ''}
             />
             <CardLetter card={card} />
           </div>
