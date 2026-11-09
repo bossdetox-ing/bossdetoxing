@@ -144,7 +144,7 @@ test('web calendar history encrypts locally, unlocks after reload and clears wit
   await page.locator('.event-summary').click();
   await expect(page.locator('.calendar-detail .charm-text')).toHaveText(charm!);
   await page.locator('.calendar-detail button.read-more').click();
-  await expect(page.locator('.calendar-detail .mantra-prompt')).not.toBeEmpty();
+  await expect(page.locator('.calendar-detail .mantra-reflection p').first()).not.toBeEmpty();
   await expect(page.locator('.calendar-detail textarea')).toHaveCount(0);
   await page.locator('.topbar').getByRole('button', { name: 'Settings', exact: true }).click();
   await page.getByRole('button', { name: 'Delete all local data', exact: true }).click();
@@ -186,7 +186,7 @@ test('read more opens the line’s reflection inline and another line closes it'
   await expect(more).toHaveAttribute('aria-expanded', 'false');
   await more.click();
   await expect(more).toHaveAttribute('aria-expanded', 'true');
-  await expect(page.locator('.protective-card .mantra-prompt')).not.toBeEmpty();
+  await expect(page.locator('.protective-card .mantra-reflection p').first()).not.toBeEmpty();
   await page.getByRole('button', { name: 'Another', exact: true }).click();
   await expect(page.locator('.protective-card .mantra-reflection')).toHaveCount(0);
 });

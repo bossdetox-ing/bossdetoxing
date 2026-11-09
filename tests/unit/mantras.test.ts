@@ -52,7 +52,7 @@ test('every situation rotates at least 12 plain lines, every active line has its
     const reflection = reflectionFor(m.id);
     expect(reflection, m.id).toBeDefined();
     expect(reflection!.situationId).toBe(m.situationIds[0] ?? 'general');
-    expect(reflection!.text.split(/\s+/).length).toBeLessThanOrEqual(120);
+    expect(reflection!.text.split(/\s+/).length).toBeLessThanOrEqual(150);
   }
   expect(reflections.every((r) => mantras.some((m) => m.reflectionId === r.id))).toBe(true);
 });

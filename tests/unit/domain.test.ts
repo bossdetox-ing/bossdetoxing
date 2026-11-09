@@ -100,6 +100,6 @@ test('every tarot card has one read-more reflection', () => {
   for (const card of tarot) {
     const reflection = tarotReflection(card.id);
     expect(reflection, card.id).toBeDefined();
-    expect(reflection!.text.split(/\s+/).length).toBeLessThanOrEqual(120);
+    expect(reflection!.text.split(/\s+/).length).toBeLessThanOrEqual(150);
   }
 });

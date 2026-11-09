@@ -49,7 +49,8 @@ export const tarotReflections = z
       .object({
         cardId: z.string().min(1),
         text: z.string().trim().min(1),
-        prompt: z.string().trim().min(1),
+        /** Absent when the reflection ends on its own last sentence. */
+        prompt: z.string().trim().min(1).optional(),
       })
       .strict(),
   )

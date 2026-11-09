@@ -248,7 +248,7 @@ export function ReadMore({
   reflection,
 }: {
   id: string;
-  reflection?: { text: string; prompt: string };
+  reflection?: { text: string; prompt?: string };
 }) {
   const [openId, setOpenId] = useState<string>();
   const panel = useId();
@@ -267,7 +267,7 @@ export function ReadMore({
       {open && (
         <div id={panel} className="mantra-reflection">
           <p>{reflection.text}</p>
-          <p className="mantra-prompt">{reflection.prompt}</p>
+          {reflection.prompt && <p className="mantra-prompt">{reflection.prompt}</p>}
         </div>
       )}
     </>
