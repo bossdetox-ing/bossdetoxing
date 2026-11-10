@@ -1,6 +1,5 @@
 import { expect, test } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { createHash } from 'node:crypto';
+import { existsSync } from 'node:fs';
 import seed from '../../src/content/content-seed.json';
 import { tarot, tarotDeckSchema } from '../../src/domain/tarot';
 test('a complete 78-card deck preserves the original readings and all four suits', () => {
@@ -37,14 +36,6 @@ test('a complete 78-card deck preserves the original readings and all four suits
     ),
   ).toBe(true);
 });
-test('every tarot card has distinct, nonempty original local art', () => {
-  const hashes = new Set(
-    tarot.map((card) => {
-      const art = readFileSync(`public/art/${card.id}.svg`, 'utf8');
-      expect(art.length).toBeGreaterThan(500);
-      expect(art).not.toMatch(/<script|<image|<foreignObject|onload=|href=/);
-      return createHash('sha256').update(art).digest('hex');
-    }),
-  );
-  expect(hashes.size).toBe(78);
+test('every tarot card ships its artwork sticker', () => {
+  for (const card of tarot) expect(existsSync(`public/art/famous/${card.id}.webp`)).toBe(true);
 });

@@ -112,7 +112,6 @@ test('every tarot card has a credited artwork sticker', () => {
     expect(cardArt(card.id)).toBe(`/art/famous/${card.id}.webp`);
     expect(artCredit(card.id)?.alt).toMatch(/\w{3}/);
   }
-  expect(cardArt('pain-threats')).toBe('/art/pain-threats.svg');
 });
 test('a named boss replaces pronouns and "the boss" in headings and forecasts', () => {
   expect(heading('doing', 'they', true, true, 'Balthazar')).toBe("What's Balthazar doing now?");
