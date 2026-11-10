@@ -38,11 +38,14 @@ export default defineBackground(() => {
           ]);
       })
       .catch(() => undefined);
-    void chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true }).catch(() => {
-      void chrome.action.setTitle({
-        title: 'Open Chrome’s side panel and choose bossdetox.ing (Chrome 116+ required)',
-      });
-    });
+    // The side panel is home. Browsers without Chrome's side panel API (Opera, Arc) open the same
+    // app as a toolbar popup instead, so the icon never does nothing.
+    const usePopup = () =>
+      chrome.action.setPopup({ popup: 'sidepanel.html?surface=popup' }).catch(() => undefined);
+    const panel = chrome.sidePanel as typeof chrome.sidePanel | undefined;
+    if (panel?.setPanelBehavior)
+      void panel.setPanelBehavior({ openPanelOnActionClick: true }).catch(usePopup);
+    else void usePopup();
   };
   configure();
   chrome.runtime.onInstalled.addListener(configure);

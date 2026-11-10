@@ -4,7 +4,7 @@ from PIL import Image, ImageDraw
 
 out = Path(__file__).resolve().parents[1] / 'public' / 'icons'
 out.mkdir(parents=True, exist_ok=True)
-for kind in ['search', 'notes', 'sigil']:
+for kind in ['search', 'notes']:
     for size in [16, 32, 48, 128]:
         scale = size * 4 / 24
         im = Image.new('RGBA', (size * 4, size * 4), (0, 0, 0, 0))
@@ -20,6 +20,4 @@ for kind in ['search', 'notes', 'sigil']:
         elif kind == 'notes':
             line([(6,3),(18,3),(18,21),(6,21),(6,3)])
             line([(9,8),(15,8)]); line([(9,12),(15,12)]); line([(9,16),(13,16)])
-        else:
-            ellipse([3,3,21,21]); line([(12,4),(12,20)]); line([(5,16),(12,7),(19,16),(5,16)])
         im.resize((size,size), Image.Resampling.LANCZOS).save(out / f'{kind}{size}.png')

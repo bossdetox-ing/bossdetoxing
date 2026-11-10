@@ -8,7 +8,7 @@ export default defineConfig({
     name: 'bossdetox.ing',
     description:
       'A private workplace companion for calm, clarity and professional responses. Free. Local. No AI.',
-    version: '1.3.1',
+    version: '1.3.2',
     minimum_chrome_version: '116',
     permissions: ['sidePanel', 'storage'],
     host_permissions: [],
@@ -19,7 +19,12 @@ export default defineConfig({
         32: 'disguise/png/search-light-32.png',
       },
     },
-    icons: { 16: 'icons/sigil16.png', 48: 'icons/sigil48.png', 128: 'icons/sigil128.png' },
+    icons: {
+      16: 'icons/logo16.png',
+      32: 'icons/logo32.png',
+      48: 'icons/logo48.png',
+      128: 'icons/logo128.png',
+    },
     commands: {
       _execute_action: { suggested_key: { default: 'Alt+Shift+O' } },
       'blank-panel': {

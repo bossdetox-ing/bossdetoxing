@@ -13,7 +13,7 @@
 
 <p align="center">
   <a href="https://ass.bossdetox.ing"><strong>Open the app</strong></a> ·
-  <a href="https://github.com/bossdetox-ing/bossdetoxing/releases/latest"><strong>Download the extension</strong></a> ·
+  <a href="https://chromewebstore.google.com/detail/bossdetoxing/kimmdnobgafbdcjnnaadphlbgacflffi"><strong>Add to Chrome</strong></a> ·
   <a href="https://youtu.be/F17ikeZEf1A">Watch the film</a> ·
   <a href="https://bossdetox.ing">Website</a>
 </p>
@@ -48,29 +48,26 @@ You have two options. Pick one, or use both.
 
 ### Option 2: the browser extension (opens in a side panel next to your work)
 
-You need **Google Chrome**, version 116 or newer. It takes about 2 minutes.
+Get it from the **[Chrome Web Store](https://chromewebstore.google.com/detail/bossdetoxing/kimmdnobgafbdcjnnaadphlbgacflffi)**. It needs Google Chrome 116 or newer, and also installs in browsers that use the Chrome Web Store, such as Edge and Vivaldi.
 
-1. **Download the ZIP.** Go to the [latest release](https://github.com/bossdetox-ing/bossdetoxing/releases/latest) and click **`bossdetox-ing-1.3.1-chrome.zip`** under **Assets**.
-2. **Unzip it.**
-   - **Mac:** double-click the ZIP in Downloads. A folder appears next to it.
-   - **Windows:** right-click the ZIP, choose **Extract All…**, then **Extract**.
-   - Move that folder somewhere you won't tidy away by accident, like Documents. Chrome loads the extension from this folder, so don't delete it later.
-3. **Open the extensions page.** In Chrome, type `chrome://extensions` in the address bar and press Enter.
-4. **Turn on Developer mode.** Flip the **Developer mode** switch in the top-right corner. Three new buttons appear.
-5. **Load it.** Click **Load unpacked** and choose the folder you unzipped. Pick the folder that has `manifest.json` directly inside it.
-6. **Pin it.** Click the puzzle-piece icon in Chrome's toolbar and click the pin next to **bossdetox.ing**. Its toolbar icon is a plain magnifying glass, on purpose.
-7. **Open it.** Click the magnifying glass, or press **Alt+Shift+O** (**Option+Shift+O** on a Mac). The side panel opens.
+1. **Add it.** Open the [store listing](https://chromewebstore.google.com/detail/bossdetoxing/kimmdnobgafbdcjnnaadphlbgacflffi) and click **Add to Chrome**.
+2. **Pin it.** Click the puzzle-piece icon in the toolbar and click the pin next to **bossdetox.ing**. Its toolbar icon is a plain magnifying glass, on purpose.
+3. **Open it.** Click the magnifying glass, or press **Alt+Shift+O** (**Option+Shift+O** on a Mac). The side panel opens. Browsers without a side panel open it as a small window under the icon instead.
 
-**If something goes wrong:**
+Updates arrive on their own from the store, and your encrypted history stays.
 
-| What you see                                 | What to do                                                                                                            |
-| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| "Manifest file is missing or unreadable"     | You picked the wrong folder. Open the unzipped folder: if there's another folder inside it, choose that inner one.    |
-| No Developer mode switch, or it's greyed out | Your company manages this Chrome profile and blocks extensions. Use the app from Option 1 instead, on your own phone. |
-| A "Disable developer mode extensions" popup  | Chrome may show this for extensions installed this way. Close it; don't click **Disable**.                            |
-| The extension disappeared                    | The folder was moved or deleted. Put it back, or repeat steps 1 to 5.                                                 |
+**Add to Chrome is greyed out or blocked?** Your company manages this browser profile. Use the app from Option 1 instead, on your own phone.
 
-**Updating:** download the new ZIP from the [latest release](https://github.com/bossdetox-ing/bossdetoxing/releases/latest) and unzip it. Delete everything inside your old extension folder, copy the new files into that same folder, then click the ↻ reload arrow on the bossdetox.ing card at `chrome://extensions`. Keep the same folder: Chrome treats a different folder as a brand-new install, with empty history.
+<details>
+<summary>Manual install from the release ZIP (developer mode)</summary>
+
+1. Download **`bossdetox-ing-<version>-chrome.zip`** from the [latest release](https://github.com/bossdetox-ing/bossdetoxing/releases/latest) and unzip it somewhere you won't tidy away.
+2. Open `chrome://extensions`, switch on **Developer mode** and click **Load unpacked**.
+3. Choose the unzipped folder that has `manifest.json` directly inside it.
+
+To update, replace the folder's contents with the new ZIP's files and click ↻ on the extension's card. Keep the same folder: a different folder is a new install with empty history.
+
+</details>
 
 ## Privacy, in plain words
 

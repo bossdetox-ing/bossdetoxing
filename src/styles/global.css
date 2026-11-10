@@ -73,6 +73,12 @@ body,
   margin: 0;
   overflow: hidden;
 }
+/* A toolbar popup sizes itself to the page, so the popup fallback gets the side panel's shape
+   (Chrome caps popups at 800×600). */
+:root[data-surface='popup'] {
+  width: 400px;
+  height: 600px;
+}
 body {
   background: var(--color-bg);
   color: var(--color-text);
