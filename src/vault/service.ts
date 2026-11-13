@@ -13,36 +13,6 @@ import type { Metadata } from './crypto';
 import { commitArchive, readArchive } from './idb';
 import { calendarEventSchema } from '../domain/calendar';
 
-const short = z.string().max(20_000);
-export const incidentSchema = z
-  .object({
-    id: z.uuid(),
-    kind: z.literal('incident'),
-    createdAtISO: z.iso.datetime(),
-    updatedAtISO: z.iso.datetime(),
-    context: short,
-    observableFacts: short.trim().min(1),
-    quoteFromMemory: short,
-    workImpact: short,
-    emotion: short,
-    userInterpretation: short,
-    behaviorIds: z.array(short).max(20),
-    actualDecisions: short,
-    unresolvedQuestions: short,
-    nextAction: short,
-    followUpStatus: z.enum(['none', 'pending', 'done']),
-  })
-  .strict();
-export const taskRecordSchema = z
-  .object({
-    id: z.uuid(),
-    kind: z.literal('task'),
-    createdAtISO: z.iso.datetime(),
-    updatedAtISO: z.iso.datetime(),
-    title: short,
-    brief: short,
-  })
-  .strict();
 export const mantraStateSchema = z
   .object({
     id: z.uuid(),
@@ -60,14 +30,8 @@ export const mantraStateSchema = z
     customThreats: z.array(customThreatSchema).max(24).optional(),
   })
   .strict();
-export const recordSchema = z.union([
-  incidentSchema,
-  taskRecordSchema,
-  calendarEventSchema,
-  mantraStateSchema,
-]);
+export const recordSchema = z.union([calendarEventSchema, mantraStateSchema]);
 export type VaultRecord = z.infer<typeof recordSchema>;
-export type Incident = z.infer<typeof incidentSchema>;
 export const MAX_ARCHIVE_BYTES = 5 * 1024 * 1024;
 export const archiveSchema = z
   .object({
@@ -249,24 +213,4 @@ export class Vault {
     const existing = await readArchive();
     await commitArchive(undefined, existing?.revision);
   }
-}
-export function newIncident(): Incident {
-  const timestamp = new Date().toISOString();
-  return {
-    id: crypto.randomUUID(),
-    kind: 'incident',
-    createdAtISO: timestamp,
-    updatedAtISO: timestamp,
-    context: '',
-    observableFacts: '',
-    quoteFromMemory: '',
-    workImpact: '',
-    emotion: '',
-    userInterpretation: '',
-    behaviorIds: [],
-    actualDecisions: '',
-    unresolvedQuestions: '',
-    nextAction: '',
-    followUpStatus: 'none',
-  };
 }

@@ -1,39 +1,31 @@
 import { z } from 'zod';
 import { snapshotSchema } from './mantras';
-export const calendarEventSchema = z
-  .object({
-    id: z.uuid(),
-    kind: z.literal('calendar_event'),
-    createdAtISO: z.iso.datetime(),
-    updatedAtISO: z.iso.datetime(),
-    eventType: z.literal('self_reported_trigger'),
-    source: z.literal('user_tap'),
-    categoryId: z.string().min(1),
-    situationId: z.string().min(1),
-    mantra: snapshotSchema,
-    phase: z.enum(['before', 'during', 'after']),
-    // Legacy response fields: the app no longer records responses or outcomes, but saved
-    // encrypted records still carry them, so they stay in this strict schema.
-    status: z.enum(['tagged', 'planned']),
-    plannedResponseStyle: z.enum(['yellow', 'grey', 'firm']).nullable(),
-    plannedResponseId: z.string().nullable(),
-    plannedResponseText: z.string().max(20000).nullable(),
-    outcome: z.enum(['need_clarity', 'agreed', 'changed', 'no_decision']).nullable(),
-    notes: z.string().max(20000),
+// A plain object schema drops keys it doesn't list.
+const event = z.object({
+  id: z.uuid(),
+  kind: z.literal('calendar_event'),
+  createdAtISO: z.iso.datetime(),
+  updatedAtISO: z.iso.datetime(),
+  eventType: z.literal('self_reported_trigger'),
+  source: z.literal('user_tap'),
+  categoryId: z.string().min(1),
+  situationId: z.string().min(1),
+  mantra: snapshotSchema,
+  phase: z.enum(['before', 'during', 'after']),
+});
+// 1.1.0 saved reply and outcome fields the app no longer records. Old encrypted records still
+// carry them, so they are accepted here and dropped on read.
+export const calendarEventSchema = event
+  .extend({
+    status: z.enum(['tagged', 'planned']).optional(),
+    plannedResponseStyle: z.enum(['yellow', 'grey', 'firm']).nullable().optional(),
+    plannedResponseId: z.string().nullable().optional(),
+    plannedResponseText: z.string().max(20000).nullable().optional(),
+    outcome: z.enum(['need_clarity', 'agreed', 'changed', 'no_decision']).nullable().optional(),
+    notes: z.string().max(20000).optional(),
   })
   .strict()
-  .superRefine((event, ctx) => {
-    if (
-      event.status === 'tagged' &&
-      (event.plannedResponseStyle || event.plannedResponseId || event.plannedResponseText)
-    )
-      ctx.addIssue({ code: 'custom', message: 'Unplanned event cannot claim a response' });
-    if (
-      event.status === 'planned' &&
-      (!event.plannedResponseStyle || !event.plannedResponseId || !event.plannedResponseText)
-    )
-      ctx.addIssue({ code: 'custom', message: 'A plan needs an explicit response' });
-  });
+  .transform((saved) => event.parse(saved));
 export type CalendarEvent = z.infer<typeof calendarEventSchema>;
 export function localDay(iso: string) {
   const date = new Date(iso);

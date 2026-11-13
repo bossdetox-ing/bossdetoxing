@@ -9,17 +9,24 @@ import {
   type Metadata,
 } from '../../src/vault/crypto';
 import { commitArchive, readArchive } from '../../src/vault/idb';
-import {
-  archiveSchema,
-  MAX_ARCHIVE_BYTES,
-  newIncident,
-  parseArchive,
-  Vault,
-} from '../../src/vault/service';
+import { archiveSchema, MAX_ARCHIVE_BYTES, parseArchive, Vault } from '../../src/vault/service';
 
 const pass = 'fictional test passphrase';
 // Real KDF operations must complete before the next test touches the shared fixture database.
 vi.setConfig({ testTimeout: 20_000 });
+// The record that holds the user's private notes.
+function noteRecord(notes: Record<string, string>) {
+  const timestamp = new Date().toISOString();
+  return {
+    id: crypto.randomUUID(),
+    kind: 'mantra_state' as const,
+    createdAtISO: timestamp,
+    updatedAtISO: timestamp,
+    favorites: [],
+    recentIds: [],
+    notes,
+  };
+}
 beforeEach(async () => {
   const current = await readArchive();
   await commitArchive(undefined, current?.revision);
@@ -33,14 +40,16 @@ test('AES-GCM roundtrip, fresh IVs, nonextractable key and AAD binding', async (
   };
   const key = await deriveKey(pass, metadata);
   expect(key.extractable).toBe(false);
-  const first = await encrypt(key, metadata, crypto.randomUUID(), 'incident', {
+  const first = await encrypt(key, metadata, crypto.randomUUID(), 'mantra_state', {
     text: 'fictional secret',
   });
-  const second = await encrypt(key, metadata, first.id, 'incident', { text: 'fictional secret' });
+  const second = await encrypt(key, metadata, first.id, 'mantra_state', {
+    text: 'fictional secret',
+  });
   expect(first.ivB64).not.toBe(second.ivB64);
   expect(await decrypt(key, metadata, first)).toEqual({ text: 'fictional secret' });
   await expect(decrypt(key, metadata, { ...first, id: crypto.randomUUID() })).rejects.toThrow();
-  await expect(decrypt(key, metadata, { ...first, kind: 'task' })).rejects.toThrow();
+  await expect(decrypt(key, metadata, { ...first, kind: 'calendar_event' })).rejects.toThrow();
   await expect(
     decrypt(key, metadata, { ...first, ciphertextB64: first.ciphertextB64.slice(0, -4) + 'AAAA' }),
   ).rejects.toThrow();
@@ -48,15 +57,11 @@ test('AES-GCM roundtrip, fresh IVs, nonextractable key and AAD binding', async (
 test('records survive a new session only encrypted and locked', async () => {
   const vault = new Vault();
   await vault.create(pass);
-  const record = {
-    ...newIncident(),
-    observableFacts: 'FICTIONAL_PRIVATE_SENTINEL',
-    context: 'private title',
-  };
+  const record = noteRecord({ meeting_loop: 'FICTIONAL_PRIVATE_SENTINEL', mine: 'private title' });
   await vault.save(record);
   const disk = JSON.stringify(await readArchive());
-  expect(disk).not.toContain(record.observableFacts);
-  expect(disk).not.toContain(record.context);
+  expect(disk).not.toContain('FICTIONAL_PRIVATE_SENTINEL');
+  expect(disk).not.toContain('private title');
   expect(disk).not.toContain(pass);
   vault.lock();
   await expect(vault.list()).rejects.toThrow('locked');
@@ -70,7 +75,7 @@ test('records survive a new session only encrypted and locked', async () => {
 test('encrypted archive roundtrip; wrong password and tampering preserve existing data', async () => {
   const vault = new Vault();
   await vault.create(pass);
-  const record = { ...newIncident(), observableFacts: 'Fictional archival record' };
+  const record = noteRecord({ meeting_loop: 'Fictional archival record' });
   await vault.save(record);
   const exported = await vault.export();
   await expect(vault.restore(exported, pass, false)).rejects.toThrow('confirmation');
@@ -105,10 +110,8 @@ test('stale panels and interrupted transaction cannot overwrite live data', asyn
   await first.create(pass);
   const second = new Vault();
   await second.unlock(pass);
-  await first.save({ ...newIncident(), observableFacts: 'A' });
-  await expect(second.save({ ...newIncident(), observableFacts: 'B' })).rejects.toThrow(
-    'another panel',
-  );
+  await first.save(noteRecord({ meeting_loop: 'A' }));
+  await expect(second.save(noteRecord({ meeting_loop: 'B' }))).rejects.toThrow('another panel');
   const before = await readArchive();
   const prototype = IDBObjectStore.prototype;
   const original = prototype.put;
@@ -144,7 +147,7 @@ test('locking while unlock/restore is pending cannot reopen the vault or commit 
 test('entry deletion and complete vault deletion remove local records', async () => {
   const vault = new Vault();
   await vault.create(pass);
-  const record = { ...newIncident(), observableFacts: 'Delete fixture' };
+  const record = noteRecord({ meeting_loop: 'Delete fixture' });
   await vault.save(record);
   await vault.remove(record.id);
   expect(await vault.list()).toEqual([]);
@@ -156,16 +159,10 @@ test('large multi-field records cannot make the stored vault unreadable', async 
   const vault = new Vault();
   await vault.create(pass);
   const before = await readArchive();
-  const field = 'x'.repeat(20_000);
-  const record = {
-    ...newIncident(),
-    observableFacts: field,
-    quoteFromMemory: field,
-    context: field,
-    workImpact: field,
-    userInterpretation: field,
-    nextAction: field,
-  };
+  // 64 full notes of 2,000 characters each pass the schema but exceed the 100 KB record limit.
+  const record = noteRecord(
+    Object.fromEntries(Array.from({ length: 64 }, (_, i) => [`t${i}`, 'x'.repeat(2000)])),
+  );
   await expect(vault.save(record)).rejects.toThrow('record-limit');
   expect(await readArchive()).toEqual(before);
   vault.lock();

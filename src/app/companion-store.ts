@@ -253,12 +253,6 @@ export class CompanionStore {
       situationId,
       mantra: snapshot(mantra),
       phase: situationId === 'after_meeting_replay' ? 'after' : 'during',
-      status: 'tagged',
-      plannedResponseStyle: null,
-      plannedResponseId: null,
-      plannedResponseText: null,
-      outcome: null,
-      notes: '',
     };
     this.dirty.add(event.id);
     this.patch({
@@ -268,15 +262,6 @@ export class CompanionStore {
     });
     this.saveEvent(event);
     return event;
-  }
-  open(id: string) {
-    if (this.state.events.some((event) => event.id === id)) this.patch({ activeId: id });
-  }
-  update(event: CalendarEvent) {
-    const next = { ...event, updatedAtISO: new Date().toISOString() };
-    this.dirty.add(event.id);
-    this.patch({ events: this.state.events.map((item) => (item.id === event.id ? next : item)) });
-    this.saveEvent(next);
   }
   /** Another relevant line for the active threat, for display only: nothing is saved. */
   peek(currentId?: string) {
