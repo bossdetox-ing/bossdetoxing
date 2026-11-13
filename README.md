@@ -89,6 +89,17 @@ npm run test:e2e     # typecheck, production build, privacy audit, extension bro
 npm run package      # loadable ZIP in release/ with SHA-256 checksums
 ```
 
+### Firefox build (for add-on reviewers)
+
+Built on macOS (arm64) with Node 22.23.4 and npm 11.6.2; any OS with Node 22.23.4+ works. No other tools are needed.
+
+```sh
+npm ci
+npm run build:firefox   # output: .output/firefox-mv3, identical to the submitted add-on
+```
+
+`npm run package:firefox` also zips the add-on and this source into `release/`.
+
 Run `npx playwright install chromium` once before the browser tests. Build the PWA into `pwa/dist` with:
 
 ```sh

@@ -1,4 +1,6 @@
 import { readFile, writeFile, readdir } from 'node:fs/promises';
+import process from 'node:process';
+const out = process.argv[2] ?? '.output/chrome-mv3';
 const lock = JSON.parse(await readFile('package-lock.json', 'utf8'));
 const paths = Object.entries(lock.packages)
   .filter(
@@ -23,6 +25,6 @@ notices.push(
     'Electronic Frontier Foundation, https://www.eff.org/dice — licensed under Creative Commons ' +
     'Attribution 3.0 United States (https://creativecommons.org/licenses/by/3.0/us/). Unmodified word list.',
 );
-await writeFile('.output/chrome-mv3/THIRD_PARTY_NOTICES.txt', notices.join('\n\n---\n\n'));
+await writeFile(`${out}/THIRD_PARTY_NOTICES.txt`, notices.join('\n\n---\n\n'));
 
-await writeFile('.output/chrome-mv3/LICENSE.txt', await readFile('LICENSE'));
+await writeFile(`${out}/LICENSE.txt`, await readFile('LICENSE'));

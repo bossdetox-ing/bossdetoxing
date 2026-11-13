@@ -4,13 +4,25 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   modules: ['@wxt-dev/module-react'],
   vite: () => ({ plugins: [tailwindcss()], build: { modulePreload: { polyfill: false } } }),
-  manifest: {
+  manifest: ({ browser }) => ({
     name: 'bossdetox.ing',
     description:
       'A private workplace companion for calm, clarity and professional responses. Free. Local. No AI.',
     version: '1.3.2',
-    minimum_chrome_version: '116',
-    permissions: ['sidePanel', 'storage'],
+    ...(browser === 'firefox'
+      ? {
+          // Firefox shows the side panel as its sidebar (WXT maps it) and needs a fixed ID.
+          // Nothing leaves the device, so the data consent screen says so.
+          permissions: ['storage'],
+          browser_specific_settings: {
+            gecko: {
+              id: 'extension@bossdetox.ing',
+              strict_min_version: '142.0',
+              data_collection_permissions: { required: ['none'] },
+            },
+          },
+        }
+      : { minimum_chrome_version: '116', permissions: ['sidePanel', 'storage'] }),
     host_permissions: [],
     action: {
       default_title: 'Open desk',
@@ -36,5 +48,5 @@ export default defineConfig({
       extension_pages:
         "script-src 'self'; object-src 'none'; connect-src 'none'; img-src 'self' data:; style-src 'self'; base-uri 'none'; form-action 'none'",
     },
-  },
+  }),
 });

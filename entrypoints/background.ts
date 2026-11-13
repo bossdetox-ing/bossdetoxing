@@ -3,6 +3,10 @@ import { defineBackground } from 'wxt/utils/define-background';
 import { settingsSchema, toolbarIconPath } from '../src/browser/settings';
 import { disguiseTitle } from '../src/domain/disguise';
 
+// Firefox only: its sidebar API, which Chrome lacks.
+const sidebar = (globalThis as { browser?: { sidebarAction?: { toggle(): Promise<void> } } })
+  .browser?.sidebarAction;
+
 export default defineBackground(() => {
   let dailyQueue = Promise.resolve();
   chrome.runtime.onMessage.addListener((message, sender, reply) => {
@@ -39,14 +43,16 @@ export default defineBackground(() => {
       })
       .catch(() => undefined);
     // The side panel is home. Browsers without Chrome's side panel API (Opera, Arc) open the same
-    // app as a toolbar popup instead, so the icon never does nothing.
+    // app as a toolbar popup instead, so the icon never does nothing. Firefox toggles its sidebar.
     const usePopup = () =>
       chrome.action.setPopup({ popup: 'sidepanel.html?surface=popup' }).catch(() => undefined);
     const panel = chrome.sidePanel as typeof chrome.sidePanel | undefined;
+    if (sidebar) return;
     if (panel?.setPanelBehavior)
       void panel.setPanelBehavior({ openPanelOnActionClick: true }).catch(usePopup);
     else void usePopup();
   };
+  if (sidebar) chrome.action.onClicked.addListener(() => void sidebar.toggle());
   configure();
   chrome.runtime.onInstalled.addListener(configure);
   chrome.runtime.onStartup.addListener(configure);
