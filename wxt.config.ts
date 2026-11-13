@@ -8,7 +8,7 @@ export default defineConfig({
     name: 'bossdetox.ing',
     description:
       'A private workplace companion for calm, clarity and professional responses. Free. Local. No AI.',
-    version: '1.3.2',
+    version: '1.3.3',
     ...(browser === 'firefox'
       ? {
           // Firefox shows the side panel as its sidebar (WXT maps it) and needs a fixed ID.
