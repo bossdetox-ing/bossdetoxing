@@ -27,9 +27,10 @@ export function moonReading(sky: Sky, time: (date: Date) => string) {
   };
 }
 
-// Every planet reading pairs a real event with a fictional boss forecast, loudest first:
-// eclipse, station, Mercury retrograde, hard aspect, other retrograde, soft aspect, planet in sign.
-export function horoscope(sky: Sky, time: (date: Date) => string) {
+// Every planet reading pairs a real event with a fictional boss forecast, loudest first: eclipse,
+// station, Mercury retrograde, hard aspect, other retrograde, soft aspect, Mercury post-shadow,
+// planet in sign. `day` formats the post-shadow's end date.
+export function horoscope(sky: Sky, time: (date: Date) => string, day: (date: Date) => string) {
   const ranked: [number, Reading][] = [];
   for (const eclipse of sky.eclipses) {
     const { title, line } = c.eclipse[eclipse.kind];
@@ -63,6 +64,17 @@ export function horoscope(sky: Sky, time: (date: Date) => string) {
           line: inSign
             ? `${observation(c.retro[planet.id])} ${action(inSign)}`
             : c.retro[planet.id],
+        },
+      ]);
+    else if (planet.id === 'mercury' && planet.shadow?.phase === 'post')
+      ranked.push([
+        35,
+        {
+          key: 'mercury-shadow',
+          title: `${name} ${c.hangover.title} ${sign}`,
+          when: `${c.until} ${day(planet.shadow.until)}`,
+          icons,
+          line: c.hangover.line,
         },
       ]);
     else if (inSign)

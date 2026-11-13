@@ -22,6 +22,55 @@ function motion(body: Body, at: Date) {
   return ((after - before + 540) % 360) - 180;
 }
 
+// The next moment, searching forward (1) or back (-1), when the planet changes direction, to the
+// hour. Four-day steps never skip a retrograde (Mercury's shortest is about 20 days); 300 of them
+// cover Mars's 26-month cycle.
+function station(body: Body, from: number, dir: 1 | -1) {
+  const backwards = motion(body, new Date(from)) < 0;
+  for (let t = from, i = 0; i < 300; i++, t += dir * 4 * DAY) {
+    let [a, b] = [t, t + dir * 4 * DAY];
+    if (motion(body, new Date(b)) < 0 === backwards) continue;
+    while (Math.abs(b - a) > HOUR) {
+      const mid = (a + b) / 2;
+      if (motion(body, new Date(mid)) < 0 === backwards) a = mid;
+      else b = mid;
+    }
+    return b;
+  }
+  return NaN;
+}
+// The moment, searching from `from` in moving direction `dir`, when the planet reaches `degree`.
+function reaches(body: Body, degree: number, from: number, dir: 1 | -1) {
+  const ahead = (t: number) =>
+    dir * (((longitude(body, new Date(t)) - degree + 540) % 360) - 180) >= 0;
+  // Saturn's longest shadow is about 100 days.
+  let a = from;
+  for (let i = 0; i < 400 && !ahead(a + dir * DAY); i++) a += dir * DAY;
+  let b = a + dir * DAY;
+  while (Math.abs(b - a) > HOUR) {
+    const mid = (a + b) / 2;
+    if (ahead(mid)) b = mid;
+    else a = mid;
+  }
+  return b;
+}
+// Retrograde shadow: the stretch of sky a planet crosses three times. The pre-shadow starts when it
+// first reaches the degree where it will turn direct; the post-shadow ends when it gets back to the
+// degree where it turned retrograde. Returns the current phase and when it ends.
+function shadow(body: Body, now: number) {
+  if (motion(body, new Date(now)) < 0)
+    return { phase: 'retrograde' as const, until: new Date(station(body, now, 1)) };
+  const turnedDirect = station(body, now, -1);
+  const turnedBack = station(body, turnedDirect - HOUR, -1);
+  const postEnd = reaches(body, longitude(body, new Date(turnedBack)), turnedDirect, 1);
+  if (now < postEnd) return { phase: 'post' as const, until: new Date(postEnd) };
+  const turnsBack = station(body, now, 1);
+  const turnsDirect = station(body, turnsBack + HOUR, 1);
+  const preStart = reaches(body, longitude(body, new Date(turnsDirect)), turnsBack, -1);
+  if (now >= preStart) return { phase: 'pre' as const, until: new Date(turnsBack) };
+  return undefined;
+}
+
 const bodies = {
   sun: Body.Sun,
   moon: Body.Moon,
@@ -135,6 +184,7 @@ export function cosmicWeather(now: Date, timeZone = '') {
         retrograde: today,
         station:
           before !== after ? (after ? ('retrograde' as const) : ('direct' as const)) : undefined,
+        shadow: shadow(bodies[id], now.getTime()),
       };
     }),
     aspects: pairs

@@ -45,10 +45,16 @@ export const en = {
   // each sign colours the line with its office trope (Scorpio subtext, Virgo tracked changes…).
   sky: {
     rest: "Cc'd planets",
-    moonDates: 'Next moon phases',
+    moonDates: 'Moon phases and retrograde dates',
     nextNew: 'New moon',
     nextFull: 'Full moon',
     retrograde: 'retrograde',
+    shadow: { pre: 'pre-shadow', retrograde: 'retrograde', post: 'post-shadow' },
+    until: 'until',
+    hangover: {
+      title: 'post-shadow in',
+      line: 'The retrograde mess is still settling. Resend whatever got lost and confirm each deadline in writing.',
+    },
     signs: [
       'Aries',
       'Taurus',

@@ -79,7 +79,7 @@ export function Daily({
     return {
       date: (value?: Date) => (value ? day.format(value) : ''),
       moon: moonReading(weather, at),
-      forecast: horoscope(weather, at),
+      forecast: horoscope(weather, at, day.format),
     };
   }, [weather]);
   const card =
@@ -106,6 +106,14 @@ export function Daily({
               <p>
                 {t.sky.nextFull} {date(weather.nextFullMoon)}
               </p>
+              {weather.planets
+                .flatMap(({ id, shadow }) => (shadow ? [{ id, ...shadow }] : []))
+                .sort((a, b) => a.until.getTime() - b.until.getTime())
+                .map(({ id, phase, until }) => (
+                  <p key={id}>
+                    {t.sky.bodies[id]} {t.sky.shadow[phase]} {t.sky.until} {date(until)}
+                  </p>
+                ))}
             </PopoverContent>
           </Popover>
         </div>

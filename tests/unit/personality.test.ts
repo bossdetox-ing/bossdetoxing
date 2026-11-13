@@ -72,17 +72,31 @@ test('sky model matches known 2026 events', () => {
   expect(nov4.nextNewMoon!.toISOString().slice(0, 10)).toBe('2026-11-09');
   expect(nov4.nextFullMoon!.toISOString().slice(0, 10)).toBe('2026-11-24');
   expect(planet(cosmicWeather(new Date('2026-11-13T12:00:00Z')), 'mercury').station).toBe('direct');
+  // Mercury's Scorpio shadow: pre-shadow from Oct 4, retrograde Oct 24, post-shadow to Nov 30.
+  const shadow = (iso: string) => planet(cosmicWeather(new Date(iso)), 'mercury').shadow;
+  expect(shadow('2026-10-10T12:00:00Z')?.phase).toBe('pre');
+  expect(shadow('2026-11-20T12:00:00Z')).toMatchObject({ phase: 'post' });
+  expect(shadow('2026-11-20T12:00:00Z')?.until.toISOString().slice(0, 10)).toBe('2026-11-30');
+  expect(shadow('2026-12-05T12:00:00Z')).toBeUndefined();
   expect(cosmicWeather(new Date('2026-08-11T12:00:00Z')).eclipses[0]?.kind).toBe('solar');
   expect(cosmicWeather(new Date('2026-08-27T12:00:00Z')).eclipses[0]?.kind).toBe('lunar');
 });
 test('boss forecast reads every real event and ranks the loudest first', () => {
   const time = (date: Date) => date.toISOString();
-  const eclipse = horoscope(cosmicWeather(new Date('2026-08-11T12:00:00Z')), time);
+  const eclipse = horoscope(cosmicWeather(new Date('2026-08-11T12:00:00Z')), time, time);
   expect(eclipse.headline.title).toBe('Solar eclipse');
-  const station = horoscope(cosmicWeather(new Date('2026-11-13T12:00:00Z')), time);
+  const station = horoscope(cosmicWeather(new Date('2026-11-13T12:00:00Z')), time, time);
   expect(station.headline.title).toMatch(/stations direct/);
+  const hangover = horoscope(cosmicWeather(new Date('2026-11-20T12:00:00Z')), time, time);
+  expect([hangover.headline, ...hangover.rest].map((r) => r.title)).toContain(
+    'Mercury post-shadow in Scorpio',
+  );
   for (let day = 0; day < 365; day += 5) {
-    const { headline, rest } = horoscope(cosmicWeather(new Date(Date.UTC(2026, 0, 1 + day))), time);
+    const { headline, rest } = horoscope(
+      cosmicWeather(new Date(Date.UTC(2026, 0, 1 + day))),
+      time,
+      time,
+    );
     for (const reading of [headline, ...rest]) {
       expect(reading.title).not.toMatch(/undefined/);
       expect(reading.line.length).toBeGreaterThan(10);
