@@ -1,8 +1,10 @@
 # Publishes extension releases as github-actions[bot], so no personal account shows as the author.
 # Run it from the Actions tab (or `gh workflow run release.yml -f tag=v1.2.1`) after pushing the tag.
 #   republish: true  -> re-posts an existing release unchanged (same files, title and notes).
-#   republish: false -> builds the ZIP from the tag and publishes it, with notes from
-#                       .github/release-notes/<tag>.md when that file exists.
+#   republish: false -> builds the Chrome ZIP from the tag, adds the Firefox XPI that Mozilla signed
+#                       for that version (once approved), and publishes both, replacing an existing
+#                       release of the tag. Notes come from .github/release-notes/<tag>.md on the
+#                       default branch, so they can be fixed after tagging.
 name: Release
 
 on:
@@ -51,6 +53,22 @@ jobs:
         run: |
           npm ci
           npm run package
-          notes=".github/release-notes/$TAG.md"
-          if [ -f "$notes" ]; then set -- --notes-file "$notes"; else set -- --generate-notes; fi
-          gh release create "$TAG" release/*.zip release/SHA256SUMS --verify-tag --title "bossdetox.ing ${TAG#v}" "$@"
+          v="${TAG#v}"
+          files=("release/bossdetox-ing-$v-chrome.zip")
+          # Firefox: the copy Mozilla signed. An unsigned build won't install in release Firefox.
+          url=$(curl -fsS "https://addons.mozilla.org/api/v5/addons/addon/extension@bossdetox.ing/versions/$v/" | jq -r '.file.url // empty' || true)
+          if [ -n "$url" ]; then
+            curl -fsSL "$url" -o "release/bossdetox-ing-$v-firefox.xpi"
+            files+=("release/bossdetox-ing-$v-firefox.xpi")
+          else
+            echo "::warning::Firefox $v is not signed on addons.mozilla.org yet, so this release has no XPI. Run the workflow again after approval."
+          fi
+          (cd release && sha256sum "${files[@]#release/}" > SHA256SUMS)
+          notes="$RUNNER_TEMP/notes.md"
+          if gh api "repos/$GITHUB_REPOSITORY/contents/.github/release-notes/$TAG.md" --jq .content 2>/dev/null | base64 -d > "$notes" && [ -s "$notes" ]; then
+            set -- --notes-file "$notes"
+          else
+            set -- --generate-notes
+          fi
+          if gh release view "$TAG" > /dev/null 2>&1; then gh release delete "$TAG" --yes; fi
+          gh release create "$TAG" "${files[@]}" release/SHA256SUMS --verify-tag --title "bossdetox.ing $v" "$@"
