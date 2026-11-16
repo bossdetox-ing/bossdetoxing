@@ -14,6 +14,7 @@
 <p align="center">
   <a href="https://ass.bossdetox.ing"><strong>Open the app</strong></a> ·
   <a href="https://chromewebstore.google.com/detail/bossdetoxing/kimmdnobgafbdcjnnaadphlbgacflffi"><strong>Add to Chrome</strong></a> ·
+  <a href="https://addons.mozilla.org/en-US/firefox/addon/bossdetox/"><strong>Add to Firefox</strong></a> ·
   <a href="https://youtu.be/F17ikeZEf1A">Watch the film</a> ·
   <a href="https://bossdetox.ing">Website</a>
 </p>
@@ -47,6 +48,10 @@ You have two options. Pick one, or use both.
    - **Computer (Chrome or Edge):** click the install icon at the right end of the address bar.
 
 ### Option 2: the browser extension (opens in a side panel next to your work)
+
+**Firefox:** get it from **[Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/bossdetox/)** (desktop Firefox; Firefox for Android isn't supported yet). Click **Add to Firefox**, then click its toolbar icon or press **Alt+Shift+O** to open the sidebar.
+
+**Chrome, Edge, Vivaldi and other Chromium browsers:**
 
 Get it from the **[Chrome Web Store](https://chromewebstore.google.com/detail/bossdetoxing/kimmdnobgafbdcjnnaadphlbgacflffi)**. It needs Google Chrome 116 or newer, and also installs in browsers that use the Chrome Web Store, such as Edge and Vivaldi.
 
